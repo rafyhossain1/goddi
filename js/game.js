@@ -955,11 +955,18 @@
     }
 
     const choice = card[side];
-    // Apply stat effects
-    const effects = choice.effects || {};
-    Object.entries(effects).forEach(([stat, delta]) => {
+    // Apply stat effects. From Year 4 onward, all effects are amplified
+    // by 1.25 — stakes climb as the tenure drags on. Players who coasted
+    // through Year 1-3 now face stiffer consequences for the same call.
+    const yearMultiplier = state.year >= 4 ? 1.25 : 1.0;
+    const rawEffects = choice.effects || {};
+    const effects = {};
+    Object.entries(rawEffects).forEach(([stat, delta]) => {
       if (!(stat in state.stats)) return;
-      state.stats[stat] = clamp(state.stats[stat] + delta, 0, 100);
+      const scaled = Math.round(Math.abs(delta) * yearMultiplier) * Math.sign(delta);
+      const finalDelta = (scaled === 0 && delta !== 0) ? Math.sign(delta) : scaled;
+      effects[stat] = finalDelta;
+      state.stats[stat] = clamp(state.stats[stat] + finalDelta, 0, 100);
     });
 
     // Apply story flags — set / clear

@@ -151,9 +151,15 @@ function startRun(partyId, rnd, backgroundId) {
 
 function commitChoice(st, card, side, rnd) {
   const choice = card[side];
+  // Match the engine's Year-4+ escalation so simulator predictions are
+  // honest. See game.js commitChoice for the canonical formula.
+  const yearMult = st.year >= 4 ? 1.25 : 1.0;
   const effects = choice.effects || {};
   for (const [stat, delta] of Object.entries(effects)) {
-    if (stat in st.stats) st.stats[stat] = clamp(st.stats[stat] + delta, 0, 100);
+    if (!(stat in st.stats)) continue;
+    const scaled = Math.round(Math.abs(delta) * yearMult) * Math.sign(delta);
+    const d = (scaled === 0 && delta !== 0) ? Math.sign(delta) : scaled;
+    st.stats[stat] = clamp(st.stats[stat] + d, 0, 100);
   }
   (choice.triggers || []).forEach(f => st.flags.add(f));
   (choice.untriggers || []).forEach(f => st.flags.delete(f));

@@ -13,16 +13,16 @@
         "label_bn": "পরিশোধ করুন",
         "label_en": "Pay him",
         "effects": {
-          "tohobil": -4,
-          "janata": 4
+          "tohobil": -5,
+          "janata": 5
         }
       },
       "right": {
         "label_bn": "পরে দেব",
         "label_en": "Later",
         "effects": {
-          "janata": -3,
-          "tohobil": 2
+          "janata": -4,
+          "tohobil": 3
         }
       },
       "max_uses": 2,
@@ -62,16 +62,16 @@
         "label_bn": "মঞ্জুর",
         "label_en": "Approved",
         "effects": {
-          "janata": 4,
-          "tohobil": -5
+          "janata": 5,
+          "tohobil": -7
         }
       },
       "right": {
         "label_bn": "পড়ালেখায় মন দাও",
         "label_en": "Focus on studies",
         "effects": {
-          "janata": -3,
-          "dol": 2
+          "janata": -4,
+          "dol": 3
         }
       },
       "background_variants": {
@@ -110,16 +110,16 @@
         "label_bn": "সেলফি নেন",
         "label_en": "Take the selfie",
         "effects": {
-          "dol": 2,
-          "janata": -2
+          "dol": 3,
+          "janata": -3
         }
       },
       "right": {
         "label_bn": "কাজ করো",
         "label_en": "Back to work",
         "effects": {
-          "dol": -2,
-          "tohobil": 2
+          "dol": -3,
+          "tohobil": 3
         }
       }
     },
@@ -136,16 +136,16 @@
         "label_bn": "ছাড় দেন",
         "label_en": "Let it go",
         "effects": {
-          "janata": 3,
-          "tohobil": -3
+          "janata": 4,
+          "tohobil": -4
         }
       },
       "right": {
         "label_bn": "আইন সবার জন্য",
         "label_en": "Law is for everyone",
         "effects": {
-          "janata": -3,
-          "tohobil": 3
+          "janata": -4,
+          "tohobil": 4
         }
       },
       "background_variants": {
@@ -184,16 +184,16 @@
         "label_bn": "ডিসিসিকে চাপ দিন",
         "label_en": "Pressure DNCC",
         "effects": {
-          "proshashon": -3,
-          "janata": 4
+          "proshashon": -4,
+          "janata": 5
         }
       },
       "right": {
         "label_bn": "ট্যাঙ্কার পাঠান",
         "label_en": "Send tankers",
         "effects": {
-          "tohobil": -4,
-          "janata": 3
+          "tohobil": -5,
+          "janata": 4
         }
       },
       "max_uses": 2
@@ -211,16 +211,16 @@
         "label_bn": "অবশ্যই আসব",
         "label_en": "I'll be there",
         "effects": {
-          "janata": 4,
-          "tohobil": -3
+          "janata": 5,
+          "tohobil": -4
         }
       },
       "right": {
         "label_bn": "সহকারীকে পাঠাব",
         "label_en": "Send my deputy",
         "effects": {
-          "janata": -2,
-          "dol": 2
+          "janata": -3,
+          "dol": 3
         }
       },
       "background_variants": {
@@ -259,9 +259,9 @@
         "label_bn": "ফান্ড দেন",
         "label_en": "Approve funds",
         "effects": {
-          "tohobil": -3,
-          "janata": 3,
-          "dol": 2
+          "tohobil": -4,
+          "janata": 4,
+          "dol": 3
         },
         "triggers": [
           "mosque_funded"
@@ -271,8 +271,8 @@
         "label_bn": "নিজের পকেট থেকে",
         "label_en": "Personal money",
         "effects": {
-          "dol": -2,
-          "proshashon": 3
+          "dol": -3,
+          "proshashon": 4
         }
       },
       "oneshot": true
@@ -290,8 +290,8 @@
         "label_bn": "চুপচাপ ক্ষতিপূরণ",
         "label_en": "Pay her quietly",
         "effects": {
-          "tohobil": -4,
-          "janata": 3
+          "tohobil": -5,
+          "janata": 4
         },
         "triggers": [
           "compensation_paid"
@@ -301,8 +301,8 @@
         "label_bn": "বীমার মাধ্যমে",
         "label_en": "Push to insurance",
         "effects": {
-          "janata": -3,
-          "proshashon": 3
+          "janata": -4,
+          "proshashon": 4
         }
       },
       "oneshot": true
@@ -320,8 +320,8 @@
         "label_bn": "গ্রহণ করুন",
         "label_en": "Accept gracefully",
         "effects": {
-          "tohobil": 4,
-          "proshashon": -3
+          "tohobil": 5,
+          "proshashon": -4
         },
         "triggers": [
           "taking_envelopes"
@@ -331,8 +331,8 @@
         "label_bn": "মাফ করেন",
         "label_en": "Decline politely",
         "effects": {
-          "dol": -2,
-          "proshashon": 3
+          "dol": -3,
+          "proshashon": 4
         }
       }
     },
@@ -349,16 +349,16 @@
         "label_bn": "তাড়িয়ে দিন",
         "label_en": "Evict them",
         "effects": {
-          "janata": -3,
-          "proshashon": 3
+          "janata": -4,
+          "proshashon": 4
         }
       },
       "right": {
         "label_bn": "নির্দিষ্ট জায়গা",
         "label_en": "Designated zone",
         "effects": {
-          "tohobil": -3,
-          "janata": 2
+          "tohobil": -4,
+          "janata": 3
         }
       }
     },
@@ -375,16 +375,16 @@
         "label_bn": "বিবৃতি দেন",
         "label_en": "Defend BPDB",
         "effects": {
-          "janata": -3,
-          "proshashon": 3
+          "janata": -4,
+          "proshashon": 4
         }
       },
       "right": {
         "label_bn": "জনতার পক্ষে",
         "label_en": "Public criticism",
         "effects": {
-          "janata": 4,
-          "proshashon": -3
+          "janata": 5,
+          "proshashon": -4
         }
       }
     },
@@ -401,16 +401,16 @@
         "label_bn": "ব্যবস্থা নিচ্ছি",
         "label_en": "Personally fix it",
         "effects": {
-          "janata": 4,
-          "proshashon": -2
+          "janata": 5,
+          "proshashon": -3
         }
       },
       "right": {
         "label_bn": "অফিসে যেতে বলেন",
         "label_en": "Refer to office",
         "effects": {
-          "janata": -3,
-          "proshashon": 2
+          "janata": -4,
+          "proshashon": 3
         }
       },
       "oneshot": true
@@ -429,18 +429,18 @@
         "label_bn": "সবাইকে দিন",
         "label_en": "Pay all bonuses",
         "effects": {
-          "tohobil": -5,
-          "dol": 3,
-          "janata": 3
+          "tohobil": -7,
+          "dol": 4,
+          "janata": 4
         }
       },
       "right": {
         "label_bn": "প্রতীকী উপহার",
         "label_en": "Token gift only",
         "effects": {
-          "tohobil": 3,
-          "dol": -3,
-          "janata": -2
+          "tohobil": 4,
+          "dol": -4,
+          "janata": -3
         }
       },
       "oneshot": true
@@ -460,8 +460,8 @@
         "label_bn": "অনুমোদন দিন",
         "label_en": "Approve waivers",
         "effects": {
-          "proshashon": -3,
-          "tohobil": 7
+          "proshashon": -4,
+          "tohobil": 9
         },
         "triggers": [
           "tower_approved"
@@ -471,8 +471,8 @@
         "label_bn": "কোড অনুযায়ী",
         "label_en": "Hold to code",
         "effects": {
-          "tohobil": -3,
-          "proshashon": 4
+          "tohobil": -4,
+          "proshashon": 5
         }
       },
       "oneshot": true,
@@ -513,18 +513,18 @@
         "label_bn": "তাকেই দেন",
         "label_en": "Award to nephew",
         "effects": {
-          "proshashon": -3,
-          "dol": 3,
-          "tohobil": 3
+          "proshashon": -4,
+          "dol": 4,
+          "tohobil": 4
         }
       },
       "right": {
         "label_bn": "প্রকাশ্য টেন্ডার",
         "label_en": "Open tender",
         "effects": {
-          "dol": -3,
-          "proshashon": 3,
-          "janata": 3
+          "dol": -4,
+          "proshashon": 4,
+          "janata": 4
         }
       },
       "oneshot": true
@@ -543,8 +543,8 @@
         "label_bn": "পক্ষে দাঁড়ান",
         "label_en": "Defend publicly",
         "effects": {
-          "proshashon": -4,
-          "dol": 3
+          "proshashon": -5,
+          "dol": 4
         },
         "triggers": [
           "pa_protected"
@@ -554,8 +554,8 @@
         "label_bn": "বরখাস্ত",
         "label_en": "Suspend immediately",
         "effects": {
-          "dol": -3,
-          "proshashon": 4
+          "dol": -4,
+          "proshashon": 5
         },
         "triggers": [
           "pa_fired"
@@ -580,7 +580,7 @@
         "label_bn": "গোপন রাখুন",
         "label_en": "Stonewall",
         "effects": {
-          "proshashon": -4
+          "proshashon": -5
         },
         "triggers": [
           "acc_stonewalled"
@@ -590,8 +590,8 @@
         "label_bn": "সব দিন",
         "label_en": "Cooperate fully",
         "effects": {
-          "dol": -3,
-          "proshashon": 4
+          "dol": -4,
+          "proshashon": 5
         }
       },
       "oneshot": true
@@ -613,16 +613,16 @@
         "label_bn": "রাজনৈতিক ষড়যন্ত্র",
         "label_en": "\"Witch hunt\" statement",
         "effects": {
-          "janata": -4,
-          "dol": 2
+          "janata": -5,
+          "dol": 3
         }
       },
       "right": {
         "label_bn": "ভুল হয়েছে",
         "label_en": "Concede mistakes",
         "effects": {
-          "dol": -2,
-          "janata": 3
+          "dol": -3,
+          "janata": 4
         }
       },
       "oneshot": true
@@ -644,7 +644,7 @@
         "label_bn": "আইনজীবী দিন",
         "label_en": "Hire defense lawyer",
         "effects": {
-          "tohobil": -5
+          "tohobil": -7
         },
         "triggers": [
           "pa_loyal"
@@ -654,8 +654,8 @@
         "label_bn": "নিজেকে আলাদা",
         "label_en": "Public distance",
         "effects": {
-          "dol": -3,
-          "proshashon": 2
+          "dol": -4,
+          "proshashon": 3
         }
       },
       "oneshot": true
@@ -674,16 +674,16 @@
         "label_bn": "অভিযান চালান",
         "label_en": "Police raid",
         "effects": {
-          "janata": 4,
-          "dol": -2
+          "janata": 5,
+          "dol": -3
         }
       },
       "right": {
         "label_bn": "সতর্ক করেন",
         "label_en": "Quiet warning",
         "effects": {
-          "janata": -3,
-          "dol": 3
+          "janata": -4,
+          "dol": 4
         }
       }
     },
@@ -707,16 +707,16 @@
         "label_bn": "অনুদান দেন",
         "label_en": "Fund 50 students",
         "effects": {
-          "tohobil": -4,
-          "janata": 3
+          "tohobil": -5,
+          "janata": 4
         }
       },
       "right": {
         "label_bn": "বেসরকারি দাতাদের কাছে",
         "label_en": "Refer to private donors",
         "effects": {
-          "dol": -2,
-          "tohobil": 2
+          "dol": -3,
+          "tohobil": 3
         }
       },
       "max_uses": 3
@@ -735,16 +735,16 @@
         "label_bn": "ব্যবস্থা করেন",
         "label_en": "Make it happen",
         "effects": {
-          "dol": 3,
-          "proshashon": -4
+          "dol": 4,
+          "proshashon": -5
         }
       },
       "right": {
         "label_bn": "নিয়ম মেনে",
         "label_en": "Apply normally",
         "effects": {
-          "dol": -3,
-          "proshashon": 3
+          "dol": -4,
+          "proshashon": 4
         }
       },
       "oneshot": true
@@ -763,16 +763,16 @@
         "label_bn": "রাজি",
         "label_en": "Accept",
         "effects": {
-          "janata": 4,
-          "dol": -3
+          "janata": 5,
+          "dol": -4
         }
       },
       "right": {
         "label_bn": "এ বছর না",
         "label_en": "Decline",
         "effects": {
-          "janata": -3,
-          "dol": 3
+          "janata": -4,
+          "dol": 4
         }
       },
       "oneshot": true
@@ -791,16 +791,16 @@
         "label_bn": "বিরুদ্ধে দাঁড়ান",
         "label_en": "Fight eviction",
         "effects": {
-          "janata": 5,
-          "proshashon": -4
+          "janata": 7,
+          "proshashon": -5
         }
       },
       "right": {
         "label_bn": "নিরপেক্ষ থাকুন",
         "label_en": "Stay neutral",
         "effects": {
-          "janata": -4,
-          "proshashon": 3
+          "janata": -5,
+          "proshashon": 4
         }
       },
       "oneshot": true
@@ -820,8 +820,8 @@
         "label_bn": "নেমে দেখুন",
         "label_en": "Walk through it",
         "effects": {
-          "tohobil": -3,
-          "janata": 7
+          "tohobil": -4,
+          "janata": 9
         },
         "triggers": [
           "flood_walk"
@@ -831,8 +831,8 @@
         "label_bn": "অফিস থেকে বিবৃতি",
         "label_en": "Statement from office",
         "effects": {
-          "janata": -4,
-          "dol": 2
+          "janata": -5,
+          "dol": 3
         }
       },
       "oneshot": true
@@ -855,9 +855,9 @@
         "label_bn": "দায় নিন",
         "label_en": "Take responsibility",
         "effects": {
-          "dol": -7,
-          "janata": 5,
-          "proshashon": 3
+          "dol": -9,
+          "janata": 7,
+          "proshashon": 4
         },
         "triggers": [
           "tower_collapsed"
@@ -867,8 +867,8 @@
         "label_bn": "ঠিকাদার দায়ী",
         "label_en": "Blame contractor",
         "effects": {
-          "janata": -7,
-          "dol": 3
+          "janata": -9,
+          "dol": 4
         },
         "triggers": [
           "tower_blamed_contractor",
@@ -891,16 +891,16 @@
         "label_bn": "বাড়িওয়ালার সাথে কথা",
         "label_en": "Confront the landlord",
         "effects": {
-          "janata": 4,
-          "dol": -3
+          "janata": 5,
+          "dol": -4
         }
       },
       "right": {
         "label_bn": "আইনের পথে",
         "label_en": "Refer to courts",
         "effects": {
-          "janata": -3,
-          "proshashon": 3
+          "janata": -4,
+          "proshashon": 4
         }
       },
       "oneshot": true
@@ -919,17 +919,17 @@
         "label_bn": "অনুমোদন দিন",
         "label_en": "Reallocate now",
         "effects": {
-          "tohobil": -4,
-          "janata": 4,
-          "proshashon": 3
+          "tohobil": -5,
+          "janata": 5,
+          "proshashon": 4
         }
       },
       "right": {
         "label_bn": "ডিএনসিসির জন্য অপেক্ষা",
         "label_en": "Wait for DNCC",
         "effects": {
-          "janata": -4,
-          "proshashon": -3
+          "janata": -5,
+          "proshashon": -4
         }
       },
       "max_uses": 3
@@ -948,16 +948,16 @@
         "label_bn": "চাকরিতে নিন",
         "label_en": "Hire him",
         "effects": {
-          "dol": 2,
-          "proshashon": -4
+          "dol": 3,
+          "proshashon": -5
         }
       },
       "right": {
         "label_bn": "প্রশিক্ষণে পাঠান",
         "label_en": "Refer to training",
         "effects": {
-          "dol": -2,
-          "proshashon": 2
+          "dol": -3,
+          "proshashon": 3
         }
       },
       "oneshot": true
@@ -976,8 +976,8 @@
         "label_bn": "বিবৃতি দিন",
         "label_en": "Issue statement",
         "effects": {
-          "proshashon": 4,
-          "janata": -4
+          "proshashon": 5,
+          "janata": -5
         },
         "triggers": [
           "oc_owes_you"
@@ -987,8 +987,8 @@
         "label_bn": "তদন্ত চাই",
         "label_en": "Demand inquiry",
         "effects": {
-          "proshashon": -4,
-          "janata": 5
+          "proshashon": -5,
+          "janata": 7
         }
       },
       "oneshot": true
@@ -1007,16 +1007,16 @@
         "label_bn": "চুপচাপ এনজিওতে",
         "label_en": "Quiet NGO referral",
         "effects": {
-          "tohobil": -2,
-          "janata": 3
+          "tohobil": -3,
+          "janata": 4
         }
       },
       "right": {
         "label_bn": "পারব না",
         "label_en": "Refuse outright",
         "effects": {
-          "janata": -4,
-          "dol": 3
+          "janata": -5,
+          "dol": 4
         }
       },
       "oneshot": true
@@ -1041,8 +1041,8 @@
         "label_bn": "অনুমোদন",
         "label_en": "Approve again",
         "effects": {
-          "tohobil": 8,
-          "proshashon": -4
+          "tohobil": 10,
+          "proshashon": -5
         },
         "triggers": [
           "tower2_approved"
@@ -1052,8 +1052,8 @@
         "label_bn": "এবার না",
         "label_en": "Refuse",
         "effects": {
-          "tohobil": -3,
-          "proshashon": 4
+          "tohobil": -4,
+          "proshashon": 5
         }
       },
       "oneshot": true
@@ -1072,16 +1072,16 @@
         "label_bn": "পরিশোধ করুন",
         "label_en": "Pay",
         "effects": {
-          "tohobil": -7,
-          "dol": 4
+          "tohobil": -9,
+          "dol": 5
         }
       },
       "right": {
         "label_bn": "এবার না",
         "label_en": "Refuse",
         "effects": {
-          "dol": -5,
-          "proshashon": 3
+          "dol": -7,
+          "proshashon": 4
         }
       },
       "max_uses": 3
@@ -1106,16 +1106,16 @@
         "label_bn": "পুলিশ পাহারা",
         "label_en": "Police protection",
         "effects": {
-          "janata": 5,
-          "dol": -3
+          "janata": 7,
+          "dol": -4
         }
       },
       "right": {
         "label_bn": "অন্য জায়গায়",
         "label_en": "Suggest other venue",
         "effects": {
-          "janata": -3,
-          "proshashon": 2
+          "janata": -4,
+          "proshashon": 3
         }
       }
     },
@@ -1136,16 +1136,16 @@
         "label_bn": "মিটিয়ে দেন",
         "label_en": "Settle quietly",
         "effects": {
-          "tohobil": -7,
-          "proshashon": 3
+          "tohobil": -9,
+          "proshashon": 4
         }
       },
       "right": {
         "label_bn": "প্রতিরোধ",
         "label_en": "Fight charges",
         "effects": {
-          "proshashon": -4,
-          "dol": 2
+          "proshashon": -5,
+          "dol": 3
         }
       },
       "oneshot": true
@@ -1164,8 +1164,8 @@
         "label_bn": "ব্যবস্থা নিন",
         "label_en": "Make the call",
         "effects": {
-          "janata": 4,
-          "proshashon": -2
+          "janata": 5,
+          "proshashon": -3
         },
         "triggers": [
           "karim_helped"
@@ -1175,7 +1175,7 @@
         "label_bn": "অফিসে যেতে বলেন",
         "label_en": "Refer to office",
         "effects": {
-          "janata": -3
+          "janata": -4
         }
       },
       "oneshot": true
@@ -1194,15 +1194,15 @@
         "label_bn": "জরুরি ভিত্তিতে",
         "label_en": "Emergency overtime",
         "effects": {
-          "tohobil": -4,
-          "janata": 4
+          "tohobil": -5,
+          "janata": 5
         }
       },
       "right": {
         "label_bn": "একটু সময় দিন",
         "label_en": "Wait it out",
         "effects": {
-          "janata": -4
+          "janata": -5
         }
       },
       "oneshot": true
@@ -1221,16 +1221,16 @@
         "label_bn": "অর্থ ছাড়ুন",
         "label_en": "Fund counter-blitz",
         "effects": {
-          "tohobil": -5,
-          "dol": 4
+          "tohobil": -7,
+          "dol": 5
         }
       },
       "right": {
         "label_bn": "ছেড়ে দিন",
         "label_en": "Ignore",
         "effects": {
-          "dol": -3,
-          "janata": 2
+          "dol": -4,
+          "janata": 3
         }
       },
       "max_uses": 2
@@ -1249,9 +1249,9 @@
         "label_bn": "চলে আসছি",
         "label_en": "Accept defection",
         "effects": {
-          "dol": -8,
-          "tohobil": 5,
-          "proshashon": 4
+          "dol": -10,
+          "tohobil": 7,
+          "proshashon": 5
         },
         "triggers": [
           "defected"
@@ -1261,8 +1261,8 @@
         "label_bn": "দল ছাড়ব না",
         "label_en": "Stay loyal",
         "effects": {
-          "dol": 4,
-          "tohobil": -2
+          "dol": 5,
+          "tohobil": -3
         }
       },
       "oneshot": true
@@ -1281,17 +1281,17 @@
         "label_bn": "অনুমোদন",
         "label_en": "Approve",
         "effects": {
-          "janata": -5,
-          "proshashon": -4,
-          "tohobil": 9
+          "janata": -7,
+          "proshashon": -5,
+          "tohobil": 12
         }
       },
       "right": {
         "label_bn": "অসম্ভব",
         "label_en": "Refuse",
         "effects": {
-          "tohobil": -3,
-          "janata": 4
+          "tohobil": -4,
+          "janata": 5
         }
       },
       "oneshot": true
@@ -1310,16 +1310,16 @@
         "label_bn": "ঠিক আছে",
         "label_en": "Hire him",
         "effects": {
-          "dol": 2,
-          "proshashon": -3
+          "dol": 3,
+          "proshashon": -4
         }
       },
       "right": {
         "label_bn": "নিয়মে আবেদন",
         "label_en": "Refer to recruitment",
         "effects": {
-          "dol": -2,
-          "proshashon": 3
+          "dol": -3,
+          "proshashon": 4
         }
       },
       "oneshot": true
@@ -1338,16 +1338,16 @@
         "label_bn": "প্রকাশ করব",
         "label_en": "Publish audit",
         "effects": {
-          "janata": 7,
-          "dol": -4
+          "janata": 9,
+          "dol": -5
         }
       },
       "right": {
         "label_bn": "পরে দেখব",
         "label_en": "Defer",
         "effects": {
-          "janata": -4,
-          "dol": 3
+          "janata": -5,
+          "dol": 4
         }
       },
       "oneshot": true
@@ -1366,16 +1366,16 @@
         "label_bn": "রাজি",
         "label_en": "Accept",
         "effects": {
-          "janata": 4,
-          "dol": 3
+          "janata": 5,
+          "dol": 4
         }
       },
       "right": {
         "label_bn": "এ বছর না",
         "label_en": "Decline",
         "effects": {
-          "janata": -3,
-          "proshashon": 3
+          "janata": -4,
+          "proshashon": 4
         }
       }
     },
@@ -1393,9 +1393,9 @@
         "label_bn": "ব্যবস্থা করছি",
         "label_en": "Quietly fund",
         "effects": {
-          "dol": 5,
-          "tohobil": -7,
-          "proshashon": -3
+          "dol": 7,
+          "tohobil": -9,
+          "proshashon": -4
         },
         "triggers": [
           "votebuying"
@@ -1405,8 +1405,8 @@
         "label_bn": "এটা পারব না",
         "label_en": "Refuse",
         "effects": {
-          "dol": -4,
-          "proshashon": 3
+          "dol": -5,
+          "proshashon": 4
         }
       },
       "oneshot": true
@@ -1425,15 +1425,15 @@
         "label_bn": "ব্যবস্থা করছি",
         "label_en": "Fund it",
         "effects": {
-          "tohobil": -5,
-          "janata": 4
+          "tohobil": -7,
+          "janata": 5
         }
       },
       "right": {
         "label_bn": "আজ না",
         "label_en": "Decline",
         "effects": {
-          "janata": -3
+          "janata": -4
         }
       },
       "oneshot": true
@@ -1455,7 +1455,7 @@
         "label_bn": "মীমাংসা",
         "label_en": "Bribe",
         "effects": {
-          "tohobil": -7
+          "tohobil": -9
         },
         "triggers": [
           "ec_bribed"
@@ -1465,8 +1465,8 @@
         "label_bn": "সহযোগিতা",
         "label_en": "Cooperate",
         "effects": {
-          "dol": -4,
-          "proshashon": 4
+          "dol": -5,
+          "proshashon": 5
         }
       },
       "oneshot": true
@@ -1485,16 +1485,16 @@
         "label_bn": "ঠিক আছে",
         "label_en": "Take 3 days",
         "effects": {
-          "dol": -2,
-          "proshashon": 3
+          "dol": -3,
+          "proshashon": 4
         }
       },
       "right": {
         "label_bn": "এই বছর পরে",
         "label_en": "Push through",
         "effects": {
-          "dol": 3,
-          "proshashon": -3
+          "dol": 4,
+          "proshashon": -4
         }
       },
       "max_uses": 2
@@ -1516,15 +1516,15 @@
         "label_bn": "প্রকাশ্যে ধন্যবাদ",
         "label_en": "Thank him publicly",
         "effects": {
-          "janata": 4,
-          "dol": 3
+          "janata": 5,
+          "dol": 4
         }
       },
       "right": {
         "label_bn": "ধন্যবাদ",
         "label_en": "Brief thanks",
         "effects": {
-          "janata": -3
+          "janata": -4
         }
       },
       "oneshot": true
@@ -1543,15 +1543,15 @@
         "label_bn": "জোরদার অপারেশন",
         "label_en": "Aggressive GOTV",
         "effects": {
-          "tohobil": -5,
-          "dol": 4
+          "tohobil": -7,
+          "dol": 5
         }
       },
       "right": {
         "label_bn": "যা হবে হবে",
         "label_en": "Hands-off",
         "effects": {
-          "dol": -4
+          "dol": -5
         }
       },
       "oneshot": true
@@ -1570,16 +1570,16 @@
         "label_bn": "মঞ্চে স্পিচ",
         "label_en": "Effusive thanks",
         "effects": {
-          "dol": 4,
-          "proshashon": -3
+          "dol": 5,
+          "proshashon": -4
         }
       },
       "right": {
         "label_bn": "সংক্ষেপে",
         "label_en": "Brief mention",
         "effects": {
-          "dol": -3,
-          "proshashon": 3
+          "dol": -4,
+          "proshashon": 4
         }
       },
       "oneshot": true
@@ -1602,8 +1602,8 @@
         "label_bn": "পদত্যাগ",
         "label_en": "Resign",
         "effects": {
-          "dol": -9,
-          "janata": 7
+          "dol": -12,
+          "janata": 9
         },
         "triggers": [
           "tower2_collapsed"
@@ -1613,9 +1613,9 @@
         "label_bn": "অভিযোগ ভিত্তিহীন",
         "label_en": "Deny everything",
         "effects": {
-          "janata": -7,
-          "proshashon": -4,
-          "dol": 3
+          "janata": -9,
+          "proshashon": -5,
+          "dol": 4
         },
         "triggers": [
           "tower2_collapsed"
@@ -1640,14 +1640,14 @@
         "label_bn": "ব্যবস্থা করছি",
         "label_en": "Set him up overseas",
         "effects": {
-          "tohobil": -7
+          "tohobil": -9
         }
       },
       "right": {
         "label_bn": "এই বার না",
         "label_en": "Refuse",
         "effects": {
-          "dol": -3
+          "dol": -4
         },
         "triggers": [
           "pa_betrayed"
@@ -1669,15 +1669,15 @@
         "label_bn": "রাজি",
         "label_en": "Sit for it",
         "effects": {
-          "janata": 3
+          "janata": 4
         }
       },
       "right": {
         "label_bn": "এড়িয়ে যাব",
         "label_en": "Decline",
         "effects": {
-          "janata": -3,
-          "proshashon": 3
+          "janata": -4,
+          "proshashon": 4
         }
       },
       "oneshot": true
@@ -1696,16 +1696,16 @@
         "label_bn": "অনুদান বন্ধ",
         "label_en": "Withdraw funding",
         "effects": {
-          "janata": -4,
-          "dol": 3
+          "janata": -5,
+          "dol": 4
         }
       },
       "right": {
         "label_bn": "তবু চালু",
         "label_en": "Continue funding",
         "effects": {
-          "dol": -3,
-          "janata": 3
+          "dol": -4,
+          "janata": 4
         }
       },
       "oneshot": true
@@ -1724,16 +1724,16 @@
         "label_bn": "অনুমোদন",
         "label_en": "Push it through",
         "effects": {
-          "tohobil": -8,
-          "janata": 7,
-          "dol": 3
+          "tohobil": -10,
+          "janata": 9,
+          "dol": 4
         }
       },
       "right": {
         "label_bn": "পরের জনের জন্য",
         "label_en": "Defer to next councillor",
         "effects": {
-          "dol": -3
+          "dol": -4
         }
       },
       "oneshot": true
@@ -1752,16 +1752,16 @@
         "label_bn": "X-কে সমর্থন",
         "label_en": "Back X (party)",
         "effects": {
-          "dol": 4,
-          "janata": -3
+          "dol": 5,
+          "janata": -4
         }
       },
       "right": {
         "label_bn": "Y-ই উত্তম",
         "label_en": "Back Y (people)",
         "effects": {
-          "dol": -4,
-          "janata": 4
+          "dol": -5,
+          "janata": 5
         }
       },
       "oneshot": true
@@ -1780,8 +1780,8 @@
         "label_bn": "অনুমোদন",
         "label_en": "Approve",
         "effects": {
-          "tohobil": -7,
-          "janata": 5
+          "tohobil": -9,
+          "janata": 7
         },
         "triggers": [
           "sbyc_legacy"
@@ -1791,7 +1791,7 @@
         "label_bn": "আজ না",
         "label_en": "Polite refusal",
         "effects": {
-          "janata": -3
+          "janata": -4
         }
       },
       "oneshot": true
@@ -1810,16 +1810,16 @@
         "label_bn": "বড় করে",
         "label_en": "Big distribution",
         "effects": {
-          "tohobil": -5,
-          "janata": 4
+          "tohobil": -7,
+          "janata": 5
         }
       },
       "right": {
         "label_bn": "সংযত",
         "label_en": "Restrained",
         "effects": {
-          "janata": -2,
-          "proshashon": 3
+          "janata": -3,
+          "proshashon": 4
         }
       },
       "oneshot": true
@@ -1838,8 +1838,8 @@
         "label_bn": "ব্যবস্থা",
         "label_en": "Accept",
         "effects": {
-          "tohobil": 8,
-          "janata": -4
+          "tohobil": 10,
+          "janata": -5
         },
         "triggers": [
           "corrupt_retirement"
@@ -1849,8 +1849,8 @@
         "label_bn": "মাফ করেন",
         "label_en": "Decline",
         "effects": {
-          "tohobil": -3,
-          "proshashon": 4
+          "tohobil": -4,
+          "proshashon": 5
         }
       },
       "oneshot": true
@@ -1872,18 +1872,18 @@
         "label_bn": "প্রকাশ্যে জবাব",
         "label_en": "Public defense",
         "effects": {
-          "janata": -4,
-          "proshashon": -3,
-          "dol": 3
+          "janata": -5,
+          "proshashon": -4,
+          "dol": 4
         }
       },
       "right": {
         "label_bn": "চুপচাপ মীমাংসা",
         "label_en": "Quiet settlement",
         "effects": {
-          "tohobil": -7,
-          "dol": -2,
-          "proshashon": 3
+          "tohobil": -9,
+          "dol": -3,
+          "proshashon": 4
         }
       },
       "oneshot": true
@@ -1905,14 +1905,14 @@
         "label_bn": "অবশ্যই আসব",
         "label_en": "Attend personally",
         "effects": {
-          "janata": 5
+          "janata": 7
         }
       },
       "right": {
         "label_bn": "শোকবার্তা",
         "label_en": "Send a wreath",
         "effects": {
-          "janata": -4
+          "janata": -5
         }
       },
       "oneshot": true
@@ -1931,18 +1931,18 @@
         "label_bn": "সততায়",
         "label_en": "Honest reflection",
         "effects": {
-          "janata": 5,
-          "proshashon": 4,
-          "dol": -4
+          "janata": 7,
+          "proshashon": 5,
+          "dol": -5
         }
       },
       "right": {
         "label_bn": "বিজয়ে",
         "label_en": "Triumphalist",
         "effects": {
-          "dol": 5,
-          "janata": -4,
-          "proshashon": -3
+          "dol": 7,
+          "janata": -5,
+          "proshashon": -4
         }
       },
       "oneshot": true
@@ -2202,16 +2202,16 @@
         "label_bn": "কিছু দিন",
         "label_en": "Give him a little",
         "effects": {
-          "tohobil": -3,
-          "proshashon": 4
+          "tohobil": -4,
+          "proshashon": 5
         }
       },
       "right": {
         "label_bn": "নিয়ম মেনে",
         "label_en": "By the book",
         "effects": {
-          "proshashon": -3,
-          "janata": 3
+          "proshashon": -4,
+          "janata": 4
         }
       }
     },
@@ -2229,17 +2229,17 @@
         "label_bn": "বেতন ছাড়ুন",
         "label_en": "Release pay now",
         "effects": {
-          "tohobil": -6,
-          "janata": 6,
-          "proshashon": 3
+          "tohobil": -8,
+          "janata": 8,
+          "proshashon": 4
         }
       },
       "right": {
         "label_bn": "মীমাংসা করেন",
         "label_en": "Negotiate later",
         "effects": {
-          "janata": -5,
-          "dol": 3
+          "janata": -7,
+          "dol": 4
         }
       }
     },
@@ -2257,16 +2257,16 @@
         "label_bn": "বিদ্যুৎ অফিসে চাপ",
         "label_en": "Pressure BPDB",
         "effects": {
-          "proshashon": -3,
-          "janata": 5
+          "proshashon": -4,
+          "janata": 7
         }
       },
       "right": {
         "label_bn": "মোমবাতি বিতরণ",
         "label_en": "Hand out candles",
         "effects": {
-          "janata": -3,
-          "tohobil": -2
+          "janata": -4,
+          "tohobil": -3
         }
       }
     },
@@ -2284,16 +2284,16 @@
         "label_bn": "নিরপেক্ষ তালিকা",
         "label_en": "Impartial list",
         "effects": {
-          "janata": 5,
-          "dol": -3
+          "janata": 7,
+          "dol": -4
         }
       },
       "right": {
         "label_bn": "দলীয় অগ্রাধিকার",
         "label_en": "Party priority",
         "effects": {
-          "dol": 5,
-          "janata": -4
+          "dol": 7,
+          "janata": -5
         }
       }
     },
@@ -2311,9 +2311,9 @@
         "label_bn": "পশুপালন বিভাগ",
         "label_en": "Animal control raid",
         "effects": {
-          "proshashon": 3,
-          "tohobil": -3,
-          "janata": 3
+          "proshashon": 4,
+          "tohobil": -4,
+          "janata": 4
         }
       },
       "right": {
@@ -2321,7 +2321,7 @@
         "label_en": "Refer to an NGO",
         "effects": {
           "tohobil": 0,
-          "janata": -2
+          "janata": -3
         }
       }
     },
@@ -2339,16 +2339,16 @@
         "label_bn": "নোটিশ পাঠান",
         "label_en": "Send the notice",
         "effects": {
-          "tohobil": 5,
-          "dol": -4
+          "tohobil": 7,
+          "dol": -5
         }
       },
       "right": {
         "label_bn": "এ বছর ছাড়",
         "label_en": "Let it slide",
         "effects": {
-          "dol": 4,
-          "proshashon": -4
+          "dol": 5,
+          "proshashon": -5
         }
       }
     },
@@ -2366,16 +2366,16 @@
         "label_bn": "তদন্ত দাবি",
         "label_en": "Demand inquiry",
         "effects": {
-          "proshashon": -3,
-          "janata": 6
+          "proshashon": -4,
+          "janata": 8
         }
       },
       "right": {
         "label_bn": "অপেক্ষা করুন",
         "label_en": "Tell them to wait",
         "effects": {
-          "janata": -5,
-          "proshashon": 2
+          "janata": -7,
+          "proshashon": 3
         }
       }
     },
@@ -2393,17 +2393,17 @@
         "label_bn": "সিগনেচার",
         "label_en": "Sign",
         "effects": {
-          "tohobil": 6,
-          "proshashon": -3,
-          "janata": -3
+          "tohobil": 8,
+          "proshashon": -4,
+          "janata": -4
         }
       },
       "right": {
         "label_bn": "নিয়মমাফিক",
         "label_en": "Refuse",
         "effects": {
-          "tohobil": -2,
-          "proshashon": 4
+          "tohobil": -3,
+          "proshashon": 5
         }
       }
     },
@@ -2421,17 +2421,17 @@
         "label_bn": "উচ্ছেদ",
         "label_en": "Evict them",
         "effects": {
-          "janata": -5,
-          "tohobil": 3,
-          "dol": 2
+          "janata": -7,
+          "tohobil": 4,
+          "dol": 3
         }
       },
       "right": {
         "label_bn": "কিছু করব না",
         "label_en": "Do nothing",
         "effects": {
-          "janata": 3,
-          "tohobil": -2
+          "janata": 4,
+          "tohobil": -3
         }
       }
     },
@@ -2449,18 +2449,18 @@
         "label_bn": "অনুমতি দিন",
         "label_en": "Grant permit",
         "effects": {
-          "janata": 5,
-          "dol": -4,
-          "proshashon": 2
+          "janata": 7,
+          "dol": -5,
+          "proshashon": 3
         }
       },
       "right": {
         "label_bn": "নিরাপত্তার অজুহাত",
         "label_en": "Block on security grounds",
         "effects": {
-          "dol": 4,
-          "janata": -5,
-          "proshashon": -2
+          "dol": 5,
+          "janata": -7,
+          "proshashon": -3
         }
       }
     },
@@ -2478,16 +2478,16 @@
         "label_bn": "সংশোধন",
         "label_en": "Clean them",
         "effects": {
-          "proshashon": 4,
-          "dol": -3
+          "proshashon": 5,
+          "dol": -4
         }
       },
       "right": {
         "label_bn": "রাখুন",
         "label_en": "Leave them",
         "effects": {
-          "dol": 4,
-          "proshashon": -4
+          "dol": 5,
+          "proshashon": -5
         }
       }
     },
@@ -2505,16 +2505,16 @@
         "label_bn": "সব রেখে দিন",
         "label_en": "Leave everything",
         "effects": {
-          "proshashon": 4,
-          "dol": -3
+          "proshashon": 5,
+          "dol": -4
         }
       },
       "right": {
         "label_bn": "সংবেদনশীল পুড়িয়ে দিন",
         "label_en": "Burn the sensitive ones",
         "effects": {
-          "proshashon": -5,
-          "dol": 4
+          "proshashon": -7,
+          "dol": 5
         }
       }
     },
@@ -2535,8 +2535,8 @@
         "label_bn": "পারমিট দিন",
         "label_en": "Sign the permit",
         "effects": {
-          "proshashon": -4,
-          "tohobil": 4
+          "proshashon": -5,
+          "tohobil": 5
         },
         "triggers": [
           "taking_envelopes"
@@ -2546,8 +2546,8 @@
         "label_bn": "অসম্ভব",
         "label_en": "Not possible",
         "effects": {
-          "tohobil": -3,
-          "proshashon": 3
+          "tohobil": -4,
+          "proshashon": 4
         }
       }
     },
@@ -2568,16 +2568,16 @@
         "label_bn": "আজই মেটান",
         "label_en": "Settle today",
         "effects": {
-          "tohobil": -6,
-          "proshashon": 4
+          "tohobil": -8,
+          "proshashon": 5
         }
       },
       "right": {
         "label_bn": "দেরি করুন",
         "label_en": "Delay it",
         "effects": {
-          "proshashon": -5,
-          "tohobil": 2
+          "proshashon": -7,
+          "tohobil": 3
         }
       }
     },
@@ -2598,16 +2598,16 @@
         "label_bn": "দিয়ে দিন",
         "label_en": "Pay her",
         "effects": {
-          "tohobil": -5,
-          "janata": 6
+          "tohobil": -7,
+          "janata": 8
         }
       },
       "right": {
         "label_bn": "অস্বীকার করুন",
         "label_en": "Deny it ever happened",
         "effects": {
-          "janata": -6,
-          "proshashon": -2
+          "janata": -8,
+          "proshashon": -3
         }
       }
     },
@@ -2628,16 +2628,16 @@
         "label_bn": "রাজি",
         "label_en": "Yes please",
         "effects": {
-          "janata": 5,
-          "dol": 3
+          "janata": 7,
+          "dol": 4
         }
       },
       "right": {
         "label_bn": "এড়িয়ে যাব",
         "label_en": "Politely decline",
         "effects": {
-          "janata": -3,
-          "proshashon": 3
+          "janata": -4,
+          "proshashon": 4
         }
       }
     },
@@ -2658,16 +2658,16 @@
         "label_bn": "বদলি ব্যবস্থা",
         "label_en": "Arrange the transfer",
         "effects": {
-          "proshashon": -4,
-          "janata": 3
+          "proshashon": -5,
+          "janata": 4
         }
       },
       "right": {
         "label_bn": "নিয়ম মেনে",
         "label_en": "By the book",
         "effects": {
-          "proshashon": 3,
-          "janata": -3
+          "proshashon": 4,
+          "janata": -4
         }
       }
     },
@@ -2688,16 +2688,16 @@
         "label_bn": "অবশ্যই",
         "label_en": "Of course",
         "effects": {
-          "tohobil": -5,
-          "janata": 7
+          "tohobil": -7,
+          "janata": 9
         }
       },
       "right": {
         "label_bn": "অন্য ফান্ডে",
         "label_en": "Wait for other funds",
         "effects": {
-          "janata": -5,
-          "tohobil": 2
+          "janata": -7,
+          "tohobil": 3
         }
       }
     },
@@ -2718,7 +2718,7 @@
         "label_bn": "কন্ট্রাক্ট দিন",
         "label_en": "Give him the contract",
         "effects": {
-          "proshashon": -4,
+          "proshashon": -5,
           "tohobil": 0
         }
       },
@@ -2726,8 +2726,8 @@
         "label_bn": "টেন্ডারে যান",
         "label_en": "Open tender it",
         "effects": {
-          "proshashon": 4,
-          "dol": -2
+          "proshashon": 5,
+          "dol": -3
         }
       }
     },
@@ -2748,16 +2748,16 @@
         "label_bn": "অবশ্যই, স্যার",
         "label_en": "Of course, sir",
         "effects": {
-          "proshashon": -5,
-          "dol": 2
+          "proshashon": -7,
+          "dol": 3
         }
       },
       "right": {
         "label_bn": "নিয়মমাফিক",
         "label_en": "Through proper channels",
         "effects": {
-          "proshashon": 4,
-          "dol": -3
+          "proshashon": 5,
+          "dol": -4
         }
       }
     },
@@ -2778,16 +2778,16 @@
         "label_bn": "অবশ্যই পাঠাব",
         "label_en": "I'll send it up",
         "effects": {
-          "proshashon": 3,
-          "janata": 4
+          "proshashon": 4,
+          "janata": 5
         }
       },
       "right": {
         "label_bn": "কঠিন বিষয়",
         "label_en": "It's complicated",
         "effects": {
-          "proshashon": -3,
-          "janata": -2
+          "proshashon": -4,
+          "janata": -3
         }
       }
     },
@@ -2808,16 +2808,16 @@
         "label_bn": "দুটোই দিন",
         "label_en": "Give both",
         "effects": {
-          "tohobil": -5,
-          "janata": 6,
-          "proshashon": -2
+          "tohobil": -7,
+          "janata": 8,
+          "proshashon": -3
         }
       },
       "right": {
         "label_bn": "পারমিট মাত্র",
         "label_en": "Permit only",
         "effects": {
-          "janata": 2,
+          "janata": 3,
           "tohobil": -1
         }
       }
@@ -2839,16 +2839,16 @@
         "label_bn": "চাকরি দিন",
         "label_en": "Find him work",
         "effects": {
-          "dol": 3,
-          "proshashon": -4,
-          "janata": 4
+          "dol": 4,
+          "proshashon": -5,
+          "janata": 5
         }
       },
       "right": {
         "label_bn": "ব্যবস্থা পরে",
         "label_en": "Later, maybe",
         "effects": {
-          "janata": -4
+          "janata": -5
         }
       }
     },
@@ -2869,16 +2869,16 @@
         "label_bn": "তদবির করব",
         "label_en": "I'll lobby",
         "effects": {
-          "proshashon": -3,
-          "janata": 4,
-          "dol": -2
+          "proshashon": -4,
+          "janata": 5,
+          "dol": -3
         }
       },
       "right": {
         "label_bn": "এ আমার বাইরে",
         "label_en": "Out of my hands",
         "effects": {
-          "janata": -3
+          "janata": -4
         }
       }
     },
@@ -2899,15 +2899,15 @@
         "label_bn": "ব্যবস্থা করব",
         "label_en": "I'll arrange it",
         "effects": {
-          "proshashon": -4,
-          "dol": 4
+          "proshashon": -5,
+          "dol": 5
         }
       },
       "right": {
         "label_bn": "এই বার না",
         "label_en": "Not this time",
         "effects": {
-          "dol": -5
+          "dol": -7
         }
       }
     },
@@ -2928,16 +2928,16 @@
         "label_bn": "অবশ্যই, দাদা",
         "label_en": "Of course, dada",
         "effects": {
-          "proshashon": -4,
-          "dol": 5
+          "proshashon": -5,
+          "dol": 7
         }
       },
       "right": {
         "label_bn": "নিয়োগ যোগ্যতায়",
         "label_en": "Hire on merit",
         "effects": {
-          "dol": -5,
-          "proshashon": 4
+          "dol": -7,
+          "proshashon": 5
         }
       }
     },
@@ -2958,16 +2958,16 @@
         "label_bn": "আমার কাছে দিন",
         "label_en": "Send it to me",
         "effects": {
-          "dol": 3,
-          "proshashon": -3
+          "dol": 4,
+          "proshashon": -4
         }
       },
       "right": {
         "label_bn": "নষ্ট করে দিন",
         "label_en": "Destroy it",
         "effects": {
-          "dol": -2,
-          "proshashon": 2
+          "dol": -3,
+          "proshashon": 3
         }
       }
     }
