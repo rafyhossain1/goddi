@@ -105,12 +105,13 @@ body[data-lang="bn"] [data-lang-en] {
   overflow-y: auto;
 }
 
-body[data-screen="splash"]   [data-screen-id="splash"],
-body[data-screen="name"]     [data-screen-id="name"],
-body[data-screen="party"]    [data-screen-id="party"],
-body[data-screen="play"]     [data-screen-id="play"],
-body[data-screen="gameover"] [data-screen-id="gameover"],
-body[data-screen="win"]      [data-screen-id="win"] {
+body[data-screen="splash"]      [data-screen-id="splash"],
+body[data-screen="name"]        [data-screen-id="name"],
+body[data-screen="party"]       [data-screen-id="party"],
+body[data-screen="play"]        [data-screen-id="play"],
+body[data-screen="gameover"]    [data-screen-id="gameover"],
+body[data-screen="win"]         [data-screen-id="win"],
+body[data-screen="leaderboard"] [data-screen-id="leaderboard"] {
   display: flex;
 }
 
@@ -1410,4 +1411,145 @@ body[data-lang="bn"] .brand-fade__text {
   letter-spacing: 2px;
   text-transform: none;
   font-size: 14px;
+}
+
+/* ============================================================
+   Leaderboard screen
+   ============================================================ */
+.leaderboard {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.leaderboard__eyebrow {
+  font-family: var(--font-mono);
+  letter-spacing: 4px;
+  font-size: 13px;
+  color: var(--stamp-red);
+  margin: 0;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.leaderboard__tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.leaderboard__tab {
+  background: transparent;
+  border: 1.5px solid var(--ink-mute);
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  padding: 6px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+.leaderboard__tab:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.leaderboard__tab--active {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+.leaderboard__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.leaderboard__loading {
+  font-family: var(--font-mono);
+  text-align: center;
+  color: var(--ink-mute);
+  padding: 40px 0;
+}
+
+.lb-row {
+  display: grid;
+  grid-template-columns: 28px 16px 1fr auto auto;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--paper);
+  border: 1.5px solid var(--ink-mute);
+  border-radius: var(--radius-sm);
+}
+.lb-row--me {
+  border-color: var(--stamp-red);
+  border-width: 2px;
+  box-shadow: 2px 2px 0 var(--stamp-red);
+}
+.lb-row__rank {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 18px;
+  color: var(--ink);
+  text-align: center;
+}
+.lb-row__rosette {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--rose, var(--ink));
+  box-shadow: 0 0 0 2px var(--paper), 0 0 0 3px var(--rose, var(--ink));
+}
+.lb-row__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.lb-row__tier {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  padding: 2px 6px;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+}
+.lb-row__tier--clean       { color: var(--bd-green); }
+.lb-row__tier--standard    { color: var(--sbyc-green); }
+.lb-row__tier--compromised { color: var(--gold); }
+.lb-row__tier--death       { color: var(--stamp-red); }
+
+.lb-row__days {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--ink);
+}
+.lb-row__days em {
+  font-style: normal;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--ink-mute);
+  margin-left: 2px;
+}
+
+.leaderboard__your-rank {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--stamp-red);
+  text-align: center;
+  margin: 8px 0 0;
 }

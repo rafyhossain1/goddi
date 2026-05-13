@@ -51,9 +51,22 @@
   function setMuted(v) {
     muted = !!v;
     try { localStorage.setItem(STORAGE_KEY, muted ? '1' : '0'); } catch (e) {}
+    // SFX master gain
     if (master) {
       master.gain.cancelScheduledValues(ctx.currentTime);
       master.gain.setTargetAtTime(muted ? 0 : 0.9, ctx.currentTime, 0.02);
+    }
+    // Ambient music — pause when muted, resume when unmuted IF the game wants
+    // it playing (i.e. we're on the gameplay screen).
+    if (muted) {
+      if (ambientEl) {
+        fadeAmbient(0, 280, () => { try { ambientEl.pause(); } catch (_) {} });
+      }
+    } else if (ambientShouldPlay) {
+      const el = ensureAmbientEl();
+      const p = el.play();
+      if (p && typeof p.catch === 'function') p.catch(() => {});
+      fadeAmbient(AMBIENT_VOLUME, 700);
     }
     syncUI();
   }
@@ -229,92 +242,64 @@
   }
 
   // ---------- Ambient bed (gameplay drone) ----------
-  // Slow A2 + E3 + A3 sine drone with a gentle LFO. Designed to sit very
-  // quietly under the SFX — players should barely notice it consciously but
-  // feel the room change when it stops at the verdict screen. Oscillators
-  // run silently when muted (master gain controls audibility); start/stop
-  // only triggers create/destroy.
-  let ambient = null;
+  // Ambient music — uses a real audio file (HTML5 Audio) instead of synth.
+  // Loops seamlessly, fades in/out, respects the mute toggle, pauses entirely
+  // when not on the gameplay screen so verdict/splash screens are silent.
+  const AMBIENT_SRC    = '/assets/ambient.mp3';
+  const AMBIENT_VOLUME = 0.35; // sits well under the SFX layer
+  let ambientEl = null;
+  let ambientShouldPlay = false;
+  let ambientFadeRaf = 0;
+  // Legacy variable from the old synth path — keep declared so nothing else
+  // accidentally references undefined. No longer used.
 
-  // Synthesized ambient pad — detuned sawtooths through a lowpass filter
-  // with a slow LFO on the cutoff. This is the standard "warm pad" recipe;
-  // the filter rolls off the sawtooth's harsh upper harmonics, leaving
-  // something that reads as ambient texture rather than a tuning fork.
-  function startAmbient() {
-    if (ambient) return; // already on
-    const c = ensureContext();
-    if (!c) return;
-    if (c.state === 'suspended') c.resume().catch(() => {});
+  function ensureAmbientEl() {
+    if (ambientEl) return ambientEl;
+    ambientEl = new Audio(AMBIENT_SRC);
+    ambientEl.loop = true;
+    ambientEl.volume = 0;
+    ambientEl.preload = 'auto';
+    return ambientEl;
+  }
 
-    const now = c.currentTime;
-
-    // Master gain for the ambient bed
-    const out = c.createGain();
-    out.gain.value = 0;
-    out.connect(master);
-    out.gain.linearRampToValueAtTime(0.55, now + 2.0);
-
-    // Lowpass filter — kills the sawtooth's "buzzy" harmonics, leaves
-    // a warm pad-like body
-    const filter = c.createBiquadFilter();
-    filter.type = 'lowpass';
-    filter.frequency.value = 380;
-    filter.Q.value = 0.9;
-    filter.connect(out);
-
-    // Slow LFO on filter cutoff for evolving texture (±90 Hz around 380)
-    const filterLfo = c.createOscillator();
-    filterLfo.type = 'sine';
-    filterLfo.frequency.value = 0.055;
-    const filterLfoDepth = c.createGain();
-    filterLfoDepth.gain.value = 90;
-    filterLfo.connect(filterLfoDepth);
-    filterLfoDepth.connect(filter.frequency);
-    filterLfo.start(now);
-
-    function makeSaw(freq, detuneCents, gainVal) {
-      const o = c.createOscillator();
-      o.type = 'sawtooth';
-      o.frequency.value = freq;
-      o.detune.value = detuneCents;
-      const g = c.createGain();
-      g.gain.value = gainVal;
-      o.connect(g);
-      g.connect(filter);
-      o.start(now);
-      return o;
+  // Fade ambient volume to target over `durationMs`, then optional callback.
+  function fadeAmbient(targetVolume, durationMs, onComplete) {
+    const el = ensureAmbientEl();
+    cancelAnimationFrame(ambientFadeRaf);
+    const startV = el.volume;
+    const startT = performance.now();
+    function step() {
+      const elapsed = performance.now() - startT;
+      const t = Math.min(1, elapsed / Math.max(1, durationMs));
+      // Smooth ease-out
+      const eased = 1 - Math.pow(1 - t, 2);
+      el.volume = startV + (targetVolume - startV) * eased;
+      if (t < 1) {
+        ambientFadeRaf = requestAnimationFrame(step);
+      } else if (typeof onComplete === 'function') {
+        onComplete();
+      }
     }
+    ambientFadeRaf = requestAnimationFrame(step);
+  }
 
-    // Detuned saw pair at A2 root — the slight detune is what creates the
-    // "chorus" warmth we want from a pad
-    const sawRootDown = makeSaw(110, -7, 0.10);
-    const sawRootUp   = makeSaw(110, +7, 0.10);
-    // Perfect fifth — E3
-    const sawFifth    = makeSaw(164.81, -4, 0.075);
-    // Octave — A3 (so the chord registers without sounding subterranean)
-    const sawOctave   = makeSaw(220, +3, 0.05);
-
-    ambient = { out, filter, filterLfo, sawRootDown, sawRootUp, sawFifth, sawOctave };
+  function startAmbient() {
+    ambientShouldPlay = true;
+    if (muted) return; // honor mute — will resume on unmute
+    const el = ensureAmbientEl();
+    // play() may reject if no user gesture has happened yet; we ignore it
+    // because the next user interaction (or unmute) will retry.
+    const p = el.play();
+    if (p && typeof p.catch === 'function') p.catch(() => {});
+    fadeAmbient(AMBIENT_VOLUME, 1400);
   }
 
   function stopAmbient() {
-    if (!ambient || !ctx) return;
-    const a = ambient;
-    ambient = null;
-    const now = ctx.currentTime;
-    a.out.gain.cancelScheduledValues(now);
-    a.out.gain.linearRampToValueAtTime(0, now + 0.8);
-    setTimeout(() => {
-      try {
-        a.sawRootDown.stop();
-        a.sawRootUp.stop();
-        a.sawFifth.stop();
-        a.sawOctave.stop();
-        a.filterLfo.stop();
-        a.out.disconnect();
-        a.filter.disconnect();
-      } catch (_) {}
-    }, 900);
+    ambientShouldPlay = false;
+    if (!ambientEl) return;
+    fadeAmbient(0, 700, () => {
+      try { ambientEl.pause(); } catch (_) {}
+    });
   }
 
   // ---------- Boot ----------

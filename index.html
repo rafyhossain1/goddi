@@ -222,6 +222,10 @@
       </div>
 
       <div class="row-buttons row-buttons--stacked">
+        <button class="btn btn--ghost" id="btn-leaderboard-loss">
+          <span data-lang-bn>সেরা শাসকেরা</span>
+          <span data-lang-en>Leaderboard</span>
+        </button>
         <button class="btn btn--ghost" id="btn-share-loss">
           <span data-lang-bn>শেয়ার করুন</span>
           <span data-lang-en>Share</span>
@@ -255,11 +259,56 @@
       </div>
 
       <div class="row-buttons row-buttons--stacked">
+        <button class="btn btn--ghost" id="btn-leaderboard-win">
+          <span data-lang-bn>সেরা শাসকেরা</span>
+          <span data-lang-en>Leaderboard</span>
+        </button>
         <button class="btn btn--ghost" id="btn-share-win">
           <span data-lang-bn>শেয়ার করুন</span>
           <span data-lang-en>Share</span>
         </button>
         <button class="btn btn--primary" id="btn-win-restart">
+          <span data-lang-bn>আবার শুরু</span>
+          <span data-lang-en>Play again</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERBOARD -->
+  <section class="screen" data-screen-id="leaderboard">
+    <div class="leaderboard">
+      <p class="leaderboard__eyebrow">
+        <span data-lang-bn>ওয়ার্ড ৩৭ — সেরা শাসকেরা</span>
+        <span data-lang-en>WARD 37 · TOP TENURES</span>
+      </p>
+
+      <div class="leaderboard__tabs" id="leaderboard-tabs">
+        <button class="leaderboard__tab leaderboard__tab--active" data-window="all">
+          <span data-lang-bn>সর্বকাল</span>
+          <span data-lang-en>All-time</span>
+        </button>
+        <button class="leaderboard__tab" data-window="week">
+          <span data-lang-bn>এই সপ্তাহ</span>
+          <span data-lang-en>This week</span>
+        </button>
+        <button class="leaderboard__tab" data-window="day">
+          <span data-lang-bn>আজ</span>
+          <span data-lang-en>Today</span>
+        </button>
+      </div>
+
+      <ol class="leaderboard__list" id="leaderboard-list">
+        <li class="leaderboard__loading">
+          <span data-lang-bn>লোড হচ্ছে…</span>
+          <span data-lang-en>Loading…</span>
+        </li>
+      </ol>
+
+      <p class="leaderboard__your-rank" id="leaderboard-your-rank" hidden></p>
+
+      <div class="row-buttons row-buttons--stacked">
+        <button class="btn btn--primary" id="btn-leaderboard-restart">
           <span data-lang-bn>আবার শুরু</span>
           <span data-lang-en>Play again</span>
         </button>
@@ -274,6 +323,7 @@
   <script src="/js/swipe.js"></script>
   <script src="/js/epilogue.js"></script>
   <script src="/js/sharecard.js"></script>
+  <script src="/js/leaderboard.js"></script>
   <script src="/js/game.js"></script>
 </body>
 </html>

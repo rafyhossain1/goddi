@@ -247,6 +247,8 @@
     state.forceNextCardId = null;
     state.introducedPortraits = {};
     state.seenFirstCard = false;
+    state.leaderboardSubmitted = false;
+    state.lastSubmittedRow = null;
 
     renderHud();
     renderStats();
@@ -869,6 +871,7 @@
     renderFinalStats('verdict-final-stats');
     goto('gameover');
     if (window.Sfx) Sfx.playVerdict('loss');
+    submitToLeaderboard();
   }
 
   // ---------- Win tier ----------
@@ -936,6 +939,7 @@
     renderFinalStats('win-final-stats');
     goto('win');
     if (window.Sfx) Sfx.playVerdict('win');
+    submitToLeaderboard();
   }
 
   function renderFinalStats(containerId) {
@@ -950,13 +954,129 @@
 
   // ---------- Restart ----------
   function wireRestart() {
-    ['btn-restart', 'btn-win-restart'].forEach(id => {
+    ['btn-restart', 'btn-win-restart', 'btn-leaderboard-restart'].forEach(id => {
       const b = document.getElementById(id);
       if (b) b.addEventListener('click', () => {
         if (window.Sfx) Sfx.playClick();
         goto('splash');
       });
     });
+  }
+
+  // ---------- Leaderboard ----------
+  // Builds the run payload (matches the goddi_runs table schema), submits to
+  // Supabase asynchronously (fire-and-forget — non-fatal if it fails), and
+  // remembers the inserted row so we can highlight it when the player views
+  // the leaderboard.
+  function buildRunPayload() {
+    return {
+      player_name: state.player.name || 'কাউন্সিলর',
+      party_id:    state.player.party,
+      outcome:     state.lastVerdict ? state.lastVerdict.outcome : 'death',
+      tier:        state.lastVerdict ? (state.lastVerdict.tier || null) : null,
+      death_cause: state.lastVerdict ? (state.lastVerdict.cause || null) : null,
+      days:        state.day,
+      janata:      state.stats.janata,
+      dol:         state.stats.dol,
+      proshashon:  state.stats.proshashon,
+      tohobil:     state.stats.tohobil,
+      flags:       [...state.flags],
+      lang:        I18n.lang
+    };
+  }
+
+  function submitToLeaderboard() {
+    if (!window.Leaderboard || !Leaderboard.isConfigured()) return;
+    if (state.leaderboardSubmitted) return; // submit at most once per run
+    state.leaderboardSubmitted = true;
+    Leaderboard.submit(buildRunPayload()).then(row => {
+      state.lastSubmittedRow = row;
+    });
+  }
+
+  function wireLeaderboardButtons() {
+    ['btn-leaderboard-loss', 'btn-leaderboard-win'].forEach(id => {
+      const b = document.getElementById(id);
+      if (!b) return;
+      // Hide the button entirely if Supabase isn't configured
+      if (window.Leaderboard && !Leaderboard.isConfigured()) {
+        b.style.display = 'none';
+        return;
+      }
+      b.addEventListener('click', () => {
+        if (window.Sfx) Sfx.playClick();
+        showLeaderboardScreen('all');
+      });
+    });
+    // Tab switching inside the leaderboard screen
+    const tabs = document.getElementById('leaderboard-tabs');
+    if (tabs) {
+      tabs.addEventListener('click', (e) => {
+        const t = e.target.closest('.leaderboard__tab');
+        if (!t) return;
+        if (window.Sfx) Sfx.playClick();
+        tabs.querySelectorAll('.leaderboard__tab').forEach(x => x.classList.remove('leaderboard__tab--active'));
+        t.classList.add('leaderboard__tab--active');
+        showLeaderboardScreen(t.dataset.window);
+      });
+    }
+  }
+
+  async function showLeaderboardScreen(window_) {
+    goto('leaderboard');
+    const list  = document.getElementById('leaderboard-list');
+    const rank  = document.getElementById('leaderboard-your-rank');
+    rank.hidden = true;
+    list.innerHTML = `<li class="leaderboard__loading">${I18n.lang === 'bn' ? 'লোড হচ্ছে…' : 'Loading…'}</li>`;
+
+    const [rows, myRank] = await Promise.all([
+      window.Leaderboard.topRuns({ window: window_, limit: 10 }),
+      window.Leaderboard.rankFor(state.lastSubmittedRow)
+    ]);
+
+    if (!rows.length) {
+      list.innerHTML = `<li class="leaderboard__loading">${I18n.lang === 'bn' ? 'এখনো কোনো রান নেই।' : 'No runs yet.'}</li>`;
+      return;
+    }
+
+    const myId = state.lastSubmittedRow && state.lastSubmittedRow.id;
+    list.innerHTML = rows.map((r, i) => {
+      const isMe = (r.id === myId);
+      const partyColor = (state.data.parties.find(p => p.id === r.party_id) || {}).color || '#1a1310';
+      const tierBadge = r.outcome === 'win' && r.tier
+        ? `<span class="lb-row__tier lb-row__tier--${r.tier}">${tierLabel(r.tier)}</span>`
+        : `<span class="lb-row__tier lb-row__tier--death">${I18n.lang === 'bn' ? 'পতন' : 'FALLEN'}</span>`;
+      return `
+        <li class="lb-row ${isMe ? 'lb-row--me' : ''}">
+          <span class="lb-row__rank">${i + 1}</span>
+          <span class="lb-row__rosette" style="--rose: ${partyColor}"></span>
+          <span class="lb-row__name">${escapeHtml(r.player_name)}</span>
+          ${tierBadge}
+          <span class="lb-row__days">${I18n.formatDays(r.days)} <em>${I18n.lang === 'bn' ? 'দিন' : 'd'}</em></span>
+        </li>
+      `;
+    }).join('');
+
+    if (myRank && myRank > 10) {
+      rank.hidden = false;
+      rank.textContent = (I18n.lang === 'bn'
+        ? `আপনার অবস্থান: ${I18n.toBanglaDigits(myRank)}-তম`
+        : `Your rank: #${myRank}`);
+    }
+  }
+
+  function tierLabel(tier) {
+    const labels = {
+      clean:       { bn: 'সততা',  en: 'INTEGRITY' },
+      standard:    { bn: 'জয়',    en: 'VICTORY' },
+      compromised: { bn: 'মূল্য', en: 'PRICE' }
+    };
+    const l = labels[tier] || labels.standard;
+    return I18n.lang === 'bn' ? l.bn : l.en;
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
 
   // ---------- Share ----------
@@ -1047,6 +1167,7 @@
     wirePartySelect();
     wireRestart();
     wireShare();
+    wireLeaderboardButtons();
     wireMuteToggle();
     handleBrandFade();
   }
