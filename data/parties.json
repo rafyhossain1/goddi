@@ -1,0 +1,40 @@
+{
+  "parties": [
+    {
+      "id": "janata_league",
+      "name_bn": "জনতা লীগ",
+      "name_en": "Janata League",
+      "tagline_bn": "সবার উন্নয়ন, সবার জন্য",
+      "tagline_en": "Progress for all, by all",
+      "color": "#006a4e",
+      "modifiers": { "janata": -5, "dol": 10, "proshashon": 5, "tohobil": 0 }
+    },
+    {
+      "id": "jatiyotabadi_dol",
+      "name_bn": "জাতীয়তাবাদী দল (জাদ)",
+      "name_en": "Jatiyotabadi Dol (JAD)",
+      "tagline_bn": "দেশ আগে, সব কিছু পরে",
+      "tagline_en": "Country first, everything else later",
+      "color": "#cf2b34",
+      "modifiers": { "janata": 10, "dol": 5, "proshashon": -5, "tohobil": 0 }
+    },
+    {
+      "id": "islami_oikko",
+      "name_bn": "ইসলামী ঐক্য",
+      "name_en": "Islami Oikko",
+      "tagline_bn": "ইমান, ইহকাল, পরকাল",
+      "tagline_en": "Faith, this world, the next",
+      "color": "#004d40",
+      "modifiers": { "janata": 0, "dol": 15, "proshashon": -10, "tohobil": -5 }
+    },
+    {
+      "id": "notun_bangladesh",
+      "name_bn": "নতুন বাংলাদেশ",
+      "name_en": "Notun Bangladesh",
+      "tagline_bn": "পুরাতন বাতিল, নতুন উত্থান",
+      "tagline_en": "Out with the old, a new rising",
+      "color": "#6a1b9a",
+      "modifiers": { "janata": 20, "dol": -10, "proshashon": -5, "tohobil": -5 }
+    }
+  ]
+}

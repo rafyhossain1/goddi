@@ -1,0 +1,72 @@
+{
+  "deaths": {
+    "janata_low": {
+      "headline_bn": "গণবিক্ষোভ",
+      "headline_en": "MASS PROTEST",
+      "body_bn": "বাসিন্দারা আপনার অফিস ঘেরাও করেছে। পেছনের দরজা দিয়ে পালাতে হলো। রাজনীতি আপনার জন্য না।",
+      "body_en": "Residents surrounded your office. You slipped out the back. Politics was not for you."
+    },
+    "janata_high": {
+      "headline_bn": "পপুলিস্ট পতন",
+      "headline_en": "POPULIST COLLAPSE",
+      "body_bn": "জনপ্রিয়তার চাপে দলীয় লাইন ভেঙেছেন। দল আপনার মনোনয়ন প্রত্যাহার করেছে। জনতা আপনাকে ভালোবাসে, কিন্তু মঞ্চ নেই।",
+      "body_en": "You broke the party line for popularity. They pulled your nomination. The public loves you, but there's no stage."
+    },
+    "dol_low": {
+      "headline_bn": "বহিষ্কার",
+      "headline_en": "EXPELLED",
+      "body_bn": "দল আপনাকে বহিষ্কার করেছে। সবুজ সিগন্যাল নেই, আবার নির্বাচনে দাঁড়ানোর পথ নেই।",
+      "body_en": "The party expelled you. No green signal, no road back to the ballot."
+    },
+    "dol_high": {
+      "headline_bn": "পুতুল",
+      "headline_en": "THE PUPPET",
+      "body_bn": "দল আপনার প্রতিটি সিদ্ধান্ত নিয়ন্ত্রণ করে। জনতা বুঝে গেছে আপনি পুতুল। পরের সমাবেশে পানির বোতল উড়ে এসেছে।",
+      "body_en": "The party controls every decision you make. The public figured out you're a puppet. Water bottles flew at the next rally."
+    },
+    "proshashon_low": {
+      "headline_bn": "নিষ্ক্রিয়",
+      "headline_en": "PARALYSIS",
+      "body_bn": "ডিসিসি আপনার সব ফাইল আটকে রেখেছে। থানা চিঠির জবাব দেয় না। এমপি ফোন ধরে না। পাঁচ বছর নামমাত্র কাউন্সিলর থাকলেন।",
+      "body_en": "DNCC froze all your files. The station won't answer your letters. The MP won't take your calls. A councillor in name only."
+    },
+    "proshashon_high": {
+      "headline_bn": "দালাল",
+      "headline_en": "STOOGE",
+      "body_bn": "সরকারের প্রতিটি কথা মানলেন। বিরোধী আপনাকে দালাল ঘোষণা করেছে। ওয়ার্ডের মানুষ আপনাকে জঘন্য চোখে দেখে।",
+      "body_en": "You obeyed every government line. The opposition labeled you a stooge. Your own ward despises you."
+    },
+    "tohobil_low": {
+      "headline_bn": "দেউলিয়া",
+      "headline_en": "BANKRUPT",
+      "body_bn": "ওয়ার্ড তহবিল শূন্য। স্টাফদের বেতন নেই। রাস্তার লাইট বন্ধ। পদত্যাগ ছাড়া আর উপায় নেই।",
+      "body_en": "Ward funds empty. Staff unpaid. Street lights dark. No path but resignation."
+    },
+    "tohobil_high": {
+      "headline_bn": "তদন্তাধীন",
+      "headline_en": "UNDER INVESTIGATION",
+      "body_bn": "এত টাকা কোথা থেকে? দুদক ফাইল খুলেছে। আদালতে হাজিরা দিতে হচ্ছে। রাজনৈতিক ক্যারিয়ার এখানেই।",
+      "body_en": "Where did all this money come from? ACC opened a file. You're due in court. Career ends here."
+    }
+  },
+  "wins": {
+    "clean": {
+      "headline_bn": "গৌরবময় বিদায়",
+      "headline_en": "AN HONOURABLE EXIT",
+      "body_bn": "পাঁচ বছর। লোভ ছিল, ভয় ছিল, প্রলোভন ছিল। কোনোটাই গ্রহণ করেননি। ওয়ার্ড ৩৭ আপনাকে মনে রাখবে—কী করেছেন তা দিয়ে নয়, কী করেননি তা দিয়েও।",
+      "body_en": "Five years. Greed, fear, temptation — you took none of them. Ward 37 will remember you not only for what you did, but for what you refused."
+    },
+    "standard": {
+      "headline_bn": "পুনর্নির্বাচিত",
+      "headline_en": "RE-ELECTED",
+      "body_bn": "পাঁচ বছরের যুদ্ধ শেষ। ওয়ার্ড ৩৭ আবার আপনার। হাত একদম পরিষ্কার নয়, কিন্তু রক্তেও রঞ্জিত নয়। রাজনীতিতে এটাই হয়তো বিজয়।",
+      "body_en": "Five years done. Ward 37 is yours again. Hands not quite clean, but not bloodied either. In politics, perhaps, this is what victory looks like."
+    },
+    "compromised": {
+      "headline_bn": "গদিতে আছেন, কিন্তু...",
+      "headline_en": "STILL IN OFFICE, BUT…",
+      "body_bn": "টিকে গেছেন। গদি আপনার। কিন্তু আয়নায় যে মুখ দেখেন—সেটা এখনো আপনি? পাঁচ বছর কী মূল্যে কিনলেন? নথিগুলো কোথাও আছে। কেউ একদিন খুঁজে বের করবে।",
+      "body_en": "You survived. The seat is yours. But the face in the mirror — is that still you? At what cost did you buy these five years? Some files are out there. Someone, one day, will find them."
+    }
+  }
+}

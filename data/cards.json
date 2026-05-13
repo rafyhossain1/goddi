@@ -1,0 +1,2075 @@
+{
+  "cards": [
+    {
+      "id": "S03",
+      "character_name_bn": "আজাদ চাচা",
+      "character_name_en": "Azad Chacha",
+      "character_role_bn": "নিরাপত্তা রক্ষী",
+      "character_role_en": "Security Guard",
+      "portrait_id": "azad_chacha",
+      "dialog_bn": "স্যার... তিন মাস হয়ে গেল। ছেলেটার ঈদের জামাও নাই এবার। বেতনটা একটু যদি দেন...",
+      "dialog_en": "Sir... three months now. My boy doesn’t even have new Eid clothes this year. If you could just release the salary...",
+      "left": {
+        "label_bn": "পরিশোধ করুন",
+        "label_en": "Pay him",
+        "effects": {
+          "tohobil": -4,
+          "janata": 4
+        }
+      },
+      "right": {
+        "label_bn": "পরে দেব",
+        "label_en": "Later",
+        "effects": {
+          "janata": -3,
+          "tohobil": 2
+        }
+      }
+    },
+    {
+      "id": "S05",
+      "character_name_bn": "কিশোর দল",
+      "character_name_en": "Teen delegation",
+      "character_role_bn": "এলাকার কিশোর",
+      "character_role_en": "Local teenagers",
+      "portrait_id": "teen_delegation",
+      "dialog_bn": "আঙ্কেল, পার্কে বাস্কেটবল কোর্ট দেন। আমরা রাস্তায় খেলি।",
+      "dialog_en": "Uncle, give us a basketball court in the park. We play on the streets.",
+      "left": {
+        "label_bn": "মঞ্জুর",
+        "label_en": "Approved",
+        "effects": {
+          "janata": 4,
+          "tohobil": -5
+        }
+      },
+      "right": {
+        "label_bn": "পড়ালেখায় মন দাও",
+        "label_en": "Focus on studies",
+        "effects": {
+          "janata": -3,
+          "dol": 2
+        }
+      }
+    },
+    {
+      "id": "S08",
+      "character_name_bn": "শাহিদুল হক",
+      "character_name_en": "Shahidul Haque",
+      "character_role_bn": "দলীয় কর্মী",
+      "character_role_en": "Party worker",
+      "portrait_id": "shahidul_haque",
+      "dialog_bn": "ভাই, কী বলব! আপনার মুখ দেখে আজ সকালটাই ভালো লাগতেছে। এক মিনিট—একটা সেলফি! ফেসবুকে দেব!",
+      "dialog_en": "Bhai, what can I say! Just seeing your face has made my whole morning. One minute — one selfie! For Facebook!",
+      "left": {
+        "label_bn": "সেলফি নেন",
+        "label_en": "Take the selfie",
+        "effects": {
+          "dol": 2,
+          "janata": -2
+        }
+      },
+      "right": {
+        "label_bn": "কাজ করো",
+        "label_en": "Back to work",
+        "effects": {
+          "dol": -2,
+          "tohobil": 2
+        }
+      }
+    },
+    {
+      "id": "S14",
+      "character_name_bn": "করিম মিয়া",
+      "character_name_en": "Karim Miah",
+      "character_role_bn": "বাসিন্দা",
+      "character_role_en": "Resident",
+      "portrait_id": "karim_miah",
+      "dialog_bn": "ভাই, ছয় মাস হয়ে গেছে। ব্যবসা ভালো না। আজই দিতে হবে এমন না — একটু সময় দেন, পরের মাসে নিশ্চয়ই।",
+      "dialog_en": "Bhai, six months now. Business is slow. I’m not saying it has to be today — just a little time. Next month for sure.",
+      "left": {
+        "label_bn": "ছাড় দেন",
+        "label_en": "Let it go",
+        "effects": {
+          "janata": 3,
+          "tohobil": -3
+        }
+      },
+      "right": {
+        "label_bn": "আইন সবার জন্য",
+        "label_en": "Law is for everyone",
+        "effects": {
+          "janata": -3,
+          "tohobil": 3
+        }
+      }
+    },
+    {
+      "id": "S27",
+      "character_name_bn": "রেহানা বেগম",
+      "character_name_en": "Rehana Begum",
+      "character_role_bn": "বাসিন্দা",
+      "character_role_en": "Resident",
+      "portrait_id": "rehana_begum",
+      "dialog_bn": "তিন দিন পানি নাই। বাচ্চাদের গোসল করাব কীভাবে? আপনি ছাড়া আর কার কাছে যাব?",
+      "dialog_en": "Three days, no water. How am I supposed to bathe the children? Where do I go if not to you?",
+      "left": {
+        "label_bn": "ডিসিসিকে চাপ দিন",
+        "label_en": "Pressure DNCC",
+        "effects": {
+          "proshashon": -3,
+          "janata": 4
+        }
+      },
+      "right": {
+        "label_bn": "ট্যাঙ্কার পাঠান",
+        "label_en": "Send tankers",
+        "effects": {
+          "tohobil": -4,
+          "janata": 3
+        }
+      }
+    },
+    {
+      "id": "C01",
+      "character_name_bn": "রাফি হোসেন",
+      "character_name_en": "Rafy Hossain",
+      "character_role_bn": "সভাপতি, সাউথ বারিধারা ইয়ুথ ক্লাব",
+      "character_role_en": "President, South Baridhara Youth Club",
+      "portrait_id": "rafy_hossain",
+      "dialog_bn": "ভাই, শুক্রবার এসবিওয়াইসির ফ্রি হেলথ ক্যাম্প। আপনি ফিতা কাটবেন?",
+      "dialog_en": "Bhai, SBYC's free health camp this Friday. Will you cut the ribbon?",
+      "left": {
+        "label_bn": "অবশ্যই আসব",
+        "label_en": "I'll be there",
+        "effects": {
+          "janata": 4,
+          "tohobil": -3
+        }
+      },
+      "right": {
+        "label_bn": "সহকারীকে পাঠাব",
+        "label_en": "Send my deputy",
+        "effects": {
+          "janata": -2,
+          "dol": 2
+        }
+      }
+    },
+    {
+      "id": "A01",
+      "character_name_bn": "ইমাম সাহেব",
+      "character_name_en": "Imam Saheb",
+      "character_role_bn": "মসজিদ কমিটি",
+      "character_role_en": "Mosque committee",
+      "portrait_id": "imam_saheb",
+      "dialog_bn": "কাউন্সিলর সাহেব, মসজিদের মাইক সিস্টেম পুরোনো। আজানের সময় ফাঁসে। ওয়ার্ড ফান্ড থেকে সাহায্য?",
+      "dialog_en": "Councillor sahib, the mosque mic system is failing — cuts out during azan. Help from ward funds?",
+      "left": {
+        "label_bn": "ফান্ড দেন",
+        "label_en": "Approve funds",
+        "effects": {
+          "tohobil": -3,
+          "janata": 3,
+          "dol": 2
+        },
+        "triggers": [
+          "mosque_funded"
+        ]
+      },
+      "right": {
+        "label_bn": "নিজের পকেট থেকে",
+        "label_en": "Personal money",
+        "effects": {
+          "dol": -2,
+          "proshashon": 3
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A02",
+      "character_name_bn": "নাসিমা বেগম",
+      "character_name_en": "Nasima Begum",
+      "character_role_bn": "নিহত শিশুর মা",
+      "character_role_en": "Mother of a hit child",
+      "portrait_id": "broke_resident",
+      "dialog_bn": "ভাই, পৌর গাড়ি আমার ছেলেটাকে চাপা দিয়েছে। আল্লাহর রহমতে বেঁচে গেছে। কিন্তু চিকিৎসার খরচ?",
+      "dialog_en": "Bhai, a city truck hit my son. He survived, alhamdulillah. But the medical bills?",
+      "left": {
+        "label_bn": "চুপচাপ ক্ষতিপূরণ",
+        "label_en": "Pay her quietly",
+        "effects": {
+          "tohobil": -4,
+          "janata": 3
+        },
+        "triggers": [
+          "compensation_paid"
+        ]
+      },
+      "right": {
+        "label_bn": "বীমার মাধ্যমে",
+        "label_en": "Push to insurance",
+        "effects": {
+          "janata": -3,
+          "proshashon": 3
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A03",
+      "character_name_bn": "সালাহউদ্দিন",
+      "character_name_en": "Salahuddin",
+      "character_role_bn": "স্থানীয় ব্যবসায়ী",
+      "character_role_en": "Local trader",
+      "portrait_id": "salahuddin",
+      "dialog_bn": "ভাই, এতা কিছু না — ছোট ভাই-বন্ধুদের মতো। ঈদের সময় তো আপনাদের কষ্ট হয়, আমরা একটু চেষ্টা করি।",
+      "dialog_en": "Bhai, this is nothing — just family helping family. Eid is hard on you all, so we try to make it easier.",
+      "left": {
+        "label_bn": "গ্রহণ করুন",
+        "label_en": "Accept gracefully",
+        "effects": {
+          "tohobil": 4,
+          "proshashon": -3
+        },
+        "triggers": [
+          "taking_envelopes"
+        ]
+      },
+      "right": {
+        "label_bn": "মাফ করেন",
+        "label_en": "Decline politely",
+        "effects": {
+          "dol": -2,
+          "proshashon": 3
+        }
+      }
+    },
+    {
+      "id": "A04",
+      "character_name_bn": "স্কুলের অভিভাবক",
+      "character_name_en": "School parent",
+      "character_role_bn": "অভিভাবক প্রতিনিধি",
+      "character_role_en": "Parents' representative",
+      "portrait_id": "_default",
+      "dialog_bn": "ভাই, স্কুলের সামনে ভাসমান দোকান। বাচ্চারা হাঁটতেও পারে না। কিছু একটা করুন।",
+      "dialog_en": "Bhai, hawkers everywhere in front of the school. Kids can't even walk. Do something.",
+      "left": {
+        "label_bn": "তাড়িয়ে দিন",
+        "label_en": "Evict them",
+        "effects": {
+          "janata": -3,
+          "proshashon": 3
+        }
+      },
+      "right": {
+        "label_bn": "নির্দিষ্ট জায়গা",
+        "label_en": "Designated zone",
+        "effects": {
+          "tohobil": -3,
+          "janata": 2
+        }
+      }
+    },
+    {
+      "id": "A05",
+      "character_name_bn": "মোস্তাফিজুর",
+      "character_name_en": "Mostafizur",
+      "character_role_bn": "বিদ্যুৎ বিভাগের প্রকৌশলী",
+      "character_role_en": "BPDB area engineer",
+      "portrait_id": "sycophant_smile",
+      "dialog_bn": "স্যার, লোডশেডিং নিয়ে অভিযোগ আসতেছে। আপনি যদি একটু পাবলিকলি বলেন আমাদের চেষ্টা চলছে—",
+      "dialog_en": "Sir, complaints about load-shedding are mounting. If you publicly say we're doing our best—",
+      "left": {
+        "label_bn": "বিবৃতি দেন",
+        "label_en": "Defend BPDB",
+        "effects": {
+          "janata": -3,
+          "proshashon": 3
+        }
+      },
+      "right": {
+        "label_bn": "জনতার পক্ষে",
+        "label_en": "Public criticism",
+        "effects": {
+          "janata": 4,
+          "proshashon": -3
+        }
+      }
+    },
+    {
+      "id": "A06",
+      "character_name_bn": "মালতী দেবী",
+      "character_name_en": "Maloti Devi",
+      "character_role_bn": "বিধবা, পেনশনভোগী",
+      "character_role_en": "Widow, pensioner",
+      "portrait_id": "maloti_devi",
+      "dialog_bn": "বাবা, আট মাস হয়ে গেল পেনশন আসে না। অফিসে গিয়ে গিয়ে আর পারি না।",
+      "dialog_en": "Son, eight months and no pension. I can't keep going to the office.",
+      "left": {
+        "label_bn": "ব্যবস্থা নিচ্ছি",
+        "label_en": "Personally fix it",
+        "effects": {
+          "janata": 4,
+          "proshashon": -2
+        }
+      },
+      "right": {
+        "label_bn": "অফিসে যেতে বলেন",
+        "label_en": "Refer to office",
+        "effects": {
+          "janata": -3,
+          "proshashon": 2
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "M01",
+      "character_name_bn": "ওয়ার্ড স্টাফ",
+      "character_name_en": "Ward staff lead",
+      "character_role_bn": "প্রশাসনিক সহকারী",
+      "character_role_en": "Admin assistant",
+      "portrait_id": "_default",
+      "dialog_bn": "কাউন্সিলর সাহেব, ঈদ এসে গেছে। স্টাফরা বোনাসের অপেক্ষায়। ঐতিহ্য ভাঙবেন না নিশ্চয়ই?",
+      "dialog_en": "Councillor sahib, Eid is here. Staff are waiting on bonuses. You won't break tradition, right?",
+      "force_on_day": 110,
+      "left": {
+        "label_bn": "সবাইকে দিন",
+        "label_en": "Pay all bonuses",
+        "effects": {
+          "tohobil": -5,
+          "dol": 3,
+          "janata": 3
+        }
+      },
+      "right": {
+        "label_bn": "প্রতীকী উপহার",
+        "label_en": "Token gift only",
+        "effects": {
+          "tohobil": 3,
+          "dol": -3,
+          "janata": -2
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A07",
+      "character_name_bn": "বশির শেখ",
+      "character_name_en": "Bashir Sheikh",
+      "character_role_bn": "আবাসন ব্যবসায়ী",
+      "character_role_en": "Property developer",
+      "portrait_id": "bashir_sheikh",
+      "dialog_bn": "কাউন্সিলর সাহেব, ব্যাপারটা সিম্পল। প্লট ছয় তলার, আমরা বারো করব। সেফটি মার্জিন তো কাগজের কথা, আসল সেফটি আমার ইঞ্জিনিয়ারদের কাছে। আপনার কী হবে — সেটাও কথা হয়ে যাবে।",
+      "dialog_en": "Councillor sahib, it’s simple. Plot’s zoned for six; we’ll build twelve. Safety margins are paper — the real safety is in my engineers. Your share — that gets sorted, you know me.",
+      "min_year": 2,
+      "max_year": 2,
+      "left": {
+        "label_bn": "অনুমোদন দিন",
+        "label_en": "Approve waivers",
+        "effects": {
+          "proshashon": -3,
+          "tohobil": 7
+        },
+        "triggers": [
+          "tower_approved"
+        ]
+      },
+      "right": {
+        "label_bn": "কোড অনুযায়ী",
+        "label_en": "Hold to code",
+        "effects": {
+          "tohobil": -3,
+          "proshashon": 4
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A08",
+      "character_name_bn": "ডিএনসিসি কর্মকর্তা",
+      "character_name_en": "DNCC officer",
+      "character_role_bn": "বর্জ্য ব্যবস্থাপনা শাখা",
+      "character_role_en": "Waste management dept",
+      "portrait_id": "_default",
+      "dialog_bn": "স্যার, বর্জ্য সংগ্রহের চুক্তি নবায়ন হচ্ছে। এমপি সাহেবের ভাতিজা টেন্ডার চান। ব্যবস্থা?",
+      "dialog_en": "Sir, the garbage contract is up for renewal. The MP's nephew wants the tender. Shall we?",
+      "min_year": 2,
+      "left": {
+        "label_bn": "তাকেই দেন",
+        "label_en": "Award to nephew",
+        "effects": {
+          "proshashon": -3,
+          "dol": 3,
+          "tohobil": 3
+        }
+      },
+      "right": {
+        "label_bn": "প্রকাশ্য টেন্ডার",
+        "label_en": "Open tender",
+        "effects": {
+          "dol": -3,
+          "proshashon": 3,
+          "janata": 3
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A09",
+      "character_name_bn": "ব্রেকিং নিউজ",
+      "character_name_en": "Breaking news",
+      "character_role_bn": "মূল খবর",
+      "character_role_en": "Front page",
+      "portrait_id": "_default",
+      "dialog_bn": "ব্রেকিং: কাউন্সিলরের পিএ ৫০ হাজার টাকা ঘুষ নিতে গিয়ে হাতেনাতে। ট্রেড লাইসেন্স ফাস্ট-ট্র্যাক করার নামে। ভিডিও ভাইরাল।",
+      "dialog_en": "BREAKING: Councillor’s PA caught red-handed taking ৳50,000 to fast-track a trade licence. The video is everywhere.",
+      "min_year": 2,
+      "left": {
+        "label_bn": "পক্ষে দাঁড়ান",
+        "label_en": "Defend publicly",
+        "effects": {
+          "proshashon": -4,
+          "dol": 3
+        },
+        "triggers": [
+          "pa_protected"
+        ]
+      },
+      "right": {
+        "label_bn": "বরখাস্ত",
+        "label_en": "Suspend immediately",
+        "effects": {
+          "dol": -3,
+          "proshashon": 4
+        },
+        "triggers": [
+          "pa_fired"
+        ]
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A10",
+      "character_name_bn": "দুদক তদন্ত কর্মকর্তা",
+      "character_name_en": "ACC investigator",
+      "character_role_bn": "দুর্নীতি দমন কমিশন",
+      "character_role_en": "Anti-Corruption Commission",
+      "portrait_id": "_default",
+      "dialog_bn": "স্যার, দুদকের চিঠি এসেছে। সেলিম সাহেবের লেনদেনের তিন বছরের রেকর্ড চাইছে।",
+      "dialog_en": "Sir, ACC has written. They want three years of Selim's transaction records.",
+      "min_year": 2,
+      "requires_flags": [
+        "pa_protected"
+      ],
+      "left": {
+        "label_bn": "গোপন রাখুন",
+        "label_en": "Stonewall",
+        "effects": {
+          "proshashon": -4
+        },
+        "triggers": [
+          "acc_stonewalled"
+        ]
+      },
+      "right": {
+        "label_bn": "সব দিন",
+        "label_en": "Cooperate fully",
+        "effects": {
+          "dol": -3,
+          "proshashon": 4
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A11",
+      "character_name_bn": "কামরুল আহমেদ",
+      "character_name_en": "Kamrul Ahmed",
+      "character_role_bn": "সাংবাদিক, ডেইলি স্টার",
+      "character_role_en": "Reporter, The Daily Star",
+      "portrait_id": "_default",
+      "dialog_bn": "কাউন্সিলর সাহেব, ডেইলি স্টার থেকে কামরুল আহমেদ। সেলিম মামলায় আপনার পক্ষের একটা বক্তব্য আজ পাব — না পেলে ছাপাব 'মন্তব্য দিতে অস্বীকৃতি'।",
+      "dialog_en": "Councillor sahib, Kamrul Ahmed from The Daily Star. I’m taking your statement on the Selim case today — if I don’t get one, I’ll print ‘declined to comment.’",
+      "min_year": 2,
+      "requires_flags": [
+        "pa_protected"
+      ],
+      "left": {
+        "label_bn": "রাজনৈতিক ষড়যন্ত্র",
+        "label_en": "\"Witch hunt\" statement",
+        "effects": {
+          "janata": -4,
+          "dol": 2
+        }
+      },
+      "right": {
+        "label_bn": "ভুল হয়েছে",
+        "label_en": "Concede mistakes",
+        "effects": {
+          "dol": -2,
+          "janata": 3
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A12",
+      "character_name_bn": "মধ্যরাতের ফোন",
+      "character_name_en": "2am phone call",
+      "character_role_bn": "থানা থেকে",
+      "character_role_en": "From the station",
+      "portrait_id": "_default",
+      "dialog_bn": "ভাই, সেলিম সাহেবকে গ্রেফতার করেছে। থানায় বসা। আইনজীবী?",
+      "dialog_en": "Bhai, they've arrested Selim. He's at the station. Lawyer?",
+      "min_year": 2,
+      "requires_flags": [
+        "pa_protected"
+      ],
+      "left": {
+        "label_bn": "আইনজীবী দিন",
+        "label_en": "Hire defense lawyer",
+        "effects": {
+          "tohobil": -5
+        },
+        "triggers": [
+          "pa_loyal"
+        ]
+      },
+      "right": {
+        "label_bn": "নিজেকে আলাদা",
+        "label_en": "Public distance",
+        "effects": {
+          "dol": -3,
+          "proshashon": 2
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A13",
+      "character_name_bn": "মিসেস তাহেরা",
+      "character_name_en": "Mrs. Tahera",
+      "character_role_bn": "প্রধান শিক্ষক, বালিকা স্কুল",
+      "character_role_en": "Headmistress, girls' school",
+      "portrait_id": "_default",
+      "dialog_bn": "কাউন্সিলর সাহেব, স্কুলের পেছনে ছেলেরা মাদক বিক্রি করছে। মেয়েদের ভয় লাগে। পুলিশ চুপ।",
+      "dialog_en": "Councillor sahib, boys are dealing drugs behind the school. Girls are afraid. The police stay silent.",
+      "min_year": 2,
+      "left": {
+        "label_bn": "অভিযান চালান",
+        "label_en": "Police raid",
+        "effects": {
+          "janata": 4,
+          "dol": -2
+        }
+      },
+      "right": {
+        "label_bn": "সতর্ক করেন",
+        "label_en": "Quiet warning",
+        "effects": {
+          "janata": -3,
+          "dol": 3
+        }
+      }
+    },
+    {
+      "id": "A14",
+      "character_name_bn": "মাদ্রাসা কমিটি",
+      "character_name_en": "Madrasa committee",
+      "character_role_bn": "বায়তুল মাল কমিটি",
+      "character_role_en": "Charity committee",
+      "portrait_id": "_default",
+      "dialog_bn": "আস-সালামু আলাইকুম, কাউন্সিলর সাহেব। আল্লাহর রহমতে পঞ্চাশজন এতিম ছেলের পড়াশোনার ব্যবস্থা আমরা করতে চাই — আপনার একটু সহযোগিতা পেলে কাজটা পূর্ণ হয়।",
+      "dialog_en": "Assalamu alaikum, Councillor sahib. By Allah’s grace we wish to fund fifty orphans’ studies — a little support from you would complete the work.",
+      "min_year": 2,
+      "dialog_variants": {
+        "islami_oikko": {
+          "dialog_bn": "ভাই, ৫০ এতিম ছেলেকে ইসলামি শিক্ষায় দাঁড় করানো ফরজ কাজ। আপনিই আমাদের একমাত্র ভরসা।",
+          "dialog_en": "Bhai, raising 50 orphans through Islamic education is a sacred duty. You're our only hope."
+        }
+      },
+      "left": {
+        "label_bn": "অনুদান দেন",
+        "label_en": "Fund 50 students",
+        "effects": {
+          "tohobil": -4,
+          "janata": 3
+        }
+      },
+      "right": {
+        "label_bn": "বেসরকারি দাতাদের কাছে",
+        "label_en": "Refer to private donors",
+        "effects": {
+          "dol": -2,
+          "tohobil": 2
+        }
+      }
+    },
+    {
+      "id": "A15",
+      "character_name_bn": "এমপির অফিস",
+      "character_name_en": "MP's office",
+      "character_role_bn": "ব্যক্তিগত সচিব",
+      "character_role_en": "Personal secretary",
+      "portrait_id": "sycophant_smile",
+      "dialog_bn": "ভাই, এমপি সাহেবের ভাতিজা ভিকারুননিসায় ভর্তি চায়। জোন আউট। আপনি দেখলে ভালো হবে।",
+      "dialog_en": "Bhai, the MP's nephew wants Viqarunnisa admission. Out of zone. If you handle it, things go smoother.",
+      "min_year": 2,
+      "left": {
+        "label_bn": "ব্যবস্থা করেন",
+        "label_en": "Make it happen",
+        "effects": {
+          "dol": 3,
+          "proshashon": -4
+        }
+      },
+      "right": {
+        "label_bn": "নিয়ম মেনে",
+        "label_en": "Apply normally",
+        "effects": {
+          "dol": -3,
+          "proshashon": 3
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A16",
+      "character_name_bn": "প্রতিদ্বন্দ্বী কাউন্সিলর",
+      "character_name_en": "Rival councillor",
+      "character_role_bn": "ওয়ার্ড ৩৬",
+      "character_role_en": "Ward 36",
+      "portrait_id": "_default",
+      "dialog_bn": "কাউন্সিলর সাহেব, এ বছর যৌথ ইফতার করি? ওয়ার্ড ৩৬ আর ৩৭ একসাথে। জনগণ ভালো বার্তা পাবে।",
+      "dialog_en": "Councillor sahib, joint Iftar this year? Wards 36 and 37 together. Good message to the public.",
+      "min_year": 2,
+      "left": {
+        "label_bn": "রাজি",
+        "label_en": "Accept",
+        "effects": {
+          "janata": 4,
+          "dol": -3
+        }
+      },
+      "right": {
+        "label_bn": "এ বছর না",
+        "label_en": "Decline",
+        "effects": {
+          "janata": -3,
+          "dol": 3
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A17",
+      "character_name_bn": "জাহাঙ্গীর",
+      "character_name_en": "Jahangir",
+      "character_role_bn": "বস্তি কমিটি প্রধান",
+      "character_role_en": "Slum committee head",
+      "portrait_id": "broke_resident",
+      "dialog_bn": "কাউন্সিলর সাহেব, সিটি কর্পোরেশন উচ্ছেদ নোটিশ দিয়েছে। ১২০ পরিবার, ২ মাস সময়। কিছু একটা করুন।",
+      "dialog_en": "Councillor sahib, the City Corp has issued an eviction notice. 120 families, 2 months. Do something.",
+      "min_year": 2,
+      "left": {
+        "label_bn": "বিরুদ্ধে দাঁড়ান",
+        "label_en": "Fight eviction",
+        "effects": {
+          "janata": 5,
+          "proshashon": -4
+        }
+      },
+      "right": {
+        "label_bn": "নিরপেক্ষ থাকুন",
+        "label_en": "Stay neutral",
+        "effects": {
+          "janata": -4,
+          "proshashon": 3
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "M02",
+      "character_name_bn": "ওয়ার্ড স্টাফ",
+      "character_name_en": "Ward staff lead",
+      "character_role_bn": "মাঠ পরিদর্শন",
+      "character_role_en": "Field report",
+      "portrait_id": "_default",
+      "dialog_bn": "স্যার, ওয়ার্ড ৩৬-৩৭-৩৮ পানির নিচে। কোমর সমান। গাড়ি থেকে দেখবেন, নাকি নেমে?",
+      "dialog_en": "Sir, Wards 36-37-38 are underwater. Waist-deep. Will you see from the car, or get down and see?",
+      "force_on_day": 520,
+      "min_year": 2,
+      "left": {
+        "label_bn": "নেমে দেখুন",
+        "label_en": "Walk through it",
+        "effects": {
+          "tohobil": -3,
+          "janata": 7
+        },
+        "triggers": [
+          "flood_walk"
+        ]
+      },
+      "right": {
+        "label_bn": "অফিস থেকে বিবৃতি",
+        "label_en": "Statement from office",
+        "effects": {
+          "janata": -4,
+          "dol": 2
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A18",
+      "character_name_bn": "জরুরি খবর",
+      "character_name_en": "Breaking news",
+      "character_role_bn": "ব্রেকিং নিউজ",
+      "character_role_en": "Breaking",
+      "portrait_id": "_default",
+      "dialog_bn": "ব্রেকিং: ওয়ার্ড ৩৭-এ ১২ তলা ভবন ধস। ৭ জন নিহত, ২৩ আহত। ভবনের অনুমোদন কাউন্সিলরের সুপারিশে।",
+      "dialog_en": "BREAKING: 12-story building collapses in Ward 37. 7 dead, 23 injured. Permit approved on the Councillor's recommendation.",
+      "force_on_day": 900,
+      "min_year": 3,
+      "requires_flags": [
+        "tower_approved"
+      ],
+      "left": {
+        "label_bn": "দায় নিন",
+        "label_en": "Take responsibility",
+        "effects": {
+          "dol": -7,
+          "janata": 5,
+          "proshashon": 3
+        },
+        "triggers": [
+          "tower_collapsed"
+        ]
+      },
+      "right": {
+        "label_bn": "ঠিকাদার দায়ী",
+        "label_en": "Blame contractor",
+        "effects": {
+          "janata": -7,
+          "dol": 3
+        },
+        "triggers": [
+          "tower_blamed_contractor",
+          "tower_collapsed"
+        ]
+      },
+      "oneshot": true
+    },
+    {
+      "id": "S24",
+      "character_name_bn": "তাসনিম আক্তার",
+      "character_name_en": "Tasnim Akhter",
+      "character_role_bn": "স্কুল শিক্ষক",
+      "character_role_en": "School teacher",
+      "portrait_id": "tasnim_akhter",
+      "dialog_bn": "কাউন্সিলর সাহেব, আমি স্কুলে পড়াই। বাড়িওয়ালা তিন মাস ধরে পানি বন্ধ করে রেখেছে। একা থাকি বলে — এই-ই কারণ। আমি কারও কাছে যেতে চাইনি, কিন্তু এবার যেতে হলো।",
+      "dialog_en": "Councillor sahib, I teach at a school. The landlord has cut my water for three months. Because I live alone — that is the only reason. I never wanted to come to anyone. This time I had to.",
+      "min_year": 3,
+      "left": {
+        "label_bn": "বাড়িওয়ালার সাথে কথা",
+        "label_en": "Confront the landlord",
+        "effects": {
+          "janata": 4,
+          "dol": -3
+        }
+      },
+      "right": {
+        "label_bn": "আইনের পথে",
+        "label_en": "Refer to courts",
+        "effects": {
+          "janata": -3,
+          "proshashon": 3
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A19",
+      "character_name_bn": "ডা. শাহরিয়ার",
+      "character_name_en": "Dr. Shahriar",
+      "character_role_bn": "ওয়ার্ড স্বাস্থ্য কর্মকর্তা",
+      "character_role_en": "Ward health officer",
+      "portrait_id": "dr_shahriar",
+      "dialog_bn": "স্যার, এই সপ্তাহে ১৪ জন। গত সপ্তাহে ছিল ৬। গ্রাফটা উপরের দিকে। ফগিংয়ের পয়সা শেষ। অনুমোদন দিন — কাল সকাল থেকেই শুরু করতে চাই।",
+      "dialog_en": "Sir, fourteen cases this week. Six the week before. The curve is climbing. Fogging funds are out. Approve and we begin tomorrow morning.",
+      "min_year": 3,
+      "left": {
+        "label_bn": "অনুমোদন দিন",
+        "label_en": "Reallocate now",
+        "effects": {
+          "tohobil": -4,
+          "janata": 4,
+          "proshashon": 3
+        }
+      },
+      "right": {
+        "label_bn": "ডিএনসিসির জন্য অপেক্ষা",
+        "label_en": "Wait for DNCC",
+        "effects": {
+          "janata": -4,
+          "proshashon": -3
+        }
+      }
+    },
+    {
+      "id": "A20",
+      "character_name_bn": "আরিফুল ভাই",
+      "character_name_en": "Ariful bhai",
+      "character_role_bn": "স্কুলের পুরোনো বন্ধু",
+      "character_role_en": "Old school friend",
+      "portrait_id": "_default",
+      "dialog_bn": "ভাই, আমার অবস্থা ভালো না। ছেলেমেয়ের পড়ার খরচ চালাতে পারছি না। অফিসে একটা ড্রাইভারের কাজ?",
+      "dialog_en": "Bhai, things aren't good. Can't afford the kids' school. A driver's job at your office?",
+      "min_year": 3,
+      "left": {
+        "label_bn": "চাকরিতে নিন",
+        "label_en": "Hire him",
+        "effects": {
+          "dol": 2,
+          "proshashon": -4
+        }
+      },
+      "right": {
+        "label_bn": "প্রশিক্ষণে পাঠান",
+        "label_en": "Refer to training",
+        "effects": {
+          "dol": -2,
+          "proshashon": 2
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A21",
+      "character_name_bn": "ওসি হাসান",
+      "character_name_en": "OC Hassan",
+      "character_role_bn": "থানার ভারপ্রাপ্ত",
+      "character_role_en": "Officer-in-charge",
+      "portrait_id": "_default",
+      "dialog_bn": "কাউন্সিলর সাহেব, একটা মৃত্যু লকআপে। এলাকা গরম। আপনি একটু বিবৃতি দিলে—সব ঠাণ্ডা।",
+      "dialog_en": "Councillor sahib, a custodial death. Tensions are rising. A calming statement from you and it all settles.",
+      "min_year": 3,
+      "left": {
+        "label_bn": "বিবৃতি দিন",
+        "label_en": "Issue statement",
+        "effects": {
+          "proshashon": 4,
+          "janata": -4
+        },
+        "triggers": [
+          "oc_owes_you"
+        ]
+      },
+      "right": {
+        "label_bn": "তদন্ত চাই",
+        "label_en": "Demand inquiry",
+        "effects": {
+          "proshashon": -4,
+          "janata": 5
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A22",
+      "character_name_bn": "শারমিন আপা",
+      "character_name_en": "Sharmin Apa",
+      "character_role_bn": "এনজিও কর্মী",
+      "character_role_en": "NGO worker",
+      "portrait_id": "_default",
+      "dialog_bn": "ভাই, একটা রোহিঙ্গা পরিবার আশ্রয় চাইছে। চারটা বাচ্চা। পাবলিক জানলে গণ্ডগোল। কী করব?",
+      "dialog_en": "Bhai, a Rohingya family needs shelter. Four children. Trouble if it goes public. What do we do?",
+      "min_year": 3,
+      "left": {
+        "label_bn": "চুপচাপ এনজিওতে",
+        "label_en": "Quiet NGO referral",
+        "effects": {
+          "tohobil": -2,
+          "janata": 3
+        }
+      },
+      "right": {
+        "label_bn": "পারব না",
+        "label_en": "Refuse outright",
+        "effects": {
+          "janata": -4,
+          "dol": 3
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A23",
+      "character_name_bn": "বশির শেখ",
+      "character_name_en": "Bashir Sheikh",
+      "character_role_bn": "আবাসন ব্যবসায়ী",
+      "character_role_en": "Property developer",
+      "portrait_id": "bashir_sheikh",
+      "dialog_bn": "কাউন্সিলর সাহেব, প্রথমটায় তো আমরা সবাই খুশি ছিলাম। দ্বিতীয়টা শুরু করি? এবার একটু বড় প্রকল্প — এবং আপনার অংশটাও একটু বড়।",
+      "dialog_en": "Councillor sahib, the first one made everyone happy. Shall we start the second? Bigger project this time — and a bigger share for you.",
+      "min_year": 3,
+      "requires_flags": [
+        "tower_approved"
+      ],
+      "blocked_by_flags": [
+        "tower_blamed_contractor"
+      ],
+      "left": {
+        "label_bn": "অনুমোদন",
+        "label_en": "Approve again",
+        "effects": {
+          "tohobil": 8,
+          "proshashon": -4
+        },
+        "triggers": [
+          "tower2_approved"
+        ]
+      },
+      "right": {
+        "label_bn": "এবার না",
+        "label_en": "Refuse",
+        "effects": {
+          "tohobil": -3,
+          "proshashon": 4
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A24",
+      "character_name_bn": "দলীয় সহ-সভাপতি",
+      "character_name_en": "Party Vice-President",
+      "character_role_bn": "কেন্দ্রীয় কমিটি",
+      "character_role_en": "Central committee",
+      "portrait_id": "sycophant_smile",
+      "dialog_bn": "ভাই, বুঝতেই পারছেন — নির্বাচন আসছে। কেন্দ্রীয় কমিটি পাঁচ লাখ চায় প্রত্যেকের কাছ থেকে। আপনি প্রথম পঁয়ত্রিশের একজন। দেরি করলে নামটা মনে রাখা হবে।",
+      "dialog_en": "Bhai, you understand — election season. Central committee wants ৳5 lakh from each of us. You’re one of the top thirty-five. Delay, and the name gets remembered.",
+      "min_year": 3,
+      "left": {
+        "label_bn": "পরিশোধ করুন",
+        "label_en": "Pay",
+        "effects": {
+          "tohobil": -7,
+          "dol": 4
+        }
+      },
+      "right": {
+        "label_bn": "এবার না",
+        "label_en": "Refuse",
+        "effects": {
+          "dol": -5,
+          "proshashon": 3
+        }
+      }
+    },
+    {
+      "id": "A25",
+      "character_name_bn": "সুকুমার বাবু",
+      "character_name_en": "Sukumar Babu",
+      "character_role_bn": "পূজা কমিটি",
+      "character_role_en": "Puja committee",
+      "portrait_id": "sukumar_babu",
+      "dialog_bn": "কাউন্সিলর সাহেব, মণ্ডপের জায়গা ঠিক হয়েছে। কিন্তু কিছু লোক এসে বলে গেছে — 'এ বছর বন্ধ থাকুক।' আমরা ভয় পেয়ে গেছি। আপনি ছাড়া আর কে আমাদের?",
+      "dialog_en": "Councillor sahib, the pandal site is set. But some men came and said, ‘Let it stay closed this year.’ We are frightened. Who do we have, if not you?",
+      "min_year": 3,
+      "dialog_variants": {
+        "islami_oikko": {
+          "dialog_bn": "কাউন্সিলর সাহেব, পূজার প্যান্ডেল চাই। জানি, আপনার দলের একটা অংশ বিরোধী। তবু আপনি আমাদের কাউন্সিলর।",
+          "dialog_en": "Councillor sahib, we want a puja pandal. I know part of your party opposes it. But you are still our councillor."
+        }
+      },
+      "left": {
+        "label_bn": "পুলিশ পাহারা",
+        "label_en": "Police protection",
+        "effects": {
+          "janata": 5,
+          "dol": -3
+        }
+      },
+      "right": {
+        "label_bn": "অন্য জায়গায়",
+        "label_en": "Suggest other venue",
+        "effects": {
+          "janata": -3,
+          "proshashon": 2
+        }
+      }
+    },
+    {
+      "id": "A26",
+      "character_name_bn": "দুদক তদন্তকারী",
+      "character_name_en": "ACC investigator",
+      "character_role_bn": "মাঠ পর্যায়",
+      "character_role_en": "Field-level",
+      "portrait_id": "_default",
+      "dialog_bn": "স্যার, কয়েকজন আপনার বিরুদ্ধে অভিযোগ দিয়েছে। 'এনভেলপ-গিফট'। আমরা একসাথে কাজ করতে পারি কি?",
+      "dialog_en": "Sir, complaints have come in against you. 'Envelope gifts.' Can we... work together?",
+      "min_year": 3,
+      "requires_flags": [
+        "taking_envelopes"
+      ],
+      "left": {
+        "label_bn": "মিটিয়ে দেন",
+        "label_en": "Settle quietly",
+        "effects": {
+          "tohobil": -7,
+          "proshashon": 3
+        }
+      },
+      "right": {
+        "label_bn": "প্রতিরোধ",
+        "label_en": "Fight charges",
+        "effects": {
+          "proshashon": -4,
+          "dol": 2
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A27",
+      "character_name_bn": "কামাল",
+      "character_name_en": "Kamal",
+      "character_role_bn": "করিম মিয়ার ছেলে",
+      "character_role_en": "Karim Miah's son",
+      "portrait_id": "broke_resident",
+      "dialog_bn": "কাউন্সিলর ভাই, আব্বু সিরিয়াস। আইসিইউ লাগবে। আপনি একটা কল দিলে—",
+      "dialog_en": "Councillor bhai, my father is serious. Needs ICU. If you make one call—",
+      "min_year": 3,
+      "left": {
+        "label_bn": "ব্যবস্থা নিন",
+        "label_en": "Make the call",
+        "effects": {
+          "janata": 4,
+          "proshashon": -2
+        },
+        "triggers": [
+          "karim_helped"
+        ]
+      },
+      "right": {
+        "label_bn": "অফিসে যেতে বলেন",
+        "label_en": "Refer to office",
+        "effects": {
+          "janata": -3
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "M03",
+      "character_name_bn": "ডা. শাহরিয়ার",
+      "character_name_en": "Dr. Shahriar",
+      "character_role_bn": "ওয়ার্ড স্বাস্থ্য",
+      "character_role_en": "Ward health",
+      "portrait_id": "dr_shahriar",
+      "dialog_bn": "স্যার, কোরবানির বর্জ্য রাস্তায়। দুর্গন্ধ, মাছি, ভয়। জরুরি পরিষ্কার?",
+      "dialog_en": "Sir, qurbani waste in the streets. Stench, flies, fear. Emergency cleanup?",
+      "force_on_day": 1080,
+      "left": {
+        "label_bn": "জরুরি ভিত্তিতে",
+        "label_en": "Emergency overtime",
+        "effects": {
+          "tohobil": -4,
+          "janata": 4
+        }
+      },
+      "right": {
+        "label_bn": "একটু সময় দিন",
+        "label_en": "Wait it out",
+        "effects": {
+          "janata": -4
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A28",
+      "character_name_bn": "যুব সংগঠক",
+      "character_name_en": "Youth wing organizer",
+      "character_role_bn": "দলের যুব শাখা",
+      "character_role_en": "Party youth wing",
+      "portrait_id": "_default",
+      "dialog_bn": "ভাই, বিরোধীরা আপনার পোস্টার ছিঁড়ছে। আমাদেরও পাল্টা দরকার। বাজেট?",
+      "dialog_en": "Bhai, opposition's tearing your posters. We need a counter-blitz. Budget?",
+      "min_year": 4,
+      "left": {
+        "label_bn": "অর্থ ছাড়ুন",
+        "label_en": "Fund counter-blitz",
+        "effects": {
+          "tohobil": -5,
+          "dol": 4
+        }
+      },
+      "right": {
+        "label_bn": "ছেড়ে দিন",
+        "label_en": "Ignore",
+        "effects": {
+          "dol": -3,
+          "janata": 2
+        }
+      }
+    },
+    {
+      "id": "A29",
+      "character_name_bn": "রহমান সাহেব",
+      "character_name_en": "Rahman Saheb",
+      "character_role_bn": "প্রতিপক্ষের বার্তাবাহক",
+      "character_role_en": "Rival party emissary",
+      "portrait_id": "sycophant_smile",
+      "dialog_bn": "কাউন্সিলর সাহেব, আমাদের দলে চলে আসেন। ওয়ার্ড চেয়ারম্যানের পদ আপনারই। এমপির আশীর্বাদ আছে।",
+      "dialog_en": "Councillor sahib, come to us. The Ward Chairman seat is yours. The MP has blessed it.",
+      "min_year": 4,
+      "left": {
+        "label_bn": "চলে আসছি",
+        "label_en": "Accept defection",
+        "effects": {
+          "dol": -8,
+          "tohobil": 5,
+          "proshashon": 4
+        },
+        "triggers": [
+          "defected"
+        ]
+      },
+      "right": {
+        "label_bn": "দল ছাড়ব না",
+        "label_en": "Stay loyal",
+        "effects": {
+          "dol": 4,
+          "tohobil": -2
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A30",
+      "character_name_bn": "রিয়াজ চৌধুরী",
+      "character_name_en": "Riaz Chowdhury",
+      "character_role_bn": "শিল্পপতি",
+      "character_role_en": "Industrialist",
+      "portrait_id": "sycophant_smile",
+      "dialog_bn": "ভাই, ৫ একর জমি দরকার শিল্প পার্কের জন্য। ওয়ার্ডের জন্য অনেক সুবিধা। আমার নামে রেজিস্ট্রি, আপনার নামে কমিশন।",
+      "dialog_en": "Bhai, I need 5 acres for an 'industrial park.' Big benefits to the ward. Registry in my name, commission in yours.",
+      "min_year": 4,
+      "left": {
+        "label_bn": "অনুমোদন",
+        "label_en": "Approve",
+        "effects": {
+          "janata": -5,
+          "proshashon": -4,
+          "tohobil": 9
+        }
+      },
+      "right": {
+        "label_bn": "অসম্ভব",
+        "label_en": "Refuse",
+        "effects": {
+          "tohobil": -3,
+          "janata": 4
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A31",
+      "character_name_bn": "শাকিল",
+      "character_name_en": "Shakil",
+      "character_role_bn": "ছোট চাচাতো ভাই",
+      "character_role_en": "Younger cousin",
+      "portrait_id": "_default",
+      "dialog_bn": "ভাইয়া, আপনার অফিসে একটা সহকারীর কাজ? পরিবার আমার দিকে তাকিয়ে আছে।",
+      "dialog_en": "Bhaiya, an assistant role in your office? The family is looking to me.",
+      "min_year": 4,
+      "left": {
+        "label_bn": "ঠিক আছে",
+        "label_en": "Hire him",
+        "effects": {
+          "dol": 2,
+          "proshashon": -3
+        }
+      },
+      "right": {
+        "label_bn": "নিয়মে আবেদন",
+        "label_en": "Refer to recruitment",
+        "effects": {
+          "dol": -2,
+          "proshashon": 3
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A32",
+      "character_name_bn": "তাহমিদ",
+      "character_name_en": "Tahmid",
+      "character_role_bn": "যুব কর্মী",
+      "character_role_en": "Youth activist",
+      "portrait_id": "tahmid",
+      "dialog_bn": "কাউন্সিলর সাহেব, আমরা সেই বাস্কেটবল কোর্টের ছেলেরা। এখন বড় হয়ে গেছি। আমরা চাই — ওয়ার্ড বাজেট অডিট। প্রকাশ্যে। মানুষ জানুক টাকা কোথায় গেল।",
+      "dialog_en": "Councillor sahib, we’re the kids from the basketball court. Grown now. We want — the ward budget audit. In public. Let people see where the money went.",
+      "min_year": 4,
+      "left": {
+        "label_bn": "প্রকাশ করব",
+        "label_en": "Publish audit",
+        "effects": {
+          "janata": 7,
+          "dol": -4
+        }
+      },
+      "right": {
+        "label_bn": "পরে দেখব",
+        "label_en": "Defer",
+        "effects": {
+          "janata": -4,
+          "dol": 3
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A33",
+      "character_name_bn": "ফারহানা",
+      "character_name_en": "Farhana",
+      "character_role_bn": "টিভি প্রযোজক",
+      "character_role_en": "TV producer",
+      "portrait_id": "_default",
+      "dialog_bn": "কাউন্সিলর সাহেব, ফারহানা — চ্যানেল আই থেকে। প্রাইম টাইম স্পট দিচ্ছি — আধা ঘণ্টা, পুরোটা শুধু আপনার। লাইভ, এডিটিং নেই। কাল রাতেই অন এয়ার।",
+      "dialog_en": "Councillor sahib, Farhana — Channel I. Prime-time slot — half an hour, entirely yours. Live, no editing. On air tomorrow night if you say yes.",
+      "min_year": 4,
+      "left": {
+        "label_bn": "রাজি",
+        "label_en": "Accept",
+        "effects": {
+          "janata": 4,
+          "dol": 3
+        }
+      },
+      "right": {
+        "label_bn": "এ বছর না",
+        "label_en": "Decline",
+        "effects": {
+          "janata": -3,
+          "proshashon": 3
+        }
+      }
+    },
+    {
+      "id": "A34",
+      "character_name_bn": "এমপি (গোপন ফোন)",
+      "character_name_en": "MP (private call)",
+      "character_role_bn": "ফোন কল",
+      "character_role_en": "Phone call",
+      "portrait_id": "_default",
+      "dialog_bn": "শোনো, লাইনে বেশিক্ষণ থাকব না। বস্তিতে ৫০০ করে দাও, প্রতি বাড়িতে। দেড় হাজার ঘর। আগেও করেছি, এবারও হবে। কোনো প্রশ্ন? রাখলাম।",
+      "dialog_en": "Listen, I won’t stay on the line. ৳500 per household in the slum areas. Fifteen hundred families. We’ve done this before, we’ll do it again. Questions? Hanging up.",
+      "min_year": 4,
+      "left": {
+        "label_bn": "ব্যবস্থা করছি",
+        "label_en": "Quietly fund",
+        "effects": {
+          "dol": 5,
+          "tohobil": -7,
+          "proshashon": -3
+        },
+        "triggers": [
+          "votebuying"
+        ]
+      },
+      "right": {
+        "label_bn": "এটা পারব না",
+        "label_en": "Refuse",
+        "effects": {
+          "dol": -4,
+          "proshashon": 3
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A35",
+      "character_name_bn": "ইমাম সাহেব",
+      "character_name_en": "Imam Saheb",
+      "character_role_bn": "মসজিদ কমিটি",
+      "character_role_en": "Mosque committee",
+      "portrait_id": "imam_saheb",
+      "dialog_bn": "কাউন্সিলর সাহেব, মাদ্রাসার অনুদান দিলে জুমার খুতবায় আপনার নাম আসবে। ভোটারদের কাছে বার্তা স্পষ্ট হবে।",
+      "dialog_en": "Councillor sahib, fund the madrasa and your name will be mentioned in Friday khutba. The voters will get the message.",
+      "min_year": 4,
+      "left": {
+        "label_bn": "ব্যবস্থা করছি",
+        "label_en": "Fund it",
+        "effects": {
+          "tohobil": -5,
+          "janata": 4
+        }
+      },
+      "right": {
+        "label_bn": "আজ না",
+        "label_en": "Decline",
+        "effects": {
+          "janata": -3
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A36",
+      "character_name_bn": "ইসি অডিটর",
+      "character_name_en": "EC auditor",
+      "character_role_bn": "নির্বাচন কমিশন",
+      "character_role_en": "Election Commission",
+      "portrait_id": "_default",
+      "dialog_bn": "স্যার, ভোটার তালিকায় কিছু অসঙ্গতি। আমরা চাই সাহায্য করতে—আপনারও সাহায্য চাই।",
+      "dialog_en": "Sir, some inconsistencies in the voter rolls. We want to help — and we'd like yours.",
+      "min_year": 4,
+      "requires_flags": [
+        "votebuying"
+      ],
+      "left": {
+        "label_bn": "মীমাংসা",
+        "label_en": "Bribe",
+        "effects": {
+          "tohobil": -7
+        },
+        "triggers": [
+          "ec_bribed"
+        ]
+      },
+      "right": {
+        "label_bn": "সহযোগিতা",
+        "label_en": "Cooperate",
+        "effects": {
+          "dol": -4,
+          "proshashon": 4
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A37",
+      "character_name_bn": "স্ত্রী",
+      "character_name_en": "Wife",
+      "character_role_bn": "পরিবার",
+      "character_role_en": "Family",
+      "portrait_id": "wife",
+      "dialog_bn": "তুমি বাসায় থাকোই না। ছেলেটা পরীক্ষার আগে আমার কাছে কান্নাকাটি করে — বাবার সাথে কখন কথা হবে। তিন দিন — কাছাকাছি কোথাও। বেশি কিছু চাইনি।",
+      "dialog_en": "You’re never home. Before exams, he cries to me — ‘when will I talk to Abbu?’ Three days. Somewhere close. I never asked for much.",
+      "min_year": 4,
+      "left": {
+        "label_bn": "ঠিক আছে",
+        "label_en": "Take 3 days",
+        "effects": {
+          "dol": -2,
+          "proshashon": 3
+        }
+      },
+      "right": {
+        "label_bn": "এই বছর পরে",
+        "label_en": "Push through",
+        "effects": {
+          "dol": 3,
+          "proshashon": -3
+        }
+      }
+    },
+    {
+      "id": "A38",
+      "character_name_bn": "করিম মিয়া",
+      "character_name_en": "Karim Miah",
+      "character_role_bn": "পুরোনো ভোটার",
+      "character_role_en": "Old voter",
+      "portrait_id": "karim_miah",
+      "dialog_bn": "ভাই, পাড়ায় সবাইকে বলে দিয়েছি—কাউন্সিলর সাহেব আমাদের লোক। ভোট আপনারই।",
+      "dialog_en": "Bhai, I've told everyone in the neighborhood — the Councillor is our man. The vote is yours.",
+      "min_year": 4,
+      "requires_flags": [
+        "karim_helped"
+      ],
+      "left": {
+        "label_bn": "প্রকাশ্যে ধন্যবাদ",
+        "label_en": "Thank him publicly",
+        "effects": {
+          "janata": 4,
+          "dol": 3
+        }
+      },
+      "right": {
+        "label_bn": "ধন্যবাদ",
+        "label_en": "Brief thanks",
+        "effects": {
+          "janata": -3
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "M04",
+      "character_name_bn": "নির্বাচনী ম্যানেজার",
+      "character_name_en": "Campaign manager",
+      "character_role_bn": "ভোটের দিন",
+      "character_role_en": "Election day",
+      "portrait_id": "_default",
+      "dialog_bn": "ভাই, আজ ভোট। বুথে লোক পাঠাব? GOTV করব? আপনার সিদ্ধান্ত।",
+      "dialog_en": "Bhai, voting today. Send people to booths? Aggressive GOTV? Your call.",
+      "force_on_day": 1500,
+      "left": {
+        "label_bn": "জোরদার অপারেশন",
+        "label_en": "Aggressive GOTV",
+        "effects": {
+          "tohobil": -5,
+          "dol": 4
+        }
+      },
+      "right": {
+        "label_bn": "যা হবে হবে",
+        "label_en": "Hands-off",
+        "effects": {
+          "dol": -4
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A39",
+      "character_name_bn": "সাধারণ সম্পাদক",
+      "character_name_en": "Party General Secretary",
+      "character_role_bn": "কেন্দ্রীয় কমিটি",
+      "character_role_en": "Central committee",
+      "portrait_id": "sycophant_smile",
+      "dialog_bn": "কাউন্সিলর সাহেব, আবার বিজয়। কিন্তু পার্টিকে প্রকাশ্যে কৃতজ্ঞতা জরুরি। মঞ্চে?",
+      "dialog_en": "Councillor sahib, victory again. But you must publicly thank the party. On stage?",
+      "min_year": 5,
+      "left": {
+        "label_bn": "মঞ্চে স্পিচ",
+        "label_en": "Effusive thanks",
+        "effects": {
+          "dol": 4,
+          "proshashon": -3
+        }
+      },
+      "right": {
+        "label_bn": "সংক্ষেপে",
+        "label_en": "Brief mention",
+        "effects": {
+          "dol": -3,
+          "proshashon": 3
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A40",
+      "character_name_bn": "জরুরি খবর",
+      "character_name_en": "Breaking news",
+      "character_role_bn": "ব্রেকিং নিউজ",
+      "character_role_en": "Breaking",
+      "portrait_id": "_default",
+      "dialog_bn": "ব্রেকিং: ওয়ার্ড ৩৭-এ আবার ভবন ধস। ১৪ জন নিহত। বশির গ্রুপের প্রকল্প। কাউন্সিলরের অনুমোদন প্রশ্নের মুখে।",
+      "dialog_en": "BREAKING: Another building collapse in Ward 37. 14 dead. Bashir Group project. Councillor's approval under question.",
+      "force_on_day": 1620,
+      "min_year": 5,
+      "requires_flags": [
+        "tower2_approved"
+      ],
+      "left": {
+        "label_bn": "পদত্যাগ",
+        "label_en": "Resign",
+        "effects": {
+          "dol": -9,
+          "janata": 7
+        },
+        "triggers": [
+          "tower2_collapsed"
+        ]
+      },
+      "right": {
+        "label_bn": "অভিযোগ ভিত্তিহীন",
+        "label_en": "Deny everything",
+        "effects": {
+          "janata": -7,
+          "proshashon": -4,
+          "dol": 3
+        },
+        "triggers": [
+          "tower2_collapsed"
+        ]
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A41",
+      "character_name_bn": "সেলিম",
+      "character_name_en": "Selim",
+      "character_role_bn": "পুরোনো পিএ",
+      "character_role_en": "Old PA",
+      "portrait_id": "selim",
+      "dialog_bn": "ভাই, আজ মুক্ত। ভেতরে আপনার নাম একবারও বলিনি। বিদেশে একটা ব্যবস্থা?",
+      "dialog_en": "Bhai, free today. Didn't say your name once inside. Some arrangement abroad?",
+      "min_year": 5,
+      "requires_flags": [
+        "pa_loyal"
+      ],
+      "left": {
+        "label_bn": "ব্যবস্থা করছি",
+        "label_en": "Set him up overseas",
+        "effects": {
+          "tohobil": -7
+        }
+      },
+      "right": {
+        "label_bn": "এই বার না",
+        "label_en": "Refuse",
+        "effects": {
+          "dol": -3
+        },
+        "triggers": [
+          "pa_betrayed"
+        ]
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A42",
+      "character_name_bn": "নাহিদ ইসলাম",
+      "character_name_en": "Nahid Islam",
+      "character_role_bn": "অনুসন্ধানী সাংবাদিক",
+      "character_role_en": "Investigative journalist",
+      "portrait_id": "_default",
+      "dialog_bn": "কাউন্সিলর সাহেব, আপনার পাঁচ বছর নিয়ে বই লিখছি। 'ওয়ার্ড ৩৭'। একটা সিটিং নেবেন?",
+      "dialog_en": "Councillor sahib, I'm writing a book on your five years. 'Ward 37.' Will you sit for an interview?",
+      "min_year": 5,
+      "left": {
+        "label_bn": "রাজি",
+        "label_en": "Sit for it",
+        "effects": {
+          "janata": 3
+        }
+      },
+      "right": {
+        "label_bn": "এড়িয়ে যাব",
+        "label_en": "Decline",
+        "effects": {
+          "janata": -3,
+          "proshashon": 3
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A43",
+      "character_name_bn": "ইমাম সাহেব",
+      "character_name_en": "Imam Saheb",
+      "character_role_bn": "মসজিদ কমিটি",
+      "character_role_en": "Mosque committee",
+      "portrait_id": "imam_saheb",
+      "dialog_bn": "ভাই, এ বছর আমাকে বিরোধী দলের পক্ষে দাঁড়াতে হচ্ছে। বুঝবেন—ধর্ম রাজনীতি না।",
+      "dialog_en": "Bhai, this year I have to stand with the opposition. You'll understand — religion isn't politics.",
+      "min_year": 5,
+      "left": {
+        "label_bn": "অনুদান বন্ধ",
+        "label_en": "Withdraw funding",
+        "effects": {
+          "janata": -4,
+          "dol": 3
+        }
+      },
+      "right": {
+        "label_bn": "তবু চালু",
+        "label_en": "Continue funding",
+        "effects": {
+          "dol": -3,
+          "janata": 3
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A44",
+      "character_name_bn": "প্রকৌশল দপ্তর",
+      "character_name_en": "Engineering dept",
+      "character_role_bn": "নগর পরিকল্পনা",
+      "character_role_en": "City planning",
+      "portrait_id": "_default",
+      "dialog_bn": "স্যার, খালের ওপর সেতু—৩ কোটি টাকা। আপনার পদের শেষ বড় কাজ। অনুমোদন?",
+      "dialog_en": "Sir, the canal bridge — ৳3 crore. Last big work of your tenure. Approve?",
+      "min_year": 5,
+      "left": {
+        "label_bn": "অনুমোদন",
+        "label_en": "Push it through",
+        "effects": {
+          "tohobil": -8,
+          "janata": 7,
+          "dol": 3
+        }
+      },
+      "right": {
+        "label_bn": "পরের জনের জন্য",
+        "label_en": "Defer to next councillor",
+        "effects": {
+          "dol": -3
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A45",
+      "character_name_bn": "সাধারণ সম্পাদক",
+      "character_name_en": "Party General Secretary",
+      "character_role_bn": "মনোনয়ন বোর্ড",
+      "character_role_en": "Nomination board",
+      "portrait_id": "_default",
+      "dialog_bn": "ভাই, পরের বার কে? কেন্দ্র চায় X-কে। কিন্তু এলাকায় Y জনপ্রিয়। আপনার মত?",
+      "dialog_en": "Bhai, who's next? The center wants X. But Y is popular here. Your view?",
+      "min_year": 5,
+      "left": {
+        "label_bn": "X-কে সমর্থন",
+        "label_en": "Back X (party)",
+        "effects": {
+          "dol": 4,
+          "janata": -3
+        }
+      },
+      "right": {
+        "label_bn": "Y-ই উত্তম",
+        "label_en": "Back Y (people)",
+        "effects": {
+          "dol": -4,
+          "janata": 4
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A46",
+      "character_name_bn": "রাফি হোসেন",
+      "character_name_en": "Rafy Hossain",
+      "character_role_bn": "সভাপতি, এসবিওয়াইসি",
+      "character_role_en": "President, SBYC",
+      "portrait_id": "rafy_hossain",
+      "dialog_bn": "ভাই, এসবিওয়াইসির স্থায়ী ভবন। যাওয়ার আগে এই উপহার রেখে যাবেন? যুবকদের জন্য।",
+      "dialog_en": "Bhai, a permanent SBYC building. Would you leave this gift before stepping away? For the youth.",
+      "min_year": 5,
+      "left": {
+        "label_bn": "অনুমোদন",
+        "label_en": "Approve",
+        "effects": {
+          "tohobil": -7,
+          "janata": 5
+        },
+        "triggers": [
+          "sbyc_legacy"
+        ]
+      },
+      "right": {
+        "label_bn": "আজ না",
+        "label_en": "Polite refusal",
+        "effects": {
+          "janata": -3
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A47",
+      "character_name_bn": "প্রধান সহকারী",
+      "character_name_en": "Chief aide",
+      "character_role_bn": "অফিস",
+      "character_role_en": "Office",
+      "portrait_id": "_default",
+      "dialog_bn": "কাউন্সিলর সাহেব, শেষ ঈদ। বড় বিতরণ করবেন? নাকি সংযম?",
+      "dialog_en": "Councillor sahib, your last Eid. Big distribution? Or restraint?",
+      "min_year": 5,
+      "left": {
+        "label_bn": "বড় করে",
+        "label_en": "Big distribution",
+        "effects": {
+          "tohobil": -5,
+          "janata": 4
+        }
+      },
+      "right": {
+        "label_bn": "সংযত",
+        "label_en": "Restrained",
+        "effects": {
+          "janata": -2,
+          "proshashon": 3
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A48",
+      "character_name_bn": "পুরোনো নেতা",
+      "character_name_en": "Party old guard",
+      "character_role_bn": "অবসর প্রস্তাব",
+      "character_role_en": "Retirement offer",
+      "portrait_id": "_default",
+      "dialog_bn": "ভাই, বিদেশে একটা ফ্ল্যাট আছে। আপনার নামে। শুধু পরের প্রার্থীকে প্রকাশ্যে সমর্থন। আরাম করে যেতে পারেন।",
+      "dialog_en": "Bhai, a flat overseas. In your name. Just publicly endorse the next candidate. You can leave in peace.",
+      "min_year": 5,
+      "left": {
+        "label_bn": "ব্যবস্থা",
+        "label_en": "Accept",
+        "effects": {
+          "tohobil": 8,
+          "janata": -4
+        },
+        "triggers": [
+          "corrupt_retirement"
+        ]
+      },
+      "right": {
+        "label_bn": "মাফ করেন",
+        "label_en": "Decline",
+        "effects": {
+          "tohobil": -3,
+          "proshashon": 4
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A49",
+      "character_name_bn": "সাংবাদিক",
+      "character_name_en": "Reporter",
+      "character_role_bn": "অডিট লিক",
+      "character_role_en": "Audit leak",
+      "portrait_id": "_default",
+      "dialog_bn": "কাউন্সিলর সাহেব, পাঁচ বছরের অডিট রিপোর্ট লিক হয়েছে। বিরোধীরা পেয়েছে। কাল ছাপা হবে। আপনার বক্তব্য?",
+      "dialog_en": "Councillor sahib, the five-year audit has leaked. Opposition has it. Prints tomorrow. Your statement?",
+      "min_year": 5,
+      "requires_flags": [
+        "taking_envelopes"
+      ],
+      "left": {
+        "label_bn": "প্রকাশ্যে জবাব",
+        "label_en": "Public defense",
+        "effects": {
+          "janata": -4,
+          "proshashon": -3,
+          "dol": 3
+        }
+      },
+      "right": {
+        "label_bn": "চুপচাপ মীমাংসা",
+        "label_en": "Quiet settlement",
+        "effects": {
+          "tohobil": -7,
+          "dol": -2,
+          "proshashon": 3
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "A50",
+      "character_name_bn": "কামাল",
+      "character_name_en": "Kamal",
+      "character_role_bn": "করিম মিয়ার ছেলে",
+      "character_role_en": "Karim Miah's son",
+      "portrait_id": "_default",
+      "dialog_bn": "ভাইজান, আব্বু চলে গেছেন। জানাজা আজ এশার পর। আপনি আসবেন?",
+      "dialog_en": "Bhaijaan, my father has passed. Janaza tonight after Isha. Will you come?",
+      "min_year": 5,
+      "requires_flags": [
+        "karim_helped"
+      ],
+      "left": {
+        "label_bn": "অবশ্যই আসব",
+        "label_en": "Attend personally",
+        "effects": {
+          "janata": 5
+        }
+      },
+      "right": {
+        "label_bn": "শোকবার্তা",
+        "label_en": "Send a wreath",
+        "effects": {
+          "janata": -4
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "M05",
+      "character_name_bn": "ওয়ার্ড কমিটি",
+      "character_name_en": "Ward committee",
+      "character_role_bn": "শেষ ভাষণ",
+      "character_role_en": "Final speech",
+      "portrait_id": "_default",
+      "dialog_bn": "কাউন্সিলর সাহেব, আজ ওয়ার্ড কমিটিতে আপনার শেষ ভাষণ। কীভাবে শেষ করবেন—সততায়, না বিজয়ে?",
+      "dialog_en": "Councillor sahib, today's your final ward committee speech. How will you end — in honesty, or in triumph?",
+      "force_on_day": 1800,
+      "left": {
+        "label_bn": "সততায়",
+        "label_en": "Honest reflection",
+        "effects": {
+          "janata": 5,
+          "proshashon": 4,
+          "dol": -4
+        }
+      },
+      "right": {
+        "label_bn": "বিজয়ে",
+        "label_en": "Triumphalist",
+        "effects": {
+          "dol": 5,
+          "janata": -4,
+          "proshashon": -3
+        }
+      },
+      "oneshot": true
+    },
+    {
+      "id": "N01",
+      "character_name_bn": "দৈনিক প্রথম আলো",
+      "character_name_en": "Prothom Alo",
+      "character_role_bn": "প্রথম পাতা",
+      "character_role_en": "Front page",
+      "portrait_id": "news_bulletin",
+      "dialog_bn": "ডিএনসিসি ৩০% পানি-শুল্ক বৃদ্ধির ঘোষণা দিয়েছে। ৩৬-৪০ নম্বর ওয়ার্ডে প্রতিবাদ। শহরে গরম ৩৮°।",
+      "dialog_en": "DNCC announces 30% water-tariff hike. Wards 36-40 file protests. Heat index hits 38°C across the city.",
+      "news_bulletin": true,
+      "oneshot": true,
+      "weight": 0.5,
+      "min_year": 1,
+      "max_year": 1,
+      "left": {
+        "label_bn": "পড়ুন",
+        "label_en": "Read on",
+        "effects": {}
+      },
+      "right": {
+        "label_bn": "ফেলে দিন",
+        "label_en": "Set aside",
+        "effects": {}
+      }
+    },
+    {
+      "id": "N02",
+      "character_name_bn": "ডেইলি স্টার",
+      "character_name_en": "Daily Star",
+      "character_role_bn": "অর্থনীতি পাতা",
+      "character_role_en": "Business desk",
+      "portrait_id": "news_bulletin",
+      "dialog_bn": "মূল্যস্ফীতি ৯.৭% ছুঁয়েছে। পেঁয়াজ ১২০ টাকা কেজি। চাল মাছ মাংস সবই দুর্ভাগ্যের নামতা।",
+      "dialog_en": "Inflation hits 9.7%. Onions at ৳120/kg. Rice, fish, mutton — every aisle a small tragedy.",
+      "news_bulletin": true,
+      "oneshot": true,
+      "weight": 0.5,
+      "min_year": 1,
+      "left": {
+        "label_bn": "পড়ুন",
+        "label_en": "Read on",
+        "effects": {}
+      },
+      "right": {
+        "label_bn": "ফেলে দিন",
+        "label_en": "Set aside",
+        "effects": {}
+      }
+    },
+    {
+      "id": "N03",
+      "character_name_bn": "যুগান্তর",
+      "character_name_en": "Jugantor",
+      "character_role_bn": "রাজনীতি",
+      "character_role_en": "Politics",
+      "portrait_id": "news_bulletin",
+      "dialog_bn": "বিরোধী জোটের ডাকে আগামীকাল সকাল-সন্ধ্যা হরতাল। স্কুল-কলেজ বন্ধ। রাজধানীতে নিরাপত্তা জোরদার।",
+      "dialog_en": "Opposition coalition calls a dawn-to-dusk hartal tomorrow. Schools and colleges closed. Capital on heightened alert.",
+      "news_bulletin": true,
+      "oneshot": true,
+      "weight": 0.5,
+      "min_year": 2,
+      "left": {
+        "label_bn": "পড়ুন",
+        "label_en": "Read on",
+        "effects": {}
+      },
+      "right": {
+        "label_bn": "ফেলে দিন",
+        "label_en": "Set aside",
+        "effects": {}
+      }
+    },
+    {
+      "id": "N04",
+      "character_name_bn": "সমকাল",
+      "character_name_en": "Samakal",
+      "character_role_bn": "নগর",
+      "character_role_en": "Metro desk",
+      "portrait_id": "news_bulletin",
+      "dialog_bn": "মহাখালীতে বাস দুর্ঘটনায় ২ জন নিহত, ১১ জন আহত। চালকের লাইসেন্স ছিল না। যানজট ৬ ঘণ্টা।",
+      "dialog_en": "Two killed, eleven injured as a bus crashes in Mohakhali. Driver had no licence. Traffic snarled for six hours.",
+      "news_bulletin": true,
+      "oneshot": true,
+      "weight": 0.5,
+      "min_year": 2,
+      "left": {
+        "label_bn": "পড়ুন",
+        "label_en": "Read on",
+        "effects": {}
+      },
+      "right": {
+        "label_bn": "ফেলে দিন",
+        "label_en": "Set aside",
+        "effects": {}
+      }
+    },
+    {
+      "id": "N05",
+      "character_name_bn": "দৈনিক ইনকিলাব",
+      "character_name_en": "Daily Inqilab",
+      "character_role_bn": "স্বাস্থ্য",
+      "character_role_en": "Health",
+      "portrait_id": "news_bulletin",
+      "dialog_bn": "এক সপ্তাহে ডেঙ্গু রোগী ৪০% বেড়েছে। ডিজিএইচএস হলুদ সতর্কতা জারি করেছে। হাসপাতালে শয্যা সংকট।",
+      "dialog_en": "Dengue caseload up 40% week-on-week. DGHS issues yellow alert. Hospital wards report bed shortages.",
+      "news_bulletin": true,
+      "oneshot": true,
+      "weight": 0.5,
+      "min_year": 3,
+      "left": {
+        "label_bn": "পড়ুন",
+        "label_en": "Read on",
+        "effects": {}
+      },
+      "right": {
+        "label_bn": "ফেলে দিন",
+        "label_en": "Set aside",
+        "effects": {}
+      }
+    },
+    {
+      "id": "N06",
+      "character_name_bn": "বাংলাদেশ প্রতিদিন",
+      "character_name_en": "BD Pratidin",
+      "character_role_bn": "অবকাঠামো",
+      "character_role_en": "Infrastructure",
+      "portrait_id": "news_bulletin",
+      "dialog_bn": "পদ্মা সেতু চালুর তৃতীয় বছরে ৫০ লাখ যানবাহন পার হয়েছে। টোল আদায় বেড়েছে ২২%।",
+      "dialog_en": "Padma Bridge crosses 50 lakh vehicles in its third year. Toll revenue up 22% on last year.",
+      "news_bulletin": true,
+      "oneshot": true,
+      "weight": 0.5,
+      "min_year": 3,
+      "left": {
+        "label_bn": "পড়ুন",
+        "label_en": "Read on",
+        "effects": {}
+      },
+      "right": {
+        "label_bn": "ফেলে দিন",
+        "label_en": "Set aside",
+        "effects": {}
+      }
+    },
+    {
+      "id": "N07",
+      "character_name_bn": "প্রথম আলো",
+      "character_name_en": "Prothom Alo",
+      "character_role_bn": "নির্বাচন",
+      "character_role_en": "Election desk",
+      "portrait_id": "news_bulletin",
+      "dialog_bn": "নির্বাচন কমিশন ভোটার সচেতনতা প্রচার ঘোষণা করেছে। টিভিতে বিজ্ঞাপন, রেডিওতে গান, কেউ শোনে কি না জানা নাই।",
+      "dialog_en": "Election Commission announces voter-awareness campaign. TV spots, radio jingles. Whether anyone is listening is unclear.",
+      "news_bulletin": true,
+      "oneshot": true,
+      "weight": 0.5,
+      "min_year": 4,
+      "left": {
+        "label_bn": "পড়ুন",
+        "label_en": "Read on",
+        "effects": {}
+      },
+      "right": {
+        "label_bn": "ফেলে দিন",
+        "label_en": "Set aside",
+        "effects": {}
+      }
+    },
+    {
+      "id": "N08",
+      "character_name_bn": "দ্য ডেইলি স্টার",
+      "character_name_en": "The Daily Star",
+      "character_role_bn": "অনুসন্ধান",
+      "character_role_en": "Investigation",
+      "portrait_id": "news_bulletin",
+      "dialog_bn": "এক এমপি প্রার্থীর ঘোষিত আয়ের চেয়ে ২ কোটি টাকা বেশি সম্পদ পাওয়া গেছে। দুদক মামলা করেছে।",
+      "dialog_en": "MP candidate found with ৳2 crore in undeclared assets. ACC files case. Name withheld pending arraignment.",
+      "news_bulletin": true,
+      "oneshot": true,
+      "weight": 0.5,
+      "min_year": 4,
+      "left": {
+        "label_bn": "পড়ুন",
+        "label_en": "Read on",
+        "effects": {}
+      },
+      "right": {
+        "label_bn": "ফেলে দিন",
+        "label_en": "Set aside",
+        "effects": {}
+      }
+    },
+    {
+      "id": "N09",
+      "character_name_bn": "কালের কণ্ঠ",
+      "character_name_en": "Kaler Kantho",
+      "character_role_bn": "খেলা",
+      "character_role_en": "Sports",
+      "portrait_id": "news_bulletin",
+      "dialog_bn": "টি-টোয়েন্টিতে পাকিস্তানকে ৫ উইকেটে হারাল বাংলাদেশ। গোটা দেশে রাত জাগা, পটকা, মিছিল।",
+      "dialog_en": "Bangladesh beats Pakistan by 5 wickets in T20I. Crowds out till dawn — drums, firecrackers, processions.",
+      "news_bulletin": true,
+      "oneshot": true,
+      "weight": 0.5,
+      "min_year": 4,
+      "left": {
+        "label_bn": "পড়ুন",
+        "label_en": "Read on",
+        "effects": {}
+      },
+      "right": {
+        "label_bn": "ফেলে দিন",
+        "label_en": "Set aside",
+        "effects": {}
+      }
+    },
+    {
+      "id": "N10",
+      "character_name_bn": "দ্য ডেইলি স্টার",
+      "character_name_en": "The Daily Star",
+      "character_role_bn": "প্রথম পাতা",
+      "character_role_en": "Front page",
+      "portrait_id": "news_bulletin",
+      "dialog_bn": "হাইকোর্টের আদেশ: ওয়ার্ড-পর্যায়ের জমি বরাদ্দ পর্যালোচনা হবে। গত পাঁচ বছরের সব ফাইল আদালতে।",
+      "dialog_en": "High Court orders review of ward-level land allotments. Five years of files summoned to court.",
+      "news_bulletin": true,
+      "oneshot": true,
+      "weight": 0.5,
+      "min_year": 5,
+      "left": {
+        "label_bn": "পড়ুন",
+        "label_en": "Read on",
+        "effects": {}
+      },
+      "right": {
+        "label_bn": "ফেলে দিন",
+        "label_en": "Set aside",
+        "effects": {}
+      }
+    }
+  ]
+}

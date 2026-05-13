@@ -1,0 +1,124 @@
+{
+  "characters": {
+    "azad_chacha": {
+      "name_bn": "আজাদ চাচা",
+      "name_en": "Azad Chacha",
+      "role_bn": "নিরাপত্তা রক্ষী, ওয়ার্ড ৩৭",
+      "role_en": "Security Guard, Ward 37",
+      "bio_bn": "ওয়ার্ড অফিসের গেট পঁচিশ বছর ধরে আগলে রেখেছেন। তিন ছেলে, এক মেয়ে। ঈদের সকালে তিনি কীভাবে সালাম দেন—তা থেকেই বুঝবেন বছরটা কেমন গেছে।",
+      "bio_en": "Has guarded the ward office gate for twenty-five years. Three sons, one daughter. The way he greets you on Eid morning tells you whether the year went well."
+    },
+    "karim_miah": {
+      "name_bn": "করিম মিয়া",
+      "name_en": "Karim Miah",
+      "role_bn": "বাসিন্দা, ওয়ার্ড ৩৭",
+      "role_en": "Resident, Ward 37",
+      "bio_bn": "রোড ১৪-এর কাছে একটা ছোট মুদি দোকান চালান। ট্যাক্সের হিসাব জটিল। ১৯৯৬ সাল থেকে পাড়ার যেদিকে হাওয়া, ভোটও সেদিকেই দিয়েছেন।",
+      "bio_en": "Runs a small grocery near Road 14. His tax record is complicated. Has voted whichever way the neighbourhood was leaning since 1996."
+    },
+    "rehana_begum": {
+      "name_bn": "রেহানা বেগম",
+      "name_en": "Rehana Begum",
+      "role_bn": "বাসিন্দা, ওয়ার্ড ৩৭",
+      "role_en": "Resident, Ward 37",
+      "bio_bn": "কাঁচাবাজারের ঠিক উল্টো দিকের বাড়িটায় থাকেন। তাঁর পানির অভিযোগ এই ওয়ার্ডের সব কাউন্সিলরকে দেখেছে।",
+      "bio_en": "Lives in the building across from the wet market. Her water complaint has outlasted every councillor in living memory."
+    },
+    "shahidul_haque": {
+      "name_bn": "শাহিদুল হক",
+      "name_en": "Shahidul Haque",
+      "role_bn": "দলীয় কর্মী",
+      "role_en": "Party Worker",
+      "bio_bn": "বিশ বছর বয়সে দলে যোগ দিয়েছিলেন। নয় বছরে সাত কাউন্সিলরের পাশে ছবি তোলা শেষ। প্রতিটি সমাবেশের পেছনের সারির চেয়ারগুলোও তাঁর চেনা।",
+      "bio_en": "Joined the party at twenty. Nine years, seven different councillors, the photos are all on his phone. Knows every chair in the back row of every rally."
+    },
+    "bashir_sheikh": {
+      "name_bn": "বশির শেখ",
+      "name_en": "Bashir Sheikh",
+      "role_bn": "আবাসন ব্যবসায়ী",
+      "role_en": "Property Developer",
+      "bio_bn": "আপনার ওয়ার্ডে তিনটে প্লট, ৩৬ নম্বরে আরও দুটো। তাঁর ইঞ্জিনিয়ারদের রিপোর্ট সব সময় পাশ করে। তাঁর ভবন—কখনো কখনো—করে না।",
+      "bio_en": "Owns three plots in your ward, two more in 36. His engineers' reports always pass. His buildings — sometimes — do not."
+    },
+    "imam_saheb": {
+      "name_bn": "ইমাম সাহেব",
+      "name_en": "Imam Saheb",
+      "role_bn": "মসজিদ কমিটি",
+      "role_en": "Mosque Committee",
+      "bio_bn": "ওয়ার্ডের সবচেয়ে বড় মসজিদে জুমার নামাজ পড়ান। তাঁর প্রভাবে যত ভোট পড়ে, কোনো পার্টি অফিস প্রকাশ্যে স্বীকার করবে না।",
+      "bio_en": "Leads juma prayers at the largest masjid in the ward. Influences more votes than any party office likes to admit out loud."
+    },
+    "rafy_hossain": {
+      "name_bn": "রাফি হোসেন",
+      "name_en": "Rafy Hossain",
+      "role_bn": "সভাপতি, এসবিওয়াইসি",
+      "role_en": "President, SBYC",
+      "bio_bn": "২০১৭ সালে সাউথ বারিধারা ইয়ুথ ক্লাব প্রতিষ্ঠা করেছেন। নির্বাচনে দাঁড়ান না। বারবার দাঁড়াতে বলা হয়েছে।",
+      "bio_en": "Founded the South Baridhara Youth Club in 2017. Doesn't run for office. Has been asked, repeatedly."
+    },
+    "tasnim_akhter": {
+      "name_bn": "তাসনিম আক্তার",
+      "name_en": "Tasnim Akhter",
+      "role_bn": "স্কুল শিক্ষক",
+      "role_en": "School Teacher",
+      "bio_bn": "নবম শ্রেণিতে বিজ্ঞান পড়ান। অবিবাহিতা। প্রতি মাসের পয়লা তারিখে ভাড়া দেন—তবু বাড়িওয়ালা পানি বন্ধ রাখেন।",
+      "bio_en": "Teaches science to ninth graders. Single. Pays her rent on the first of every month — and her landlord still cuts her water."
+    },
+    "tahmid": {
+      "name_bn": "তাহমিদ",
+      "name_en": "Tahmid",
+      "role_bn": "যুব কর্মী",
+      "role_en": "Youth Activist",
+      "bio_bn": "দশ বছর আগের বাস্কেটবল কোর্টের ছেলেদের একজন। ছেলেরা বড় হয়েছে। তারা সব মনে রেখেছে।",
+      "bio_en": "One of the basketball-court kids from a decade back. The kids grew up. They remember everything."
+    },
+    "selim": {
+      "name_bn": "সেলিম",
+      "name_en": "Selim",
+      "role_bn": "আপনার পিএ",
+      "role_en": "Your PA",
+      "bio_bn": "দলের চেয়ে বেশি দিন আপনার সাথে আছেন। আপনার অফিসের প্রতিটা ড্রয়ার, কল লিস্টের প্রতিটা নাম—তাঁর জানা।",
+      "bio_en": "Stayed with you longer than your party did. Knows every drawer in your office and every name in your call log."
+    },
+    "maloti_devi": {
+      "name_bn": "মালতী দেবী",
+      "name_en": "Maloti Devi",
+      "role_bn": "বিধবা, পেনশনভোগী",
+      "role_en": "Widow, Pensioner",
+      "bio_bn": "আট বছর আগে স্বামী হারিয়েছেন। তাঁর পেনশন কাগজ তখন থেকেই 'পর্যালোচনাধীন'।",
+      "bio_en": "Lost her husband eight years ago. Her pension paperwork has been 'pending review' ever since."
+    },
+    "salahuddin": {
+      "name_bn": "সালাহউদ্দিন",
+      "name_en": "Salahuddin",
+      "role_bn": "স্থানীয় ব্যবসায়ী",
+      "role_en": "Local Trader",
+      "bio_bn": "প্রধান রাস্তার সবচেয়ে বড় ইলেকট্রনিক্স দোকানের মালিক। ঈদে মিষ্টি নিয়ে আসেন। সাথে প্রত্যাশাও।",
+      "bio_en": "Runs the largest electronics shop on the main road. Brings sweets at Eid. Brings expectations along with them."
+    },
+    "wife": {
+      "name_bn": "স্ত্রী",
+      "name_en": "Your Wife",
+      "role_bn": "পরিবার",
+      "role_en": "Family",
+      "bio_bn": "দলের আগে আপনাকে বিয়ে করেছিলেন। আপনার শাসনামল ও আপনার ধৈর্য—দুটোই তিনি অতিক্রম করবেন।",
+      "bio_en": "Married you before the party did. Will outlast both your tenure and your patience."
+    },
+    "sukumar_babu": {
+      "name_bn": "সুকুমার বাবু",
+      "name_en": "Sukumar Babu",
+      "role_bn": "পূজা কমিটি",
+      "role_en": "Puja Committee",
+      "bio_bn": "তিনটি কলোনির দুর্গা পূজা সমন্বয় করেন। বত্রিশ বছরের রেকর্ড আছে—কোন কাউন্সিলর এসেছিলেন, কে আসেননি।",
+      "bio_en": "Coordinates Durga Puja for three colonies. Has thirty-two years of records of which councillor showed up — and which didn't."
+    },
+    "dr_shahriar": {
+      "name_bn": "ডা. শাহরিয়ার",
+      "name_en": "Dr. Shahriar",
+      "role_bn": "ওয়ার্ড স্বাস্থ্য কর্মকর্তা",
+      "role_en": "Ward Health Officer",
+      "bio_bn": "ঢাকা মেডিকেলে পড়াশোনা। ছয় বছর ধরে ওয়ার্ড অফিসগুলোতে ডেঙ্গু সতর্কতা পাঠাচ্ছেন। আপনিই তৃতীয় কাউন্সিলর যিনি সেগুলো পড়েছেন।",
+      "bio_en": "Trained at Dhaka Medical. Has been writing dengue alerts to ward offices for six years. Yours is the third to actually read them."
+    }
+  }
+}

@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#f1e9d6" />
+  <title>Goddi · গদি</title>
+  <meta name="description" content="Ward 37. Five years. How long will you last? A satirical card-swipe game about Dhaka ward politics — from SBYC." />
+
+  <!-- Canonical / locale -->
+  <link rel="canonical" href="https://godi.sbyc.cloud/" />
+
+  <!-- Open Graph — Facebook, WhatsApp, LinkedIn previews -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Goddi · গদি" />
+  <meta property="og:title" content="Goddi · গদি — Ward 37. Five years. How long will you last?" />
+  <meta property="og:description" content="A satirical card-swipe game about Dhaka ward politics. Swipe left, swipe right, survive your tenure. Bilingual (বাংলা / English)." />
+  <meta property="og:url" content="https://godi.sbyc.cloud/" />
+  <meta property="og:image" content="https://godi.sbyc.cloud/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="bn_BD" />
+
+  <!-- Twitter / X card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Goddi · গদি — Ward 37. Five years." />
+  <meta name="twitter:description" content="A satirical card-swipe game about Dhaka ward politics. Swipe to survive your tenure as Ward 37 Councillor." />
+  <meta name="twitter:image" content="https://godi.sbyc.cloud/assets/og-image.png" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,600&family=Hind+Siliguri:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=Special+Elite&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body data-screen="splash" data-lang="en">
+
+  <!-- Paper grain overlay -->
+  <div class="paper-grain" aria-hidden="true"></div>
+
+  <!-- SBYC logo fade-in — shows once per session before splash settles -->
+  <div class="brand-fade" id="brand-fade" aria-hidden="true">
+    <div class="brand-fade__stamp">
+      <img class="brand-fade__logo" src="/assets/sbyc-logo.png" width="200" height="200" alt="South Baridhara Youth Club" />
+      <p class="brand-fade__text">
+        <span data-lang-en>An SBYC Presentation</span>
+        <span data-lang-bn>এসবিওয়াইসি উপস্থাপনা</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- Top-right controls (always visible) -->
+  <button id="lang-toggle" class="lang-toggle" type="button" aria-label="Toggle language">
+    <span data-lang-en>বাংলা</span>
+    <span data-lang-bn>EN</span>
+  </button>
+  <button id="mute-toggle" class="mute-toggle" type="button" aria-label="Toggle sound">
+    <svg class="mute-toggle__icon mute-toggle__icon--on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M11 5 L6 9 H3 v6 h3 l5 4 Z"/>
+      <path d="M15.5 8.5 Q18 12 15.5 15.5"/>
+      <path d="M18.5 6 Q22 12 18.5 18"/>
+    </svg>
+    <svg class="mute-toggle__icon mute-toggle__icon--off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M11 5 L6 9 H3 v6 h3 l5 4 Z"/>
+      <line x1="16" y1="9" x2="22" y2="15"/>
+      <line x1="22" y1="9" x2="16" y2="15"/>
+    </svg>
+  </button>
+
+  <!-- SPLASH -->
+  <section class="screen" data-screen-id="splash">
+    <div class="splash">
+      <div class="corner-stamp corner-stamp--tl">১৪৩৩</div>
+      <div class="corner-stamp corner-stamp--br">WARD 37</div>
+
+      <div class="splash__title">
+        <h1 class="title-bn">গদি</h1>
+        <p class="title-en">GODDI</p>
+      </div>
+
+      <p class="tagline">
+        <span data-lang-bn>ওয়ার্ড ৩৭। পাঁচ বছর। কতদিন টিকবেন?</span>
+        <span data-lang-en>Ward 37. Five years. How long will you last?</span>
+      </p>
+
+      <button class="btn btn--primary" id="btn-begin">
+        <span data-lang-bn>শুরু করুন</span>
+        <span data-lang-en>BEGIN</span>
+      </button>
+
+      <p class="footer-watermark">
+        <span data-lang-bn>এসবিওয়াইসি উপস্থাপনা</span>
+        <span data-lang-en>An SBYC presentation</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- NAME ENTRY -->
+  <section class="screen" data-screen-id="name">
+    <div class="step">
+      <p class="step__eyebrow">
+        <span data-lang-bn>ধাপ ১ / ২</span>
+        <span data-lang-en>STEP 1 / 2</span>
+      </p>
+      <h2 class="step__title">
+        <span data-lang-bn>আপনার নাম</span>
+        <span data-lang-en>Your name</span>
+      </h2>
+      <p class="step__hint">
+        <span data-lang-bn>এই নামে আপনি ওয়ার্ড ৩৭-এর কাউন্সিলর হবেন।</span>
+        <span data-lang-en>This is the name you'll run as, Councillor.</span>
+      </p>
+
+      <input
+        id="input-name"
+        type="text"
+        class="input"
+        maxlength="30"
+        autocomplete="off"
+        data-placeholder-bn="আপনার নাম লিখুন"
+        data-placeholder-en="Enter your name"
+      />
+      <p id="name-error" class="error" hidden></p>
+
+      <div class="row-buttons">
+        <button class="btn btn--ghost" id="btn-name-back">
+          <span data-lang-bn>পিছনে</span>
+          <span data-lang-en>Back</span>
+        </button>
+        <button class="btn btn--primary" id="btn-name-next">
+          <span data-lang-bn>পরবর্তী</span>
+          <span data-lang-en>Next</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTY SELECT -->
+  <section class="screen" data-screen-id="party">
+    <div class="step">
+      <p class="step__eyebrow">
+        <span data-lang-bn>ধাপ ২ / ২</span>
+        <span data-lang-en>STEP 2 / 2</span>
+      </p>
+      <h2 class="step__title">
+        <span data-lang-bn>দল নির্বাচন</span>
+        <span data-lang-en>Choose your party</span>
+      </h2>
+      <p class="step__hint step__hint--warn">
+        <span data-lang-bn>নির্বাচনের পর পরিবর্তন সম্ভব নয়।</span>
+        <span data-lang-en>Cannot be changed after the run starts.</span>
+      </p>
+
+      <div class="party-grid" id="party-grid"></div>
+
+      <div class="row-buttons">
+        <button class="btn btn--ghost" id="btn-party-back">
+          <span data-lang-bn>পিছনে</span>
+          <span data-lang-en>Back</span>
+        </button>
+        <button class="btn btn--primary" id="btn-party-confirm" disabled>
+          <span data-lang-bn>নিশ্চিত করুন</span>
+          <span data-lang-en>Confirm</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- GAMEPLAY -->
+  <section class="screen" data-screen-id="play">
+    <header class="hud">
+      <div class="hud__left">
+        <span class="rosette" id="hud-rosette"></span>
+        <span class="hud__date" id="hud-date"></span>
+        <span class="hud__sep">·</span>
+        <span class="hud__year" id="hud-year"></span>
+      </div>
+      <div class="hud__arcs" id="hud-arcs" aria-label="Active threads"></div>
+    </header>
+
+    <div class="stats" id="stats">
+      <!-- injected -->
+    </div>
+
+    <div class="card-stage" id="card-stage">
+      <!-- card injected here -->
+    </div>
+
+    <div class="swipe-hint" id="swipe-hint">
+      <span class="swipe-hint__arrow">←</span>
+      <span data-lang-bn>বাম বা ডানে সোয়াইপ</span>
+      <span data-lang-en>Swipe left or right</span>
+      <span class="swipe-hint__arrow">→</span>
+    </div>
+  </section>
+
+  <!-- GAME OVER -->
+  <section class="screen" data-screen-id="gameover">
+    <div class="verdict">
+      <div class="verdict__stamp" id="verdict-stamp">পতন</div>
+      <h2 class="verdict__headline" id="verdict-headline"></h2>
+      <p class="verdict__body" id="verdict-body"></p>
+
+      <div class="verdict__stats">
+        <p class="verdict__meta">
+          <span data-lang-bn>শাসনামল</span>
+          <span data-lang-en>Tenure</span>
+        </p>
+        <p class="verdict__days"><span id="verdict-days">0</span></p>
+        <p class="verdict__meta-sub">
+          <span data-lang-bn>দিন</span>
+          <span data-lang-en>days</span>
+        </p>
+        <div class="verdict__final-stats" id="verdict-final-stats"></div>
+      </div>
+
+      <div class="row-buttons row-buttons--stacked">
+        <button class="btn btn--ghost" id="btn-share-loss">
+          <span data-lang-bn>শেয়ার করুন</span>
+          <span data-lang-en>Share</span>
+        </button>
+        <button class="btn btn--primary" id="btn-restart">
+          <span data-lang-bn>আবার শুরু</span>
+          <span data-lang-en>Play again</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- WIN -->
+  <section class="screen" data-screen-id="win">
+    <div class="verdict verdict--win">
+      <div class="verdict__stamp verdict__stamp--win" id="win-stamp">জয়</div>
+      <h2 class="verdict__headline" id="win-headline"></h2>
+      <p class="verdict__body" id="win-body"></p>
+
+      <div class="verdict__stats">
+        <p class="verdict__meta">
+          <span data-lang-bn>শাসনামল</span>
+          <span data-lang-en>Tenure</span>
+        </p>
+        <p class="verdict__days"><span id="win-days">0</span></p>
+        <p class="verdict__meta-sub">
+          <span data-lang-bn>দিন</span>
+          <span data-lang-en>days</span>
+        </p>
+        <div class="verdict__final-stats" id="win-final-stats"></div>
+      </div>
+
+      <div class="row-buttons row-buttons--stacked">
+        <button class="btn btn--ghost" id="btn-share-win">
+          <span data-lang-bn>শেয়ার করুন</span>
+          <span data-lang-en>Share</span>
+        </button>
+        <button class="btn btn--primary" id="btn-win-restart">
+          <span data-lang-bn>আবার শুরু</span>
+          <span data-lang-en>Play again</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripts (order matters) -->
+  <script src="/js/i18n.js"></script>
+  <script src="/js/audio.js"></script>
+  <script src="/js/portraits.js"></script>
+  <script src="/js/swipe.js"></script>
+  <script src="/js/epilogue.js"></script>
+  <script src="/js/sharecard.js"></script>
+  <script src="/js/game.js"></script>
+</body>
+</html>
