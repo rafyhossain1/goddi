@@ -1524,6 +1524,176 @@
     });
   }
 
+  // ---------- Cameo / sponsorship modal ----------
+  // Three-tier sponsorship menu. Player pays via SBYC channels (link is a
+  // mailto so we don't take payment in-game); we hand-write the card into
+  // the deck during the next content drop. Cameos are tagged [sponsored]
+  // on the card — on-theme for a game about money in politics.
+  const CAMEO_TIERS = [
+    {
+      id: 'stamp',
+      name_bn: 'ছাপ', name_en: 'Stamp',
+      desc_bn: 'নিউজ বুলেটিন কার্ডে আপনার বা আপনার ব্যবসার এক লাইনের উল্লেখ। প্রতি রানে একবার আসে।',
+      desc_en: 'A one-line mention in a news-bulletin card. Appears once during a run.',
+      personal: 2000,
+      business: 3000
+    },
+    {
+      id: 'cameo',
+      name_bn: 'কেমিও', name_en: 'Cameo',
+      desc_bn: 'নাম ও সংলাপ সহ একটি পূর্ণ কার্ড। সাধারণ বাসিন্দা বা দোকানের পোর্ট্রেট। আপনি লাইন লেখেন, আমরা টোন ঠিক করি।',
+      desc_en: 'A full named card with your line of dialog. Generic resident / shopfront portrait. You write it, we polish for tone.',
+      personal: 5000,
+      business: 10000
+    },
+    {
+      id: 'featured',
+      name_bn: 'ফিচারড', name_en: 'Featured',
+      desc_bn: 'কাস্টম পোর্ট্রেট এবং রানে একটি বিশেষ অবস্থান। গল্পের সাথে মানালে পুনঃউল্লেখ। বছরে সীমিত স্লট।',
+      desc_en: 'Custom-drawn portrait and a dedicated card placement. Recurring callbacks if your story fits. Limited slots per year.',
+      personal: 25000,
+      business: 50000
+    }
+  ];
+
+  // Bangla digit helper for prices — uses I18n if available, falls back to
+  // a small inline converter so this works even if I18n hasn't loaded yet.
+  function _bnDigits(n) {
+    if (window.I18n && I18n.toBanglaDigits) return I18n.toBanglaDigits(n);
+    const map = ['০','১','২','৩','৪','৫','৬','৭','৮','৯'];
+    return String(n).replace(/\d/g, d => map[d]);
+  }
+  function _fmtPriceEn(n) { return '৳' + n.toLocaleString('en-IN'); }
+  function _fmtPriceBn(n) {
+    // 5,000 -> ৫,০০০ (Indian grouping is fine; Bangla just localizes digits)
+    return '৳' + _bnDigits(n.toLocaleString('en-IN'));
+  }
+
+  function showCameo() {
+    const tiersHtml = CAMEO_TIERS.map(t => `
+      <div class="cameo-tier" data-tier-id="${t.id}">
+        <div class="cameo-tier__header">
+          <div class="cameo-tier__name">
+            <span data-lang-bn>${t.name_bn}</span>
+            <span data-lang-en>${t.name_en}</span>
+          </div>
+          <div class="cameo-tier__prices">
+            <span class="cameo-tier__price cameo-tier__price--personal">
+              <span class="cameo-tier__price-label">
+                <span data-lang-bn>ব্যক্তিগত</span>
+                <span data-lang-en>Personal</span>
+              </span>
+              <span class="cameo-tier__price-value">
+                <span data-lang-bn>${_fmtPriceBn(t.personal)}</span>
+                <span data-lang-en>${_fmtPriceEn(t.personal)}</span>
+              </span>
+            </span>
+            <span class="cameo-tier__price cameo-tier__price--business">
+              <span class="cameo-tier__price-label">
+                <span data-lang-bn>ব্যবসা</span>
+                <span data-lang-en>Business</span>
+              </span>
+              <span class="cameo-tier__price-value">
+                <span data-lang-bn>${_fmtPriceBn(t.business)}</span>
+                <span data-lang-en>${_fmtPriceEn(t.business)}</span>
+              </span>
+            </span>
+          </div>
+        </div>
+        <p class="cameo-tier__desc">
+          <span data-lang-bn>${t.desc_bn}</span>
+          <span data-lang-en>${t.desc_en}</span>
+        </p>
+      </div>
+    `).join('');
+
+    const overlay = document.createElement('div');
+    overlay.className = 'cameo';
+    overlay.innerHTML = `
+      <div class="cameo__card" role="dialog" aria-modal="true">
+        <button class="cameo__close" type="button" aria-label="Close">&times;</button>
+
+        <p class="cameo__eyebrow">
+          <span data-lang-bn>গদি · কেমিও</span>
+          <span data-lang-en>GODDI · CAMEO</span>
+        </p>
+        <h3 class="cameo__title">
+          <span data-lang-bn>কেমিও স্পনসর করুন</span>
+          <span data-lang-en>Sponsor a cameo</span>
+        </h3>
+        <p class="cameo__lede">
+          <span data-lang-bn>নিজেকে বা আপনার ব্যবসাকে গদির ওয়ার্ড ৩৭-এ স্থায়ী করে রেখে যান। প্রতিটি কেমিও কার্ডে <em>[পৃষ্ঠপোষিত]</em> ট্যাগ থাকবে — যা এই খেলার বিষয়বস্তুর সাথে মানানসই।</span>
+          <span data-lang-en>Put yourself or your business permanently into Ward 37. Every sponsored card carries a small <em>[sponsored]</em> tag — fitting, for a game about envelopes.</span>
+        </p>
+
+        <div class="cameo__tiers">${tiersHtml}</div>
+
+        <div class="cameo__rules">
+          <p class="cameo__rules-heading">
+            <span data-lang-bn>নিয়ম</span>
+            <span data-lang-en>The fine print</span>
+          </p>
+          <ul class="cameo__rules-list">
+            <li>
+              <span data-lang-bn>লিড টাইম ৪–৬ সপ্তাহ। কার্ড লাইভ হওয়ার আগে আপনি প্রিভিউ দেখতে পারবেন।</span>
+              <span data-lang-en>Lead time: 4–6 weeks. You'll see a preview before the card goes live.</span>
+            </li>
+            <li>
+              <span data-lang-bn>শুধু নিজের বা নিজের ব্যবসার কেমিও চলবে। অন্য কারো নাম বললে তাঁর লিখিত অনুমতি লাগবে।</span>
+              <span data-lang-en>You can cameo only yourself or your own business. Naming a third party requires their written consent.</span>
+            </li>
+            <li>
+              <span data-lang-bn>আমরা ব্যঙ্গাত্মক টোনের সাথে মেলে না বা কোনো ব্যক্তি/গোষ্ঠীকে অন্যায়ভাবে আক্রমণ করে — এমন কেমিও ফিরিয়ে দিতে পারি।</span>
+              <span data-lang-en>We may decline cameos that conflict with the satirical tone or unfairly target real people or groups.</span>
+            </li>
+            <li>
+              <span data-lang-bn>সব কার্ডে <strong>[পৃষ্ঠপোষিত]</strong> ট্যাগ থাকবে।</span>
+              <span data-lang-en>Every cameo card is openly labelled <strong>[sponsored]</strong>.</span>
+            </li>
+            <li>
+              <span data-lang-bn>সম্পূর্ণ অর্থ সাউথ বারিধারা ইয়ুথ ক্লাবের ব্যাংক অ্যাকাউন্টে যায় — হোস্টিং খরচ ও ক্লাবের কাজের জন্য।</span>
+              <span data-lang-en>All funds go to the South Baridhara Youth Club bank account — covering hosting and SBYC programs.</span>
+            </li>
+          </ul>
+        </div>
+
+        <a class="cameo__cta" href="mailto:info@southbaridharayouthclub.org?subject=Goddi%20cameo%20enquiry"
+           target="_blank" rel="noopener">
+          <span class="cameo__cta-label">
+            <span data-lang-bn>ইমেল পাঠান</span>
+            <span data-lang-en>Email us</span>
+          </span>
+          <span class="cameo__cta-address">info@southbaridharayouthclub.org</span>
+        </a>
+
+        <p class="cameo__dismiss">
+          <span data-lang-bn>বাইরে ট্যাপ করে বন্ধ করুন</span>
+          <span data-lang-en>Tap outside to close</span>
+        </p>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+    requestAnimationFrame(() => overlay.classList.add('cameo--shown'));
+
+    function dismiss() {
+      overlay.classList.add('cameo--leaving');
+      setTimeout(() => overlay.remove(), 240);
+    }
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) dismiss();
+    });
+    overlay.querySelector('.cameo__close').addEventListener('click', dismiss);
+  }
+
+  function wireCameo() {
+    const btn = document.getElementById('btn-cameo');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      if (window.Sfx) Sfx.playClick();
+      showCameo();
+    });
+  }
+
   // ---------- Badges grid modal ----------
   // Tapping the splash chip opens a grid of all achievements. Locked ones are
   // shown as dashed silhouettes so the player can see what they're chasing.
@@ -1734,6 +1904,7 @@
     wireShare();
     wireLeaderboardButtons();
     wireCredits();
+    wireCameo();
     wireBadgesChip();
     wireMuteToggle();
     handleBrandFade();

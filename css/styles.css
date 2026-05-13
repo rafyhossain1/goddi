@@ -1782,8 +1782,23 @@ body[data-lang="bn"] .mode-card__sub  { font-family: var(--font-bn); font-style:
 }
 
 /* ============================================================
-   Splash extras — Replay intro link + achievement-count chip
+   Splash extras — tiny links row (Credits · Sponsor a cameo) + chip
    ============================================================ */
+.splash__tiny-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: -4px;
+}
+.splash__tiny-sep {
+  color: var(--ink-mute);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  opacity: 0.6;
+}
+
 .splash__tiny-link {
   background: transparent;
   border: none;
@@ -2422,4 +2437,315 @@ body[data-lang="bn"] .badges-modal__dismiss {
   .badge-item__seal { width: 32px; height: 32px; font-size: 16px; }
   .badge-item__name { font-size: 14px; }
   .badge-item__desc { font-size: 12px; }
+}
+
+/* ============================================================
+   Cameo / sponsorship modal — 3-tier menu with prices + rules + CTA
+   ============================================================ */
+.cameo {
+  position: fixed;
+  inset: 0;
+  z-index: 65;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(28, 22, 14, 0.6);
+  opacity: 0;
+  transition: opacity 220ms ease;
+  padding: 20px 12px;
+}
+.cameo--shown   { opacity: 1; }
+.cameo--leaving { opacity: 0; }
+
+.cameo__card {
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-md);
+  padding: 22px 18px 16px;
+  max-width: 460px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 6px 6px 0 var(--ink),
+              0 18px 40px rgba(0, 0, 0, 0.32);
+  transform: scale(0.94);
+  transition: transform 240ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  position: relative;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.cameo--shown .cameo__card { transform: scale(1); }
+
+.cameo__close {
+  position: sticky;
+  top: -8px;
+  align-self: flex-end;
+  margin-right: -8px;
+  margin-bottom: -22px;
+  background: var(--paper);
+  border: none;
+  font-size: 26px;
+  line-height: 1;
+  color: var(--ink-mute);
+  padding: 6px 10px;
+  cursor: pointer;
+  font-family: var(--font-display);
+  transition: color 0.15s ease;
+  z-index: 2;
+}
+.cameo__close:hover { color: var(--stamp-red); }
+
+.cameo__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 4px;
+  text-align: center;
+}
+body[data-lang="bn"] .cameo__eyebrow {
+  font-family: var(--font-bn);
+  letter-spacing: 0.05em;
+  text-transform: none;
+  font-size: 12px;
+}
+.cameo__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 26px;
+  color: var(--ink);
+  margin: 0 0 8px;
+  text-align: center;
+  letter-spacing: 0.3px;
+}
+body[data-lang="bn"] .cameo__title { font-family: var(--font-bn); }
+
+.cameo__lede {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.45;
+  margin: 0 0 16px;
+  text-align: center;
+  padding-bottom: 14px;
+  border-bottom: 1px dashed var(--ink-mute);
+}
+.cameo__lede em {
+  background: rgba(184, 147, 74, 0.16);
+  font-style: normal;
+  padding: 0 4px;
+  border-radius: 2px;
+}
+body[data-lang="bn"] .cameo__lede {
+  font-family: var(--font-bn);
+  font-style: normal;
+  font-size: 13.5px;
+}
+
+/* Tier cards — stacked on mobile, breathable */
+.cameo__tiers {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 16px;
+}
+.cameo-tier {
+  border: 1.5px solid var(--ink);
+  border-radius: var(--radius-sm);
+  background: var(--paper-2);
+  padding: 12px 14px;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+.cameo-tier[data-tier-id="featured"] {
+  border-color: var(--gold);
+  background: rgba(184, 147, 74, 0.10);
+}
+
+.cameo-tier__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.cameo-tier__name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--ink);
+  letter-spacing: 0.3px;
+  flex: 0 0 auto;
+  padding-top: 2px;
+}
+body[data-lang="bn"] .cameo-tier__name { font-family: var(--font-bn); }
+.cameo-tier[data-tier-id="featured"] .cameo-tier__name { color: var(--gold); }
+
+.cameo-tier__prices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: flex-end;
+  flex: 1 1 auto;
+}
+.cameo-tier__price {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px 10px;
+  border: 1px solid var(--ink-mute);
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  min-width: 80px;
+}
+.cameo-tier__price-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  line-height: 1.1;
+}
+body[data-lang="bn"] .cameo-tier__price-label {
+  font-family: var(--font-bn);
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-size: 10px;
+}
+.cameo-tier__price-value {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 15px;
+  color: var(--ink);
+  line-height: 1.2;
+  margin-top: 1px;
+}
+body[data-lang="bn"] .cameo-tier__price-value { font-family: var(--font-bn); }
+.cameo-tier__price--personal {
+  /* Neutral default — the cheaper / lighter option. Distinct from business
+     only via the business pill's green accent, not via competing color. */
+}
+.cameo-tier__price--business {
+  border-color: var(--bd-green);
+  background: rgba(0, 106, 78, 0.05);
+}
+.cameo-tier__price--business .cameo-tier__price-value { color: var(--bd-green); }
+
+.cameo-tier__desc {
+  font-family: var(--font-en);
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.4;
+  margin: 0;
+}
+body[data-lang="bn"] .cameo-tier__desc {
+  font-family: var(--font-bn);
+  font-size: 13px;
+}
+
+/* Rules block */
+.cameo__rules {
+  background: var(--paper-3);
+  border: 1px dashed var(--ink-mute);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px 6px;
+  margin: 0 0 14px;
+}
+.cameo__rules-heading {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 8px;
+}
+body[data-lang="bn"] .cameo__rules-heading {
+  font-family: var(--font-bn);
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-size: 12px;
+}
+.cameo__rules-list {
+  margin: 0;
+  padding-left: 18px;
+  font-family: var(--font-en);
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+.cameo__rules-list li { margin: 0 0 6px; }
+body[data-lang="bn"] .cameo__rules-list {
+  font-family: var(--font-bn);
+  font-size: 13px;
+}
+
+/* CTA — email link, styled as a primary button */
+.cameo__cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 12px 16px;
+  background: var(--ink);
+  color: var(--paper);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  box-shadow: 3px 3px 0 var(--stamp-red);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.cameo__cta:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--stamp-red);
+}
+.cameo__cta:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--stamp-red);
+}
+.cameo__cta-label {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+body[data-lang="bn"] .cameo__cta-label { font-family: var(--font-bn); }
+.cameo__cta-address {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: var(--paper-2);
+  word-break: break-all;
+}
+
+.cameo__dismiss {
+  margin: 12px 0 0;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+body[data-lang="bn"] .cameo__dismiss {
+  font-family: var(--font-bn);
+  letter-spacing: 0.05em;
+  text-transform: none;
+  font-size: 11px;
+}
+
+@media (max-width: 480px) {
+  .cameo__card { padding: 18px 14px 12px; }
+  .cameo__title { font-size: 22px; }
+  .cameo__lede { font-size: 13px; }
+  .cameo-tier { padding: 10px 12px; }
+  .cameo-tier__name { font-size: 16px; }
+  .cameo-tier__header { flex-direction: column; align-items: stretch; gap: 8px; }
+  .cameo-tier__prices { justify-content: flex-start; }
+  .cameo-tier__price { min-width: 0; flex: 1 1 0; }
+  .cameo-tier__price-value { font-size: 14px; }
+  .cameo-tier__desc { font-size: 12.5px; }
+  .cameo__rules-list { font-size: 12px; }
+  .cameo__cta-label { font-size: 15px; }
+  .cameo__cta-address { font-size: 11px; }
 }
