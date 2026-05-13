@@ -1780,3 +1780,302 @@ body[data-lang="bn"] .mode-card__sub  { font-family: var(--font-bn); font-style:
 .mode-card--shake {
   animation: mode-locked-shake 360ms ease-in-out;
 }
+
+/* ============================================================
+   Splash extras — Replay intro link + achievement-count chip
+   ============================================================ */
+.splash__tiny-link {
+  background: transparent;
+  border: none;
+  color: var(--ink-mute);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: underline dotted;
+  text-underline-offset: 4px;
+  cursor: pointer;
+  padding: 6px 8px;
+  margin-top: -2px;
+  transition: color 0.15s ease;
+}
+.splash__tiny-link:hover { color: var(--stamp-red); }
+body[data-lang="bn"] .splash__tiny-link {
+  font-family: var(--font-bn);
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  text-transform: none;
+}
+
+.splash__badge-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 6px 0 0;
+  padding: 3px 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  border: 1px dashed var(--gold);
+  border-radius: 999px;
+  background: rgba(184, 147, 74, 0.06);
+}
+body[data-lang="bn"] .splash__badge-count {
+  font-family: var(--font-bn);
+  letter-spacing: 0.05em;
+}
+
+/* ============================================================
+   Stat tooltip — popover triggered by tapping a stat seal
+   ============================================================ */
+.stat-info {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(28, 22, 14, 0.55);
+  opacity: 0;
+  transition: opacity 200ms ease;
+  cursor: pointer;
+  padding: 16px;
+}
+.stat-info--shown { opacity: 1; }
+.stat-info__card {
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-md);
+  padding: 18px 20px 16px;
+  max-width: 320px;
+  width: 100%;
+  box-shadow: 6px 6px 0 var(--ink),
+              0 16px 40px rgba(0, 0, 0, 0.3);
+  transform: scale(0.94) rotate(-0.5deg);
+  transition: transform 220ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  cursor: default;
+  position: relative;
+}
+.stat-info--shown .stat-info__card {
+  transform: scale(1) rotate(-0.5deg);
+}
+.stat-info__name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 22px;
+  color: var(--ink);
+  margin: 0 0 4px;
+}
+body[data-lang="bn"] .stat-info__name { font-family: var(--font-bn); }
+.stat-info__desc {
+  font-family: var(--font-en);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin: 0 0 12px;
+}
+body[data-lang="bn"] .stat-info__desc { font-family: var(--font-bn); }
+.stat-info__seal {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  background: var(--paper-2);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+.stat-info__seal svg {
+  width: 38px;
+  height: 38px;
+  display: block;
+}
+.stat-info__name {
+  text-align: center;
+}
+.stat-info__desc {
+  text-align: center;
+  border-bottom: 1px dashed var(--ink-mute);
+  padding-bottom: 12px;
+}
+.stat-info__danger {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+  margin: 8px 0 0;
+  padding-left: 10px;
+  border-left: 3px solid var(--stamp-red);
+  color: var(--ink-soft);
+}
+.stat-info__danger--low {
+  border-color: var(--stamp-red);
+}
+.stat-info__danger--high {
+  border-color: var(--gold);
+}
+body[data-lang="bn"] .stat-info__danger {
+  font-family: var(--font-bn);
+  font-size: 13px;
+}
+.stat-info__dismiss {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin: 14px 0 0;
+}
+body[data-lang="bn"] .stat-info__dismiss {
+  font-family: var(--font-bn);
+  letter-spacing: 0.05em;
+  text-transform: none;
+  font-size: 11px;
+}
+
+/* The stat seal becomes tappable when info is available */
+.stat__seal { cursor: help; }
+
+/* ============================================================
+   Preview-danger pulse — projected stat enters danger zone (≤20 or ≥80)
+   Layered on top of .stat--preview-pos / .stat--preview-neg
+   ============================================================ */
+.stat--preview-danger .stat__seal {
+  animation: stat-preview-danger-pulse 0.55s ease-in-out infinite;
+  filter:
+    drop-shadow(0 0 6px rgba(166, 41, 31, 1))
+    drop-shadow(0 0 14px rgba(166, 41, 31, 0.7));
+}
+@keyframes stat-preview-danger-pulse {
+  0%, 100% { transform: scale(1.20); }
+  50%      { transform: scale(1.36); }
+}
+
+/* ============================================================
+   Year recap chips — small stat deltas inside year-transition card
+   ============================================================ */
+.year-recap__label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin: 18px 0 6px;
+}
+body[data-lang="bn"] .year-recap__label {
+  font-family: var(--font-bn);
+  letter-spacing: 0.05em;
+  text-transform: none;
+}
+.year-recap__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  margin: 0 0 2px;
+}
+.year-recap__chip {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  padding: 4px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--ink-mute);
+  background: var(--paper-2);
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+body[data-lang="bn"] .year-recap__chip {
+  font-family: var(--font-bn);
+  font-size: 12px;
+}
+.year-recap__chip--pos {
+  color: var(--bd-green);
+  border-color: var(--bd-green);
+  background: rgba(0, 106, 78, 0.07);
+}
+.year-recap__chip--neg {
+  color: var(--stamp-red);
+  border-color: var(--stamp-red);
+  background: rgba(166, 41, 31, 0.07);
+}
+.year-recap__chip--flat {
+  color: var(--ink-mute);
+  border-style: dashed;
+}
+
+/* ============================================================
+   Achievement toast — slide-in unlock notification
+   ============================================================ */
+.achievement-toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  transform: translate(-50%, 24px);
+  z-index: 70;
+  min-width: 260px;
+  max-width: 360px;
+  background: var(--paper);
+  border: 2px solid var(--gold);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  box-shadow: 4px 4px 0 var(--ink),
+              0 18px 40px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: transform 320ms cubic-bezier(0.22, 0.61, 0.36, 1),
+              opacity 240ms ease;
+  pointer-events: none;
+}
+.achievement-toast--shown {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+.achievement-toast--leaving {
+  opacity: 0;
+  transform: translate(-50%, 24px);
+}
+.achievement-toast__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 2px;
+}
+body[data-lang="bn"] .achievement-toast__eyebrow {
+  font-family: var(--font-bn);
+  letter-spacing: 0.05em;
+  text-transform: none;
+}
+.achievement-toast__name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--ink);
+  margin: 0 0 2px;
+  line-height: 1.15;
+}
+body[data-lang="bn"] .achievement-toast__name { font-family: var(--font-bn); }
+.achievement-toast__desc {
+  font-family: var(--font-en);
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin: 0;
+  line-height: 1.35;
+}
+body[data-lang="bn"] .achievement-toast__desc { font-family: var(--font-bn); }
+@media (max-width: 380px) {
+  .achievement-toast {
+    min-width: 0;
+    left: 12px;
+    right: 12px;
+    transform: translateY(24px);
+    max-width: none;
+  }
+  .achievement-toast--shown   { transform: translateY(0); }
+  .achievement-toast--leaving { transform: translateY(24px); }
+}

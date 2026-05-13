@@ -56,6 +56,81 @@
     { key: 'tohobil',    iconSvg: ICON_TOHOBIL,    name_bn: 'তহবিল',    name_en: 'Treasury', color: 'var(--stat-tohobil)' }
   ];
 
+  // Tap-to-learn-more text for each stat — shown when player taps the seal.
+  const STAT_INFO = {
+    janata: {
+      desc_bn: 'ওয়ার্ডের সাধারণ জনগণের সমর্থন।',
+      desc_en: 'How the people of Ward 37 feel about you.',
+      low_bn: 'কম: গণবিক্ষোভ, পেছনের দরজা দিয়ে পালানো।',
+      low_en: 'Too low: protests, slipping out the back door.',
+      high_bn: 'বেশি: পপুলিস্ট ফাঁদ, দল মনোনয়ন টানবে।',
+      high_en: 'Too high: populist trap, the party pulls your nomination.'
+    },
+    dol: {
+      desc_bn: 'কেন্দ্রীয় দলের সাথে আপনার সম্পর্ক।',
+      desc_en: 'Your standing with the central party.',
+      low_bn: 'কম: বহিষ্কার, পরের নির্বাচনে দাঁড়াতে পারবেন না।',
+      low_en: 'Too low: expelled, no path back to the ballot.',
+      high_bn: 'বেশি: পুতুল, জনতা আপনাকে ছেড়ে দেবে।',
+      high_en: 'Too high: a puppet, the public turns on you.'
+    },
+    proshashon: {
+      desc_bn: 'ডিএনসিসি, থানা, এমপি অফিস — সরকারি যন্ত্র।',
+      desc_en: 'DNCC, the police, the MP\'s office — the machinery.',
+      low_bn: 'কম: কোনো ফাইল নড়ে না, নামমাত্র কাউন্সিলর।',
+      low_en: 'Too low: nothing moves, you\'re a councillor in name only.',
+      high_bn: 'বেশি: সরকারের দালাল হিসেবে ব্র্যান্ড।',
+      high_en: 'Too high: branded a government stooge.'
+    },
+    tohobil: {
+      desc_bn: 'ওয়ার্ড তহবিল এবং আপনার ব্যক্তিগত হিসাব।',
+      desc_en: 'The ward purse and your personal accounts.',
+      low_bn: 'কম: দেউলিয়া, স্টাফদের বেতন নেই, লাইট বন্ধ।',
+      low_en: 'Too low: bankrupt, staff unpaid, street lights off.',
+      high_bn: 'বেশি: দুদক তদন্ত, কোথা থেকে এত টাকা?',
+      high_en: 'Too high: ACC opens a file — where did the money come from?'
+    }
+  };
+
+  function showStatInfo(statKey) {
+    const stat = STATS.find(s => s.key === statKey);
+    const info = STAT_INFO[statKey];
+    if (!stat || !info) return;
+    const overlay = document.createElement('div');
+    overlay.className = 'stat-info';
+    overlay.innerHTML = `
+      <div class="stat-info__card" data-stat-key="${stat.key}">
+        <div class="stat-info__seal">${stat.iconSvg}</div>
+        <h3 class="stat-info__name">
+          <span data-lang-bn>${stat.name_bn}</span>
+          <span data-lang-en>${stat.name_en}</span>
+        </h3>
+        <p class="stat-info__desc">
+          <span data-lang-bn>${info.desc_bn}</span>
+          <span data-lang-en>${info.desc_en}</span>
+        </p>
+        <p class="stat-info__danger stat-info__danger--low">
+          <span data-lang-bn>${info.low_bn}</span>
+          <span data-lang-en>${info.low_en}</span>
+        </p>
+        <p class="stat-info__danger stat-info__danger--high">
+          <span data-lang-bn>${info.high_bn}</span>
+          <span data-lang-en>${info.high_en}</span>
+        </p>
+        <p class="stat-info__dismiss">
+          <span data-lang-bn>যেকোনো জায়গায় ট্যাপ করুন</span>
+          <span data-lang-en>Tap anywhere to close</span>
+        </p>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+    requestAnimationFrame(() => overlay.classList.add('stat-info--shown'));
+    overlay.addEventListener('click', () => {
+      overlay.classList.add('stat-info--leaving');
+      setTimeout(() => overlay.remove(), 240);
+    });
+  }
+
   // Five "what were you before politics?" backgrounds. Modifiers stack on
   // top of party modifiers — kept smaller than party (±5 vs party's ±10) so
   // they shape the run without overriding party identity.
@@ -332,8 +407,19 @@
     document.getElementById('btn-party-confirm').addEventListener('click', () => {
       if (!state.player.party) return;
       if (window.Sfx) Sfx.playClick();
+      resetModeSelect();
       goto('mode');
     });
+  }
+
+  // Reset the mode-select screen to a pristine "nothing chosen" state. Called
+  // whenever the player enters the screen so DOM/state from a previous run
+  // don't leak in.
+  function resetModeSelect() {
+    state.player.mode = null;
+    document.querySelectorAll('.mode-card').forEach(c => c.setAttribute('aria-pressed', 'false'));
+    const startBtn = document.getElementById('btn-mode-start');
+    if (startBtn) startBtn.disabled = true;
   }
 
   // ---------- Mode select ----------
@@ -357,10 +443,11 @@
       });
     });
 
-    // Clicking a locked card surfaces a small toast-style feedback
+    // Clicking a locked card surfaces a small toast-style feedback — distinct
+    // "denied" tone so it doesn't sound like a confirm.
     grid.querySelectorAll('.mode-card--locked').forEach(card => {
       card.addEventListener('click', () => {
-        if (window.Sfx) Sfx.playClick();
+        if (window.Sfx) Sfx.playDenied();
         card.classList.add('mode-card--shake');
         setTimeout(() => card.classList.remove('mode-card--shake'), 360);
       });
@@ -399,6 +486,8 @@
     state.seenFirstCard = false;
     state.leaderboardSubmitted = false;
     state.lastSubmittedRow = null;
+    state.lastVerdict = null;
+    state.yearStartStats = null; // captured at first commit of a year
 
     renderHud();
     renderStats();
@@ -478,6 +567,16 @@
       `;
       wrap.appendChild(el);
     });
+    // Tap-on-seal opens the stat info popup. Delegated to the stats wrap so
+    // a single listener handles all four seals.
+    wrap.onclick = (e) => {
+      const seal = e.target.closest('.stat__seal');
+      if (!seal) return;
+      const statEl = seal.closest('.stat');
+      if (!statEl) return;
+      if (window.Sfx) Sfx.playClick();
+      showStatInfo(statEl.dataset.key);
+    };
   }
 
   // ---------- Delta animation ----------
@@ -611,10 +710,16 @@
     return true;
   }
 
-  // Resolve dialog text for the current card, honoring per-party variants.
-  // dialog_variants: { "<party_id>": { dialog_bn, dialog_en } }
+  // Resolve dialog text for the current card. Variant precedence:
+  //   1. background_variants[<background_id>]   (most personal — "you, specifically")
+  //   2. dialog_variants[<party_id>]            (party-flavored)
+  //   3. default dialog_bn / dialog_en
+  // background_variants: { "<background_id>": { dialog_bn, dialog_en } }
+  // dialog_variants:     { "<party_id>":      { dialog_bn, dialog_en } }
   function resolveDialog(card) {
-    const variant = card.dialog_variants && card.dialog_variants[state.player.party];
+    const bgVar = card.background_variants && card.background_variants[state.player.background];
+    const pyVar = card.dialog_variants     && card.dialog_variants[state.player.party];
+    const variant = bgVar || pyVar;
     const bn = (variant && variant.dialog_bn) || card.dialog_bn;
     const en = (variant && variant.dialog_en) || card.dialog_en;
     return I18n.lang === 'bn' ? bn : en;
@@ -789,7 +894,8 @@
   // feel: you can read the dialogue but you have to trust your instinct.
   function previewChoice(card, side) {
     document.querySelectorAll('.stat').forEach(el => {
-      el.classList.remove('stat--preview-pos', 'stat--preview-neg', 'stat--preview-touched');
+      el.classList.remove('stat--preview-pos', 'stat--preview-neg',
+                          'stat--preview-touched', 'stat--preview-danger');
     });
     if (!side) return;
     const effects = (card[side] && card[side].effects) || {};
@@ -798,6 +904,14 @@
       if (!el || !delta) continue;
       el.classList.add('stat--preview-touched');
       el.classList.add(delta > 0 ? 'stat--preview-pos' : 'stat--preview-neg');
+      // If the projected stat would land in the danger zone, escalate the
+      // visual — sharper red, harder pulse, ⚠ in the air. Helps players see
+      // a fatal swing before committing.
+      const cur = state.stats[key];
+      const projected = clamp(cur + delta, 0, 100);
+      if (projected <= DANGER_LOW || projected >= DANGER_HIGH) {
+        el.classList.add('stat--preview-danger');
+      }
     }
   }
 
@@ -841,9 +955,21 @@
     // this pacing puts the natural deck-exhaustion point right around the
     // 1825-day win threshold instead of well before it.
     const yearBefore = state.year;
+    // Capture stats at first commit of each year so we can compute year deltas
+    if (!state.yearStartStats) state.yearStartStats = { ...state.stats };
     state.day += 21 + Math.floor(Math.random() * 9);
     state.year = Math.min(5, Math.ceil((state.day || 1) / 365));
     const yearCrossed = state.year > yearBefore;
+    // On rollover, hold onto the deltas so the year transition can display
+    // them, then reset the snapshot for the new year (captured next commit).
+    let yearDeltas = null;
+    if (yearCrossed) {
+      yearDeltas = {};
+      for (const k of Object.keys(state.stats)) {
+        yearDeltas[k] = state.stats[k] - (state.yearStartStats[k] ?? 50);
+      }
+      state.yearStartStats = null;
+    }
 
     renderHud();
     renderStats();
@@ -853,6 +979,10 @@
       if (!(stat in state.stats)) return;
       animateStatDelta(stat, delta);
     });
+
+    // Achievement evaluation — runs after every commit. Non-verdict
+    // achievements that fire on flag-set or year-reach get caught here.
+    if (window.Achievements) Achievements.evaluate(state);
 
     // Check for game over
     const death = detectDeath();
@@ -899,7 +1029,7 @@
         }
       }
       if (yearCrossed) {
-        showYearTransition(state.year, maybeShowIntroThenFinish);
+        showYearTransition(state.year, maybeShowIntroThenFinish, yearDeltas);
       } else {
         maybeShowIntroThenFinish();
       }
@@ -960,16 +1090,43 @@
     overlay.addEventListener('click', dismiss);
   }
 
-  function showYearTransition(year, done) {
+  function showYearTransition(year, done, yearDeltas) {
     const theme = YEAR_THEMES[year];
     if (!theme) { done(); return; }
     const yearLabel = I18n.lang === 'bn'
       ? 'বছর ' + I18n.toBanglaDigits(year)
       : 'YEAR ' + year;
+
+    // Build the per-stat recap chips (only stats that actually moved)
+    let recapHtml = '';
+    if (yearDeltas) {
+      const recapBits = STATS.map(s => {
+        const dv = yearDeltas[s.key] | 0;
+        if (!dv) return '';
+        const sign  = dv > 0 ? '+' : '−';
+        const value = I18n.lang === 'bn'
+          ? I18n.toBanglaDigits(Math.abs(dv))
+          : Math.abs(dv);
+        const label = I18n.lang === 'bn' ? s.name_bn : s.name_en;
+        const cls = dv > 0 ? 'year-recap__chip--pos' : 'year-recap__chip--neg';
+        return `<span class="year-recap__chip ${cls}">${label} ${sign}${value}</span>`;
+      }).filter(Boolean).join('');
+      if (recapBits) {
+        recapHtml = `
+          <p class="year-recap__label">
+            <span data-lang-bn>গত বছর</span>
+            <span data-lang-en>The year past</span>
+          </p>
+          <div class="year-recap__chips">${recapBits}</div>
+        `;
+      }
+    }
+
     const overlay = document.createElement('div');
     overlay.className = 'year-transition';
     overlay.innerHTML = `
       <div class="year-transition__card">
+        ${recapHtml}
         <p class="year-transition__year">${yearLabel}</p>
         <h2 class="year-transition__title">
           <span data-lang-bn>${theme.bn}</span>
@@ -1028,6 +1185,7 @@
     goto('gameover');
     if (window.Sfx) Sfx.playVerdict('loss');
     submitToLeaderboard();
+    if (window.Achievements) Achievements.evaluateVerdict(state, state.lastVerdict);
   }
 
   // ---------- Win tier ----------
@@ -1096,6 +1254,7 @@
     goto('win');
     if (window.Sfx) Sfx.playVerdict('win');
     submitToLeaderboard();
+    if (window.Achievements) Achievements.evaluateVerdict(state, state.lastVerdict);
   }
 
   function renderFinalStats(containerId) {
@@ -1258,6 +1417,61 @@
     });
   }
 
+  // "Replay intro" button on splash — clears the once-per-session flag and
+  // reloads so the SBYC fade plays again on the next paint.
+  function wireReplayIntro() {
+    const btn = document.getElementById('btn-replay-intro');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      if (window.Sfx) Sfx.playClick();
+      try { sessionStorage.removeItem('goddi.brandShown'); } catch (_) {}
+      location.reload();
+    });
+  }
+
+  // ---------- Achievement toast ----------
+  // Slides in from the top when a new achievement unlocks. Auto-dismisses
+  // after ~3.2s. Stacks if multiple unlock at once.
+  function showAchievementToast(def) {
+    if (!def) return;
+    const t = document.createElement('div');
+    t.className = 'achievement-toast';
+    t.innerHTML = `
+      <div class="achievement-toast__eyebrow">
+        <span data-lang-bn>ব্যাজ অর্জিত</span>
+        <span data-lang-en>BADGE UNLOCKED</span>
+      </div>
+      <div class="achievement-toast__name">
+        <span data-lang-bn>${def.name_bn}</span>
+        <span data-lang-en>${def.name_en}</span>
+      </div>
+      <div class="achievement-toast__desc">
+        <span data-lang-bn>${def.desc_bn}</span>
+        <span data-lang-en>${def.desc_en}</span>
+      </div>
+    `;
+    document.body.appendChild(t);
+    requestAnimationFrame(() => t.classList.add('achievement-toast--shown'));
+    setTimeout(() => {
+      t.classList.add('achievement-toast--leaving');
+      setTimeout(() => t.remove(), 400);
+    }, 3000);
+  }
+
+  // Splash badge-count chip — shows "X / Y badges" so players see progress.
+  function renderSplashAchievementCount() {
+    if (!window.Achievements) return;
+    const el = document.getElementById('splash-achievement-count');
+    if (!el) return;
+    const total = Achievements.list().length;
+    const got   = Achievements.unlocked().size;
+    el.querySelector('[data-lang-bn]').textContent =
+      I18n.toBanglaDigits(got) + ' / ' + I18n.toBanglaDigits(total) + ' ব্যাজ';
+    el.querySelector('[data-lang-en]').textContent =
+      got + ' / ' + total + ' badges';
+    el.hidden = (got === 0);
+  }
+
   // ---------- Brand fade-in ----------
   // Quick SBYC stamp fade shown once per browser session before the splash
   // settles. Tap-to-skip. Stamp is in the HTML already; this just times the
@@ -1327,8 +1541,15 @@
     wireRestart();
     wireShare();
     wireLeaderboardButtons();
+    wireReplayIntro();
     wireMuteToggle();
     handleBrandFade();
+
+    // Achievement toast wiring + splash chip render
+    if (window.Achievements) {
+      Achievements.onUnlock(showAchievementToast);
+      renderSplashAchievementCount();
+    }
   }
 
   if (document.readyState === 'loading') {

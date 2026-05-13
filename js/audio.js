@@ -212,6 +212,29 @@
   }
 
   /**
+   * Denied chirp — short downward triangle slide that signals "no" without
+   * confusing the player with the upbeat click sound used for confirming.
+   */
+  function playDenied() {
+    if (muted) return;
+    const c = ensureContext();
+    if (!c) return;
+    const now = c.currentTime;
+    const osc = c.createOscillator();
+    osc.type = 'triangle';
+    osc.frequency.setValueAtTime(440, now);
+    osc.frequency.exponentialRampToValueAtTime(180, now + 0.16);
+    const g = c.createGain();
+    g.gain.setValueAtTime(0.0001, now);
+    g.gain.exponentialRampToValueAtTime(0.14, now + 0.005);
+    g.gain.exponentialRampToValueAtTime(0.0001, now + 0.22);
+    osc.connect(g);
+    g.connect(master);
+    osc.start(now);
+    osc.stop(now + 0.24);
+  }
+
+  /**
    * Verdict sting — plays once on game-over / win screen reveal.
    * `kind`: 'loss' (minor, descending) | 'win' (major, ascending).
    */
@@ -318,6 +341,7 @@
     playStamp:     playStamp,
     playSwoosh:    playSwoosh,
     playClick:     playClick,
+    playDenied:    playDenied,
     playVerdict:   playVerdict,
     startAmbient:  startAmbient,
     stopAmbient:   stopAmbient
