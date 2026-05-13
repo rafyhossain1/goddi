@@ -1937,8 +1937,9 @@ body[data-lang="bn"] .stat-info__dismiss {
   font-size: 11px;
 }
 
-/* The stat seal becomes tappable when info is available */
-.stat__seal { cursor: help; }
+/* Whole stat row is the tap target for the info popup — keeps the 44px
+   minimum tap area satisfied even though the seal itself is 26px on phones */
+.stat { cursor: help; }
 
 /* ============================================================
    Preview-danger pulse — projected stat enters danger zone (≤20 or ≥80)
@@ -2068,7 +2069,10 @@ body[data-lang="bn"] .achievement-toast__name { font-family: var(--font-bn); }
   line-height: 1.35;
 }
 body[data-lang="bn"] .achievement-toast__desc { font-family: var(--font-bn); }
-@media (max-width: 380px) {
+/* All modern phones (≤480px) get an edge-flush toast — much nicer than a
+   pill that floats with awkward gutters. Bumped breakpoint so iPhone 12/13/14
+   (390px) and Pixel 6/7 (412px) all use the wide layout. */
+@media (max-width: 480px) {
   .achievement-toast {
     min-width: 0;
     left: 12px;

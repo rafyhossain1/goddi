@@ -235,6 +235,33 @@
   }
 
   /**
+   * Soft achievement chime — two ascending plucked notes, gold-tinted.
+   * Plays when a badge unlocks. Sits below the SFX line so it never
+   * overpowers the verdict sting or the next card flip.
+   */
+  function playUnlock() {
+    if (muted) return;
+    const c = ensureContext();
+    if (!c) return;
+    const now = c.currentTime;
+    const notes = [523.25, 783.99]; // C5 → G5
+    notes.forEach((f, i) => {
+      const t0 = now + i * 0.09;
+      const o = c.createOscillator();
+      o.type = 'triangle';
+      o.frequency.value = f;
+      const g = c.createGain();
+      g.gain.setValueAtTime(0.0001, t0);
+      g.gain.exponentialRampToValueAtTime(0.12, t0 + 0.01);
+      g.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.35);
+      o.connect(g);
+      g.connect(master);
+      o.start(t0);
+      o.stop(t0 + 0.4);
+    });
+  }
+
+  /**
    * Verdict sting — plays once on game-over / win screen reveal.
    * `kind`: 'loss' (minor, descending) | 'win' (major, ascending).
    */
@@ -342,6 +369,7 @@
     playSwoosh:    playSwoosh,
     playClick:     playClick,
     playDenied:    playDenied,
+    playUnlock:    playUnlock,
     playVerdict:   playVerdict,
     startAmbient:  startAmbient,
     stopAmbient:   stopAmbient

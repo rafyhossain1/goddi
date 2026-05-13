@@ -567,13 +567,12 @@
       `;
       wrap.appendChild(el);
     });
-    // Tap-on-seal opens the stat info popup. Delegated to the stats wrap so
-    // a single listener handles all four seals.
+    // Tap anywhere on a stat row opens that stat's info popup. The whole row
+    // is the tap target (not just the 26px seal) so it works comfortably
+    // on phones — small seal stays as the visual cursor cue.
     wrap.onclick = (e) => {
-      const seal = e.target.closest('.stat__seal');
-      if (!seal) return;
-      const statEl = seal.closest('.stat');
-      if (!statEl) return;
+      const statEl = e.target.closest('.stat');
+      if (!statEl || !statEl.dataset.key) return;
       if (window.Sfx) Sfx.playClick();
       showStatInfo(statEl.dataset.key);
     };
@@ -1274,6 +1273,9 @@
       if (b) b.addEventListener('click', () => {
         if (window.Sfx) Sfx.playClick();
         goto('splash');
+        // Refresh the badge counter — any new unlocks from the run just
+        // finished should show on the splash chip immediately.
+        renderSplashAchievementCount();
       });
     });
   }
@@ -1430,10 +1432,22 @@
   }
 
   // ---------- Achievement toast ----------
-  // Slides in from the top when a new achievement unlocks. Auto-dismisses
-  // after ~3.2s. Stacks if multiple unlock at once.
+  // Slides in from the bottom when a new achievement unlocks. Single toast
+  // at a time — if multiple unlock together (common at verdict), they queue
+  // and play one after another so they don't overlap on a phone screen.
+  const _achievementQueue = [];
+  let _achievementShowing = false;
+
   function showAchievementToast(def) {
     if (!def) return;
+    _achievementQueue.push(def);
+    if (!_achievementShowing) _playNextAchievementToast();
+  }
+
+  function _playNextAchievementToast() {
+    const def = _achievementQueue.shift();
+    if (!def) { _achievementShowing = false; return; }
+    _achievementShowing = true;
     const t = document.createElement('div');
     t.className = 'achievement-toast';
     t.innerHTML = `
@@ -1452,10 +1466,17 @@
     `;
     document.body.appendChild(t);
     requestAnimationFrame(() => t.classList.add('achievement-toast--shown'));
+    // Optional confetti chime (very soft pluck) when supported
+    if (window.Sfx && typeof Sfx.playUnlock === 'function') {
+      try { Sfx.playUnlock(); } catch (_) {}
+    }
     setTimeout(() => {
       t.classList.add('achievement-toast--leaving');
-      setTimeout(() => t.remove(), 400);
-    }, 3000);
+      setTimeout(() => {
+        t.remove();
+        _playNextAchievementToast();
+      }, 400);
+    }, 2600);
   }
 
   // Splash badge-count chip — shows "X / Y badges" so players see progress.
