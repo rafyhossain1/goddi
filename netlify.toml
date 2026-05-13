@@ -12,8 +12,9 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy       = "strict-origin-when-cross-origin"
     Permissions-Policy    = "interest-cohort=()"
-    # Allow self-scripts + Google Fonts; data: needed for inline SVG favicon
-    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self' https://kafvftjcvnvtklqwanrm.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self';"
+    # Allow self-scripts + Google Fonts + Cloudflare Web Analytics beacon;
+    # data: needed for inline SVG favicon
+    Content-Security-Policy = "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self' https://kafvftjcvnvtklqwanrm.supabase.co https://cloudflareinsights.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self';"
 
 # Aggressive cache for static assets, keyed by Netlify's hash so cache busts
 # automatically on each deploy.
