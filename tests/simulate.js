@@ -45,6 +45,8 @@ function isCardEligible(card, st) {
   if (Array.isArray(card.party_only) && card.party_only.length
       && !card.party_only.includes(st.player.party)) return false;
   if (Array.isArray(card.not_party) && card.not_party.includes(st.player.party)) return false;
+  if (Array.isArray(card.background_only) && card.background_only.length
+      && !card.background_only.includes(st.player.background)) return false;
   if (Array.isArray(card.requires_flags) && !card.requires_flags.every(f => st.flags.has(f))) return false;
   if (Array.isArray(card.blocked_by_flags) && card.blocked_by_flags.some(f => st.flags.has(f))) return false;
   if (card.stat_requires && typeof card.stat_requires === 'object') {
@@ -125,14 +127,18 @@ function computeWinTier(st) {
   return 'compromised';
 }
 
-function startRun(partyId, rnd) {
+// All background IDs the engine supports — sim picks one round-robin per run
+// so background-gated cards get exercised across the test corpus.
+const BACKGROUND_IDS = ['businessman', 'teacher', 'army_retired', 'ngo_worker', 'party_lifer'];
+
+function startRun(partyId, rnd, backgroundId) {
   const party = parties.find(p => p.id === partyId);
   const stats = {};
   STAT_KEYS.forEach(k => {
     stats[k] = clamp(50 + (party.modifiers[k] ?? 0), 1, 99);
   });
   return {
-    player: { party: partyId },
+    player: { party: partyId, background: backgroundId || null },
     stats,
     day: 0,
     year: 1,
@@ -230,9 +236,9 @@ function humanLikeStrategy(rnd, st) {
 }
 
 // ---------- Simulator ----------
-function simulate(partyId, strategyFactory, seed) {
+function simulate(partyId, strategyFactory, seed, backgroundId) {
   const rnd = mulberry32(seed);
-  const st = startRun(partyId, rnd);
+  const st = startRun(partyId, rnd, backgroundId);
   // Some strategies want live state (balancedStrategy); pass it through.
   const decide = strategyFactory(rnd, st);
   let outcome = null;
@@ -377,7 +383,7 @@ const finalStatSums = { janata: 0, dol: 0, proshashon: 0, tohobil: 0 };
 const cardSeenCount = {};
 for (let i = 0; i < N; i++) {
   const p = partyMix[i % partyMix.length];
-  const o = simulate(p, randomStrategy, i + 1);
+  const o = simulate(p, randomStrategy, i + 1, BACKGROUND_IDS[i % BACKGROUND_IDS.length]);
   outcomes[o.kind] = (outcomes[o.kind] || 0) + 1;
   if (o.kind === 'death') causes[o.cause] = (causes[o.cause] || 0) + 1;
   if (o.kind === 'win') {
@@ -417,7 +423,7 @@ function runStrategyBatch(name, strat) {
   const causes = {};
   for (let i = 0; i < 200; i++) {
     const p = partyMix[i % partyMix.length];
-    const o = simulate(p, strat, 10000 + i);
+    const o = simulate(p, strat, 10000 + i, BACKGROUND_IDS[i % BACKGROUND_IDS.length]);
     if (o.kind === 'win') { win++; tiers[o.tier]++; }
     else if (o.kind === 'death') { death++; causes[o.cause] = (causes[o.cause] || 0) + 1; }
   }
@@ -441,7 +447,7 @@ let violationsOneshot = 0, violationsRecurring = 0;
 const exampleViolations = [];
 for (let i = 0; i < 200; i++) {
   const p = partyMix[i % partyMix.length];
-  const o = simulate(p, balancedStrategy, 30000 + i);
+  const o = simulate(p, balancedStrategy, 30000 + i, BACKGROUND_IDS[i % BACKGROUND_IDS.length]);
   // count appearances of each card in this run
   const counts = {};
   for (const h of o.history) counts[h.id] = (counts[h.id] || 0) + 1;

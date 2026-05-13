@@ -472,6 +472,10 @@
         && !card.party_only.includes(state.player.party)) return false;
     if (Array.isArray(card.not_party) && card.not_party.includes(state.player.party)) return false;
 
+    // Background gating — callbacks from the player's pre-political life
+    if (Array.isArray(card.background_only) && card.background_only.length
+        && !card.background_only.includes(state.player.background)) return false;
+
     // Flag gating — ALL of requires_flags must be set, NONE of blocked_by_flags
     if (Array.isArray(card.requires_flags)
         && !card.requires_flags.every(f => state.flags.includes(f))) return false;
@@ -556,6 +560,8 @@
     if (Array.isArray(card.party_only) && card.party_only.length
         && !card.party_only.includes(state.player.party)) return false;
     if (Array.isArray(card.not_party) && card.not_party.includes(state.player.party)) return false;
+    if (Array.isArray(card.background_only) && card.background_only.length
+        && !card.background_only.includes(state.player.background)) return false;
     if (Array.isArray(card.requires_flags)
         && !card.requires_flags.every(f => state.flags.includes(f))) return false;
     if (Array.isArray(card.blocked_by_flags)
