@@ -1,4 +1,4 @@
-# Netlify deploy config for godi.sbyc.cloud
+# Netlify deploy config for goddi.sbyc.cloud
 # Static site — no build step.
 
 [build]

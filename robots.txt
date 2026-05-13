@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://godi.sbyc.cloud/sitemap.xml
+Sitemap: https://goddi.sbyc.cloud/sitemap.xml

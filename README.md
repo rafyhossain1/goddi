@@ -2,7 +2,7 @@
 
 Reigns-style satirical card-swipe game about Dhaka ward politics. Soft-marketing for South Baridhara Youth Club (SBYC).
 
-**Target deployment:** `godi.sbyc.cloud` (Netlify, static hosting)
+**Target deployment:** `goddi.sbyc.cloud` (Netlify, static hosting)
 
 ---
 
@@ -77,7 +77,7 @@ goddi/
 - [ ] Convert `assets/og-image.svg` → `og-image.png` (1200×630). Required for Facebook/WhatsApp/Twitter previews.
 - [ ] Convert `assets/apple-touch-icon.svg` → `apple-touch-icon.png` (180×180). Required for iOS home-screen.
 - [ ] `node tests/simulate.js` — should pass all invariants.
-- [ ] Confirm DNS for `godi.sbyc.cloud` → Netlify.
+- [ ] Confirm DNS for `goddi.sbyc.cloud` → Netlify.
 - [ ] Push to GitHub; Netlify auto-deploys from main.
 
 ## Deploy

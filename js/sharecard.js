@@ -277,7 +277,7 @@
     ctx.font = fontMono(18);
     ctx.textAlign = 'left';
     ctx.textBaseline = 'bottom';
-    ctx.fillText('godi.sbyc.cloud', 56, H - 38);
+    ctx.fillText('goddi.sbyc.cloud', 56, H - 38);
 
     ctx.textAlign = 'right';
     ctx.font = fontMono(13);
