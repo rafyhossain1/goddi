@@ -1195,8 +1195,19 @@
       overlay.classList.add('year-transition--leaving');
       setTimeout(() => { overlay.remove(); done(); }, 320);
     }
+    // Add a small "tap anywhere" hint so it's obvious the overlay
+    // is dismissable — not everyone realizes they can skip ahead.
+    const hint = document.createElement('p');
+    hint.className = 'year-transition__hint';
+    hint.innerHTML =
+      '<span data-lang-bn>ট্যাপ করে এগিয়ে যান</span>' +
+      '<span data-lang-en>Tap to continue</span>';
+    overlay.querySelector('.year-transition__card').appendChild(hint);
+
     overlay.addEventListener('click', dismiss);
-    setTimeout(dismiss, 2600);
+    // Auto-dismiss is now ~5s so Bangla readers have time to take the
+    // chapter card in. Tap still skips immediately.
+    setTimeout(dismiss, 5200);
   }
 
   // ---------- Death detection ----------

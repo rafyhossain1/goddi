@@ -1062,6 +1062,29 @@ body[data-lang="bn"] .verdict__days { font-family: var(--font-bn); }
   text-transform: uppercase;
 }
 
+/* Small "tap to continue" hint at the bottom of the year-transition card.
+   Pulses subtly so the affordance reads even at a glance. */
+.year-transition__hint {
+  margin: 20px 0 0;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  opacity: 0.6;
+  animation: year-hint-pulse 1.6s ease-in-out infinite;
+}
+body[data-lang="bn"] .year-transition__hint {
+  font-family: var(--font-bn);
+  letter-spacing: 0.05em;
+  text-transform: none;
+  font-size: 12px;
+}
+@keyframes year-hint-pulse {
+  0%, 100% { opacity: 0.35; }
+  50%      { opacity: 0.85; }
+}
+
 /* Active-arc stamps in the HUD — small wax-seal badges that accumulate as
    the player's record builds (PA scandal, tower approval, envelope habit,
    vote-buying, defection). Hover/tap to see the label. */
