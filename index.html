@@ -209,6 +209,113 @@
     </div>
   </section>
 
+  <!-- MODE SELECT -->
+  <section class="screen" data-screen-id="mode">
+    <div class="step">
+      <p class="step__eyebrow">
+        <span data-lang-bn>মোড নির্বাচন</span>
+        <span data-lang-en>SELECT MODE</span>
+      </p>
+      <h2 class="step__title">
+        <span data-lang-bn>কোন যুগে শাসন করবেন?</span>
+        <span data-lang-en>Which era will you rule?</span>
+      </h2>
+      <p class="step__hint">
+        <span data-lang-bn>আরও মিশন শিগগিরই আসছে।</span>
+        <span data-lang-en>More missions coming soon.</span>
+      </p>
+
+      <div class="mode-grid">
+        <button class="mode-card mode-card--available" data-mode="campaign">
+          <span class="mode-card__year">২০২৬–২০৩১</span>
+          <p class="mode-card__name">
+            <span data-lang-bn>মূল অভিযান</span>
+            <span data-lang-en>Campaign</span>
+          </p>
+          <p class="mode-card__sub">
+            <span data-lang-bn>ওয়ার্ড ৩৭। পাঁচ বছর। কতদিন টিকবেন?</span>
+            <span data-lang-en>Ward 37. Five years. How long will you last?</span>
+          </p>
+        </button>
+
+        <button class="mode-card mode-card--locked" disabled aria-disabled="true">
+          <span class="mode-card__year">২০২০</span>
+          <p class="mode-card__name">
+            <span data-lang-bn>কোভিড সংকট</span>
+            <span data-lang-en>Survive Covid</span>
+          </p>
+          <p class="mode-card__sub">
+            <span data-lang-bn>মহামারীর সময় ওয়ার্ড পরিচালনা।</span>
+            <span data-lang-en>Run a ward during the pandemic.</span>
+          </p>
+          <span class="mode-card__badge">
+            <span data-lang-bn>শিগগিরই</span>
+            <span data-lang-en>Coming soon</span>
+          </span>
+        </button>
+
+        <button class="mode-card mode-card--locked" disabled aria-disabled="true">
+          <span class="mode-card__year">জুলাই ২০২৪</span>
+          <p class="mode-card__name">
+            <span data-lang-bn>কোটা আন্দোলন</span>
+            <span data-lang-en>July 2024</span>
+          </p>
+          <p class="mode-card__sub">
+            <span data-lang-bn>রাস্তায় ছাত্ররা। প্রতিদিনই সিদ্ধান্ত।</span>
+            <span data-lang-en>Students in the streets. A decision every day.</span>
+          </p>
+          <span class="mode-card__badge">
+            <span data-lang-bn>শিগগিরই</span>
+            <span data-lang-en>Coming soon</span>
+          </span>
+        </button>
+
+        <button class="mode-card mode-card--locked" disabled aria-disabled="true">
+          <span class="mode-card__year">২০২৩</span>
+          <p class="mode-card__name">
+            <span data-lang-bn>ডেঙ্গু মৌসুম</span>
+            <span data-lang-en>Dengue Summer</span>
+          </p>
+          <p class="mode-card__sub">
+            <span data-lang-bn>রেকর্ড দেঙ্গু — হাসপাতাল, ফগিং, রাজনীতি।</span>
+            <span data-lang-en>Record outbreak. Hospitals, fogging, politics.</span>
+          </p>
+          <span class="mode-card__badge">
+            <span data-lang-bn>শিগগিরই</span>
+            <span data-lang-en>Coming soon</span>
+          </span>
+        </button>
+
+        <button class="mode-card mode-card--locked" disabled aria-disabled="true">
+          <span class="mode-card__year">২০১৩</span>
+          <p class="mode-card__name">
+            <span data-lang-bn>রানা প্লাজা</span>
+            <span data-lang-en>Rana Plaza</span>
+          </p>
+          <p class="mode-card__sub">
+            <span data-lang-bn>ভবন নিরাপত্তা সংকট। কে দায়ী?</span>
+            <span data-lang-en>Building-safety reckoning. Who carries the weight?</span>
+          </p>
+          <span class="mode-card__badge">
+            <span data-lang-bn>শিগগিরই</span>
+            <span data-lang-en>Coming soon</span>
+          </span>
+        </button>
+      </div>
+
+      <div class="row-buttons">
+        <button class="btn btn--ghost" id="btn-mode-back">
+          <span data-lang-bn>পিছনে</span>
+          <span data-lang-en>Back</span>
+        </button>
+        <button class="btn btn--primary" id="btn-mode-start" disabled>
+          <span data-lang-bn>শুরু করুন</span>
+          <span data-lang-en>Start</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
   <!-- GAMEPLAY -->
   <section class="screen" data-screen-id="play">
     <header class="hud">

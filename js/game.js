@@ -118,7 +118,7 @@
   // ---------- State ----------
   const state = {
     data: { cards: [], parties: [], gameOvers: null, characters: {} },
-    player: { name: '', party: null, background: null },
+    player: { name: '', party: null, background: null, mode: null },
     stats: { janata: 50, dol: 50, proshashon: 50, tohobil: 50 },
     day: 0,
     year: 1,
@@ -331,6 +331,48 @@
     });
     document.getElementById('btn-party-confirm').addEventListener('click', () => {
       if (!state.player.party) return;
+      if (window.Sfx) Sfx.playClick();
+      goto('mode');
+    });
+  }
+
+  // ---------- Mode select ----------
+  // The campaign is the only playable mode right now; the rest are visible
+  // as "Coming soon" cards so players can see the roadmap. Selecting the
+  // campaign card enables the Start button which kicks off the run.
+  function wireModeSelect() {
+    const startBtn = document.getElementById('btn-mode-start');
+    const backBtn  = document.getElementById('btn-mode-back');
+    const grid     = document.querySelector('.mode-grid');
+    if (!grid) return;
+
+    grid.querySelectorAll('.mode-card').forEach(card => {
+      if (card.classList.contains('mode-card--locked')) return;
+      card.addEventListener('click', () => {
+        if (window.Sfx) Sfx.playClick();
+        grid.querySelectorAll('.mode-card').forEach(c => c.setAttribute('aria-pressed', 'false'));
+        card.setAttribute('aria-pressed', 'true');
+        state.player.mode = card.dataset.mode;
+        startBtn.disabled = false;
+      });
+    });
+
+    // Clicking a locked card surfaces a small toast-style feedback
+    grid.querySelectorAll('.mode-card--locked').forEach(card => {
+      card.addEventListener('click', () => {
+        if (window.Sfx) Sfx.playClick();
+        card.classList.add('mode-card--shake');
+        setTimeout(() => card.classList.remove('mode-card--shake'), 360);
+      });
+    });
+
+    backBtn.addEventListener('click', () => {
+      if (window.Sfx) Sfx.playClick();
+      goto('party');
+    });
+
+    startBtn.addEventListener('click', () => {
+      if (!state.player.mode) return;
       if (window.Sfx) Sfx.playClick();
       startRun();
     });
@@ -1281,6 +1323,7 @@
     wireNameEntry();
     wireBackgroundSelect();
     wirePartySelect();
+    wireModeSelect();
     wireRestart();
     wireShare();
     wireLeaderboardButtons();
