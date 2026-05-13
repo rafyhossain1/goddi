@@ -1419,15 +1419,185 @@
     });
   }
 
-  // "Replay intro" button on splash — clears the once-per-session flag and
-  // reloads so the SBYC fade plays again on the next paint.
-  function wireReplayIntro() {
-    const btn = document.getElementById('btn-replay-intro');
+  // ---------- Credits modal ----------
+  // Small overlay listing who made the thing. Bilingual; tap anywhere to close.
+  // Content lives here (not in HTML) so updating credits is one diff in JS,
+  // and the same lookup table populates both languages.
+  const CREDITS = [
+    {
+      label_bn: 'ডিজাইন · লেখা · প্রোগ্রামিং',
+      label_en: 'Design · Writing · Code',
+      value_bn: 'রাফি হোসেন',
+      value_en: 'Rafy Hossain'
+    },
+    {
+      label_bn: 'অনুপ্রেরণা',
+      label_en: 'Inspired by',
+      value_bn: 'Reigns (Nerial)',
+      value_en: 'Reigns (Nerial)'
+    },
+    {
+      label_bn: 'সঙ্গীত',
+      label_en: 'Audio',
+      value_bn: 'ওয়েব অডিও সিন্থেসিস · Pixabay অ্যাম্বিয়েন্ট',
+      value_en: 'Web Audio synthesis · Pixabay ambient bed'
+    },
+    {
+      label_bn: 'ফন্ট',
+      label_en: 'Type',
+      value_bn: 'Fraunces · Hind Siliguri · DM Sans · Special Elite',
+      value_en: 'Fraunces · Hind Siliguri · DM Sans · Special Elite'
+    },
+    {
+      label_bn: 'প্রযুক্তি',
+      label_en: 'Stack',
+      value_bn: 'Vanilla HTML/CSS/JS · Supabase · Netlify',
+      value_en: 'Vanilla HTML/CSS/JS · Supabase · Netlify'
+    },
+    {
+      label_bn: 'বিশেষ ধন্যবাদ',
+      label_en: 'Special thanks',
+      value_bn: 'সাউথ বারিধারা ইয়ুথ ক্লাব · ওয়ার্ড ৩৭-এর বাসিন্দারা',
+      value_en: 'South Baridhara Youth Club · the residents of Ward 37'
+    }
+  ];
+
+  function showCredits() {
+    const rowsHtml = CREDITS.map(row => `
+      <div class="credits__row">
+        <div class="credits__label">
+          <span data-lang-bn>${row.label_bn}</span>
+          <span data-lang-en>${row.label_en}</span>
+        </div>
+        <div class="credits__value">
+          <span data-lang-bn>${row.value_bn}</span>
+          <span data-lang-en>${row.value_en}</span>
+        </div>
+      </div>
+    `).join('');
+
+    const overlay = document.createElement('div');
+    overlay.className = 'credits';
+    overlay.innerHTML = `
+      <div class="credits__card" role="dialog" aria-modal="true">
+        <button class="credits__close" type="button" aria-label="Close">&times;</button>
+        <p class="credits__eyebrow">
+          <span data-lang-bn>গদি · ২০২৬</span>
+          <span data-lang-en>GODDI · 2026</span>
+        </p>
+        <h3 class="credits__title">
+          <span data-lang-bn>কৃতজ্ঞতা</span>
+          <span data-lang-en>Credits</span>
+        </h3>
+        <div class="credits__rows">${rowsHtml}</div>
+        <p class="credits__footer">
+          <span data-lang-bn>ঢাকায় তৈরি · এসবিওয়াইসির পরিবেশনায়</span>
+          <span data-lang-en>Made in Dhaka · An SBYC presentation</span>
+        </p>
+        <p class="credits__dismiss">
+          <span data-lang-bn>বাইরে ট্যাপ করে বন্ধ করুন</span>
+          <span data-lang-en>Tap outside to close</span>
+        </p>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+    requestAnimationFrame(() => overlay.classList.add('credits--shown'));
+
+    function dismiss() {
+      overlay.classList.add('credits--leaving');
+      setTimeout(() => overlay.remove(), 240);
+    }
+    // Close on backdrop tap or X button — not on text tap, so the player
+    // can read the rows comfortably on a phone.
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) dismiss();
+    });
+    overlay.querySelector('.credits__close').addEventListener('click', dismiss);
+  }
+
+  function wireCredits() {
+    const btn = document.getElementById('btn-credits');
     if (!btn) return;
     btn.addEventListener('click', () => {
       if (window.Sfx) Sfx.playClick();
-      try { sessionStorage.removeItem('goddi.brandShown'); } catch (_) {}
-      location.reload();
+      showCredits();
+    });
+  }
+
+  // ---------- Badges grid modal ----------
+  // Tapping the splash chip opens a grid of all achievements. Locked ones are
+  // shown as dashed silhouettes so the player can see what they're chasing.
+  function showBadgesGrid() {
+    if (!window.Achievements) return;
+    const all      = Achievements.list();
+    const unlocked = Achievements.unlocked();
+    const got      = unlocked.size;
+    const total    = all.length;
+
+    const itemsHtml = all.map(a => {
+      const isUnlocked = unlocked.has(a.id);
+      const cls = 'badge-item ' + (isUnlocked ? 'badge-item--unlocked' : 'badge-item--locked');
+      const nameBn = isUnlocked ? a.name_bn : '???';
+      const nameEn = isUnlocked ? a.name_en : '???';
+      const descBn = isUnlocked ? a.desc_bn : 'এখনও অর্জিত নয়';
+      const descEn = isUnlocked ? a.desc_en : 'Not yet earned';
+      return `
+        <div class="${cls}">
+          <div class="badge-item__seal">${isUnlocked ? '★' : '·'}</div>
+          <div class="badge-item__body">
+            <div class="badge-item__name">
+              <span data-lang-bn>${nameBn}</span>
+              <span data-lang-en>${nameEn}</span>
+            </div>
+            <div class="badge-item__desc">
+              <span data-lang-bn>${descBn}</span>
+              <span data-lang-en>${descEn}</span>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    const overlay = document.createElement('div');
+    overlay.className = 'badges-modal';
+    overlay.innerHTML = `
+      <div class="badges-modal__card" role="dialog" aria-modal="true">
+        <button class="badges-modal__close" type="button" aria-label="Close">&times;</button>
+        <p class="badges-modal__eyebrow">
+          <span data-lang-bn>আপনার ব্যাজসমূহ</span>
+          <span data-lang-en>YOUR BADGES</span>
+        </p>
+        <p class="badges-modal__progress">
+          <span data-lang-bn>${I18n.toBanglaDigits(got)} / ${I18n.toBanglaDigits(total)} সংগ্রহ করেছেন</span>
+          <span data-lang-en>${got} of ${total} collected</span>
+        </p>
+        <div class="badges-modal__grid">${itemsHtml}</div>
+        <p class="badges-modal__dismiss">
+          <span data-lang-bn>বাইরে ট্যাপ করে বন্ধ করুন</span>
+          <span data-lang-en>Tap outside to close</span>
+        </p>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+    requestAnimationFrame(() => overlay.classList.add('badges-modal--shown'));
+
+    function dismiss() {
+      overlay.classList.add('badges-modal--leaving');
+      setTimeout(() => overlay.remove(), 240);
+    }
+    // Close on backdrop click, but not on card click. Close button also dismisses.
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) dismiss();
+    });
+    overlay.querySelector('.badges-modal__close').addEventListener('click', dismiss);
+  }
+
+  function wireBadgesChip() {
+    const chip = document.getElementById('splash-achievement-count');
+    if (!chip) return;
+    chip.addEventListener('click', () => {
+      if (window.Sfx) Sfx.playClick();
+      showBadgesGrid();
     });
   }
 
@@ -1479,7 +1649,8 @@
     }, 2600);
   }
 
-  // Splash badge-count chip — shows "X / Y badges" so players see progress.
+  // Splash badge-count chip — always visible so the badges grid is
+  // discoverable from the first run ("0 / 15 badges — tap to see").
   function renderSplashAchievementCount() {
     if (!window.Achievements) return;
     const el = document.getElementById('splash-achievement-count');
@@ -1490,7 +1661,7 @@
       I18n.toBanglaDigits(got) + ' / ' + I18n.toBanglaDigits(total) + ' ব্যাজ';
     el.querySelector('[data-lang-en]').textContent =
       got + ' / ' + total + ' badges';
-    el.hidden = (got === 0);
+    el.hidden = false;
   }
 
   // ---------- Brand fade-in ----------
@@ -1562,7 +1733,8 @@
     wireRestart();
     wireShare();
     wireLeaderboardButtons();
-    wireReplayIntro();
+    wireCredits();
+    wireBadgesChip();
     wireMuteToggle();
     handleBrandFade();
 
