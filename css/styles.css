@@ -1670,3 +1670,11 @@ body[data-lang="bn"] .brand-fade__text {
     gap: 8px;
   }
 }
+
+/* Small button variant — used for the splash "View leaderboard" link */
+.btn--small {
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  padding: 8px 18px;
+  margin-top: -4px;
+}

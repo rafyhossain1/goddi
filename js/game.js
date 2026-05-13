@@ -995,7 +995,7 @@
   }
 
   function wireLeaderboardButtons() {
-    ['btn-leaderboard-loss', 'btn-leaderboard-win'].forEach(id => {
+    ['btn-leaderboard-loss', 'btn-leaderboard-win', 'btn-leaderboard-splash'].forEach(id => {
       const b = document.getElementById(id);
       if (!b) return;
       // Hide the button entirely if Supabase isn't configured
@@ -1004,7 +1004,7 @@
         return;
       }
       b.addEventListener('click', () => {
-        if (window.Sfx) Sfx.playClick();
+        if (window.Sfx) { Sfx.unlock(); Sfx.playClick(); }
         showLeaderboardScreen('all');
       });
     });
