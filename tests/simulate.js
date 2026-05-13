@@ -31,10 +31,8 @@ const DIRTY_FLAGS = new Set([
 function clamp(n, lo, hi) { return Math.max(lo, Math.min(hi, n)); }
 
 function maxUsesFor(card) {
-  if (card.oneshot) return 1;
-  if (typeof card.force_on_day === 'number') return 1;
-  if (Array.isArray(card.requires_flags) && card.requires_flags.length) return 1;
-  return 2;
+  if (typeof card.max_uses === 'number' && card.max_uses > 0) return card.max_uses;
+  return 1;
 }
 function timesUsed(cardId, st) { return st.cardUseCounts[cardId] || 0; }
 

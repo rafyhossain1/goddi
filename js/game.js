@@ -56,6 +56,57 @@
     { key: 'tohobil',    iconSvg: ICON_TOHOBIL,    name_bn: 'তহবিল',    name_en: 'Treasury', color: 'var(--stat-tohobil)' }
   ];
 
+  // Five "what were you before politics?" backgrounds. Modifiers stack on
+  // top of party modifiers — kept smaller than party (±5 vs party's ±10) so
+  // they shape the run without overriding party identity.
+  const BACKGROUNDS = [
+    {
+      id: 'businessman',
+      name_bn: 'ব্যবসায়ী',
+      name_en: 'Businessman',
+      tagline_bn: 'টাকার গন্ধ চেনেন। কিন্তু জনতাকে চেনেন না।',
+      tagline_en: 'Knows the smell of money. Not so much the smell of voters.',
+      color: '#9c7a36',
+      modifiers: { tohobil: 6, janata: -4, dol: 0, proshashon: 0 }
+    },
+    {
+      id: 'teacher',
+      name_bn: 'শিক্ষক',
+      name_en: 'School teacher',
+      tagline_bn: 'মানুষ চেনেন। চেক বইটা চেনেন না।',
+      tagline_en: 'Knows people. Doesn\'t know a chequebook.',
+      color: '#1b7849',
+      modifiers: { janata: 6, tohobil: -4, dol: 0, proshashon: 2 }
+    },
+    {
+      id: 'army_retired',
+      name_bn: 'অবসরপ্রাপ্ত সেনা',
+      name_en: 'Ex-Army officer',
+      tagline_bn: 'শৃঙ্খলা শিখেছেন। দলীয় রাজনীতি শেখেননি।',
+      tagline_en: 'Learned discipline. Never learned party politics.',
+      color: '#4a3c2a',
+      modifiers: { proshashon: 6, dol: -4, janata: 0, tohobil: 0 }
+    },
+    {
+      id: 'ngo_worker',
+      name_bn: 'এনজিও কর্মী',
+      name_en: 'NGO worker',
+      tagline_bn: 'গরিবের আস্থা আছে। কেন্দ্রের নেই।',
+      tagline_en: 'Trusted by the poor. Distrusted by the centre.',
+      color: '#a6291f',
+      modifiers: { janata: 6, dol: -4, proshashon: 0, tohobil: 0 }
+    },
+    {
+      id: 'party_lifer',
+      name_bn: 'দলীয় কর্মী',
+      name_en: 'Career party worker',
+      tagline_bn: 'দল চেনেন ভেতর থেকে। প্রশাসন বাইরে থেকে দেখেছেন।',
+      tagline_en: 'Knows the party from the inside. Seen the bureaucracy only from outside.',
+      color: '#2d4a7a',
+      modifiers: { dol: 6, proshashon: -4, janata: 0, tohobil: 0 }
+    }
+  ];
+
   // Map a stat that hit 0 or 100 to a death key in game_overs.json
   const DEATH_MAP = {
     janata:     { low: 'janata_low',     high: 'janata_high' },
@@ -67,7 +118,7 @@
   // ---------- State ----------
   const state = {
     data: { cards: [], parties: [], gameOvers: null, characters: {} },
-    player: { name: '', party: null },
+    player: { name: '', party: null, background: null },
     stats: { janata: 50, dol: 50, proshashon: 50, tohobil: 50 },
     day: 0,
     year: 1,
@@ -84,14 +135,12 @@
   };
 
   // How many times a given card may appear in a single run.
-  // - oneshot:true → 1
-  // - Anything with force_on_day or requires_flags → 1 (milestone / arc piece)
-  // - Otherwise → 2 (recurring grievance)
+  // Default: 1 (no repeat). A small set of genuinely-yearly cards
+  // (Eid bonuses, monsoon, dengue, annual party fund squeeze, etc.) carry
+  // an explicit `max_uses` field for 2-3 reappearances.
   function maxUsesFor(card) {
-    if (card.oneshot) return 1;
-    if (typeof card.force_on_day === 'number') return 1;
-    if (Array.isArray(card.requires_flags) && card.requires_flags.length) return 1;
-    return 2;
+    if (typeof card.max_uses === 'number' && card.max_uses > 0) return card.max_uses;
+    return 1;
   }
   function timesUsed(cardId) {
     return state.cardUseCounts[cardId] || 0;
@@ -166,14 +215,69 @@
       }
       err.hidden = true;
       state.player.name = v;
-      renderPartyGrid();
-      goto('party');
+      renderBackgroundGrid();
+      goto('background');
     }
 
     back.addEventListener('click', () => { if (window.Sfx) Sfx.playClick(); goto('splash'); });
     next.addEventListener('click', () => { if (window.Sfx) Sfx.playClick(); tryNext(); });
     input.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') { if (window.Sfx) Sfx.playClick(); tryNext(); }
+    });
+  }
+
+  // ---------- Background select ----------
+  function renderBackgroundGrid() {
+    const grid = document.getElementById('background-grid');
+    grid.innerHTML = '';
+    BACKGROUNDS.forEach(b => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'party-card';
+      btn.setAttribute('aria-pressed', 'false');
+      btn.dataset.backgroundId = b.id;
+      btn.style.setProperty('--party-color', b.color);
+
+      const modsHtml = Object.entries(b.modifiers)
+        .filter(([, v]) => v !== 0)
+        .map(([k, v]) => {
+          const stat = STATS.find(s => s.key === k);
+          const cls = v > 0 ? 'party-card__mod--pos' : 'party-card__mod--neg';
+          const label = I18n.lang === 'bn' ? stat.name_bn : stat.name_en;
+          return `<span class="party-card__mod ${cls}">${label} ${v > 0 ? '+' : ''}${v}</span>`;
+        }).join('');
+
+      btn.innerHTML = `
+        <div class="party-card__bar"></div>
+        <p class="party-card__name">${I18n.lang === 'bn' ? b.name_bn : b.name_en}</p>
+        <p class="party-card__tag">${I18n.lang === 'bn' ? b.tagline_bn : b.tagline_en}</p>
+        <div class="party-card__mods">${modsHtml}</div>
+      `;
+      btn.addEventListener('click', () => selectBackground(b.id));
+      grid.appendChild(btn);
+    });
+    document.getElementById('btn-background-next').disabled = true;
+    state.player.background = null;
+  }
+
+  function selectBackground(id) {
+    state.player.background = id;
+    document.querySelectorAll('#background-grid .party-card').forEach(el => {
+      el.setAttribute('aria-pressed', el.dataset.backgroundId === id ? 'true' : 'false');
+    });
+    document.getElementById('btn-background-next').disabled = false;
+  }
+
+  function wireBackgroundSelect() {
+    document.getElementById('btn-background-back').addEventListener('click', () => {
+      if (window.Sfx) Sfx.playClick();
+      goto('name');
+    });
+    document.getElementById('btn-background-next').addEventListener('click', () => {
+      if (!state.player.background) return;
+      if (window.Sfx) Sfx.playClick();
+      renderPartyGrid();
+      goto('party');
     });
   }
 
@@ -223,7 +327,7 @@
   function wirePartySelect() {
     document.getElementById('btn-party-back').addEventListener('click', () => {
       if (window.Sfx) Sfx.playClick();
-      goto('name');
+      goto('background');
     });
     document.getElementById('btn-party-confirm').addEventListener('click', () => {
       if (!state.player.party) return;
@@ -234,11 +338,15 @@
 
   // ---------- Start a run ----------
   function startRun() {
-    const party = state.data.parties.find(p => p.id === state.player.party);
-    // Seed stats at 50 + party modifier, clamped
+    const party      = state.data.parties.find(p => p.id === state.player.party);
+    const background = BACKGROUNDS.find(b => b.id === state.player.background);
+    // Seed stats at 50 + party modifier + background modifier, clamped. Both
+    // modifiers stack; background mods are smaller (±5 vs party's ±10) so
+    // they shape the run without overriding party identity.
     STATS.forEach(s => {
-      const mod = party.modifiers[s.key] ?? 0;
-      state.stats[s.key] = clamp(50 + mod, 1, 99); // never start at a lose condition
+      const partyMod      = party.modifiers[s.key] ?? 0;
+      const backgroundMod = (background && background.modifiers && background.modifiers[s.key]) || 0;
+      state.stats[s.key]  = clamp(50 + partyMod + backgroundMod, 1, 99);
     });
     state.day = 0;
     state.year = 1;
@@ -1140,8 +1248,9 @@
       origToggle();
       // If we're mid-game, redraw. If we're on party-select, redraw cards.
       const screen = document.body.getAttribute('data-screen');
-      if (screen === 'play')  { renderHud(); renderStats(); redrawCurrentCard(); }
-      if (screen === 'party') { renderPartyGrid(); }
+      if (screen === 'play')       { renderHud(); renderStats(); redrawCurrentCard(); }
+      if (screen === 'background') { renderBackgroundGrid(); }
+      if (screen === 'party')      { renderPartyGrid(); }
       if (screen === 'gameover' || screen === 'win') {
         // re-translate verdict screen — easiest to just re-call
         const death = detectDeath();
@@ -1164,6 +1273,7 @@
 
     wireSplash();
     wireNameEntry();
+    wireBackgroundSelect();
     wirePartySelect();
     wireRestart();
     wireShare();

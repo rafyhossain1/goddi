@@ -107,6 +107,7 @@ body[data-lang="bn"] [data-lang-en] {
 
 body[data-screen="splash"]      [data-screen-id="splash"],
 body[data-screen="name"]        [data-screen-id="name"],
+body[data-screen="background"]  [data-screen-id="background"],
 body[data-screen="party"]       [data-screen-id="party"],
 body[data-screen="play"]        [data-screen-id="play"],
 body[data-screen="gameover"]    [data-screen-id="gameover"],
