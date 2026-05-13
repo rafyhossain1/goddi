@@ -9,10 +9,12 @@
 (function () {
   'use strict';
 
-  // ----- CONFIG: paste your anon key here -----
+  // ----- CONFIG -----
   const SUPABASE_URL      = 'https://kafvftjcvnvtklqwanrm.supabase.co';
-  const SUPABASE_ANON_KEY = ''; // <-- PASTE YOUR ANON KEY HERE
-  // --------------------------------------------
+  // Public "publishable" key — safe to expose; RLS policies on goddi_runs
+  // enforce read/insert-only access from this key.
+  const SUPABASE_ANON_KEY = 'sb_publishable_dOxFoPfs_kKu8H3zoZkVng_w7JlM5Es';
+  // ------------------
 
   const TABLE = 'goddi_runs';
 
