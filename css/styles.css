@@ -1553,3 +1553,120 @@ body[data-lang="bn"] .brand-fade__text {
   text-align: center;
   margin: 8px 0 0;
 }
+
+/* ============================================================
+   Mobile polish — comprehensive pass for ≤480px viewports
+   Addresses crowding, oversized portrait, address-bar-eats-vh,
+   and overlap between card stage and HUD/stats.
+   ============================================================ */
+@media (max-width: 480px) {
+  /* HUD: tighter spacing so it doesn't crowd the corner toggles */
+  .hud {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    padding: 2px 6px;
+  }
+  .hud__arcs { right: 8px; }
+  .hud__arc { width: 18px; height: 18px; font-size: 10px; }
+
+  /* Lang + mute toggles a touch smaller so they don't crowd the HUD */
+  .lang-toggle {
+    padding: 4px 10px;
+    font-size: 11px;
+    top: max(12px, env(safe-area-inset-top));
+    right: 10px;
+  }
+  .mute-toggle {
+    width: 34px;
+    height: 30px;
+    right: 10px;
+    top: calc(max(12px, env(safe-area-inset-top)) + 38px);
+  }
+  .mute-toggle__icon { width: 17px; height: 17px; }
+
+  /* Stats: smaller seals + labels so the row fits without truncation */
+  .stat__seal {
+    width: 26px;
+    height: 26px;
+  }
+  .stat__seal svg {
+    width: 15px;
+    height: 15px;
+  }
+  .stat__label {
+    font-size: 9px;
+    letter-spacing: 0.06em;
+  }
+  .stat__value { font-size: 11px; }
+
+  /* Card stage: shorter on mobile, plays well with iOS address bar */
+  .card-stage {
+    height: 60vh;
+    max-height: 520px;
+    max-width: calc(100% - 12px);
+  }
+
+  /* Smaller portrait — biggest single mobile-density win */
+  .goddi-card__portrait {
+    padding: 12px 12px 6px;
+  }
+  .goddi-card__portrait svg {
+    width: 96px;
+    height: 96px;
+  }
+  .goddi-card__character {
+    font-size: 17px;
+    margin: 6px 0 2px;
+  }
+  .goddi-card__role {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+  }
+
+  /* Tighter dialog — pulls choice buttons up so they're a comfortable
+     thumb-reach from the bottom edge */
+  .goddi-card__dialog {
+    padding: 16px 18px;
+    font-size: 15px;
+    line-height: 1.42;
+  }
+
+  /* Choice buttons: slightly compressed */
+  .goddi-card__choice {
+    font-size: 14px;
+    padding: 14px 10px;
+  }
+
+  /* Stronger z-indexing so the card never bleeds over HUD/stats */
+  .hud   { z-index: 6; }
+  .stats { z-index: 4; }
+  .card-stage { z-index: 2; }
+}
+
+/* Even tighter on short phones (e.g. iPhone SE, 568-667px tall) */
+@media (max-width: 480px) and (max-height: 720px) {
+  .card-stage {
+    height: 56vh;
+    max-height: 440px;
+  }
+  .goddi-card__portrait svg {
+    width: 84px;
+    height: 84px;
+  }
+  .goddi-card__portrait {
+    padding: 10px 10px 4px;
+  }
+  .goddi-card__character { font-size: 16px; }
+  .goddi-card__dialog { font-size: 14px; padding: 12px 16px; }
+  .goddi-card__choice { padding: 12px 8px; font-size: 13px; }
+}
+
+/* Make the HUD/stats anchor at top of the play screen instead of centering
+   the flex content. Keeps card from sliding up into them. */
+@media (max-width: 480px) {
+  body[data-screen="play"] [data-screen-id="play"] {
+    justify-content: flex-start;
+    padding-top: calc(max(12px, env(safe-area-inset-top)) + 56px);
+    gap: 8px;
+  }
+}
