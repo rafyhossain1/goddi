@@ -1425,10 +1425,22 @@
   // and the same lookup table populates both languages.
   const CREDITS = [
     {
-      label_bn: 'ডিজাইন · লেখা · প্রোগ্রামিং',
-      label_en: 'Design · Writing · Code',
-      value_bn: 'রাফি হোসেন',
-      value_en: 'Rafy Hossain'
+      label_bn: 'ডিজাইন · প্রোগ্রামিং',
+      label_en: 'Design · Code',
+      value_bn: 'মো. রাফি হোসেন',
+      value_en: 'Md. Rafy Hossain'
+    },
+    {
+      label_bn: 'গল্প',
+      label_en: 'Story',
+      value_bn: 'One97 Technologies Pvt Ltd',
+      value_en: 'One97 Technologies Pvt Ltd'
+    },
+    {
+      label_bn: 'বাগ টেস্টিং',
+      label_en: 'Bug testing',
+      value_bn: 'রাফায়েত মজুমদার · নুরুল কাদের রিকো',
+      value_en: 'Rafayet Mozumder · Nurul Quader Rico'
     },
     {
       label_bn: 'অনুপ্রেরণা',
@@ -1441,18 +1453,6 @@
       label_en: 'Audio',
       value_bn: 'ওয়েব অডিও সিন্থেসিস · Pixabay অ্যাম্বিয়েন্ট',
       value_en: 'Web Audio synthesis · Pixabay ambient bed'
-    },
-    {
-      label_bn: 'ফন্ট',
-      label_en: 'Type',
-      value_bn: 'Fraunces · Hind Siliguri · DM Sans · Special Elite',
-      value_en: 'Fraunces · Hind Siliguri · DM Sans · Special Elite'
-    },
-    {
-      label_bn: 'প্রযুক্তি',
-      label_en: 'Stack',
-      value_bn: 'Vanilla HTML/CSS/JS · Supabase · Netlify',
-      value_en: 'Vanilla HTML/CSS/JS · Supabase · Netlify'
     },
     {
       label_bn: 'বিশেষ ধন্যবাদ',
