@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#f1e9d6" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Goddi · Stats</title>
+
+  <style>
+    /* ============================================================
+       Goddi stats dashboard — admin-only.
+       Same paper/ink aesthetic as the game so it doesn't feel
+       like a totally separate app. Mobile-first; Rafy can check
+       from his phone.
+       ============================================================ */
+    :root {
+      --paper:      #f1e9d6;
+      --paper-2:    #e6dcc2;
+      --paper-3:    #ddd0b0;
+      --ink:        #1a1310;
+      --ink-soft:   #3d322a;
+      --ink-mute:   #6a594b;
+      --stamp-red:  #a6291f;
+      --bd-green:   #006a4e;
+      --gold:       #b8934a;
+      --font-display: "Fraunces", Georgia, serif;
+      --font-mono:    "Special Elite", "Courier New", monospace;
+      --font-en:      "DM Sans", system-ui, -apple-system, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--font-en);
+      font-size: 15px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 20px 16px 80px;
+    }
+
+    /* Header */
+    header.page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .page-header h1 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 32px;
+      letter-spacing: 0.5px;
+    }
+    .page-header__meta {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--ink-mute);
+      letter-spacing: 0.1em;
+    }
+    .page-header__actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .btn {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 8px 14px;
+      border: 2px solid var(--ink);
+      background: var(--paper);
+      color: var(--ink);
+      cursor: pointer;
+      border-radius: 4px;
+      box-shadow: 2px 2px 0 var(--ink);
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .btn:hover { transform: translate(-1px,-1px); box-shadow: 3px 3px 0 var(--ink); }
+    .btn:active { transform: translate(1px,1px); box-shadow: 1px 1px 0 var(--ink); }
+    .btn--ghost { box-shadow: none; }
+    .btn--primary { background: var(--ink); color: var(--paper); box-shadow: 3px 3px 0 var(--stamp-red); }
+
+    /* Login screen */
+    .login {
+      max-width: 420px;
+      margin: 60px auto;
+      text-align: center;
+      padding: 24px;
+      border: 2px solid var(--ink);
+      box-shadow: 4px 4px 0 var(--ink);
+      background: var(--paper);
+      border-radius: 6px;
+    }
+    .login h2 {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 26px;
+      margin: 0 0 8px;
+    }
+    .login p {
+      color: var(--ink-soft);
+      margin: 0 0 16px;
+      font-size: 14px;
+    }
+    .login input {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      width: 100%;
+      padding: 10px 12px;
+      border: 1.5px solid var(--ink);
+      background: var(--paper-2);
+      border-radius: 4px;
+      margin-bottom: 12px;
+      box-shadow: inset 1px 1px 0 var(--paper-3);
+    }
+    .login button {
+      width: 100%;
+      padding: 12px 16px;
+      font-family: var(--font-mono);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: var(--ink);
+      color: var(--paper);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      box-shadow: 3px 3px 0 var(--stamp-red);
+      font-size: 13px;
+      transition: transform 0.1s ease;
+    }
+    .login button:hover  { transform: translate(-1px,-1px); }
+    .login button:active { transform: translate(2px,2px); box-shadow: 1px 1px 0 var(--stamp-red); }
+    .login__error {
+      color: var(--stamp-red);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      margin-top: 8px;
+      min-height: 18px;
+    }
+
+    /* KPI cards */
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .kpi {
+      border: 1.5px solid var(--ink);
+      background: var(--paper-2);
+      padding: 12px 14px;
+      border-radius: 4px;
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+    .kpi__label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      margin-bottom: 4px;
+    }
+    .kpi__value {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 28px;
+      color: var(--ink);
+      line-height: 1.1;
+    }
+    .kpi__sub {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--ink-mute);
+      margin-top: 2px;
+    }
+    .kpi--accent { background: rgba(184, 147, 74, 0.10); border-color: var(--gold); }
+    .kpi--accent .kpi__value { color: var(--gold); }
+
+    /* Section */
+    section.panel {
+      margin-bottom: 28px;
+    }
+    section.panel h2 {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 18px;
+      margin: 0 0 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px dashed var(--ink-mute);
+      letter-spacing: 0.3px;
+    }
+    section.panel .sub {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--ink-mute);
+      margin-bottom: 12px;
+    }
+
+    /* Bar chart (single horizontal row per item) */
+    .bars { display: grid; gap: 6px; }
+    .bar {
+      display: grid;
+      grid-template-columns: 140px 1fr 50px;
+      gap: 10px;
+      align-items: center;
+      font-size: 13px;
+    }
+    .bar__label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--ink-soft);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .bar__track {
+      background: var(--paper-3);
+      height: 10px;
+      border-radius: 2px;
+      overflow: hidden;
+      border: 1px solid var(--ink-mute);
+    }
+    .bar__fill {
+      height: 100%;
+      background: var(--bd-green);
+      border-right: 1px solid var(--ink);
+    }
+    .bar__fill--red  { background: var(--stamp-red); }
+    .bar__fill--gold { background: var(--gold); }
+    .bar__value {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--ink);
+      text-align: right;
+      font-weight: 700;
+    }
+
+    /* Funnel — same as bar but stacked + step labels */
+    .funnel { display: grid; gap: 4px; }
+    .funnel__step {
+      display: grid;
+      grid-template-columns: 90px 1fr 60px 50px;
+      gap: 10px;
+      align-items: center;
+      font-size: 13px;
+    }
+    .funnel__step-name {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--ink);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .funnel__step-drop {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--ink-mute);
+    }
+
+    /* Table */
+    table.data {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      font-family: var(--font-mono);
+    }
+    table.data th {
+      text-align: left;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      padding: 6px 6px;
+      border-bottom: 1px solid var(--ink-mute);
+    }
+    table.data td {
+      padding: 6px 6px;
+      border-bottom: 1px dashed var(--paper-3);
+      vertical-align: middle;
+    }
+    table.data tr:hover td { background: var(--paper-2); }
+    table.data .num { text-align: right; font-weight: 700; }
+    table.data .pct { width: 70px; text-align: right; color: var(--ink-soft); }
+    table.data .bar-cell {
+      width: 130px;
+    }
+    table.data .bar-cell .bar__track { height: 8px; }
+
+    /* Sparkline */
+    .spark {
+      display: grid;
+      grid-template-columns: repeat(30, 1fr);
+      gap: 1px;
+      align-items: end;
+      height: 60px;
+      padding: 4px 2px;
+      border: 1px dashed var(--ink-mute);
+      border-radius: 3px;
+      background: var(--paper-2);
+    }
+    .spark__bar {
+      background: var(--bd-green);
+      min-height: 2px;
+      border-radius: 1px 1px 0 0;
+    }
+    .spark__bar--empty { background: var(--paper-3); }
+    .spark__axis {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--ink-mute);
+      margin-top: 4px;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 40px;
+      font-family: var(--font-mono);
+      color: var(--ink-mute);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+    .error {
+      background: rgba(166,41,31,0.08);
+      border: 1px solid var(--stamp-red);
+      color: var(--stamp-red);
+      padding: 12px 14px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+    }
+
+    /* Hide app until authed */
+    #app { display: none; }
+    body[data-state="ready"] #app   { display: block; }
+    body[data-state="ready"] #login { display: none; }
+    body[data-state="loading"] #app { display: none; }
+
+    @media (max-width: 480px) {
+      main { padding: 16px 12px 60px; }
+      .page-header h1 { font-size: 26px; }
+      .kpi__value { font-size: 24px; }
+      .bar { grid-template-columns: 110px 1fr 44px; }
+      .funnel__step { grid-template-columns: 70px 1fr 50px 38px; }
+      table.data .bar-cell { width: 90px; }
+    }
+  </style>
+</head>
+<body data-state="login">
+  <main>
+
+    <!-- ============ LOGIN ============ -->
+    <div class="login" id="login">
+      <h2>Goddi Stats</h2>
+      <p>Admin-only. Enter the dashboard password.</p>
+      <input id="login-pw" type="password" placeholder="password" autocomplete="current-password" />
+      <button id="login-go" type="button">View dashboard</button>
+      <div class="login__error" id="login-error"></div>
+    </div>
+
+    <!-- ============ APP ============ -->
+    <div id="app">
+      <header class="page-header">
+        <div>
+          <h1>Goddi · Stats</h1>
+          <div class="page-header__meta" id="generated-at">—</div>
+        </div>
+        <div class="page-header__actions">
+          <button class="btn btn--ghost" id="btn-refresh" type="button">Refresh</button>
+          <button class="btn btn--ghost" id="btn-logout"  type="button">Log out</button>
+        </div>
+      </header>
+
+      <div id="error-area"></div>
+
+      <!-- Headline KPIs -->
+      <div class="kpi-row" id="kpi-row"></div>
+
+      <!-- Daily sessions sparkline -->
+      <section class="panel">
+        <h2>Daily sessions · last 30 days</h2>
+        <div class="spark"          id="spark"></div>
+        <div class="spark__axis"    id="spark-axis"></div>
+      </section>
+
+      <!-- Funnel -->
+      <section class="panel">
+        <h2>Funnel · screens reached</h2>
+        <p class="sub">How far players get before bouncing. Drop-off between steps is where the friction lives.</p>
+        <div class="funnel" id="funnel"></div>
+      </section>
+
+      <!-- Background popularity -->
+      <section class="panel">
+        <h2>Background popularity</h2>
+        <div class="bars" id="bars-backgrounds"></div>
+      </section>
+
+      <!-- Party popularity -->
+      <section class="panel">
+        <h2>Party popularity</h2>
+        <div class="bars" id="bars-parties"></div>
+      </section>
+
+      <!-- Language split -->
+      <section class="panel">
+        <h2>Language at session start</h2>
+        <div class="bars" id="bars-languages"></div>
+      </section>
+
+      <!-- Win tiers + death causes -->
+      <section class="panel">
+        <h2>Outcomes</h2>
+        <p class="sub">Win-tier distribution and the most common ways players die. From completed-run records (<code>goddi_runs</code>).</p>
+        <div class="bars" id="bars-outcomes"></div>
+      </section>
+
+      <!-- Card decision splits -->
+      <section class="panel">
+        <h2>Cards · seen, decisions split</h2>
+        <p class="sub">Top 30 most-seen cards. Heavily one-sided splits suggest the choice is too obvious; near-50/50 means the dilemma is working.</p>
+        <table class="data" id="card-table">
+          <thead>
+            <tr><th>Card</th><th class="num">Seen</th><th class="bar-cell">Left ←  Right →</th><th class="pct">Left %</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <!-- Achievements -->
+      <section class="panel">
+        <h2>Achievement unlocks</h2>
+        <div class="bars" id="bars-achievements"></div>
+      </section>
+
+      <!-- Year reach -->
+      <section class="panel">
+        <h2>How far players survived</h2>
+        <p class="sub">Sessions that crossed into Year N — the survival curve.</p>
+        <div class="bars" id="bars-yearreach"></div>
+      </section>
+
+      <!-- Clicks -->
+      <section class="panel">
+        <h2>Engagement clicks</h2>
+        <div class="bars" id="bars-clicks"></div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <script src="/js/stats.js" defer></script>
+</body>
+</html>

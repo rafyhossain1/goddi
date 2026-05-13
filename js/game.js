@@ -245,6 +245,17 @@
       if (screen === 'play') Sfx.startAmbient();
       else                   Sfx.stopAmbient();
     }
+    // Funnel analytics — one event per screen entry. We capture which
+    // background / party / language the player is on so the funnel can
+    // be sliced later.
+    if (window.Analytics) {
+      Analytics.track('screen_enter', {
+        meta:       { screen: screen },
+        language:   window.I18n ? I18n.lang : null,
+        background: state.player && state.player.background,
+        party:      state.player && state.player.party
+      });
+    }
   }
 
   // ---------- Splash ----------
@@ -918,11 +929,30 @@
   function commitChoice(card, side) {
     if (state.inFlight) return;
     state.inFlight = true;
+    const wasFirstCard = !state.seenFirstCard;
     state.seenFirstCard = true;
 
     // Stamp thud — fires the moment the player commits, in sync with
     // the card flying off and the choice resolving.
     if (window.Sfx) Sfx.playStamp(side);
+
+    // Analytics: card decision (and run_start on first commit of the run).
+    if (window.Analytics) {
+      if (wasFirstCard) {
+        Analytics.track('run_start', {
+          background: state.player.background,
+          party:      state.player.party,
+          language:   window.I18n ? I18n.lang : null
+        });
+      }
+      Analytics.track('card_decision', {
+        card_id:    card.id,
+        decision:   side,
+        background: state.player.background,
+        party:      state.player.party,
+        language:   window.I18n ? I18n.lang : null
+      });
+    }
 
     const choice = card[side];
     // Apply stat effects
@@ -968,6 +998,16 @@
         yearDeltas[k] = state.stats[k] - (state.yearStartStats[k] ?? 50);
       }
       state.yearStartStats = null;
+      // Analytics: year rolled over. Useful for retention funnels —
+      // how many players make it past Year 1, Year 2, etc.
+      if (window.Analytics) {
+        Analytics.track('year_crossed', {
+          meta:       { year: state.year, deltas: yearDeltas },
+          background: state.player.background,
+          party:      state.player.party,
+          language:   window.I18n ? I18n.lang : null
+        });
+      }
     }
 
     renderHud();
@@ -1185,6 +1225,20 @@
     if (window.Sfx) Sfx.playVerdict('loss');
     submitToLeaderboard();
     if (window.Achievements) Achievements.evaluateVerdict(state, state.lastVerdict);
+    if (window.Analytics) {
+      Analytics.track('run_end', {
+        background: state.player.background,
+        party:      state.player.party,
+        language:   I18n.lang,
+        meta: {
+          outcome: 'death',
+          cause:   death.key,
+          days:    state.day,
+          year:    state.year,
+          stats:   { ...state.stats }
+        }
+      });
+    }
   }
 
   // ---------- Win tier ----------
@@ -1254,6 +1308,20 @@
     if (window.Sfx) Sfx.playVerdict('win');
     submitToLeaderboard();
     if (window.Achievements) Achievements.evaluateVerdict(state, state.lastVerdict);
+    if (window.Analytics) {
+      Analytics.track('run_end', {
+        background: state.player.background,
+        party:      state.player.party,
+        language:   I18n.lang,
+        meta: {
+          outcome: 'win',
+          tier:    tier,
+          days:    state.day,
+          year:    state.year,
+          stats:   { ...state.stats }
+        }
+      });
+    }
   }
 
   function renderFinalStats(containerId) {
@@ -1405,6 +1473,12 @@
       if (!b) return;
       b.addEventListener('click', () => {
         if (window.Sfx) Sfx.playClick();
+        if (window.Analytics) {
+          Analytics.track('share_click', {
+            language: I18n.lang,
+            meta: { from: id }
+          });
+        }
         if (!window.ShareCard || !state.lastVerdict) return;
         ShareCard.export({
           outcome: state.lastVerdict.outcome,
@@ -1520,6 +1594,7 @@
     if (!btn) return;
     btn.addEventListener('click', () => {
       if (window.Sfx) Sfx.playClick();
+      if (window.Analytics) Analytics.track('credits_click', { language: window.I18n ? I18n.lang : null });
       showCredits();
     });
   }
@@ -1690,6 +1765,7 @@
     if (!btn) return;
     btn.addEventListener('click', () => {
       if (window.Sfx) Sfx.playClick();
+      if (window.Analytics) Analytics.track('cameo_click', { language: window.I18n ? I18n.lang : null });
       showCameo();
     });
   }
@@ -1870,6 +1946,12 @@
     const origToggle = I18n.toggle.bind(I18n);
     I18n.toggle = function () {
       origToggle();
+      if (window.Analytics) {
+        Analytics.track('language_toggle', {
+          language: I18n.lang,
+          meta: { screen: document.body.getAttribute('data-screen') }
+        });
+      }
       // If we're mid-game, redraw. If we're on party-select, redraw cards.
       const screen = document.body.getAttribute('data-screen');
       if (screen === 'play')       { renderHud(); renderStats(); redrawCurrentCard(); }
@@ -1909,9 +1991,17 @@
     wireMuteToggle();
     handleBrandFade();
 
-    // Achievement toast wiring + splash chip render
+    // Achievement toast wiring + splash chip render + analytics
     if (window.Achievements) {
       Achievements.onUnlock(showAchievementToast);
+      Achievements.onUnlock(def => {
+        if (window.Analytics && def) {
+          Analytics.track('achievement_unlock', {
+            achievement_id: def.id,
+            language:       window.I18n ? I18n.lang : null
+          });
+        }
+      });
       renderSplashAchievementCount();
     }
   }

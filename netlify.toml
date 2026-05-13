@@ -43,3 +43,9 @@
   for = "/*.html"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
+
+# Make /stats resolve to /stats.html so the admin dashboard has a clean URL
+[[redirects]]
+  from = "/stats"
+  to   = "/stats.html"
+  status = 200
