@@ -1800,6 +1800,11 @@ body[data-lang="bn"] .mode-card__sub  { font-family: var(--font-bn); font-style:
 }
 
 .splash__tiny-link {
+  /* iOS Safari defaults <button> to -webkit-appearance: button which
+     forces a pill shape on top of any transparent-background CSS. Resetting
+     here lets the underlined-text styling actually show through. */
+  -webkit-appearance: none;
+  appearance: none;
   background: transparent;
   border: none;
   color: var(--ink-mute);
@@ -1823,11 +1828,17 @@ body[data-lang="bn"] .splash__tiny-link {
 }
 
 .splash__badge-count {
+  /* Same iOS appearance reset as splash__tiny-link — otherwise the chip
+     gets the default button pill on top of the custom border treatment. */
+  -webkit-appearance: none;
+  appearance: none;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
   margin: 6px 0 0;
   padding: 6px 14px;
+  min-height: 28px;
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.15em;

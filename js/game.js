@@ -1942,6 +1942,10 @@
   async function init() {
     I18n.init();
 
+    // Populate the splash badge chip immediately — does NOT depend on
+    // cards.json. Means the chip never renders empty if loadData is slow.
+    if (window.Achievements) renderSplashAchievementCount();
+
     // Re-render dynamic UI on language change
     const origToggle = I18n.toggle.bind(I18n);
     I18n.toggle = function () {

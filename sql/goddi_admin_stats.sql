@@ -20,9 +20,9 @@ SECURITY DEFINER
 SET search_path = public
 AS $$
 DECLARE
-  -- ⚠️  CHANGE THIS before running. Pick anything you'll remember;
-  -- it's the only thing protecting your /stats page.
-  expected_password CONSTANT text := 'CHANGE_ME_TO_YOUR_PASSWORD';
+  -- Dashboard password — the only thing protecting your /stats page.
+  -- To rotate: change this value and re-run the whole file.
+  expected_password CONSTANT text := 'sbyc@1212';
 
   result jsonb;
 BEGIN

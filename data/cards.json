@@ -76,8 +76,8 @@
       },
       "background_variants": {
         "businessman": {
-          "dialog_bn": "আঙ্কেল, আপনি তো ব্যবসায়ী মানুষ — একটা ইনভেস্টমেন্ট ধরে নেন। পাঁচ বছর পর আমরাই তো ভোটার।",
-          "dialog_en": "Uncle, you're a businessman — think of it as an investment. In five years we're the voters."
+          "dialog_bn": "আঙ্কেল, আপনি তো ব্যবসায়ী মানুষ — একটা কোর্ট দেন, ইনভেস্টমেন্ট ধরে নেন। পাঁচ বছর পর আমরাই তো ভোটার।",
+          "dialog_en": "Uncle, you're a businessman — give us a court, think of it as an investment. In five years we're the voters."
         },
         "teacher": {
           "dialog_bn": "স্যার, আপনাকে আমাদের হেডস্যার পাঠিয়েছেন। বললেন, \"ও তোমাদের কথা শুনবে।\" একটা কোর্ট, পার্কে।",
@@ -728,8 +728,8 @@
       "character_role_bn": "ব্যক্তিগত সচিব",
       "character_role_en": "Personal secretary",
       "portrait_id": "sycophant_smile",
-      "dialog_bn": "ভাই, এমপি সাহেবের ভাতিজা ভিকারুননিসায় ভর্তি চায়। জোন আউট। আপনি দেখলে ভালো হবে।",
-      "dialog_en": "Bhai, the MP's nephew wants Viqarunnisa admission. Out of zone. If you handle it, things go smoother.",
+      "dialog_bn": "ভাই, এমপি সাহেবের ভাতিজি ভিকারুননিসায় ভর্তি চায়। জোন আউট। আপনি দেখলে ভালো হবে।",
+      "dialog_en": "Bhai, the MP's niece wants Viqarunnisa admission. Out of zone. If you handle it, things go smoother.",
       "min_year": 2,
       "left": {
         "label_bn": "ব্যবস্থা করেন",
@@ -2387,8 +2387,8 @@
       "character_role_en": "Unnamed",
       "portrait_id": "sycophant_smile",
       "min_year": 3,
-      "dialog_bn": "ভাইজান, ছাদে একটা মোবাইল টাওয়ার বসাব। ভাড়া পাবেন প্রতি মাসে। সিগনেচার?",
-      "dialog_en": "Bhaijaan, I'll put a mobile tower on the rooftop. You get rent each month. Sign?",
+      "dialog_bn": "ভাইজান, ওয়ার্ড অফিসের ছাদে একটা মোবাইল টাওয়ার বসাব। ভাড়া পাবেন প্রতি মাসে। সিগনেচার?",
+      "dialog_en": "Bhaijaan, I'll put a mobile tower on the ward office rooftop. You get the rent each month. Sign?",
       "left": {
         "label_bn": "সিগনেচার",
         "label_en": "Sign",
