@@ -1062,6 +1062,31 @@ body[data-lang="bn"] .verdict__days { font-family: var(--font-bn); }
   text-transform: uppercase;
 }
 
+/* Year impact — the involuntary stat hit the world imposes at year
+   crossover (monsoon, heat, storm). Stamp-red dashed border distinguishes
+   it from the player's own recap chips above. */
+.year-impact {
+  margin: 18px 0 0;
+  padding: 12px 14px 10px;
+  border: 1px dashed var(--stamp-red);
+  border-radius: var(--radius-sm);
+  background: rgba(166, 41, 31, 0.05);
+}
+.year-impact__caption {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.4;
+  margin: 0 0 8px;
+  text-align: center;
+}
+body[data-lang="bn"] .year-impact__caption {
+  font-family: var(--font-bn);
+  font-style: normal;
+  font-size: 13.5px;
+}
+
 /* Small "tap to continue" hint at the bottom of the year-transition card.
    Pulses subtly so the affordance reads even at a glance. */
 .year-transition__hint {

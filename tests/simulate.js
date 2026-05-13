@@ -149,6 +149,14 @@ function startRun(partyId, rnd, backgroundId) {
   };
 }
 
+// Mirrors game.js YEAR_EFFECTS — involuntary stat hits at year crossover.
+const YEAR_EFFECTS = {
+  2: { janata: 5,  tohobil: -6 },
+  3: { proshashon: -5, janata: -4 },
+  4: { dol: 5,     janata: -5 }
+  // Y5: no environmental hit
+};
+
 function commitChoice(st, card, side, rnd) {
   const choice = card[side];
   // Match the engine's Year-4+ escalation so simulator predictions are
@@ -165,8 +173,20 @@ function commitChoice(st, card, side, rnd) {
   (choice.untriggers || []).forEach(f => st.flags.delete(f));
   if (typeof choice.next_card === 'string') st.forceNextCardId = choice.next_card;
   st.cardUseCounts[card.id] = (st.cardUseCounts[card.id] || 0) + 1;
+
+  // Advance time and detect year crossover
+  const yearBefore = st.year;
   st.day += 21 + Math.floor(rnd() * 9);
   st.year = Math.min(5, Math.ceil((st.day || 1) / 365));
+  if (st.year > yearBefore) {
+    const env = YEAR_EFFECTS[st.year];
+    if (env) {
+      for (const [stat, delta] of Object.entries(env)) {
+        if (!(stat in st.stats)) continue;
+        st.stats[stat] = clamp(st.stats[stat] + delta, 0, 100);
+      }
+    }
+  }
   st.history.push({ id: card.id, side, day: st.day, year: st.year, flags: [...st.flags] });
 }
 

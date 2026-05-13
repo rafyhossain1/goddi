@@ -999,17 +999,31 @@
     // On rollover, hold onto the deltas so the year transition can display
     // them, then reset the snapshot for the new year (captured next commit).
     let yearDeltas = null;
+    let yearImpact = null;
     if (yearCrossed) {
       yearDeltas = {};
       for (const k of Object.keys(state.stats)) {
         yearDeltas[k] = state.stats[k] - (state.yearStartStats[k] ?? 50);
       }
       state.yearStartStats = null;
+
+      // Involuntary environmental hit for the new year (the world acting
+      // on the Councillor). MONSOON, HEAT, STORM. Year 5 has no hit.
+      const env = YEAR_EFFECTS[state.year];
+      if (env && env.effects) {
+        yearImpact = {};
+        Object.entries(env.effects).forEach(([stat, delta]) => {
+          if (!(stat in state.stats)) return;
+          state.stats[stat] = clamp(state.stats[stat] + delta, 0, 100);
+          yearImpact[stat] = delta;
+        });
+      }
+
       // Analytics: year rolled over. Useful for retention funnels —
       // how many players make it past Year 1, Year 2, etc.
       if (window.Analytics) {
         Analytics.track('year_crossed', {
-          meta:       { year: state.year, deltas: yearDeltas },
+          meta:       { year: state.year, deltas: yearDeltas, impact: yearImpact },
           background: state.player.background,
           party:      state.player.party,
           language:   window.I18n ? I18n.lang : null
@@ -1075,7 +1089,7 @@
         }
       }
       if (yearCrossed) {
-        showYearTransition(state.year, maybeShowIntroThenFinish, yearDeltas);
+        showYearTransition(state.year, maybeShowIntroThenFinish, yearDeltas, yearImpact);
       } else {
         maybeShowIntroThenFinish();
       }
@@ -1091,6 +1105,28 @@
     3: { bn: 'উত্তাপ', en: 'HEAT',      sub_bn: 'মধ্যাহ্নের সূর্য',    sub_en: 'The midday sun' },
     4: { bn: 'ঝড়',     en: 'STORM',     sub_bn: 'ভোটের ঢেউ',              sub_en: 'The vote rises' },
     5: { bn: 'সমাপ্তি', en: 'RECKONING', sub_bn: 'শেষ সিদ্ধান্ত',          sub_en: 'The last decision' }
+  };
+
+  // Involuntary stat shifts at year crossover — the world acting on the
+  // Councillor regardless of how cautiously they've played. Each theme has
+  // a one-line caption that explains the hit in story terms.
+  const YEAR_EFFECTS = {
+    2: {
+      effects: { janata: 5, tohobil: -6 },
+      caption_bn: 'বন্যা ত্রাণে আপনাকে দেখা গেছে — কিন্তু তহবিল কমছে।',
+      caption_en: 'You showed up at flood relief — but the treasury took a hit.'
+    },
+    3: {
+      effects: { proshashon: -5, janata: -4 },
+      caption_bn: 'গরমে যন্ত্রপাতি ভেঙে পড়ছে; মেজাজও।',
+      caption_en: 'Heat strains the machinery — and tempers.'
+    },
+    4: {
+      effects: { dol: 5, janata: -5 },
+      caption_bn: 'নির্বাচন এগিয়ে আসছে। দল কাছে টানে, জনতা সন্দেহ করে।',
+      caption_en: 'Election approaches. The party pulls you closer; the public grows skeptical.'
+    }
+    // Year 5: no environmental effect. Let the player's own decisions land.
   };
   // Character-intro overlay — shows portrait + name + role + bio when a
   // named character first appears in a run. Tap to dismiss → run the
@@ -1136,12 +1172,24 @@
     overlay.addEventListener('click', dismiss);
   }
 
-  function showYearTransition(year, done, yearDeltas) {
+  function showYearTransition(year, done, yearDeltas, yearImpact) {
     const theme = YEAR_THEMES[year];
     if (!theme) { done(); return; }
     const yearLabel = I18n.lang === 'bn'
       ? 'বছর ' + I18n.toBanglaDigits(year)
       : 'YEAR ' + year;
+
+    // Helper to build a chip for a single stat delta.
+    function chipFor(statKey, dv, cls) {
+      const s = STATS.find(x => x.key === statKey);
+      if (!s || !dv) return '';
+      const sign  = dv > 0 ? '+' : '−';
+      const value = I18n.lang === 'bn'
+        ? I18n.toBanglaDigits(Math.abs(dv))
+        : Math.abs(dv);
+      const label = I18n.lang === 'bn' ? s.name_bn : s.name_en;
+      return `<span class="year-recap__chip ${cls}">${label} ${sign}${value}</span>`;
+    }
 
     // Build the per-stat recap chips (only stats that actually moved)
     let recapHtml = '';
@@ -1149,13 +1197,8 @@
       const recapBits = STATS.map(s => {
         const dv = yearDeltas[s.key] | 0;
         if (!dv) return '';
-        const sign  = dv > 0 ? '+' : '−';
-        const value = I18n.lang === 'bn'
-          ? I18n.toBanglaDigits(Math.abs(dv))
-          : Math.abs(dv);
-        const label = I18n.lang === 'bn' ? s.name_bn : s.name_en;
         const cls = dv > 0 ? 'year-recap__chip--pos' : 'year-recap__chip--neg';
-        return `<span class="year-recap__chip ${cls}">${label} ${sign}${value}</span>`;
+        return chipFor(s.key, dv, cls);
       }).filter(Boolean).join('');
       if (recapBits) {
         recapHtml = `
@@ -1164,6 +1207,32 @@
             <span data-lang-en>The year past</span>
           </p>
           <div class="year-recap__chips">${recapBits}</div>
+        `;
+      }
+    }
+
+    // Build the involuntary-impact section — the world acting on the
+    // Councillor independent of their choices. Distinct visual treatment
+    // (stamp-red dashed border) so the player sees "this happened TO me"
+    // vs the recap which is "this is what I did."
+    let impactHtml = '';
+    const env = YEAR_EFFECTS[year];
+    if (yearImpact && env) {
+      const impactBits = STATS.map(s => {
+        const dv = yearImpact[s.key] | 0;
+        if (!dv) return '';
+        const cls = dv > 0 ? 'year-recap__chip--pos' : 'year-recap__chip--neg';
+        return chipFor(s.key, dv, cls);
+      }).filter(Boolean).join('');
+      if (impactBits) {
+        impactHtml = `
+          <div class="year-impact">
+            <p class="year-impact__caption">
+              <span data-lang-bn>${env.caption_bn}</span>
+              <span data-lang-en>${env.caption_en}</span>
+            </p>
+            <div class="year-recap__chips">${impactBits}</div>
+          </div>
         `;
       }
     }
@@ -1182,6 +1251,7 @@
           <span data-lang-bn>${theme.sub_bn}</span>
           <span data-lang-en>${theme.sub_en}</span>
         </p>
+        ${impactHtml}
       </div>
     `;
     document.body.appendChild(overlay);
