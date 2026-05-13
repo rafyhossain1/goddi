@@ -334,7 +334,7 @@
       `;
     },
 
-    // রাফি হোসেন — clean-cut young SBYC president with rosette
+    // মো. রাফি হোসেন — clean-cut young SBYC president with rosette
     rafy_hossain: function (color) {
       return `
         <!-- Neat side-part hair -->
