@@ -9,7 +9,9 @@ CREATE TABLE IF NOT EXISTS public.goddi_runs (
   outcome       TEXT NOT NULL CHECK (outcome IN ('win', 'death')),
   tier          TEXT CHECK (tier IS NULL OR tier IN ('clean', 'standard', 'compromised')),
   death_cause   TEXT,
-  days          INTEGER NOT NULL CHECK (days >= 0 AND days <= 1825),
+  -- 5 years targets 1825 days but monsoon skips + year-effect day jumps
+  -- can overshoot into the 1826-1853 range, so the bound is roomier.
+  days          INTEGER NOT NULL CHECK (days >= 0 AND days <= 2500),
   janata        INTEGER CHECK (janata BETWEEN 0 AND 100),
   dol           INTEGER CHECK (dol BETWEEN 0 AND 100),
   proshashon    INTEGER CHECK (proshashon BETWEEN 0 AND 100),
@@ -42,7 +44,7 @@ CREATE POLICY "goddi_runs_public_insert"
   ON public.goddi_runs FOR INSERT
   WITH CHECK (
     -- Enforce sane bounds at the policy level too (belt + suspenders)
-    days >= 0 AND days <= 1825
+    days >= 0 AND days <= 2500
     AND length(player_name) BETWEEN 1 AND 40
     AND outcome IN ('win', 'death')
     AND (tier IS NULL OR tier IN ('clean', 'standard', 'compromised'))
