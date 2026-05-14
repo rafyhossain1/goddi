@@ -3074,19 +3074,19 @@ body[data-lang="bn"] .tutorial__next {
    Prize draw — splash banner, win-screen button, entry modal
    ============================================================ */
 
-/* Splash banner ("THIS WEEK'S PRIZE…") */
+/* Splash prize banner — heading + N stacked prize rows, single link */
 .splash__prize {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  padding: 10px 16px;
+  align-items: stretch;
+  gap: 8px;
+  padding: 12px 16px;
   margin: 6px 0 0;
   background: rgba(184, 147, 74, 0.10);
   border: 1.5px solid var(--gold);
   border-radius: var(--radius-sm);
   text-decoration: none;
-  max-width: 360px;
+  max-width: 380px;
   transition: transform 0.12s ease, box-shadow 0.12s ease;
   box-shadow: 2px 2px 0 var(--ink);
 }
@@ -3094,35 +3094,55 @@ body[data-lang="bn"] .tutorial__next {
   transform: translate(-1px, -1px);
   box-shadow: 3px 3px 0 var(--ink);
 }
-.splash__prize-label {
+.splash__prize-heading {
+  display: block;
+  text-align: center;
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--gold);
 }
-body[data-lang="bn"] .splash__prize-label {
+body[data-lang="bn"] .splash__prize-heading {
   font-family: var(--font-bn);
   letter-spacing: 0.05em;
   text-transform: none;
   font-size: 12px;
 }
+.splash__prize-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.splash__prize-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  padding-top: 6px;
+  border-top: 1px dashed rgba(184, 147, 74, 0.4);
+}
+.splash__prize-row:first-child {
+  padding-top: 0;
+  border-top: none;
+}
 .splash__prize-name {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 16px;
+  font-size: 15px;
   color: var(--ink);
   text-align: center;
+  line-height: 1.2;
 }
 body[data-lang="bn"] .splash__prize-name {
   font-family: var(--font-bn);
-  font-size: 15px;
+  font-size: 14.5px;
 }
 .splash__prize-meta {
   font-family: var(--font-mono);
   font-size: 10px;
   color: var(--ink-mute);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   text-align: center;
 }
 body[data-lang="bn"] .splash__prize-meta {

@@ -1922,18 +1922,36 @@
   function renderSponsorBanner() {
     const el = document.getElementById('splash-prize');
     if (!el) return;
-    if (!_sponsorData || !_sponsorData.active || !_sponsorData.prize) {
-      el.hidden = true;
-      return;
+    if (!_sponsorData || !_sponsorData.active) { el.hidden = true; return; }
+
+    // Back-compat: support older single-prize shape too
+    const prizes = Array.isArray(_sponsorData.prizes)
+      ? _sponsorData.prizes
+      : (_sponsorData.prize ? [_sponsorData.prize] : []);
+    if (!prizes.length) { el.hidden = true; return; }
+
+    const heading = document.getElementById('splash-prize-heading');
+    const list    = document.getElementById('splash-prize-list');
+    if (heading) {
+      const hBn = _sponsorData.heading_bn || (_sponsorData.prize && _sponsorData.prize.label_bn) || 'এই মাসের পুরস্কার';
+      const hEn = _sponsorData.heading_en || (_sponsorData.prize && _sponsorData.prize.label_en) || 'THIS MONTH\'S PRIZES';
+      heading.innerHTML =
+        `<span data-lang-bn>${hBn}</span><span data-lang-en>${hEn}</span>`;
     }
-    const p = _sponsorData.prize;
-    el.querySelector('[data-prize-label]').innerHTML =
-      `<span data-lang-bn>${p.label_bn}</span><span data-lang-en>${p.label_en}</span>`;
-    el.querySelector('[data-prize-name]').innerHTML =
-      `<span data-lang-bn>${p.name_bn}</span><span data-lang-en>${p.name_en}</span>`;
-    el.querySelector('[data-prize-meta]').innerHTML =
-      `<span data-lang-bn>${p.sponsor_bn} · ${p.draw_date_bn}</span>` +
-      `<span data-lang-en>${p.sponsor_en} · ${p.draw_date_en}</span>`;
+    if (list) {
+      list.innerHTML = prizes.map(p => `
+        <span class="splash__prize-row">
+          <span class="splash__prize-name">
+            <span data-lang-bn>${p.name_bn}</span>
+            <span data-lang-en>${p.name_en}</span>
+          </span>
+          <span class="splash__prize-meta">
+            <span data-lang-bn>${p.sponsor_bn} · ${p.draw_date_bn}</span>
+            <span data-lang-en>${p.sponsor_en} · ${p.draw_date_en}</span>
+          </span>
+        </span>
+      `).join('');
+    }
     el.hidden = false;
   }
 

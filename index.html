@@ -117,12 +117,13 @@
         <span class="splash__badge-count__text" data-lang-en></span>
       </button>
 
-      <!-- Prize sponsor banner. Populated from data/sponsors.json. Hidden
-           until JS confirms there's an active prize. -->
+      <!-- Prize banner — populated from data/sponsors.json. Can list multiple
+           concurrent prizes (week 2 + week 4 grand). JS renders one row per
+           prize inside the inner list, then wraps the whole thing in a link
+           to /rules. Hidden until JS confirms there's data. -->
       <a class="splash__prize" id="splash-prize" href="/rules" hidden>
-        <span class="splash__prize-label" data-prize-label></span>
-        <span class="splash__prize-name"  data-prize-name></span>
-        <span class="splash__prize-meta"  data-prize-meta></span>
+        <span class="splash__prize-heading" id="splash-prize-heading"></span>
+        <span class="splash__prize-list"    id="splash-prize-list"></span>
       </a>
 
       <p class="footer-watermark">

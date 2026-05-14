@@ -1,26 +1,28 @@
 {
-  "_comment": "Active prize shown on splash + win-screen. Two prizes are running across the launch month — entries pool into both. Swap this block when week 2 draw is done to spotlight Skyline Holidays / Cox's Bazar instead.",
+  "_comment": "Multiple-prize banner on splash + win-screen. Entries pool into ALL active draws — players see every prize they could win. After a draw is done, remove that entry from the prizes[] array and push deploy.",
 
   "active": true,
-  "prize": {
-    "label_bn": "এই সপ্তাহের পুরস্কার",
-    "label_en": "THIS WEEK'S PRIZE",
-    "name_bn": "Soi 11-এ দু'জনের ডিনার",
-    "name_en": "Dinner for 2 at Soi 11",
-    "sponsor_bn": "Soi 11 (ওয়ার্ড ৩৭) পৃষ্ঠপোষকতায়",
-    "sponsor_en": "Sponsored by Soi 11 · Ward 37",
-    "draw_date_bn": "লঞ্চের ১৪ দিন পর ড্র",
-    "draw_date_en": "Drawn 14 days after launch"
-  },
+  "heading_bn": "এই মাসের পুরস্কার",
+  "heading_en": "THIS MONTH'S PRIZES",
 
-  "_next_prize_swap_in_to": {
-    "label_bn": "মাসের শেষে গ্র্যান্ড পুরস্কার",
-    "label_en": "GRAND PRIZE",
-    "name_bn": "ঢাকা–কক্সবাজার বিমান টিকিট",
-    "name_en": "Dhaka–Cox's Bazar flight ticket",
-    "sponsor_bn": "Skyline Holidays পৃষ্ঠপোষকতায়",
-    "sponsor_en": "Sponsored by Skyline Holidays",
-    "draw_date_bn": "লঞ্চের ৩০ দিন পর ড্র",
-    "draw_date_en": "Drawn 30 days after launch"
-  }
+  "prizes": [
+    {
+      "id": "soi11_dinner",
+      "name_bn": "Soi 11-এ দু'জনের ডিনার",
+      "name_en": "Dinner for 2 at Soi 11",
+      "sponsor_bn": "Soi 11 · ওয়ার্ড ৩৭",
+      "sponsor_en": "Soi 11 · Ward 37",
+      "draw_date_bn": "ড্র · ৩ জুন ২০২৬",
+      "draw_date_en": "Drawn June 3, 2026"
+    },
+    {
+      "id": "skyline_coxs",
+      "name_bn": "ঢাকা–কক্সবাজার বিমান টিকিট",
+      "name_en": "Dhaka–Cox's Bazar flight ticket",
+      "sponsor_bn": "Skyline Holidays",
+      "sponsor_en": "Skyline Holidays",
+      "draw_date_bn": "গ্র্যান্ড পুরস্কার · ড্র ১৯ জুন ২০২৬",
+      "draw_date_en": "Grand prize · drawn June 19, 2026"
+    }
+  ]
 }
