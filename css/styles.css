@@ -48,8 +48,14 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+  width: 100%;
   overflow: hidden;
   overscroll-behavior: none;
+  /* Hard-lock horizontal pan at the root so a missed swipe outside the
+     card never shifts the viewport (iOS Safari rubber-band). The card's
+     own touch handler still grabs horizontal gestures when they start
+     inside the card boundary. */
+  touch-action: pan-y;
 }
 
 body {
@@ -102,7 +108,9 @@ body[data-lang="bn"] [data-lang-en] {
   padding-top: max(24px, env(safe-area-inset-top));
   padding-bottom: max(24px, env(safe-area-inset-bottom));
   z-index: 2;
+  overflow-x: hidden;        /* clip any off-screen card transform */
   overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 body[data-screen="splash"]      [data-screen-id="splash"],
