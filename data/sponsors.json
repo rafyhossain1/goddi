@@ -1,0 +1,14 @@
+{
+  "_comment": "Configure the current/upcoming prize sponsor here. Goddi reads this on every page load and shows the prize-active banner on splash. Set 'active' to false to hide everything.",
+  "active": true,
+  "prize": {
+    "label_bn": "এই সপ্তাহের পুরস্কার",
+    "label_en": "THIS WEEK'S PRIZE",
+    "name_bn": "ঢাকা-কক্সবাজার বিমান টিকিট",
+    "name_en": "Dhaka–Cox's Bazar flight ticket",
+    "sponsor_bn": "বন্ধু-পৃষ্ঠপোষকতায়",
+    "sponsor_en": "Sponsored by friends of SBYC",
+    "draw_date_bn": "৩০ দিনের শেষে",
+    "draw_date_en": "Drawn at the end of month 1"
+  }
+}

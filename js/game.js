@@ -1543,6 +1543,7 @@
     renderFinalStats('win-final-stats');
     renderTrajectory('win-trajectory');
     renderMoments('win-moments');
+    maybeShowPrizeButton(tier);
     goto('win');
     if (window.Sfx) Sfx.playVerdict('win');
     submitToLeaderboard();
@@ -1896,6 +1897,253 @@
   // ---------- Share ----------
   // Build the verdict payload from current state and hand off to ShareCard.
   // Triggers a PNG download — player can then share on WhatsApp/Facebook.
+  // ---------- Prize lottery entry ----------
+  // Wired in showWin() — shows the "Enter the draw" button only when the
+  // player's tier qualifies (compromised or clean). Modal collects phone
+  // + name + email, gated by Cloudflare Turnstile, then calls the
+  // record_prize_entry RPC. Sponsorship/prize info comes from data/sponsors.json
+  // and is loaded once at boot.
+  const TIER_ENTRIES = { compromised: 1, standard: 1, clean: 2 }; // death = 0, not eligible
+  // Replace with your Turnstile site key once you've provisioned it at
+  // dash.cloudflare.com → Turnstile. Site key is public; safe to embed.
+  // Leave empty string to disable the captcha and rely on RLS + cap.
+  const TURNSTILE_SITEKEY = ''; // e.g. '0x4AAAAAAB...'
+  let _sponsorData = null;
+
+  async function loadSponsor() {
+    try {
+      const res = await fetch('/data/sponsors.json', { cache: 'no-cache' });
+      if (!res.ok) return;
+      _sponsorData = await res.json();
+    } catch (_) { /* silent — banner just stays hidden */ }
+    renderSponsorBanner();
+  }
+
+  function renderSponsorBanner() {
+    const el = document.getElementById('splash-prize');
+    if (!el) return;
+    if (!_sponsorData || !_sponsorData.active || !_sponsorData.prize) {
+      el.hidden = true;
+      return;
+    }
+    const p = _sponsorData.prize;
+    el.querySelector('[data-prize-label]').innerHTML =
+      `<span data-lang-bn>${p.label_bn}</span><span data-lang-en>${p.label_en}</span>`;
+    el.querySelector('[data-prize-name]').innerHTML =
+      `<span data-lang-bn>${p.name_bn}</span><span data-lang-en>${p.name_en}</span>`;
+    el.querySelector('[data-prize-meta]').innerHTML =
+      `<span data-lang-bn>${p.sponsor_bn} · ${p.draw_date_bn}</span>` +
+      `<span data-lang-en>${p.sponsor_en} · ${p.draw_date_en}</span>`;
+    el.hidden = false;
+  }
+
+  function wirePrizeEntry() {
+    const btn = document.getElementById('btn-prize-entry');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      if (window.Sfx) Sfx.playClick();
+      showPrizeEntry();
+    });
+  }
+
+  // Reveal the entry button if the verdict tier qualifies. Called from showWin.
+  function maybeShowPrizeButton(tier) {
+    const btn = document.getElementById('btn-prize-entry');
+    if (!btn) return;
+    if (!_sponsorData || !_sponsorData.active) { btn.hidden = true; return; }
+    btn.hidden = !(tier in TIER_ENTRIES);
+  }
+
+  function showPrizeEntry() {
+    const tier = state.lastVerdict && state.lastVerdict.tier;
+    const entries = TIER_ENTRIES[tier];
+    if (!entries) return; // shouldn't happen — button is hidden otherwise
+
+    const overlay = document.createElement('div');
+    overlay.className = 'prize-modal';
+    const entriesBn = I18n.toBanglaDigits(entries);
+    const TIER_LABELS = {
+      clean:       { bn: 'সততা',           en: 'CLEAN' },
+      standard:    { bn: 'জয়',              en: 'VICTORY' },
+      compromised: { bn: 'মূল্য দিয়ে কেনা', en: 'COMPROMISED' }
+    };
+    const tierLabelBn = (TIER_LABELS[tier] || TIER_LABELS.standard).bn;
+    const tierLabelEn = (TIER_LABELS[tier] || TIER_LABELS.standard).en;
+
+    const turnstileMarkup = TURNSTILE_SITEKEY
+      ? `<div class="cf-turnstile prize-modal__turnstile" data-sitekey="${TURNSTILE_SITEKEY}"></div>`
+      : '';
+
+    overlay.innerHTML = `
+      <div class="prize-modal__card" role="dialog" aria-modal="true">
+        <button class="prize-modal__close" type="button" aria-label="Close">&times;</button>
+        <p class="prize-modal__eyebrow">
+          <span data-lang-bn>লটারিতে অংশ নিন</span>
+          <span data-lang-en>ENTER THE DRAW</span>
+        </p>
+        <h3 class="prize-modal__title">
+          <span data-lang-bn>${tierLabelBn} জয়</span>
+          <span data-lang-en>${tierLabelEn} VICTORY</span>
+        </h3>
+        <p class="prize-modal__entries-line">
+          <span data-lang-bn>এই রান = ${entriesBn} এন্ট্রি</span>
+          <span data-lang-en>This run = ${entries} ${entries === 1 ? 'entry' : 'entries'}</span>
+        </p>
+        <p class="prize-modal__rules-link-wrap">
+          <a class="prize-modal__rules-link" href="/rules" target="_blank">
+            <span data-lang-bn>নিয়মাবলী পড়ুন</span>
+            <span data-lang-en>Read the rules</span>
+          </a>
+        </p>
+        <form class="prize-modal__form" id="prize-form">
+          <label class="prize-modal__field">
+            <span class="prize-modal__label">
+              <span data-lang-bn>নাম</span>
+              <span data-lang-en>Name</span>
+            </span>
+            <input id="prize-name" type="text" maxlength="40" required
+                   value="${escapeHtml(state.player.name || '')}" />
+          </label>
+          <label class="prize-modal__field">
+            <span class="prize-modal__label">
+              <span data-lang-bn>হোয়াটসঅ্যাপ নম্বর</span>
+              <span data-lang-en>WhatsApp number</span>
+            </span>
+            <input id="prize-phone" type="tel" inputmode="numeric"
+                   placeholder="01XXXXXXXXX" required pattern="^(\\+?880|0)?1[3-9][0-9]{8}$" />
+          </label>
+          <label class="prize-modal__field">
+            <span class="prize-modal__label">
+              <span data-lang-bn>ইমেইল (ঐচ্ছিক)</span>
+              <span data-lang-en>Email (optional)</span>
+            </span>
+            <input id="prize-email" type="email" maxlength="80" />
+          </label>
+          <label class="prize-modal__check">
+            <input id="prize-consent" type="checkbox" required />
+            <span>
+              <span data-lang-bn>আমার বয়স ১৮+ এবং বাংলাদেশে আছি।</span>
+              <span data-lang-en>I'm 18+ and a resident of Bangladesh.</span>
+            </span>
+          </label>
+          ${turnstileMarkup}
+          <p class="prize-modal__error" id="prize-error" role="alert"></p>
+          <button class="prize-modal__submit" type="submit">
+            <span data-lang-bn>এন্ট্রি জমা দিন</span>
+            <span data-lang-en>Submit entry</span>
+          </button>
+        </form>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+    requestAnimationFrame(() => overlay.classList.add('prize-modal--shown'));
+
+    function dismiss() {
+      overlay.classList.add('prize-modal--leaving');
+      setTimeout(() => overlay.remove(), 240);
+    }
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) dismiss();
+    });
+    overlay.querySelector('.prize-modal__close').addEventListener('click', dismiss);
+
+    const form = overlay.querySelector('#prize-form');
+    const errEl = overlay.querySelector('#prize-error');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      errEl.textContent = '';
+      const name  = overlay.querySelector('#prize-name').value.trim();
+      const phone = overlay.querySelector('#prize-phone').value.trim();
+      const email = overlay.querySelector('#prize-email').value.trim();
+      const consent = overlay.querySelector('#prize-consent').checked;
+      if (!consent) { errEl.textContent = I18n.lang === 'bn' ? 'সম্মতি দিতে হবে।' : 'Consent required.'; return; }
+      if (!/^(\+?880|0)?1[3-9][0-9]{8}$/.test(phone)) {
+        errEl.textContent = I18n.lang === 'bn' ? 'সঠিক হোয়াটসঅ্যাপ নম্বর দিন।' : 'Enter a valid Bangladesh mobile number.';
+        return;
+      }
+      submitPrizeEntry(overlay, errEl, { name, phone, email, tier });
+    });
+  }
+
+  async function submitPrizeEntry(overlay, errEl, payload) {
+    const submitBtn = overlay.querySelector('.prize-modal__submit');
+    submitBtn.disabled = true;
+    submitBtn.classList.add('prize-modal__submit--loading');
+
+    try {
+      const SUPABASE_URL = 'https://kafvftjcvnvtklqwanrm.supabase.co';
+      const SUPABASE_KEY = 'sb_publishable_dOxFoPfs_kKu8H3zoZkVng_w7JlM5Es';
+      const res = await fetch(SUPABASE_URL + '/rest/v1/rpc/record_prize_entry', {
+        method: 'POST',
+        headers: {
+          'apikey': SUPABASE_KEY,
+          'Authorization': 'Bearer ' + SUPABASE_KEY,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          p_phone:    payload.phone,
+          p_name:     payload.name,
+          p_email:    payload.email || null,
+          p_tier:     payload.tier,
+          p_run_days: state.day || null,
+          p_language: I18n.lang || null
+        })
+      });
+      const data = await res.json();
+      if (!data || data.ok !== true) {
+        const msg = {
+          invalid_phone: { bn: 'সঠিক নম্বর দিন।',  en: 'Enter a valid phone number.' },
+          invalid_tier:  { bn: 'এই রান যোগ্য না।',  en: 'This run isn\'t eligible.' },
+          invalid_name:  { bn: 'নাম দিন।',            en: 'Enter a name.' },
+          invalid_email: { bn: 'ইমেইল ভুল।',          en: 'Email is invalid.' },
+          cap_reached:   { bn: 'আপনার ৫টি এন্ট্রি ইতিমধ্যে আছে।', en: 'You\'ve already filled all 5 entries.' },
+          too_fast:      { bn: 'একটু পরে চেষ্টা করুন।', en: 'Slow down — try again in a moment.' }
+        };
+        const code = (data && data.error) || 'unknown';
+        const m = msg[code] || { bn: 'কিছু ভুল হয়েছে।', en: 'Something went wrong.' };
+        errEl.textContent = I18n.lang === 'bn' ? m.bn : m.en;
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('prize-modal__submit--loading');
+        return;
+      }
+      // Success — replace the form with a confirmation panel
+      const card = overlay.querySelector('.prize-modal__card');
+      const totalBn = I18n.toBanglaDigits(data.total_so_far || 0);
+      card.innerHTML = `
+        <button class="prize-modal__close" type="button" aria-label="Close">&times;</button>
+        <p class="prize-modal__eyebrow">
+          <span data-lang-bn>সফল</span>
+          <span data-lang-en>YOU\'RE IN</span>
+        </p>
+        <h3 class="prize-modal__title">
+          <span data-lang-bn>${totalBn} / ৫</span>
+          <span data-lang-en>${data.total_so_far} / 5</span>
+        </h3>
+        <p class="prize-modal__entries-line">
+          <span data-lang-bn>এন্ট্রি জমা হয়েছে। ড্র শেষে বিজয়ীকে হোয়াটসঅ্যাপে জানানো হবে।</span>
+          <span data-lang-en>Entry logged. The winner will be contacted by WhatsApp after the draw.</span>
+        </p>
+        <button class="prize-modal__submit" type="button" id="prize-close">
+          <span data-lang-bn>ঠিক আছে</span>
+          <span data-lang-en>OK</span>
+        </button>
+      `;
+      card.querySelector('.prize-modal__close').addEventListener('click', () => {
+        overlay.classList.add('prize-modal--leaving');
+        setTimeout(() => overlay.remove(), 240);
+      });
+      card.querySelector('#prize-close').addEventListener('click', () => {
+        overlay.classList.add('prize-modal--leaving');
+        setTimeout(() => overlay.remove(), 240);
+      });
+      if (window.Analytics) Analytics.track('cameo_click', { meta: { type: 'prize_entry_success' } });
+    } catch (err) {
+      errEl.textContent = I18n.lang === 'bn' ? 'নেটওয়ার্ক সমস্যা — আবার চেষ্টা করুন।' : 'Network error — please try again.';
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('prize-modal__submit--loading');
+    }
+  }
+
   function wireShare() {
     ['btn-share-loss', 'btn-share-win'].forEach(id => {
       const b = document.getElementById(id);
@@ -2431,6 +2679,8 @@
     wireCredits();
     wireCameo();
     wireBadgesChip();
+    wirePrizeEntry();
+    loadSponsor();
     wireMuteToggle();
     handleBrandFade();
 

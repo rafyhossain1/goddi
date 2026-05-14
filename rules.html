@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#f1e9d6" />
+  <title>Goddi · Prize Rules</title>
+  <meta name="description" content="Official rules for the Goddi prize draw — entries, caps, eligibility, draw dates, contact." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700;9..144,900&family=Hind+Siliguri:wght@400;500;700&family=DM+Sans:wght@400;500;700&family=Special+Elite&display=swap" />
+
+  <style>
+    :root {
+      --paper: #f1e9d6; --paper-2: #e6dcc2; --paper-3: #ddd0b0;
+      --ink: #1a1310; --ink-soft: #3d322a; --ink-mute: #6a594b;
+      --stamp-red: #a6291f; --bd-green: #006a4e; --gold: #b8934a;
+      --font-display: "Fraunces", Georgia, serif;
+      --font-mono:    "Special Elite", "Courier New", monospace;
+      --font-en:      "DM Sans", system-ui, -apple-system, sans-serif;
+      --font-bn:      "Hind Siliguri", "Noto Sans Bengali", sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      margin: 0; padding: 0;
+      background: var(--paper); color: var(--ink);
+      font-family: var(--font-en); font-size: 15.5px; line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    body[data-lang="bn"] { font-family: var(--font-bn); }
+    body[data-lang="bn"] [data-lang-en],
+    body[data-lang="en"] [data-lang-bn] { display: none !important; }
+
+    main { max-width: 680px; margin: 0 auto; padding: 32px 20px 80px; }
+
+    .lang-toggle {
+      position: fixed; top: 16px; right: 16px;
+      font-family: var(--font-mono); font-size: 11px;
+      padding: 6px 10px; border: 1.5px solid var(--ink);
+      background: var(--paper); border-radius: 4px; cursor: pointer;
+      box-shadow: 2px 2px 0 var(--ink);
+      -webkit-appearance: none; appearance: none;
+    }
+    body[data-lang="bn"] .lang-toggle { font-family: var(--font-bn); }
+
+    .back-link {
+      font-family: var(--font-mono); font-size: 11px;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--ink-mute); text-decoration: none;
+      border-bottom: 1px dotted var(--ink-mute); padding-bottom: 2px;
+    }
+    body[data-lang="bn"] .back-link {
+      font-family: var(--font-bn); letter-spacing: 0.04em; text-transform: none; font-size: 13px;
+    }
+
+    h1 {
+      font-family: var(--font-display); font-weight: 900;
+      font-size: 38px; margin: 18px 0 4px; letter-spacing: 0.3px;
+      line-height: 1.1;
+    }
+    body[data-lang="bn"] h1 { font-family: var(--font-bn); }
+    .subtitle {
+      font-family: var(--font-mono); font-size: 11px;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--stamp-red); margin: 0 0 28px;
+    }
+    body[data-lang="bn"] .subtitle {
+      font-family: var(--font-bn); letter-spacing: 0.05em; text-transform: none; font-size: 13px;
+    }
+    h2 {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: 22px; margin: 28px 0 8px;
+      padding-bottom: 4px; border-bottom: 1px dashed var(--ink-mute);
+    }
+    body[data-lang="bn"] h2 { font-family: var(--font-bn); }
+    p { margin: 0 0 12px; }
+    ul { padding-left: 20px; margin: 0 0 16px; }
+    li { margin-bottom: 6px; }
+    code, .pill {
+      font-family: var(--font-mono); font-size: 13px;
+      padding: 2px 6px; background: var(--paper-2);
+      border: 1px solid var(--ink-mute); border-radius: 3px;
+    }
+    table.tiers {
+      border-collapse: collapse; width: 100%; margin: 8px 0 18px;
+      font-size: 14px;
+    }
+    table.tiers th, table.tiers td {
+      padding: 8px 10px; border-bottom: 1px dashed var(--ink-mute);
+      text-align: left;
+    }
+    table.tiers th {
+      font-family: var(--font-mono); font-size: 11px;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--ink-mute);
+    }
+    body[data-lang="bn"] table.tiers th {
+      font-family: var(--font-bn); letter-spacing: 0.04em; text-transform: none; font-size: 12px;
+    }
+    .tier-pill {
+      display: inline-block; padding: 2px 8px;
+      font-family: var(--font-mono); font-size: 11px;
+      letter-spacing: 0.1em; border-radius: 3px;
+    }
+    .tier-pill--clean { color: var(--bd-green); border: 1px solid var(--bd-green); background: rgba(0,106,78,0.07); }
+    .tier-pill--compromised { color: var(--gold); border: 1px solid var(--gold); background: rgba(184,147,74,0.10); }
+    .tier-pill--none { color: var(--ink-mute); border: 1px dashed var(--ink-mute); }
+
+    .callout {
+      background: var(--paper-2);
+      border: 1px dashed var(--ink-mute);
+      border-radius: 6px;
+      padding: 14px 16px;
+      margin: 20px 0;
+    }
+    .callout strong {
+      font-family: var(--font-display); font-weight: 800; font-size: 16px;
+    }
+
+    a { color: var(--stamp-red); text-decoration: underline dotted; text-underline-offset: 3px; }
+    a:hover { color: var(--ink); }
+
+    footer.page-footer {
+      margin-top: 48px; padding-top: 20px;
+      border-top: 1px dashed var(--ink-mute);
+      font-family: var(--font-mono); font-size: 12px;
+      color: var(--ink-mute);
+    }
+    body[data-lang="bn"] footer.page-footer {
+      font-family: var(--font-bn); font-size: 13px;
+    }
+
+    @media (max-width: 480px) {
+      main { padding: 24px 14px 60px; }
+      h1 { font-size: 30px; }
+      h2 { font-size: 19px; }
+    }
+  </style>
+</head>
+<body data-lang="en">
+  <button class="lang-toggle" id="lang-toggle" type="button">
+    <span data-lang-bn>EN</span><span data-lang-en>বাংলা</span>
+  </button>
+
+  <main>
+    <a class="back-link" href="/">
+      <span data-lang-bn>← খেলায় ফিরে যান</span>
+      <span data-lang-en>← Back to the game</span>
+    </a>
+
+    <h1>
+      <span data-lang-bn>পুরস্কার ড্র · নিয়মাবলী</span>
+      <span data-lang-en>Prize Draw · Official Rules</span>
+    </h1>
+    <p class="subtitle">
+      <span data-lang-bn>গদি · এসবিওয়াইসি উপস্থাপনা</span>
+      <span data-lang-en>GODDI · AN SBYC PRESENTATION</span>
+    </p>
+
+    <p>
+      <span data-lang-bn>খেলার ভেতর থেকে কীভাবে পুরস্কার ড্র-এ অংশ নিতে হয়, এন্ট্রি কীভাবে কাজ করে, কে যোগ্য, এবং বিজয়ী কীভাবে নির্বাচিত হয় — এই পৃষ্ঠা সব ব্যাখ্যা করে।</span>
+      <span data-lang-en>How to enter, how entries work, who's eligible, and how the winner is picked. Everything in plain text.</span>
+    </p>
+
+    <h2>
+      <span data-lang-bn>এন্ট্রি কীভাবে অর্জন করবেন</span>
+      <span data-lang-en>How you earn entries</span>
+    </h2>
+    <p>
+      <span data-lang-bn>একটি পূর্ণ রান শেষ করলে — এবং আপনার ফলাফল নিচের তালিকায় থাকলে — আপনি লটারিতে এন্ট্রি পান।</span>
+      <span data-lang-en>Finish a run, and if your outcome matches the table below, you earn entries.</span>
+    </p>
+    <table class="tiers">
+      <thead>
+        <tr>
+          <th><span data-lang-bn>ফলাফল</span><span data-lang-en>Outcome</span></th>
+          <th><span data-lang-bn>এন্ট্রি</span><span data-lang-en>Entries</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="tier-pill tier-pill--clean">
+            <span data-lang-bn>সততা জয়</span><span data-lang-en>CLEAN WIN</span>
+          </span></td>
+          <td><strong>2</strong></td>
+        </tr>
+        <tr>
+          <td><span class="tier-pill tier-pill--compromised">
+            <span data-lang-bn>স্ট্যান্ডার্ড জয়</span><span data-lang-en>STANDARD WIN</span>
+          </span></td>
+          <td><strong>1</strong></td>
+        </tr>
+        <tr>
+          <td><span class="tier-pill tier-pill--compromised">
+            <span data-lang-bn>মূল্য দিয়ে কেনা জয়</span><span data-lang-en>COMPROMISED WIN</span>
+          </span></td>
+          <td><strong>1</strong></td>
+        </tr>
+        <tr>
+          <td><span class="tier-pill tier-pill--none">
+            <span data-lang-bn>পরাজয়</span><span data-lang-en>DEATH</span>
+          </span></td>
+          <td>0</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>
+      <span data-lang-bn>সর্বোচ্চ সীমা</span>
+      <span data-lang-en>Cap on entries</span>
+    </h2>
+    <p>
+      <span data-lang-bn>প্রতিটি হোয়াটসঅ্যাপ নম্বরে সর্বোচ্চ <strong>৫টি এন্ট্রি</strong>। একবার সীমা পৌঁছালে নতুন রান আর গণনা হয় না।</span>
+      <span data-lang-en>Each WhatsApp number can have a maximum of <strong>5 entries</strong>. Once you hit the cap, additional runs don't add more.</span>
+    </p>
+
+    <h2>
+      <span data-lang-bn>যোগ্যতা</span>
+      <span data-lang-en>Eligibility</span>
+    </h2>
+    <ul>
+      <li><span data-lang-bn>১৮ বছর বা তার বেশি বয়স।</span><span data-lang-en>Must be 18 or older.</span></li>
+      <li><span data-lang-bn>বাংলাদেশের বাসিন্দা। বৈধ বাংলাদেশী হোয়াটসঅ্যাপ নম্বর প্রয়োজন।</span><span data-lang-en>Resident of Bangladesh with a valid Bangladesh WhatsApp number.</span></li>
+      <li><span data-lang-bn>এসবিওয়াইসির সদস্যরা যোগ্য, কিন্তু কোর কমিটি, পরিবার এবং স্বেচ্ছাসেবকরা ড্র থেকে বাদ।</span><span data-lang-en>SBYC members are eligible, but the core committee, immediate family, and active volunteers are excluded from draws.</span></li>
+    </ul>
+
+    <h2>
+      <span data-lang-bn>বিজয়ী নির্বাচন</span>
+      <span data-lang-en>How the winner is picked</span>
+    </h2>
+    <p>
+      <span data-lang-bn>ড্র-এর তারিখে, সমস্ত এন্ট্রি একটি সাধারণ ভারিত র‍্যান্ডম ড্রয়ে রাখা হয়। প্রতিটি এন্ট্রি একটি লটারি টিকিটের মতো — সততা জয়কারীদের প্রতি রানে দুটি টিকিট, মূল্যপ্রাপ্ত জয়কারীদের একটি। তারপর একজনকে এলোমেলোভাবে বাছাই করা হয়।</span>
+      <span data-lang-en>On the draw date, all entries go into a weighted random draw. Each entry is like one lottery ticket — clean winners get 2 tickets per run, compromised winners get 1. One name is then picked at random.</span>
+    </p>
+    <p>
+      <span data-lang-bn>বিজয়ীকে তার দেওয়া হোয়াটসঅ্যাপ নম্বরে যোগাযোগ করা হবে ড্র-এর ৪৮ ঘণ্টার মধ্যে। তিন দিন উত্তর না দিলে আমরা পরবর্তী এন্ট্রি বাছাই করি।</span>
+      <span data-lang-en>The winner will be contacted on their WhatsApp number within 48 hours of the draw. If they don't respond within three days, we pick the next entry.</span>
+    </p>
+
+    <h2>
+      <span data-lang-bn>ড্র-এর তারিখ</span>
+      <span data-lang-en>Draw schedule</span>
+    </h2>
+    <ul>
+      <li><span data-lang-bn><strong>সপ্তাহ ২ পুরস্কার</strong> — ওয়ার্ড ৩৭-এ একটি রেস্তোরাঁয় দু'জনের ডিনার ভাউচার। লঞ্চের ১৪ দিন পর ড্র।</span><span data-lang-en><strong>Week 2 prize</strong> — dinner-for-two voucher at a Ward 37 restaurant. Drawn 14 days after launch.</span></li>
+      <li><span data-lang-bn><strong>সপ্তাহ ৪ গ্র্যান্ড পুরস্কার</strong> — ঢাকা–কক্সবাজার বিমান টিকিট। লঞ্চের ৩০ দিন পর ড্র।</span><span data-lang-en><strong>Week 4 grand prize</strong> — Dhaka–Cox's Bazar flight ticket. Drawn 30 days after launch.</span></li>
+    </ul>
+    <p>
+      <span data-lang-bn>প্রতিটি ড্র-এর আগে এন্ট্রি গণনা শূন্য হয় না — সমস্ত যোগ্য এন্ট্রি দু'টি ড্র-তেই থাকে।</span>
+      <span data-lang-en>Entries don't reset between draws — all eligible entries are pooled into both draws.</span>
+    </p>
+
+    <h2>
+      <span data-lang-bn>একটু সততা নিয়ে</span>
+      <span data-lang-en>A note on fairness</span>
+    </h2>
+    <ul>
+      <li><span data-lang-bn>একই নম্বরে যান্ত্রিক বা পুনরাবৃত্ত জমা শনাক্ত হলে এন্ট্রি বাতিল।</span><span data-lang-en>Automated or duplicate submissions from the same number get disqualified.</span></li>
+      <li><span data-lang-bn>বট সুরক্ষা: ফর্ম Cloudflare Turnstile দিয়ে সুরক্ষিত।</span><span data-lang-en>Bot defense: the entry form is protected by Cloudflare Turnstile.</span></li>
+      <li><span data-lang-bn>আপনার ফোন নম্বর শুধু ড্রয়ের জন্য সংরক্ষিত। কোথাও বিক্রি বা শেয়ার করা হয় না।</span><span data-lang-en>Your phone number is stored only for the draw. Not sold, not shared, not used for anything else.</span></li>
+    </ul>
+
+    <h2>
+      <span data-lang-bn>পুরস্কারের সম্পর্কে</span>
+      <span data-lang-en>About the prize</span>
+    </h2>
+    <p>
+      <span data-lang-bn>পুরস্কারগুলো বন্ধু এবং স্থানীয় পৃষ্ঠপোষকদের সৌজন্যে — এসবিওয়াইসির পরিবেশনায়। ভাউচার বা টিকিটে নির্দিষ্ট তারিখ/শর্ত থাকতে পারে; বিজয়ীর সাথে আলোচনা করা হবে।</span>
+      <span data-lang-en>Prizes are provided by friends and local sponsors — presented by SBYC. Vouchers and tickets may have specific dates/conditions; we'll coordinate directly with the winner.</span>
+    </p>
+
+    <div class="callout">
+      <strong><span data-lang-bn>একটা ব্যাপার পরিষ্কার:</span><span data-lang-en>One thing to be clear about:</span></strong>
+      <p style="margin-top: 8px; margin-bottom: 0;">
+        <span data-lang-bn>গদি ব্যঙ্গাত্মক খেলা। পুরস্কার ব্যঙ্গাত্মক না। ড্র-এর সাথে রাজনৈতিক দল, প্রার্থী বা আদর্শের কোনো সম্পর্ক নেই — এটি কেবল এসবিওয়াইসির একটি কমিউনিটি উদ্যোগ।</span>
+        <span data-lang-en>Goddi is a satirical game. The prize draw is not satire. It has no affiliation with any political party, candidate, or ideology — it's purely an SBYC community initiative.</span>
+      </p>
+    </div>
+
+    <h2>
+      <span data-lang-bn>প্রশ্ন থাকলে</span>
+      <span data-lang-en>Questions</span>
+    </h2>
+    <p>
+      <span data-lang-bn>লিখুন: <a href="mailto:info@southbaridharayouthclub.org?subject=Goddi%20Prize%20Draw">info@southbaridharayouthclub.org</a></span>
+      <span data-lang-en>Email <a href="mailto:info@southbaridharayouthclub.org?subject=Goddi%20Prize%20Draw">info@southbaridharayouthclub.org</a></span>
+    </p>
+
+    <footer class="page-footer">
+      <span data-lang-bn>সাউথ বারিধারা ইয়ুথ ক্লাব · ঢাকা · ২০২৬</span>
+      <span data-lang-en>South Baridhara Youth Club · Dhaka · 2026</span>
+    </footer>
+  </main>
+
+  <script src="/js/i18n.js"></script>
+  <script>
+    // Reuse the I18n toggle behavior the game already ships with.
+    (function () {
+      if (window.I18n && typeof I18n.init === 'function') I18n.init();
+      const btn = document.getElementById('lang-toggle');
+      if (btn) btn.addEventListener('click', () => {
+        if (window.I18n && typeof I18n.toggle === 'function') I18n.toggle();
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -117,6 +117,14 @@
         <span class="splash__badge-count__text" data-lang-en></span>
       </button>
 
+      <!-- Prize sponsor banner. Populated from data/sponsors.json. Hidden
+           until JS confirms there's an active prize. -->
+      <a class="splash__prize" id="splash-prize" href="/rules" hidden>
+        <span class="splash__prize-label" data-prize-label></span>
+        <span class="splash__prize-name"  data-prize-name></span>
+        <span class="splash__prize-meta"  data-prize-meta></span>
+      </a>
+
       <p class="footer-watermark">
         <span data-lang-bn>এসবিওয়াইসি উপস্থাপনা</span>
         <span data-lang-en>An SBYC presentation</span>
@@ -423,6 +431,12 @@
       </div>
 
       <div class="row-buttons row-buttons--stacked">
+        <!-- Prize-entry button — only shown for compromised/clean wins.
+             Wired in game.js#wirePrizeEntry; hidden otherwise. -->
+        <button class="btn btn--prize" id="btn-prize-entry" hidden>
+          <span data-lang-bn>লটারিতে অংশ নিন</span>
+          <span data-lang-en>Enter the draw</span>
+        </button>
         <button class="btn btn--ghost" id="btn-leaderboard-win">
           <span data-lang-bn>সেরা শাসকেরা</span>
           <span data-lang-en>Leaderboard</span>
@@ -497,5 +511,10 @@
        the SBYC Cloudflare account. Defer-loaded so it never blocks render. -->
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
     data-cf-beacon='{"token": "185c1c6fe21b46bd8a00f7a7398171ae"}'></script>
+
+  <!-- Cloudflare Turnstile — bot/abuse defense on the prize-entry form.
+       Loaded but inert until a widget with .cf-turnstile is in the DOM.
+       Site key lives in js/game.js (TURNSTILE_SITEKEY). -->
+  <script defer src="https://challenges.cloudflare.com/turnstile/v0/api.js"></script>
 </body>
 </html>
