@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta name="theme-color" content="#f1e9d6" />
   <title>About · Goddi · গদি</title>
-  <meta name="description" content="About Goddi — a satirical bilingual card-swipe game about five years as a Dhaka Ward 37 Councillor. The story, the team, and the community organisation behind it." />
+  <meta name="description" content="About Goddi, a satirical bilingual card-swipe game about five years as a Dhaka Ward 37 Councillor. The story, the team, and the community organisation behind it." />
 
   <meta property="og:title" content="About · Goddi · গদি" />
   <meta property="og:description" content="A satirical bilingual card-swipe game about five years as a Dhaka Ward 37 Councillor. Built solo, presented by SBYC." />
@@ -141,11 +141,21 @@
       color: var(--ink-soft);
       line-height: 1.45;
     }
+    .party-card .tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-style: italic;
+      color: var(--ink-mute);
+      margin-top: 4px;
+    }
+    body[data-lang="bn"] .party-card .tag {
+      font-family: var(--font-bn); font-style: normal; font-size: 12px;
+    }
 
-    .party-card.party--mpd { border-left: 4px solid #16608c; }
-    .party-card.party--gnp { border-left: 4px solid #006a4e; }
-    .party-card.party--jcb { border-left: 4px solid #a6291f; }
-    .party-card.party--prk { border-left: 4px solid #b8934a; }
+    .party-card.party--janata { border-left: 4px solid #006a4e; }
+    .party-card.party--jad    { border-left: 4px solid #cf2b34; }
+    .party-card.party--islami { border-left: 4px solid #004d40; }
+    .party-card.party--notun  { border-left: 4px solid #6a1b9a; }
 
     /* Pull quote */
     .pull {
@@ -327,14 +337,14 @@
     </p>
 
     <p class="lede">
-      <span data-lang-bn>ব্যঙ্গ একটা পথ। কার্ড-সোয়াইপ ব্যঙ্গ আরেকটু সরাসরি পথ। গদি ঢাকার ওয়ার্ড ৩৭-এ পাঁচ বছরের কাউন্সিলর-পদকে দশ মিনিটের একটা ফোন-গেমে রূপান্তর করার চেষ্টা — দ্বিভাষিক, বিনামূল্যে, ব্রাউজারে।</span>
-      <span data-lang-en>Satire is one way. Card-swipe satire is a more direct way. Goddi turns five years as a Dhaka Ward 37 Councillor into a ten-minute phone game — bilingual, free, browser-based.</span>
+      <span data-lang-bn>ব্যঙ্গ একটা পথ। কার্ড-সোয়াইপ ব্যঙ্গ আরেকটু সরাসরি পথ। গদি ঢাকার ওয়ার্ড ৩৭-এ পাঁচ বছরের কাউন্সিলর-পদকে দশ মিনিটের একটা ফোন-গেমে রূপান্তর করার চেষ্টা। দ্বিভাষিক, বিনামূল্যে, ব্রাউজারে।</span>
+      <span data-lang-en>Satire is one way. Card-swipe satire is a more direct way. Goddi turns five years as a Dhaka Ward 37 Councillor into a ten-minute phone game. Bilingual, free, browser-based.</span>
     </p>
 
     <div class="stat-strip">
       <div class="stat">
-        <div class="num">113</div>
-        <div class="lbl"><span data-lang-bn>কার্ড</span><span data-lang-en>cards</span></div>
+        <div class="num">5</div>
+        <div class="lbl"><span data-lang-bn>বছর</span><span data-lang-en>years</span></div>
       </div>
       <div class="stat">
         <div class="num">25</div>
@@ -355,8 +365,8 @@
       <span data-lang-en>What Goddi is</span>
     </h2>
     <p>
-      <span data-lang-bn>গদি একটা ব্যঙ্গাত্মক কার্ড-সোয়াইপ গেম। আপনি ঢাকার একজন কাল্পনিক ওয়ার্ড ৩৭ কাউন্সিলর। প্রতিটি কার্ডে একজন কেউ আসে — চাঁদাবাজ, প্রতিবেশী, দলের নেতা, পরিবার, সাংবাদিক — একটা সমস্যা নিয়ে। আপনার সামনে দু'টি পথ: বাঁ অথবা ডান। প্রতিটি সিদ্ধান্ত আপনার চারটি স্কোরে প্রভাব ফেলে — দল, জনসমর্থন, ব্যবসা, পরিবার। যেকোনো একটি শূন্যে পৌঁছালে গেম শেষ।</span>
-      <span data-lang-en>Goddi is a satirical card-swipe game. You play a fictional Ward 37 Councillor in Dhaka. Each card brings someone with a problem — a contractor, a neighbour, a party boss, your family, a journalist — and gives you two choices: left or right. Every choice nudges four meters — Party, Public, Business, Family. If any one of them hits zero, your run ends.</span>
+      <span data-lang-bn>গদি একটা ব্যঙ্গাত্মক কার্ড-সোয়াইপ গেম। আপনি ঢাকার একজন কাল্পনিক ওয়ার্ড ৩৭ কাউন্সিলর। প্রতিটি কার্ডে একজন কেউ আসে: চাঁদাবাজ, প্রতিবেশী, দলের নেতা, পরিবার, সাংবাদিক। সবার হাতে একটা সমস্যা। আপনার সামনে দু'টি পথ, বাঁ অথবা ডান। প্রতিটি সিদ্ধান্ত আপনার চারটি স্কোরে প্রভাব ফেলে: দল, জনসমর্থন, ব্যবসা, পরিবার। যেকোনো একটি শূন্যে পৌঁছালে গেম শেষ।</span>
+      <span data-lang-en>Goddi is a satirical card-swipe game. You play a fictional Ward 37 Councillor in Dhaka. Each card brings someone with a problem: a contractor, a neighbour, a party boss, your family, a journalist. You get two choices, left or right. Every choice nudges four meters: Party, Public, Business, Family. If any one of them hits zero, your run ends.</span>
     </p>
     <p>
       <span data-lang-bn>সিনিয়র পার্টির আদেশ মানলে জনসমর্থন কমে। দরিদ্রের কথা শুনলে ব্যবসায়ী রাগ করে। পরিবার-কে সময় দিলে দল ভাবে আপনি দুর্বল। প্রতিটি পথের মূল্য আছে। পরিচ্ছন্ন জিতলে মানুষ সন্দেহ করে; নোংরা খেললে ক্যামেরা আসে।</span>
@@ -368,12 +378,12 @@
       <span data-lang-en>Why this exists</span>
     </h2>
     <p>
-      <span data-lang-bn>বাংলাদেশে রাজনৈতিক বিশ্লেষণের কমতি নেই — দীর্ঘ কলাম, দীর্ঘ টক-শো। ইন্টারঅ্যাক্টিভ ফর্মে প্রায় কিছুই নেই। অথচ Reigns প্রমাণ করেছে যে দু-বোতামের ব্যঙ্গ দু'হাজার শব্দের কলামের চেয়ে দ্রুত পৌঁছায়, বিশেষ করে যারা কখনো কলাম পড়েন না তাঁদের কাছে।</span>
-      <span data-lang-en>Bangladesh has no shortage of political commentary — long columns, long talk-shows. There's almost nothing in interactive form. But Reigns proved that two-button satire lands faster than a 2,000-word column, especially with people who would never read a column in the first place.</span>
+      <span data-lang-bn>বাংলাদেশে রাজনৈতিক বিশ্লেষণের কমতি নেই: দীর্ঘ কলাম, দীর্ঘ টক-শো। ইন্টারঅ্যাক্টিভ ফর্মে প্রায় কিছুই নেই। অথচ Reigns প্রমাণ করেছে যে দু-বোতামের ব্যঙ্গ দু'হাজার শব্দের কলামের চেয়ে দ্রুত পৌঁছায়, বিশেষ করে যাঁরা কখনো কলাম পড়েন না তাঁদের কাছে।</span>
+      <span data-lang-en>Bangladesh has no shortage of political commentary: long columns, long talk-shows. There's almost nothing in interactive form. But Reigns proved that two-button satire lands faster than a 2,000-word column, especially with people who would never read a column in the first place.</span>
     </p>
     <p>
-      <span data-lang-bn>গদি একটা ঢাকা-নির্দিষ্ট, ওয়ার্ড-নির্দিষ্ট দৃশ্যপটকে যে কারও ফোনে দশ মিনিটের জন্য রাখার চেষ্টা — যাতে কেউ যদি একটা রান শেষ করে সামান্য ক্লান্ত বোধ করেন, যেভাবে একজন আসল কাউন্সিলর প্রতিদিন ক্লান্ত হন, তাহলেই গেমটা কাজ করেছে।</span>
-      <span data-lang-en>Goddi tries to put a Dhaka-specific, ward-specific scenario into anyone's hand for ten minutes — so that if you finish a run feeling slightly tired in the way an actual councillor must feel tired, the game has done its job.</span>
+      <span data-lang-bn>গদি একটা ঢাকা-নির্দিষ্ট, ওয়ার্ড-নির্দিষ্ট দৃশ্যপটকে যে কারও ফোনে দশ মিনিটের জন্য রাখার চেষ্টা। লক্ষ্য সোজা: কেউ যদি একটা রান শেষ করে সামান্য ক্লান্ত বোধ করেন, যেভাবে একজন আসল কাউন্সিলর প্রতিদিন ক্লান্ত হন, তাহলেই গেমটা কাজ করেছে।</span>
+      <span data-lang-en>Goddi tries to put a Dhaka-specific, ward-specific scenario into anyone's hand for ten minutes. The bar is simple: if you finish a run feeling slightly tired in the way an actual councillor must feel tired, the game has done its job.</span>
     </p>
 
     <h2>
@@ -381,8 +391,8 @@
       <span data-lang-en>Design philosophy</span>
     </h2>
     <p>
-      <span data-lang-bn>গেমটি ইচ্ছাকৃতভাবে নিরপেক্ষ। চারটি দলকে প্রায় সমানভাবে ব্যঙ্গ করা হয়েছে। কাউন্সিলর কাল্পনিক। প্রতিটি ডায়লগ মৌলিক — কোনো বাস্তব নাম ব্যবহার করা হয়নি। লক্ষ্য কোনো নির্দিষ্ট দল বা ব্যক্তি নয়, লক্ষ্য সর্বজনীন প্যাটার্ন: ক্ষমতা কীভাবে কাজ করে, ক্ষমতা কাকে ক্লান্ত করে, এবং পাঁচ বছরে একটা ছোট অফিসকে কীভাবে দখলে নেয়।</span>
-      <span data-lang-en>The game is even-handed by design. Four parties are caricatured roughly equally. The Councillor is fictional. Every dialog is original — no real names are used. The point is not any specific party or person, but the universal pattern: how power works, who power tires out, and how a small office consumes five years of one's life.</span>
+      <span data-lang-bn>গেমটি ইচ্ছাকৃতভাবে নিরপেক্ষ। চারটি দলকে প্রায় সমানভাবে ব্যঙ্গ করা হয়েছে। কাউন্সিলর কাল্পনিক। প্রতিটি ডায়লগ মৌলিক; কোনো বাস্তব নাম ব্যবহার করা হয়নি। লক্ষ্য কোনো নির্দিষ্ট দল বা ব্যক্তি নয়, লক্ষ্য সর্বজনীন প্যাটার্ন: ক্ষমতা কীভাবে কাজ করে, ক্ষমতা কাকে ক্লান্ত করে, এবং পাঁচ বছরে একটা ছোট অফিস কীভাবে দখলে নেয়।</span>
+      <span data-lang-en>The game is even-handed by design. Four parties are caricatured roughly equally. The Councillor is fictional. Every dialog is original, and no real names are used. The point is not any specific party or person, but the universal pattern: how power works, who power tires out, and how a small office consumes five years of one's life.</span>
     </p>
 
     <h2>
@@ -390,48 +400,64 @@
       <span data-lang-en>The four parties</span>
     </h2>
     <p>
-      <span data-lang-bn>প্রতিটি দল ব্যঙ্গচিত্র — বাস্তব দলের সরাসরি স্ট্যান্ড-ইন না, কিন্তু আপনি যে দিকটির ভাষা চিনবেন তা চিনবেন।</span>
-      <span data-lang-en>Each party is a caricature — not a direct stand-in for any real party, but you'll recognise the rhetoric you're meant to recognise.</span>
+      <span data-lang-bn>প্রতিটি দল একটা ব্যঙ্গচিত্র, বাস্তব দলের সরাসরি স্ট্যান্ড-ইন না। কিন্তু আপনি যে দিকটির ভাষা চিনবেন তা চিনবেন।</span>
+      <span data-lang-en>Each party is a caricature, not a direct stand-in for any real party. But you'll recognise the rhetoric you're meant to recognise.</span>
     </p>
     <div class="grid-2">
-      <div class="party-card party--mpd">
+      <div class="party-card party--janata">
         <div class="name">
-          <span data-lang-bn>এমপিডি</span>
-          <span data-lang-en>MPD</span>
+          <span data-lang-bn>জনতা লীগ</span>
+          <span data-lang-en>Janata League</span>
         </div>
         <div class="desc">
-          <span data-lang-bn>মডার্ন পিপলস্ ডেমোক্র্যাটিক — উন্নয়ন, ফ্লাইওভার, ক্ষমতাকেন্দ্রিক।</span>
-          <span data-lang-en>Modern People's Democratic — development, flyovers, centre of power.</span>
+          <span data-lang-bn>উন্নয়নের ভাষায় কথা বলে, প্রশাসনে গভীর শিকড়, ব্যবসা-নেটওয়ার্ক বিস্তৃত।</span>
+          <span data-lang-en>Speaks the language of development; deep roots in the administration; wide business networks.</span>
+        </div>
+        <div class="tag">
+          <span data-lang-bn>"সবার উন্নয়ন, সবার জন্য"</span>
+          <span data-lang-en>"Progress for all, by all"</span>
         </div>
       </div>
-      <div class="party-card party--gnp">
+      <div class="party-card party--jad">
         <div class="name">
-          <span data-lang-bn>জিএনপি</span>
-          <span data-lang-en>GNP</span>
+          <span data-lang-bn>জাতীয়তাবাদী দল (জাদ)</span>
+          <span data-lang-en>Jatiyotabadi Dol (JAD)</span>
         </div>
         <div class="desc">
-          <span data-lang-bn>গ্রিন ন্যাশনাল পার্টি — জাতীয়তাবাদ, ব্যবসায়ী নেটওয়ার্ক, রক্ষণশীল।</span>
-          <span data-lang-en>Green National Party — nationalism, business networks, conservative.</span>
+          <span data-lang-bn>জাতীয়তাবাদ, ঐতিহ্য, রক্ষণশীল; জনতার নাড়ির খবর রাখে।</span>
+          <span data-lang-en>Nationalism, tradition, conservative instinct; keeps a finger on the public mood.</span>
+        </div>
+        <div class="tag">
+          <span data-lang-bn>"দেশ আগে, সব কিছু পরে"</span>
+          <span data-lang-en>"Country first, everything else later"</span>
         </div>
       </div>
-      <div class="party-card party--jcb">
+      <div class="party-card party--islami">
         <div class="name">
-          <span data-lang-bn>জেসিবি</span>
-          <span data-lang-en>JCB</span>
+          <span data-lang-bn>ইসলামী ঐক্য</span>
+          <span data-lang-en>Islami Oikko</span>
         </div>
         <div class="desc">
-          <span data-lang-bn>জনতার কণ্ঠ বাংলাদেশ — জনতা, রাস্তা, প্রতিবাদ, কাঁচা শক্তি।</span>
-          <span data-lang-en>Janatar Kontho Bangladesh — the people, the street, protests, raw power.</span>
+          <span data-lang-bn>ধর্মীয় পরিচয়ে দল, মসজিদ-মাদ্রাসা নেটওয়ার্ক, শৃঙ্খলিত সমর্থক-ভিত্তি।</span>
+          <span data-lang-en>A party built on religious identity; mosque and madrasa networks; a disciplined base.</span>
+        </div>
+        <div class="tag">
+          <span data-lang-bn>"ইমান, ইহকাল, পরকাল"</span>
+          <span data-lang-en>"Faith, this world, the next"</span>
         </div>
       </div>
-      <div class="party-card party--prk">
+      <div class="party-card party--notun">
         <div class="name">
-          <span data-lang-bn>পিআরকে</span>
-          <span data-lang-en>PRK</span>
+          <span data-lang-bn>নতুন বাংলাদেশ</span>
+          <span data-lang-en>Notun Bangladesh</span>
         </div>
         <div class="desc">
-          <span data-lang-bn>পরিবর্তনের কণ্ঠ — প্রগতিশীল, শহুরে শিক্ষিত, বিদেশি-অনুপ্রাণিত।</span>
-          <span data-lang-en>Porriborton-er Kontho — progressive, urban-educated, foreign-inspired.</span>
+          <span data-lang-bn>তরুণ, শহুরে, পরিবর্তনের কথা বলে; পুরোনো ব্যবস্থার বিরুদ্ধে।</span>
+          <span data-lang-en>Young, urban, the voice of change; aligned against the old order.</span>
+        </div>
+        <div class="tag">
+          <span data-lang-bn>"পুরাতন বাতিল, নতুন উত্থান"</span>
+          <span data-lang-en>"Out with the old, a new rising"</span>
         </div>
       </div>
     </div>
@@ -442,42 +468,42 @@
     </h2>
     <p>
       <span data-lang-bn>রান শুরু হওয়ার আগে আপনি কাউন্সিলরের পূর্ব-পেশা বেছে নেন। প্রতিটি পেশা শুরুর স্কোর সামান্য বদলে দেয় এবং নির্দিষ্ট কিছু কার্ডে আলাদা ডায়লগ নিয়ে আসে।</span>
-      <span data-lang-en>Before each run you pick the Councillor's prior career. Each background shifts your starting meters slightly and unlocks different dialog on some cards.</span>
+      <span data-lang-en>Before each run you pick the Councillor's prior career. Each background shifts your starting meters slightly, and unlocks different dialog on some cards.</span>
     </p>
     <div class="grid-2">
       <div class="bg-card">
         <div class="name"><span data-lang-bn>ব্যবসায়ী</span><span data-lang-en>Businessman</span></div>
         <div class="desc">
-          <span data-lang-bn>আবাসন, কাপড় বা ঠিকাদারি — পয়সা আগে, পরে রাজনীতি।</span>
-          <span data-lang-en>Real estate, textiles, or contracting — money first, politics second.</span>
+          <span data-lang-bn>আবাসন, কাপড় বা ঠিকাদারি; পয়সা আগে, পরে রাজনীতি।</span>
+          <span data-lang-en>Real estate, textiles, or contracting; money first, politics second.</span>
         </div>
       </div>
       <div class="bg-card">
         <div class="name"><span data-lang-bn>আইনজীবী</span><span data-lang-en>Lawyer</span></div>
         <div class="desc">
-          <span data-lang-bn>চেম্বার থেকে চেয়ার — কথায় চলে, কাগজে চলে।</span>
-          <span data-lang-en>From chamber to chair — runs on words, runs on paper.</span>
+          <span data-lang-bn>চেম্বার থেকে চেয়ার। কথায় চলে, কাগজে চলে।</span>
+          <span data-lang-en>From chamber to chair. Runs on words, runs on paper.</span>
         </div>
       </div>
       <div class="bg-card">
         <div class="name"><span data-lang-bn>সাবেক ছাত্রনেতা</span><span data-lang-en>Ex-student leader</span></div>
         <div class="desc">
-          <span data-lang-bn>ক্যাম্পাস থেকে কাউন্সিল — পুরনো বন্ধু সর্বত্র, পুরনো শত্রুও।</span>
-          <span data-lang-en>Campus to council — old friends everywhere, old enemies too.</span>
+          <span data-lang-bn>ক্যাম্পাস থেকে কাউন্সিল। পুরনো বন্ধু সর্বত্র, পুরনো শত্রুও।</span>
+          <span data-lang-en>Campus to council. Old friends everywhere, old enemies too.</span>
         </div>
       </div>
       <div class="bg-card">
         <div class="name"><span data-lang-bn>সাংস্কৃতিক ব্যক্তিত্ব</span><span data-lang-en>Cultural figure</span></div>
         <div class="desc">
-          <span data-lang-bn>মিডিয়া-পরিচিত মুখ — জনসমর্থন উপরে, দলের আস্থা একটু কম।</span>
-          <span data-lang-en>A media-known face — high public, lower party trust.</span>
+          <span data-lang-bn>মিডিয়া-পরিচিত মুখ। জনসমর্থন উপরে, দলের আস্থা একটু কম।</span>
+          <span data-lang-en>A media-known face. High public, lower party trust.</span>
         </div>
       </div>
       <div class="bg-card" style="grid-column: span 2;">
         <div class="name"><span data-lang-bn>সমাজসেবক</span><span data-lang-en>Social worker</span></div>
         <div class="desc">
-          <span data-lang-bn>স্থানীয় ক্লাব, ফাউন্ডেশন, মেডিকেল ক্যাম্প — পাড়ার সবাই আপনাকে চেনে; দলের কেউ এখনো না।</span>
-          <span data-lang-en>Local club, foundation, medical camps — everyone in the para knows you; nobody in the party does yet.</span>
+          <span data-lang-bn>স্থানীয় ক্লাব, ফাউন্ডেশন, মেডিকেল ক্যাম্প। পাড়ার সবাই আপনাকে চেনে; দলের কেউ এখনো না।</span>
+          <span data-lang-en>Local club, foundation, medical camps. Everyone in the para knows you; nobody in the party does yet.</span>
         </div>
       </div>
     </div>
@@ -487,17 +513,17 @@
       <span data-lang-en>The creator</span>
     </h2>
     <p>
-      <span data-lang-bn><strong>মো. রাফি হোসেন</strong> একজন ঢাকা-ভিত্তিক উদ্যোক্তা ও কমিউনিটি-সংগঠক। তিনি সিরাজ মিয়া মেমোরিয়াল মডেল স্কুলের চেয়ারম্যান — দক্ষিণ বারিধারার একটি বাংলা-মাধ্যম প্রতিষ্ঠান যেখানে ১,২০০-র বেশি শিক্ষার্থী পড়ে। তিনি One97 Technologies Pvt Ltd-এর ম্যানেজিং ডিরেক্টর, Paperless Ltd (PSO-লাইসেন্সপ্রাপ্ত পেমেন্ট গেটওয়ে)-এর ম্যানেজিং ডিরেক্টর, এবং Grand ZamZam Tower (উত্তরা)-এর এক্সিকিউটিভ ডিরেক্টর। সিরাজ মিয়া মেমোরিয়াল ফাউন্ডেশনের সভাপতি হিসেবে তিনি প্রায় দু'দশক ধরে শিক্ষা, খাদ্য-সহায়তা ও সমাজসেবা চালান। এবং দক্ষিণ বারিধারা ইয়ুথ ক্লাবের সভাপতি — যেটি গদির পেছনের আয়োজক প্রতিষ্ঠান।</span>
-      <span data-lang-en><strong>Md. Rafy Hossain</strong> is a Dhaka-based entrepreneur and community organiser. He is Chairman of <strong>Siraj Mia Memorial Model School</strong>, a Bangla-medium school in South Baridhara with over 1,200 students. He is Managing Director of <strong>One97 Technologies Pvt Ltd</strong>, Managing Director of <strong>Paperless Ltd</strong> (a PSO-licensed payment gateway), and Executive Director of <strong>Grand ZamZam Tower</strong> in Uttara. As President of the <strong>Siraj Mia Memorial Foundation</strong>, he has run food, education, and community programmes for nearly two decades. And as President of the <strong>South Baridhara Youth Club</strong> — the community organisation presenting Goddi.</span>
+      <span data-lang-bn><strong>মো. রাফি হোসেন</strong> একজন ঢাকা-ভিত্তিক উদ্যোক্তা ও কমিউনিটি-সংগঠক। তিনি সিরাজ মিয়া মেমোরিয়াল মডেল স্কুলের চেয়ারম্যান, দক্ষিণ বারিধারার একটি বাংলা-মাধ্যম প্রতিষ্ঠান যেখানে ১,২০০-র বেশি শিক্ষার্থী পড়ে। তিনি One97 Technologies Pvt Ltd-এর ম্যানেজিং ডিরেক্টর, Paperless Ltd (PSO-লাইসেন্সপ্রাপ্ত পেমেন্ট গেটওয়ে)-এর ম্যানেজিং ডিরেক্টর, এবং Grand ZamZam Tower (উত্তরা)-এর এক্সিকিউটিভ ডিরেক্টর। সিরাজ মিয়া মেমোরিয়াল ফাউন্ডেশনের সভাপতি হিসেবে তিনি প্রায় দু'দশক ধরে শিক্ষা, খাদ্য-সহায়তা ও সমাজসেবা চালান। এবং দক্ষিণ বারিধারা ইয়ুথ ক্লাবের সভাপতি, যেটি গদির পেছনের আয়োজক প্রতিষ্ঠান।</span>
+      <span data-lang-en><strong>Md. Rafy Hossain</strong> is a Dhaka-based entrepreneur and community organiser. He is Chairman of <strong>Siraj Mia Memorial Model School</strong>, a Bangla-medium school in South Baridhara with over 1,200 students. He is Managing Director of <strong>One97 Technologies Pvt Ltd</strong>, Managing Director of <strong>Paperless Ltd</strong> (a PSO-licensed payment gateway), and Executive Director of <strong>Grand ZamZam Tower</strong> in Uttara. As President of the <strong>Siraj Mia Memorial Foundation</strong>, he has run food, education, and community programmes for nearly two decades. And as President of the <strong>South Baridhara Youth Club</strong>, the community organisation presenting Goddi.</span>
     </p>
     <p>
-      <span data-lang-bn>গদি তাঁর একটি ব্যক্তিগত, একক প্রকল্প — কয়েক মাসের সাইড-প্রজেক্ট হিসেবে রাত আর সাপ্তাহিক ছুটিতে তৈরি। নকশা, লেখা, কোড, কার্ড টিউনিং — সব এক হাতে।</span>
-      <span data-lang-en>Goddi is a personal, solo project — built over a few months as a side project, in nights and weekends. Design, writing, code, card tuning — all by one hand.</span>
+      <span data-lang-bn>গদি তাঁর একটি ব্যক্তিগত, একক প্রকল্প: কয়েক মাসের সাইড-প্রজেক্ট হিসেবে রাত আর সাপ্তাহিক ছুটিতে তৈরি। নকশা, লেখা, কোড, কার্ড টিউনিং; সব এক হাতে।</span>
+      <span data-lang-en>Goddi is a personal, solo project: built over a few months as a side project, in nights and weekends. Design, writing, code, card tuning, all by one hand.</span>
     </p>
 
     <div class="pull">
-      <span data-lang-bn>"গেমটি ব্যঙ্গাত্মক, কিন্তু নকশাটা না। প্রতিটি কার্ড আমার নিজের দেখা কথোপকথন থেকে এসেছে — ক্লাবে, স্কুলে, পাড়ার চায়ের দোকানে। পাঁচ বছরের সেই সমস্ত কথা একটা ফোনে দশ মিনিটে বসানোর চেষ্টা করেছি।"<span class="attrib">— মো. রাফি হোসেন</span></span>
-      <span data-lang-en>"The game is satirical, but the design isn't. Every card came out of dozens of conversations I've sat through — at the club, at the school, in the para. I wanted to take five years of that and put it on a phone in ten minutes."<span class="attrib">— Md. Rafy Hossain</span></span>
+      <span data-lang-bn>"গেমটি ব্যঙ্গাত্মক, কিন্তু নকশাটা না। প্রতিটি কার্ড আমার নিজের দেখা কথোপকথন থেকে এসেছে: ক্লাবে, স্কুলে, পাড়ার চায়ের দোকানে। পাঁচ বছরের সেই সমস্ত কথা একটা ফোনে দশ মিনিটে বসানোর চেষ্টা করেছি।"<span class="attrib">~ মো. রাফি হোসেন</span></span>
+      <span data-lang-en>"The game is satirical, but the design isn't. Every card came out of dozens of conversations I've sat through, at the club, at the school, in the para. I wanted to take five years of that and put it on a phone in ten minutes."<span class="attrib">~ Md. Rafy Hossain</span></span>
     </div>
 
     <h2>
@@ -547,16 +573,7 @@
     </h2>
     <p>
       <span data-lang-bn><strong>সাউথ বারিধারা ইয়ুথ ক্লাব</strong> ঢাকার ওয়ার্ড ৩৭-এর একটি কমিউনিটি সংগঠন, প্রতিষ্ঠিত ২০২৪ সালে। ক্লাবটি পাড়ায় স্বাস্থ্য-ক্যাম্প, শীতবস্ত্র বিতরণ, খেলাধুলা, এবং বিভিন্ন কমিউনিটি ফেয়ার পরিচালনা করে। গদি ক্লাবের প্রথম ডিজিটাল প্রকল্প। লঞ্চ-পুরস্কার-পৃষ্ঠপোষকতা থেকে আসা সব অর্থ এসবিওয়াইসির কমিউনিটি প্রোগ্রামে যায়।</span>
-      <span data-lang-en><strong>South Baridhara Youth Club</strong> is a community organisation in Ward 37, Dhaka, founded in 2024. The club runs neighbourhood programmes — medical camps, winter clothing drives, sports, and community fairs. Goddi is SBYC's first digital presentation. All prize-sponsorship revenue goes to SBYC community programmes.</span>
-    </p>
-
-    <h2>
-      <span data-lang-bn>সিরাজ মিয়া মেমোরিয়াল মডেল স্কুল</span>
-      <span data-lang-en>About SMMS</span>
-    </h2>
-    <p>
-      <span data-lang-bn><strong>সিরাজ মিয়া মেমোরিয়াল মডেল স্কুল</strong> দক্ষিণ বারিধারার একটি প্রতিষ্ঠিত বাংলা-মাধ্যম স্কুল, ১,২০০-এর বেশি শিক্ষার্থীর পঠন-পাঠন এখানে চলে। ২০২৪ সালে এটি বাংলাদেশের প্রথম বাংলা-মাধ্যম স্কুল হিসেবে TEDx ইভেন্ট আয়োজন করে (TEDxSMMMSchool)। গদির স্রষ্টা এই স্কুলের চেয়ারম্যান।</span>
-      <span data-lang-en><strong>Siraj Mia Memorial Model School</strong> is an established Bangla-medium school in South Baridhara serving over 1,200 students. In 2024 it became the first Bangla-medium school in Bangladesh to host a TEDx event (TEDxSMMMSchool). The creator of Goddi is the school's Chairman.</span>
+      <span data-lang-en><strong>South Baridhara Youth Club</strong> is a community organisation in Ward 37, Dhaka, founded in 2024. The club runs neighbourhood programmes: medical camps, winter clothing drives, sports, and community fairs. Goddi is SBYC's first digital presentation. All prize-sponsorship revenue goes to SBYC community programmes.</span>
     </p>
 
     <h2>
@@ -564,17 +581,8 @@
       <span data-lang-en>Sponsor-a-cameo</span>
     </h2>
     <p>
-      <span data-lang-bn>স্থানীয় ব্যবসা বা প্রতিষ্ঠান গেমের ভেতরে অতিথি-চরিত্র হিসেবে আসতে পারে — একটি দোকান, একটি ক্যাফে, একটি দপ্তর। ক্যামিও সাময়িক, ব্যঙ্গের সুর-সঙ্গে ও ক্লাবের সম্পাদনায়। আগ্রহী হলে info@southbaridharayouthclub.org-এ মেইল করুন।</span>
-      <span data-lang-en>Local businesses can appear inside the game as guest cameos — a shop, a café, an office. Cameos are time-bound, in keeping with the satirical tone, and edited by the club. To enquire, write to info@southbaridharayouthclub.org.</span>
-    </p>
-
-    <h2>
-      <span data-lang-bn>প্রযুক্তি</span>
-      <span data-lang-en>Tech</span>
-    </h2>
-    <p>
-      <span data-lang-bn>ভ্যানিলা HTML/CSS/JavaScript — কোনো ফ্রেমওয়ার্ক নেই, কোনো বিল্ড স্টেপ নেই। Netlify-তে হোস্টেড। লিডারবোর্ড ও পুরস্কার-এন্ট্রির জন্য Supabase। ভিজিট-পরিসংখ্যান ও বট-প্রতিরোধে Cloudflare। কোনো অ্যাকাউন্ট নেই, কোনো অ্যাপ নেই, কোনো বিজ্ঞাপন নেই।</span>
-      <span data-lang-en>Vanilla HTML/CSS/JavaScript — no framework, no build step. Hosted on Netlify. Supabase for the leaderboard and prize entries. Cloudflare for analytics and bot defense. No accounts, no app, no ads.</span>
+      <span data-lang-bn>স্থানীয় ব্যবসা বা প্রতিষ্ঠান গেমের ভেতরে অতিথি-চরিত্র হিসেবে আসতে পারে: একটি দোকান, একটি ক্যাফে, একটি দপ্তর। ক্যামিও সাময়িক, ব্যঙ্গের সুর-সঙ্গে ও ক্লাবের সম্পাদনায়। আগ্রহী হলে info@southbaridharayouthclub.org-এ মেইল করুন।</span>
+      <span data-lang-en>Local businesses can appear inside the game as guest cameos: a shop, a café, an office. Cameos are time-bound, in keeping with the satirical tone, and edited by the club. To enquire, write to info@southbaridharayouthclub.org.</span>
     </p>
 
     <h2>
@@ -603,8 +611,8 @@
     <div class="callout">
       <strong><span data-lang-bn>একটি বিষয় পরিষ্কার করে রাখি</span><span data-lang-en>One thing to be clear about</span></strong>
       <p style="margin-top: 8px; margin-bottom: 0;">
-        <span data-lang-bn>গদি একটি কাল্পনিক, ব্যঙ্গাত্মক গেম। গেমের কোনো চরিত্র, দল, বা ঘটনা কোনো বাস্তব ব্যক্তি বা সংগঠনের সরাসরি প্রতিনিধিত্ব করে না। গেমের কোনো রাজনৈতিক দল বা প্রার্থীর সাথে সংশ্লিষ্টতা নেই — এটি কেবল একটি কমিউনিটি ক্লাবের প্রকাশনা।</span>
-        <span data-lang-en>Goddi is a fictional, satirical game. No character, party, or event in the game directly represents any real person or organisation. The game has no affiliation with any political party or candidate — it is purely a publication of a community club.</span>
+        <span data-lang-bn>গদি একটি কাল্পনিক, ব্যঙ্গাত্মক গেম। গেমের কোনো চরিত্র, দল, বা ঘটনা কোনো বাস্তব ব্যক্তি বা সংগঠনের সরাসরি প্রতিনিধিত্ব করে না। গেমের কোনো রাজনৈতিক দল বা প্রার্থীর সাথে সংশ্লিষ্টতা নেই। এটি কেবল একটি কমিউনিটি ক্লাবের প্রকাশনা।</span>
+        <span data-lang-en>Goddi is a fictional, satirical game. No character, party, or event in the game directly represents any real person or organisation. The game has no affiliation with any political party or candidate. It is purely a publication of a community club.</span>
       </p>
     </div>
 
