@@ -28,8 +28,8 @@
       "max_uses": 2,
       "background_variants": {
         "businessman": {
-          "dialog_bn": "স্যার... আপনি ব্যবসায়ী মানুষ। তিন মাস ক্যাশবাক্স খালি থাকলে কেমন লাগে — সেটা ছেলেটার ঈদের জামার মধ্যে দেখতে পাচ্ছি।",
-          "dialog_en": "Sir... you are a businessman. You know what three empty months at the till feels like — I see it in my boy not having Eid clothes."
+          "dialog_bn": "স্যার, আপনার অফিসে স্যালারি দিন কেমন হতো — সবাই হাত পেতে দাঁড়ায়। তিন মাস হয়ে গেল, স্যার। ছেলেটার ঈদের জামাটা...",
+          "dialog_en": "Sir, you've seen how payday looks at an office — everyone with a hand out. Three months now. My boy's Eid clothes..."
         },
         "teacher": {
           "dialog_bn": "স্যার, আপনি তো শিক্ষক ছিলেন। মাস শেষে বেতনের জন্য বসে থাকার অনুভূতি আপনার চেনা। তিন মাস হয়ে গেল...",
@@ -76,8 +76,8 @@
       },
       "background_variants": {
         "businessman": {
-          "dialog_bn": "আঙ্কেল, আপনি তো ব্যবসায়ী মানুষ — একটা কোর্ট দেন, ইনভেস্টমেন্ট ধরে নেন। পাঁচ বছর পর আমরাই তো ভোটার।",
-          "dialog_en": "Uncle, you're a businessman — give us a court, think of it as an investment. In five years we're the voters."
+          "dialog_bn": "আঙ্কেল, কোর্টে আপনার কোম্পানির নাম যাবে — 'X-এর সৌজন্যে'। বাচ্চারা বড় হয়ে চিনবে। স্পনসরশিপ।",
+          "dialog_en": "Uncle, your firm's name on the court — 'Sponsored by X.' The kids grow up knowing it. Brand built."
         },
         "teacher": {
           "dialog_bn": "স্যার, আপনাকে আমাদের হেডস্যার পাঠিয়েছেন। বললেন, \"ও তোমাদের কথা শুনবে।\" একটা কোর্ট, পার্কে।",
@@ -124,8 +124,8 @@
       },
       "background_variants": {
         "businessman": {
-          "dialog_bn": "ভাই, আপনি ব্যবসায়ী মানুষ — ব্র্যান্ড বোঝেন! এক সেলফি, রাতে ফেসবুকে। আমার পেজে অনেক ফলোয়ার!",
-          "dialog_en": "Bhai, you're a businessman — you understand branding! One selfie now, Facebook tonight. My page has followers!"
+          "dialog_bn": "ভাই, ক্লায়েন্ট মিটিংয়ের অভিজ্ঞতা আছে আপনার — মুখ মনে রাখা কতটা গুরুত্বপূর্ণ। এক সেলফি, ফেসবুকে।",
+          "dialog_en": "Bhai, you've done client meetings — being remembered matters. One selfie, Facebook."
         },
         "teacher": {
           "dialog_bn": "স্যার, আপনি আমার কাজিনকে পড়িয়েছেন — সে শুনলে মেরে ফেলবে যদি আজ একটা সেলফি না নিই।",
@@ -172,8 +172,8 @@
       },
       "background_variants": {
         "businessman": {
-          "dialog_bn": "ভাই, আপনি ব্যবসায়ী। ছয় মাসের স্লো ইয়ার কী জিনিস, আপনি জানেন। শুধু একটু সময়...",
-          "dialog_en": "Bhai, you're a businessman. You know what a six-month slow run looks like. Just a little time..."
+          "dialog_bn": "ভাই, কাউন্টারে দাঁড়িয়ে ছ' মাস পরে কে ফেরত আসবে, কে আসবে না — সেটা আপনি চিনতে পারেন। আমি ফিরে আসব। কথা।",
+          "dialog_en": "Bhai, standing behind a counter you learn who comes back after six months and who doesn't. I will. My word."
         },
         "teacher": {
           "dialog_bn": "স্যার, এই ওয়ার্ডের অর্ধেক আপনার ছাত্র ছিল। আমি ঋণ থেকে পালানোর লোক না — আপনি জানেন। একটু সময় দেন।",
@@ -221,8 +221,8 @@
       "max_uses": 2,
       "background_variants": {
         "businessman": {
-          "dialog_bn": "ভাই, আপনি ব্যবসায়ী — কন্ট্রাক্টরের লোক কেমন অলস বোঝেন। তিন দিন, কলে পানি নেই।",
-          "dialog_en": "Bhai, you're a businessman — you know what lazy contractor staff look like. Three days, no water from the tap."
+          "dialog_bn": "ভাই, সাপ্লায়ার তিন দিন চুপ থাকলে কী করেন? ফোন, প্রেশার, এসক্যালেট। এখানে কেউ ফোনই ধরে না।",
+          "dialog_en": "Bhai, when a supplier ghosts you for three days, what do you do? Call, push, escalate. Here, nobody picks up."
         },
         "teacher": {
           "dialog_bn": "স্যার, আপনার পুরোনো ছাত্র আমার ঘরে আছে — তারা গোসল করতে পারছে না। তিন দিন হয়ে গেছে।",
@@ -269,8 +269,8 @@
       },
       "background_variants": {
         "businessman": {
-          "dialog_bn": "ভাই, পুরো ক্যাম্প স্পনসর-ফান্ডেড — আপনার পকেট থেকে কিচ্ছু না। ব্যানারে নাম যাবে, বিশ মিনিট লাগবে।",
-          "dialog_en": "Bhai, the camp is fully sponsor-funded — nothing from your pocket. Your name on the banner, twenty minutes tops."
+          "dialog_bn": "ভাই, ব্যবসায়ী জিজ্ঞেস করেন — 'বিনা খরচে এক্সপোজার পাবেন' — সবাই হ্যাঁ বলে। এটাই সেই অফার। বিশ মিনিট।",
+          "dialog_en": "Bhai, ask any merchant — 'free exposure, no cost' — they all say yes. This is that offer. Twenty minutes."
         },
         "teacher": {
           "dialog_bn": "স্যার, আমাদের ভলান্টিয়ার টিমে আপনার অনেক পুরোনো ছাত্র। ছবি তোলার জন্য লাইন ধরবে। আসুন প্লিজ।",
@@ -322,8 +322,8 @@
       "oneshot": true,
       "background_variants": {
         "businessman": {
-          "dialog_bn": "কাউন্সিলর সাহেব, আপনি রিটার্ন বোঝেন — ভালো মাইক মানে বেশি জামাত, বেশি দোয়া, বেশি ভোট।",
-          "dialog_en": "Councillor sahib, you understand return on investment — a clear mic means bigger jamat, bigger goodwill, bigger vote bank."
+          "dialog_bn": "কাউন্সিলর সাহেব, দোকানে সাউন্ড সিস্টেম লাগিয়েছেন কখনো? জানেন একটা ক্লিন মাইক কত আনে — শ্রোতা। মসজিদেও একই কথা।",
+          "dialog_en": "Councillor sahib, have you installed a shop sound system? You know what a clean mic brings — listeners. Same at the masjid."
         },
         "teacher": {
           "dialog_bn": "কাউন্সিলর সাহেব, আপনি ছাত্র পড়িয়েছেন — শোনা যাওয়ার গুরুত্ব আপনি জানেন। মাইকটা কাটে।",
@@ -392,12 +392,12 @@
       "oneshot": true,
       "background_variants": {
         "businessman": {
-          "dialog_bn": "ভাই, ব্যবসায়ী থেকে মায়ের কাছে — আপনি জানেন পরিবার কীভাবে হিসাব মেলায়। ট্রাকটা আমাদের ভেঙেছে। একটা মীমাংসা — ন্যায্যভাবে।",
-          "dialog_en": "Bhai, businessman to mother — you know how a family balances books. The truck broke us. Just settle, fairly."
+          "dialog_bn": "ভাই, গুদামে কোনো শ্রমিক আহত হলে যেভাবে মীমাংসা করতেন — সেভাবেই করেন। ট্রাকটা সিটি কর্পোরেশনের। ন্যায্য ক্ষতিপূরণ চাই।",
+          "dialog_en": "Bhai, the way you'd settle if a worker got hurt at your warehouse — do that here. The truck was the corporation's. Fair compensation."
         },
         "teacher": {
-          "dialog_bn": "স্যার, আপনি পড়াতেন — জানেন স্কুলে ফিরতে না পারার মানে কী। ছেলেটা বেঁচে আছে, কিন্তু আমরা ভেঙে পড়েছি।",
-          "dialog_en": "Sir, you were a teacher — you know what it means when a child can't go back to school. My boy survived, but we are broken."
+          "dialog_bn": "স্যার, ক্লাসে কোনো ছাত্র অসুস্থ হলে আপনি প্রথমে ফোন করতেন বাবা-মাকে। আমার ছেলেটাও এমন এক ফোনের কথা। ট্রাকটা সিটি কর্পোরেশনের।",
+          "dialog_en": "Sir, when a student fell ill in class you'd call the parents first. My boy's accident was that kind of call. The truck was the corporation's."
         },
         "army_retired": {
           "dialog_bn": "স্যার, আপনি হতাহত দেখেছেন — কিন্তু আমার ছেলে যুদ্ধের পরিসংখ্যান নয়। সে বেঁচেছে, আমাদের সাহায্য দরকার।",
@@ -522,12 +522,12 @@
       "oneshot": true,
       "background_variants": {
         "businessman": {
-          "dialog_bn": "বাবা, তুমি ব্যবসায়ী — আট মাস আয় ছাড়া কেমন লাগে জানো। পেনশনটা একটু...",
-          "dialog_en": "Son, you're a businessman — you know what eight months without income feels like. My pension... please."
+          "dialog_bn": "বাবা, আট মাস বকেয়া। তোমার অফিসে যদি একাউন্ট্যান্ট থাকত — ফাইলটা মাস দু'য়ের মধ্যেই খুলে যেত। আমার কাছে সেই একাউন্ট্যান্ট নেই।",
+          "dialog_en": "Son, eight months pending. If your accountant ran this, the file would have moved in two months. I don't have an accountant."
         },
         "teacher": {
-          "dialog_bn": "বাবা, তুমি শিক্ষক ছিলে — চল্লিশ বছর পড়িয়েছি। আট মাস পেনশন নেই। এভাবে আসা উচিত হলো না।",
-          "dialog_en": "Son, you were a teacher — I taught for forty years. Eight months without pension. I shouldn't have to come like this."
+          "dialog_bn": "বাবা, চল্লিশ বছর পড়িয়েছি, পেনশনের কাগজে কখনো হাত পাততে হয়নি — আজ আট মাস। তোমার ক্লাসেও এমন কাউকে দেখেছ?",
+          "dialog_en": "Son, I taught for forty years and never once had to chase a pension paper. Eight months now. Did you ever have a student come like this?"
         },
         "army_retired": {
           "dialog_bn": "বাবা, তুমি সার্ভিসে ছিলে — পেনশন আটকে রাখা সার্ভিসের লোককে কেমন আঘাত দেয় জানো। আট মাস।",
@@ -606,8 +606,8 @@
       "oneshot": true,
       "background_variants": {
         "businessman": {
-          "dialog_bn": "কাউন্সিলর সাহেব — ব্যবসায়ী থেকে ব্যবসায়ীকে বলি, ছয় তলায় হিসেব মেলে না, বারো তলায় গান গায়। আপনার ভাগ — সেটা তো হিসেবে আছেই।",
-          "dialog_en": "Councillor sahib — businessman to businessman, six floors the numbers don't add up, twelve floors they sing. Your cut — that's already on the books."
+          "dialog_bn": "কাউন্সিলর সাহেব — আমরা দু'জনই হিসেব বুঝি। ছয় তলায় খরচই ওঠে না। বারো তলা মুনাফার গান গায়। আপনার ভাগ — হিসেবে রাখা।",
+          "dialog_en": "Councillor sahib — both of us read a balance sheet. Six floors barely covers cost. Twelve floors sings. Your share — already set aside."
         },
         "teacher": {
           "dialog_bn": "কাউন্সিলর সাহেব, জানি — আপনি চক-ব্ল্যাকবোর্ড থেকে এসেছেন, ইট থেকে না। তাই আমার উপর ছেড়ে দেন। প্লট ছয়ের, আমরা বারো করব। আপনার অংশ ঠিকঠাক।",
@@ -658,8 +658,8 @@
       "oneshot": true,
       "background_variants": {
         "businessman": {
-          "dialog_bn": "স্যার, ব্যবসায়ী থেকে ব্যবসায়ীকে — এমপি সাহেবের ভাতিজার দর বাজারের চেয়ে ৩০% বেশি। কন্ট্রাক্টটা বাঁচানো যায়।",
-          "dialog_en": "Sir, businessman to businessman — the MP's nephew's bid is 30% above market. You can still rescue this contract."
+          "dialog_bn": "স্যার, ট্রেডে কেউ ৩০% উপরে দিলে আপনি বোঝেন — হয় ফাঁস, না হয় কাটমানি ভেতরে। কন্ট্রাক্টটা এখনো আটকে রাখা যায়।",
+          "dialog_en": "Sir, in trade when someone bids 30% over, you can read it — it's either a leak or a kickback baked in. The contract can still be held."
         },
         "teacher": {
           "dialog_bn": "স্যার, আপনি নাগরিকশাস্ত্র পড়িয়েছেন — অতিরিক্ত দরে সরকারি কন্ট্রাক্ট কী করে জানেন। ৩০% বেশি। আপনার সিদ্ধান্ত।",
@@ -968,12 +968,12 @@
       "oneshot": true,
       "background_variants": {
         "businessman": {
-          "dialog_bn": "ভাই, ব্যবসায়ী থেকে ভাড়াটিয়ার কাছে — রিলোকেশন কত খরচ আপনি জানেন। নোটিশ এসে গেছে। আমার সাথে দাঁড়ান।",
-          "dialog_en": "Bhai, businessman to renter — you know what relocation costs. The notice came. Stand with me."
+          "dialog_bn": "ভাই, ১২০টা পরিবার চলে গেলে এখানকার চা-দোকান, মুদি-দোকান, রিকশা — সবার রুজি কমে। সাথে দাঁড়ান।",
+          "dialog_en": "Bhai, 120 families leaving — every tea-stall, every grocery, every rickshaw here loses customers. Stand with us."
         },
         "teacher": {
-          "dialog_bn": "স্যার, আপনি শিক্ষক ছিলেন — আমার মেয়েকে পড়িয়েছেন। এখন উচ্ছেদ নোটিশ। সাহায্য করেন।",
-          "dialog_en": "Sir, you were a teacher — you taught my daughter. Now the eviction notice has arrived. Please help."
+          "dialog_bn": "স্যার, আমার মেয়ের ক্লাস নাইনে আপনি ছিলেন। সে আপনাকে এখনো মনে রাখে। তার পরিবারের ঘর — উচ্ছেদের নোটিশ।",
+          "dialog_en": "Sir, you were my daughter's class nine teacher. She still remembers you. Her family's home — eviction notice came."
         },
         "army_retired": {
           "dialog_bn": "স্যার, সৈনিক থেকে বেসামরিক ব্যক্তিকে — ন্যায্যতা গুরুত্বপূর্ণ। কোনো কারণ ছাড়া উচ্ছেদ নোটিশ এসেছে। সাথে দাঁড়ান।",
@@ -1147,8 +1147,8 @@
       "oneshot": true,
       "background_variants": {
         "businessman": {
-          "dialog_bn": "ভাই, ব্যবসায়ী থেকে ব্যবসায়ীকে — স্লো মৌসুম কী জিনিস আপনি জানেন। লোনটা পাইয়ে দেন। কথা — ফেরত দেব।",
-          "dialog_en": "Bhai, businessman to businessman — you know what a slow season is. Help me get the loan. My word — I'll pay back."
+          "dialog_bn": "ভাই, চেম্বার অফ কমার্সে আমরা একসাথে গেছি — মনে আছে? আমি এখন সেই জায়গায় নাই। একটা সুপারিশ চাই, কাজ ফিরে আনতে।",
+          "dialog_en": "Bhai, we went to the Chamber meetings together — remember? I'm not where you used to know me. One recommendation, to get the work back."
         },
         "teacher": {
           "dialog_bn": "ভাই, আমি আরিফুল — আপনি চেনেন। আপনার সুপারিশে আমার বাচ্চারা ভর্তি হয়েছে। এবার অবস্থা খারাপ — সাহায্য করেন।",
@@ -1311,8 +1311,8 @@
       "max_uses": 3,
       "background_variants": {
         "businessman": {
-          "dialog_bn": "ভাই, আপনি ব্যবসায়ী — নির্বাচনী র‍্যালির খরচ বোঝেন। কেন্দ্র চাইছে ২৫ লাখ। দেবেন?",
-          "dialog_en": "Bhai, you're a businessman — you know election rally costs. Central wants ৳25 lakh. Deliver?"
+          "dialog_bn": "ভাই, ২৫ লাখ মানে এক বছরের একটা মাঝারি দোকানের পুরো লাভ। কেন্দ্র রিটার্নটা কী লিখে দিয়েছে? নাকি শুধু চাঁদা?",
+          "dialog_en": "Bhai, ৳25 lakh is a mid-shop's full year of profit. Did central spell out the return — or is it just a contribution?"
         },
         "teacher": {
           "dialog_bn": "ভাই, শিক্ষক থেকে রাজনীতিবিদ — কেন্দ্রীয় কমিটি প্রচারণার জন্য ২৫ লাখ চাইছে। বড় অঙ্ক। আপনার সিদ্ধান্ত।",
@@ -1597,8 +1597,8 @@
       "oneshot": true,
       "background_variants": {
         "businessman": {
-          "dialog_bn": "ভাই, ব্যবসায়ী থেকে ব্যবসায়ীকে — পাঁচ একর, ইন্ডাস্ট্রিয়াল পার্ক। বিরাট চাকরি, বিরাট লাভ। আপনার ভাগ হিসেবে আছে।",
-          "dialog_en": "Bhai, businessman to businessman — five acres for the industrial park. Massive jobs. Massive returns. Your share is on the books."
+          "dialog_bn": "ভাই, পাঁচ একর, সাত-আট শ' চাকরি — এ ধরনের ডিলে আপনার মতো লোক বসে রাখে না। কাগজ পরিষ্কার, ভাগ পরিষ্কার।",
+          "dialog_en": "Bhai, five acres, seven or eight hundred jobs — your kind of man doesn't sit on a deal like this. Paperwork clean, share clean."
         },
         "teacher": {
           "dialog_bn": "কাউন্সিলর সাহেব, আপনি পড়িয়েছেন — বাচ্চাদের কাজ-করা বাবা-মা কতটা লাগে আপনি জানেন। পাঁচ একর, কারখানা, শত শত চাকরি। আপনার অংশ অবশ্যই।",
