@@ -1,0 +1,631 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#f1e9d6" />
+  <title>About · Goddi · গদি</title>
+  <meta name="description" content="About Goddi — a satirical bilingual card-swipe game about five years as a Dhaka Ward 37 Councillor. The story, the team, and the community organisation behind it." />
+
+  <meta property="og:title" content="About · Goddi · গদি" />
+  <meta property="og:description" content="A satirical bilingual card-swipe game about five years as a Dhaka Ward 37 Councillor. Built solo, presented by SBYC." />
+  <meta property="og:image" content="https://goddi.sbyc.cloud/assets/og-image.jpg" />
+  <meta property="og:url" content="https://goddi.sbyc.cloud/about" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700;9..144,900&family=Hind+Siliguri:wght@400;500;700&family=DM+Sans:wght@400;500;700&family=Special+Elite&display=swap" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+
+  <style>
+    :root {
+      --paper: #f1e9d6; --paper-2: #e6dcc2; --paper-3: #ddd0b0;
+      --ink: #1a1310; --ink-soft: #3d322a; --ink-mute: #6a594b;
+      --stamp-red: #a6291f; --bd-green: #006a4e; --gold: #b8934a;
+      --font-display: "Fraunces", Georgia, serif;
+      --font-mono:    "Special Elite", "Courier New", monospace;
+      --font-en:      "DM Sans", system-ui, -apple-system, sans-serif;
+      --font-bn:      "Hind Siliguri", "Noto Sans Bengali", sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      margin: 0; padding: 0;
+      background: var(--paper); color: var(--ink);
+      font-family: var(--font-en); font-size: 15.5px; line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    body[data-lang="bn"] { font-family: var(--font-bn); }
+    body[data-lang="bn"] [data-lang-en],
+    body[data-lang="en"] [data-lang-bn] { display: none !important; }
+
+    main { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+
+    .lang-toggle {
+      position: fixed; top: 16px; right: 16px;
+      font-family: var(--font-mono); font-size: 11px;
+      padding: 6px 10px; border: 1.5px solid var(--ink);
+      background: var(--paper); border-radius: 4px; cursor: pointer;
+      box-shadow: 2px 2px 0 var(--ink);
+      -webkit-appearance: none; appearance: none;
+      z-index: 10;
+    }
+    body[data-lang="bn"] .lang-toggle { font-family: var(--font-bn); }
+
+    .back-link {
+      font-family: var(--font-mono); font-size: 11px;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--ink-mute); text-decoration: none;
+      border-bottom: 1px dotted var(--ink-mute); padding-bottom: 2px;
+    }
+    body[data-lang="bn"] .back-link {
+      font-family: var(--font-bn); letter-spacing: 0.04em; text-transform: none; font-size: 13px;
+    }
+
+    h1 {
+      font-family: var(--font-display); font-weight: 900;
+      font-size: 44px; margin: 22px 0 4px; letter-spacing: 0.3px;
+      line-height: 1.05;
+    }
+    body[data-lang="bn"] h1 { font-family: var(--font-bn); font-size: 40px; }
+
+    .subtitle {
+      font-family: var(--font-mono); font-size: 11px;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--stamp-red); margin: 0 0 10px;
+    }
+    body[data-lang="bn"] .subtitle {
+      font-family: var(--font-bn); letter-spacing: 0.05em; text-transform: none; font-size: 13px;
+    }
+
+    .lede {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-soft);
+      line-height: 1.45;
+      margin: 14px 0 32px;
+      padding-bottom: 24px;
+      border-bottom: 1px dashed var(--ink-mute);
+    }
+    body[data-lang="bn"] .lede {
+      font-family: var(--font-bn); font-style: normal; font-size: 18px;
+    }
+
+    h2 {
+      font-family: var(--font-display); font-weight: 800;
+      font-size: 24px; margin: 36px 0 10px;
+      padding-bottom: 4px; border-bottom: 1px dashed var(--ink-mute);
+    }
+    body[data-lang="bn"] h2 { font-family: var(--font-bn); }
+
+    h3 {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: 17px; margin: 20px 0 4px;
+      color: var(--ink-soft);
+    }
+    body[data-lang="bn"] h3 { font-family: var(--font-bn); }
+
+    p { margin: 0 0 12px; }
+    ul { padding-left: 20px; margin: 0 0 16px; }
+    li { margin-bottom: 6px; }
+
+    a { color: var(--stamp-red); text-decoration: underline dotted; text-underline-offset: 3px; }
+    a:hover { color: var(--ink); }
+
+    /* Party / background grid */
+    .grid-2 {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 12px; margin: 12px 0 20px;
+    }
+    .party-card, .bg-card {
+      border: 1px solid var(--ink-mute);
+      background: var(--paper-2);
+      border-radius: 4px;
+      padding: 12px 14px;
+    }
+    .party-card .name, .bg-card .name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+    body[data-lang="bn"] .party-card .name,
+    body[data-lang="bn"] .bg-card .name { font-family: var(--font-bn); }
+    .party-card .desc, .bg-card .desc {
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      line-height: 1.45;
+    }
+
+    .party-card.party--mpd { border-left: 4px solid #16608c; }
+    .party-card.party--gnp { border-left: 4px solid #006a4e; }
+    .party-card.party--jcb { border-left: 4px solid #a6291f; }
+    .party-card.party--prk { border-left: 4px solid #b8934a; }
+
+    /* Pull quote */
+    .pull {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-style: italic;
+      color: var(--ink-soft);
+      border-left: 3px solid var(--stamp-red);
+      padding: 8px 0 8px 18px;
+      margin: 22px 0;
+      line-height: 1.5;
+    }
+    body[data-lang="bn"] .pull { font-family: var(--font-bn); font-style: normal; }
+    .pull .attrib {
+      display: block;
+      font-family: var(--font-mono);
+      font-style: normal;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      color: var(--ink-mute);
+      margin-top: 8px;
+    }
+    body[data-lang="bn"] .pull .attrib {
+      font-family: var(--font-bn); letter-spacing: 0.03em; font-size: 13px;
+    }
+
+    .callout {
+      background: var(--paper-2);
+      border: 1px dashed var(--ink-mute);
+      border-radius: 6px;
+      padding: 14px 16px;
+      margin: 20px 0;
+    }
+    .callout strong {
+      font-family: var(--font-display); font-weight: 800; font-size: 16px;
+    }
+    body[data-lang="bn"] .callout strong { font-family: var(--font-bn); }
+
+    /* Team list */
+    .team-row {
+      display: flex; gap: 12px; align-items: baseline;
+      padding: 10px 0; border-bottom: 1px dotted var(--ink-mute);
+    }
+    .team-row:last-child { border-bottom: none; }
+    .team-role {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      width: 150px;
+      flex-shrink: 0;
+    }
+    body[data-lang="bn"] .team-role {
+      font-family: var(--font-bn);
+      letter-spacing: 0.03em;
+      text-transform: none;
+      font-size: 13px;
+    }
+    .team-name {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 15px;
+    }
+    body[data-lang="bn"] .team-name { font-family: var(--font-bn); }
+
+    /* Contact */
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 14px; margin: 14px 0 20px;
+    }
+    .contact-card {
+      border: 1px solid var(--ink-mute);
+      background: var(--paper-2);
+      border-radius: 4px;
+      padding: 14px 16px;
+    }
+    .contact-card .label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      margin-bottom: 6px;
+    }
+    body[data-lang="bn"] .contact-card .label {
+      font-family: var(--font-bn);
+      letter-spacing: 0.03em;
+      text-transform: none;
+      font-size: 13px;
+    }
+    .contact-card a {
+      font-family: var(--font-mono);
+      font-size: 13.5px;
+      word-break: break-all;
+    }
+
+    /* Stamp / badge */
+    .stat-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin: 16px 0 8px;
+    }
+    .stat-strip .stat {
+      text-align: center;
+      padding: 10px 6px;
+      background: var(--paper-2);
+      border: 1px solid var(--ink-mute);
+      border-radius: 4px;
+    }
+    .stat .num {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 24px;
+      color: var(--stamp-red);
+      line-height: 1;
+    }
+    .stat .lbl {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      margin-top: 4px;
+    }
+    body[data-lang="bn"] .stat .lbl {
+      font-family: var(--font-bn); letter-spacing: 0.03em; text-transform: none; font-size: 11px;
+    }
+
+    footer.page-footer {
+      margin-top: 48px; padding-top: 20px;
+      border-top: 1px dashed var(--ink-mute);
+      font-family: var(--font-mono); font-size: 12px;
+      color: var(--ink-mute);
+      text-align: center;
+    }
+    body[data-lang="bn"] footer.page-footer {
+      font-family: var(--font-bn); font-size: 13px;
+    }
+    footer .links {
+      margin-top: 8px; font-size: 11px; letter-spacing: 0.08em;
+    }
+    body[data-lang="bn"] footer .links {
+      font-size: 12px; letter-spacing: 0.02em;
+    }
+
+    @media (max-width: 540px) {
+      main { padding: 24px 14px 60px; }
+      h1 { font-size: 32px; }
+      body[data-lang="bn"] h1 { font-size: 30px; }
+      h2 { font-size: 20px; }
+      .lede { font-size: 17px; }
+      .grid-2, .contact-grid { grid-template-columns: 1fr; }
+      .stat-strip { grid-template-columns: repeat(2, 1fr); }
+      .team-row { flex-direction: column; gap: 2px; }
+      .team-role { width: auto; }
+    }
+  </style>
+</head>
+<body data-lang="en">
+  <button class="lang-toggle" id="lang-toggle" type="button">
+    <span data-lang-bn>EN</span><span data-lang-en>বাংলা</span>
+  </button>
+
+  <main>
+    <a class="back-link" href="/">
+      <span data-lang-bn>← খেলায় ফিরে যান</span>
+      <span data-lang-en>← Back to the game</span>
+    </a>
+
+    <h1>
+      <span data-lang-bn>গদি সম্পর্কে</span>
+      <span data-lang-en>About Goddi</span>
+    </h1>
+    <p class="subtitle">
+      <span data-lang-bn>একটি এসবিওয়াইসি উপস্থাপনা</span>
+      <span data-lang-en>An SBYC presentation</span>
+    </p>
+
+    <p class="lede">
+      <span data-lang-bn>ব্যঙ্গ একটা পথ। কার্ড-সোয়াইপ ব্যঙ্গ আরেকটু সরাসরি পথ। গদি ঢাকার ওয়ার্ড ৩৭-এ পাঁচ বছরের কাউন্সিলর-পদকে দশ মিনিটের একটা ফোন-গেমে রূপান্তর করার চেষ্টা — দ্বিভাষিক, বিনামূল্যে, ব্রাউজারে।</span>
+      <span data-lang-en>Satire is one way. Card-swipe satire is a more direct way. Goddi turns five years as a Dhaka Ward 37 Councillor into a ten-minute phone game — bilingual, free, browser-based.</span>
+    </p>
+
+    <div class="stat-strip">
+      <div class="stat">
+        <div class="num">113</div>
+        <div class="lbl"><span data-lang-bn>কার্ড</span><span data-lang-en>cards</span></div>
+      </div>
+      <div class="stat">
+        <div class="num">25</div>
+        <div class="lbl"><span data-lang-bn>অ্যাচিভমেন্ট</span><span data-lang-en>achievements</span></div>
+      </div>
+      <div class="stat">
+        <div class="num">5</div>
+        <div class="lbl"><span data-lang-bn>পেশা</span><span data-lang-en>backgrounds</span></div>
+      </div>
+      <div class="stat">
+        <div class="num">4</div>
+        <div class="lbl"><span data-lang-bn>দল</span><span data-lang-en>parties</span></div>
+      </div>
+    </div>
+
+    <h2>
+      <span data-lang-bn>গদি কী</span>
+      <span data-lang-en>What Goddi is</span>
+    </h2>
+    <p>
+      <span data-lang-bn>গদি একটা ব্যঙ্গাত্মক কার্ড-সোয়াইপ গেম। আপনি ঢাকার একজন কাল্পনিক ওয়ার্ড ৩৭ কাউন্সিলর। প্রতিটি কার্ডে একজন কেউ আসে — চাঁদাবাজ, প্রতিবেশী, দলের নেতা, পরিবার, সাংবাদিক — একটা সমস্যা নিয়ে। আপনার সামনে দু'টি পথ: বাঁ অথবা ডান। প্রতিটি সিদ্ধান্ত আপনার চারটি স্কোরে প্রভাব ফেলে — দল, জনসমর্থন, ব্যবসা, পরিবার। যেকোনো একটি শূন্যে পৌঁছালে গেম শেষ।</span>
+      <span data-lang-en>Goddi is a satirical card-swipe game. You play a fictional Ward 37 Councillor in Dhaka. Each card brings someone with a problem — a contractor, a neighbour, a party boss, your family, a journalist — and gives you two choices: left or right. Every choice nudges four meters — Party, Public, Business, Family. If any one of them hits zero, your run ends.</span>
+    </p>
+    <p>
+      <span data-lang-bn>সিনিয়র পার্টির আদেশ মানলে জনসমর্থন কমে। দরিদ্রের কথা শুনলে ব্যবসায়ী রাগ করে। পরিবার-কে সময় দিলে দল ভাবে আপনি দুর্বল। প্রতিটি পথের মূল্য আছে। পরিচ্ছন্ন জিতলে মানুষ সন্দেহ করে; নোংরা খেললে ক্যামেরা আসে।</span>
+      <span data-lang-en>Obey the party boss and your public approval slips. Side with the poor and your business backers get angry. Spend an afternoon with family and the party thinks you've gone soft. Every path has a cost. Win clean and people doubt you; play dirty and the cameras come.</span>
+    </p>
+
+    <h2>
+      <span data-lang-bn>কেন এই গেম</span>
+      <span data-lang-en>Why this exists</span>
+    </h2>
+    <p>
+      <span data-lang-bn>বাংলাদেশে রাজনৈতিক বিশ্লেষণের কমতি নেই — দীর্ঘ কলাম, দীর্ঘ টক-শো। ইন্টারঅ্যাক্টিভ ফর্মে প্রায় কিছুই নেই। অথচ Reigns প্রমাণ করেছে যে দু-বোতামের ব্যঙ্গ দু'হাজার শব্দের কলামের চেয়ে দ্রুত পৌঁছায়, বিশেষ করে যারা কখনো কলাম পড়েন না তাঁদের কাছে।</span>
+      <span data-lang-en>Bangladesh has no shortage of political commentary — long columns, long talk-shows. There's almost nothing in interactive form. But Reigns proved that two-button satire lands faster than a 2,000-word column, especially with people who would never read a column in the first place.</span>
+    </p>
+    <p>
+      <span data-lang-bn>গদি একটা ঢাকা-নির্দিষ্ট, ওয়ার্ড-নির্দিষ্ট দৃশ্যপটকে যে কারও ফোনে দশ মিনিটের জন্য রাখার চেষ্টা — যাতে কেউ যদি একটা রান শেষ করে সামান্য ক্লান্ত বোধ করেন, যেভাবে একজন আসল কাউন্সিলর প্রতিদিন ক্লান্ত হন, তাহলেই গেমটা কাজ করেছে।</span>
+      <span data-lang-en>Goddi tries to put a Dhaka-specific, ward-specific scenario into anyone's hand for ten minutes — so that if you finish a run feeling slightly tired in the way an actual councillor must feel tired, the game has done its job.</span>
+    </p>
+
+    <h2>
+      <span data-lang-bn>নকশার দর্শন</span>
+      <span data-lang-en>Design philosophy</span>
+    </h2>
+    <p>
+      <span data-lang-bn>গেমটি ইচ্ছাকৃতভাবে নিরপেক্ষ। চারটি দলকে প্রায় সমানভাবে ব্যঙ্গ করা হয়েছে। কাউন্সিলর কাল্পনিক। প্রতিটি ডায়লগ মৌলিক — কোনো বাস্তব নাম ব্যবহার করা হয়নি। লক্ষ্য কোনো নির্দিষ্ট দল বা ব্যক্তি নয়, লক্ষ্য সর্বজনীন প্যাটার্ন: ক্ষমতা কীভাবে কাজ করে, ক্ষমতা কাকে ক্লান্ত করে, এবং পাঁচ বছরে একটা ছোট অফিসকে কীভাবে দখলে নেয়।</span>
+      <span data-lang-en>The game is even-handed by design. Four parties are caricatured roughly equally. The Councillor is fictional. Every dialog is original — no real names are used. The point is not any specific party or person, but the universal pattern: how power works, who power tires out, and how a small office consumes five years of one's life.</span>
+    </p>
+
+    <h2>
+      <span data-lang-bn>চারটি দল</span>
+      <span data-lang-en>The four parties</span>
+    </h2>
+    <p>
+      <span data-lang-bn>প্রতিটি দল ব্যঙ্গচিত্র — বাস্তব দলের সরাসরি স্ট্যান্ড-ইন না, কিন্তু আপনি যে দিকটির ভাষা চিনবেন তা চিনবেন।</span>
+      <span data-lang-en>Each party is a caricature — not a direct stand-in for any real party, but you'll recognise the rhetoric you're meant to recognise.</span>
+    </p>
+    <div class="grid-2">
+      <div class="party-card party--mpd">
+        <div class="name">
+          <span data-lang-bn>এমপিডি</span>
+          <span data-lang-en>MPD</span>
+        </div>
+        <div class="desc">
+          <span data-lang-bn>মডার্ন পিপলস্ ডেমোক্র্যাটিক — উন্নয়ন, ফ্লাইওভার, ক্ষমতাকেন্দ্রিক।</span>
+          <span data-lang-en>Modern People's Democratic — development, flyovers, centre of power.</span>
+        </div>
+      </div>
+      <div class="party-card party--gnp">
+        <div class="name">
+          <span data-lang-bn>জিএনপি</span>
+          <span data-lang-en>GNP</span>
+        </div>
+        <div class="desc">
+          <span data-lang-bn>গ্রিন ন্যাশনাল পার্টি — জাতীয়তাবাদ, ব্যবসায়ী নেটওয়ার্ক, রক্ষণশীল।</span>
+          <span data-lang-en>Green National Party — nationalism, business networks, conservative.</span>
+        </div>
+      </div>
+      <div class="party-card party--jcb">
+        <div class="name">
+          <span data-lang-bn>জেসিবি</span>
+          <span data-lang-en>JCB</span>
+        </div>
+        <div class="desc">
+          <span data-lang-bn>জনতার কণ্ঠ বাংলাদেশ — জনতা, রাস্তা, প্রতিবাদ, কাঁচা শক্তি।</span>
+          <span data-lang-en>Janatar Kontho Bangladesh — the people, the street, protests, raw power.</span>
+        </div>
+      </div>
+      <div class="party-card party--prk">
+        <div class="name">
+          <span data-lang-bn>পিআরকে</span>
+          <span data-lang-en>PRK</span>
+        </div>
+        <div class="desc">
+          <span data-lang-bn>পরিবর্তনের কণ্ঠ — প্রগতিশীল, শহুরে শিক্ষিত, বিদেশি-অনুপ্রাণিত।</span>
+          <span data-lang-en>Porriborton-er Kontho — progressive, urban-educated, foreign-inspired.</span>
+        </div>
+      </div>
+    </div>
+
+    <h2>
+      <span data-lang-bn>পাঁচটি পেশা</span>
+      <span data-lang-en>Five backgrounds</span>
+    </h2>
+    <p>
+      <span data-lang-bn>রান শুরু হওয়ার আগে আপনি কাউন্সিলরের পূর্ব-পেশা বেছে নেন। প্রতিটি পেশা শুরুর স্কোর সামান্য বদলে দেয় এবং নির্দিষ্ট কিছু কার্ডে আলাদা ডায়লগ নিয়ে আসে।</span>
+      <span data-lang-en>Before each run you pick the Councillor's prior career. Each background shifts your starting meters slightly and unlocks different dialog on some cards.</span>
+    </p>
+    <div class="grid-2">
+      <div class="bg-card">
+        <div class="name"><span data-lang-bn>ব্যবসায়ী</span><span data-lang-en>Businessman</span></div>
+        <div class="desc">
+          <span data-lang-bn>আবাসন, কাপড় বা ঠিকাদারি — পয়সা আগে, পরে রাজনীতি।</span>
+          <span data-lang-en>Real estate, textiles, or contracting — money first, politics second.</span>
+        </div>
+      </div>
+      <div class="bg-card">
+        <div class="name"><span data-lang-bn>আইনজীবী</span><span data-lang-en>Lawyer</span></div>
+        <div class="desc">
+          <span data-lang-bn>চেম্বার থেকে চেয়ার — কথায় চলে, কাগজে চলে।</span>
+          <span data-lang-en>From chamber to chair — runs on words, runs on paper.</span>
+        </div>
+      </div>
+      <div class="bg-card">
+        <div class="name"><span data-lang-bn>সাবেক ছাত্রনেতা</span><span data-lang-en>Ex-student leader</span></div>
+        <div class="desc">
+          <span data-lang-bn>ক্যাম্পাস থেকে কাউন্সিল — পুরনো বন্ধু সর্বত্র, পুরনো শত্রুও।</span>
+          <span data-lang-en>Campus to council — old friends everywhere, old enemies too.</span>
+        </div>
+      </div>
+      <div class="bg-card">
+        <div class="name"><span data-lang-bn>সাংস্কৃতিক ব্যক্তিত্ব</span><span data-lang-en>Cultural figure</span></div>
+        <div class="desc">
+          <span data-lang-bn>মিডিয়া-পরিচিত মুখ — জনসমর্থন উপরে, দলের আস্থা একটু কম।</span>
+          <span data-lang-en>A media-known face — high public, lower party trust.</span>
+        </div>
+      </div>
+      <div class="bg-card" style="grid-column: span 2;">
+        <div class="name"><span data-lang-bn>সমাজসেবক</span><span data-lang-en>Social worker</span></div>
+        <div class="desc">
+          <span data-lang-bn>স্থানীয় ক্লাব, ফাউন্ডেশন, মেডিকেল ক্যাম্প — পাড়ার সবাই আপনাকে চেনে; দলের কেউ এখনো না।</span>
+          <span data-lang-en>Local club, foundation, medical camps — everyone in the para knows you; nobody in the party does yet.</span>
+        </div>
+      </div>
+    </div>
+
+    <h2>
+      <span data-lang-bn>স্রষ্টা</span>
+      <span data-lang-en>The creator</span>
+    </h2>
+    <p>
+      <span data-lang-bn><strong>মো. রাফি হোসেন</strong> একজন ঢাকা-ভিত্তিক উদ্যোক্তা ও কমিউনিটি-সংগঠক। তিনি সিরাজ মিয়া মেমোরিয়াল মডেল স্কুলের চেয়ারম্যান — দক্ষিণ বারিধারার একটি বাংলা-মাধ্যম প্রতিষ্ঠান যেখানে ১,২০০-র বেশি শিক্ষার্থী পড়ে। তিনি One97 Technologies Pvt Ltd-এর ম্যানেজিং ডিরেক্টর, Paperless Ltd (PSO-লাইসেন্সপ্রাপ্ত পেমেন্ট গেটওয়ে)-এর ম্যানেজিং ডিরেক্টর, এবং Grand ZamZam Tower (উত্তরা)-এর এক্সিকিউটিভ ডিরেক্টর। সিরাজ মিয়া মেমোরিয়াল ফাউন্ডেশনের সভাপতি হিসেবে তিনি প্রায় দু'দশক ধরে শিক্ষা, খাদ্য-সহায়তা ও সমাজসেবা চালান। এবং দক্ষিণ বারিধারা ইয়ুথ ক্লাবের সভাপতি — যেটি গদির পেছনের আয়োজক প্রতিষ্ঠান।</span>
+      <span data-lang-en><strong>Md. Rafy Hossain</strong> is a Dhaka-based entrepreneur and community organiser. He is Chairman of <strong>Siraj Mia Memorial Model School</strong>, a Bangla-medium school in South Baridhara with over 1,200 students. He is Managing Director of <strong>One97 Technologies Pvt Ltd</strong>, Managing Director of <strong>Paperless Ltd</strong> (a PSO-licensed payment gateway), and Executive Director of <strong>Grand ZamZam Tower</strong> in Uttara. As President of the <strong>Siraj Mia Memorial Foundation</strong>, he has run food, education, and community programmes for nearly two decades. And as President of the <strong>South Baridhara Youth Club</strong> — the community organisation presenting Goddi.</span>
+    </p>
+    <p>
+      <span data-lang-bn>গদি তাঁর একটি ব্যক্তিগত, একক প্রকল্প — কয়েক মাসের সাইড-প্রজেক্ট হিসেবে রাত আর সাপ্তাহিক ছুটিতে তৈরি। নকশা, লেখা, কোড, কার্ড টিউনিং — সব এক হাতে।</span>
+      <span data-lang-en>Goddi is a personal, solo project — built over a few months as a side project, in nights and weekends. Design, writing, code, card tuning — all by one hand.</span>
+    </p>
+
+    <div class="pull">
+      <span data-lang-bn>"গেমটি ব্যঙ্গাত্মক, কিন্তু নকশাটা না। প্রতিটি কার্ড আমার নিজের দেখা কথোপকথন থেকে এসেছে — ক্লাবে, স্কুলে, পাড়ার চায়ের দোকানে। পাঁচ বছরের সেই সমস্ত কথা একটা ফোনে দশ মিনিটে বসানোর চেষ্টা করেছি।"<span class="attrib">— মো. রাফি হোসেন</span></span>
+      <span data-lang-en>"The game is satirical, but the design isn't. Every card came out of dozens of conversations I've sat through — at the club, at the school, in the para. I wanted to take five years of that and put it on a phone in ten minutes."<span class="attrib">— Md. Rafy Hossain</span></span>
+    </div>
+
+    <h2>
+      <span data-lang-bn>টিম ও কৃতজ্ঞতা</span>
+      <span data-lang-en>The team</span>
+    </h2>
+
+    <div class="team-row">
+      <div class="team-role"><span data-lang-bn>নকশা ও কোড</span><span data-lang-en>Design & code</span></div>
+      <div class="team-name">
+        <span data-lang-bn>মো. রাফি হোসেন</span>
+        <span data-lang-en>Md. Rafy Hossain</span>
+      </div>
+    </div>
+    <div class="team-row">
+      <div class="team-role"><span data-lang-bn>গল্প-পরামর্শ</span><span data-lang-en>Story consultancy</span></div>
+      <div class="team-name">
+        <span data-lang-bn>One97 Technologies Pvt Ltd</span>
+        <span data-lang-en>One97 Technologies Pvt Ltd</span>
+      </div>
+    </div>
+    <div class="team-row">
+      <div class="team-role"><span data-lang-bn>বাগ-টেস্টিং</span><span data-lang-en>Bug testing</span></div>
+      <div class="team-name">
+        <span data-lang-bn>রাফায়েত মজুমদার · নুরুল কাদের রিকো</span>
+        <span data-lang-en>Rafayet Mozumder · Nurul Quader Rico</span>
+      </div>
+    </div>
+    <div class="team-row">
+      <div class="team-role"><span data-lang-bn>উপস্থাপনায়</span><span data-lang-en>Presented by</span></div>
+      <div class="team-name">
+        <span data-lang-bn>সাউথ বারিধারা ইয়ুথ ক্লাব (SBYC)</span>
+        <span data-lang-en>South Baridhara Youth Club (SBYC)</span>
+      </div>
+    </div>
+    <div class="team-row">
+      <div class="team-role"><span data-lang-bn>পৃষ্ঠপোষক</span><span data-lang-en>Prize sponsors</span></div>
+      <div class="team-name">
+        <span data-lang-bn>Soi 11 · Skyline Holidays</span>
+        <span data-lang-en>Soi 11 · Skyline Holidays</span>
+      </div>
+    </div>
+
+    <h2>
+      <span data-lang-bn>সাউথ বারিধারা ইয়ুথ ক্লাব</span>
+      <span data-lang-en>About SBYC</span>
+    </h2>
+    <p>
+      <span data-lang-bn><strong>সাউথ বারিধারা ইয়ুথ ক্লাব</strong> ঢাকার ওয়ার্ড ৩৭-এর একটি কমিউনিটি সংগঠন, প্রতিষ্ঠিত ২০২৪ সালে। ক্লাবটি পাড়ায় স্বাস্থ্য-ক্যাম্প, শীতবস্ত্র বিতরণ, খেলাধুলা, এবং বিভিন্ন কমিউনিটি ফেয়ার পরিচালনা করে। গদি ক্লাবের প্রথম ডিজিটাল প্রকল্প। লঞ্চ-পুরস্কার-পৃষ্ঠপোষকতা থেকে আসা সব অর্থ এসবিওয়াইসির কমিউনিটি প্রোগ্রামে যায়।</span>
+      <span data-lang-en><strong>South Baridhara Youth Club</strong> is a community organisation in Ward 37, Dhaka, founded in 2024. The club runs neighbourhood programmes — medical camps, winter clothing drives, sports, and community fairs. Goddi is SBYC's first digital presentation. All prize-sponsorship revenue goes to SBYC community programmes.</span>
+    </p>
+
+    <h2>
+      <span data-lang-bn>সিরাজ মিয়া মেমোরিয়াল মডেল স্কুল</span>
+      <span data-lang-en>About SMMS</span>
+    </h2>
+    <p>
+      <span data-lang-bn><strong>সিরাজ মিয়া মেমোরিয়াল মডেল স্কুল</strong> দক্ষিণ বারিধারার একটি প্রতিষ্ঠিত বাংলা-মাধ্যম স্কুল, ১,২০০-এর বেশি শিক্ষার্থীর পঠন-পাঠন এখানে চলে। ২০২৪ সালে এটি বাংলাদেশের প্রথম বাংলা-মাধ্যম স্কুল হিসেবে TEDx ইভেন্ট আয়োজন করে (TEDxSMMMSchool)। গদির স্রষ্টা এই স্কুলের চেয়ারম্যান।</span>
+      <span data-lang-en><strong>Siraj Mia Memorial Model School</strong> is an established Bangla-medium school in South Baridhara serving over 1,200 students. In 2024 it became the first Bangla-medium school in Bangladesh to host a TEDx event (TEDxSMMMSchool). The creator of Goddi is the school's Chairman.</span>
+    </p>
+
+    <h2>
+      <span data-lang-bn>স্পনসর-এ-ক্যামিও</span>
+      <span data-lang-en>Sponsor-a-cameo</span>
+    </h2>
+    <p>
+      <span data-lang-bn>স্থানীয় ব্যবসা বা প্রতিষ্ঠান গেমের ভেতরে অতিথি-চরিত্র হিসেবে আসতে পারে — একটি দোকান, একটি ক্যাফে, একটি দপ্তর। ক্যামিও সাময়িক, ব্যঙ্গের সুর-সঙ্গে ও ক্লাবের সম্পাদনায়। আগ্রহী হলে info@southbaridharayouthclub.org-এ মেইল করুন।</span>
+      <span data-lang-en>Local businesses can appear inside the game as guest cameos — a shop, a café, an office. Cameos are time-bound, in keeping with the satirical tone, and edited by the club. To enquire, write to info@southbaridharayouthclub.org.</span>
+    </p>
+
+    <h2>
+      <span data-lang-bn>প্রযুক্তি</span>
+      <span data-lang-en>Tech</span>
+    </h2>
+    <p>
+      <span data-lang-bn>ভ্যানিলা HTML/CSS/JavaScript — কোনো ফ্রেমওয়ার্ক নেই, কোনো বিল্ড স্টেপ নেই। Netlify-তে হোস্টেড। লিডারবোর্ড ও পুরস্কার-এন্ট্রির জন্য Supabase। ভিজিট-পরিসংখ্যান ও বট-প্রতিরোধে Cloudflare। কোনো অ্যাকাউন্ট নেই, কোনো অ্যাপ নেই, কোনো বিজ্ঞাপন নেই।</span>
+      <span data-lang-en>Vanilla HTML/CSS/JavaScript — no framework, no build step. Hosted on Netlify. Supabase for the leaderboard and prize entries. Cloudflare for analytics and bot defense. No accounts, no app, no ads.</span>
+    </p>
+
+    <h2>
+      <span data-lang-bn>যোগাযোগ</span>
+      <span data-lang-en>Connect</span>
+    </h2>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="label"><span data-lang-bn>ক্লাব (গেম সম্পর্কে)</span><span data-lang-en>Club (about the game)</span></div>
+        <a href="mailto:info@southbaridharayouthclub.org?subject=Goddi">info@southbaridharayouthclub.org</a>
+      </div>
+      <div class="contact-card">
+        <div class="label"><span data-lang-bn>স্রষ্টা (ব্যক্তিগত)</span><span data-lang-en>Creator (personal)</span></div>
+        <a href="mailto:hello@rafyhossain.com?subject=Goddi">hello@rafyhossain.com</a>
+      </div>
+      <div class="contact-card">
+        <div class="label"><span data-lang-bn>পুরস্কার-নিয়মাবলী</span><span data-lang-en>Prize-draw rules</span></div>
+        <a href="/rules">goddi.sbyc.cloud/rules</a>
+      </div>
+      <div class="contact-card">
+        <div class="label"><span data-lang-bn>স্রষ্টার সাইট</span><span data-lang-en>Creator's site</span></div>
+        <a href="https://rafyhossain.com" target="_blank" rel="noopener">rafyhossain.com</a>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong><span data-lang-bn>একটি বিষয় পরিষ্কার করে রাখি</span><span data-lang-en>One thing to be clear about</span></strong>
+      <p style="margin-top: 8px; margin-bottom: 0;">
+        <span data-lang-bn>গদি একটি কাল্পনিক, ব্যঙ্গাত্মক গেম। গেমের কোনো চরিত্র, দল, বা ঘটনা কোনো বাস্তব ব্যক্তি বা সংগঠনের সরাসরি প্রতিনিধিত্ব করে না। গেমের কোনো রাজনৈতিক দল বা প্রার্থীর সাথে সংশ্লিষ্টতা নেই — এটি কেবল একটি কমিউনিটি ক্লাবের প্রকাশনা।</span>
+        <span data-lang-en>Goddi is a fictional, satirical game. No character, party, or event in the game directly represents any real person or organisation. The game has no affiliation with any political party or candidate — it is purely a publication of a community club.</span>
+      </p>
+    </div>
+
+    <footer class="page-footer">
+      <span data-lang-bn>সাউথ বারিধারা ইয়ুথ ক্লাব · ঢাকা · ২০২৬</span>
+      <span data-lang-en>South Baridhara Youth Club · Dhaka · 2026</span>
+      <div class="links">
+        <a href="/">goddi.sbyc.cloud</a> · <a href="/rules">/rules</a> · <a href="https://southbaridharayouthclub.org" target="_blank" rel="noopener">southbaridharayouthclub.org</a>
+      </div>
+    </footer>
+  </main>
+
+  <script src="/js/i18n.js"></script>
+  <script>
+    (function () {
+      if (window.I18n && typeof I18n.init === 'function') I18n.init();
+      const btn = document.getElementById('lang-toggle');
+      if (btn) btn.addEventListener('click', () => {
+        if (window.I18n && typeof I18n.toggle === 'function') I18n.toggle();
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -59,3 +59,9 @@
   from = "/rules"
   to   = "/rules.html"
   status = 200
+
+# /about → /about.html — about page for the game
+[[redirects]]
+  from = "/about"
+  to   = "/about.html"
+  status = 200
