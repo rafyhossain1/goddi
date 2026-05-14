@@ -1,14 +1,26 @@
 {
-  "_comment": "Configure the current/upcoming prize sponsor here. Goddi reads this on every page load and shows the prize-active banner on splash. Set 'active' to false to hide everything.",
+  "_comment": "Active prize shown on splash + win-screen. Two prizes are running across the launch month — entries pool into both. Swap this block when week 2 draw is done to spotlight Skyline Holidays / Cox's Bazar instead.",
+
   "active": true,
   "prize": {
     "label_bn": "এই সপ্তাহের পুরস্কার",
     "label_en": "THIS WEEK'S PRIZE",
-    "name_bn": "ঢাকা-কক্সবাজার বিমান টিকিট",
+    "name_bn": "Soi 11-এ দু'জনের ডিনার",
+    "name_en": "Dinner for 2 at Soi 11",
+    "sponsor_bn": "Soi 11 (ওয়ার্ড ৩৭) পৃষ্ঠপোষকতায়",
+    "sponsor_en": "Sponsored by Soi 11 · Ward 37",
+    "draw_date_bn": "লঞ্চের ১৪ দিন পর ড্র",
+    "draw_date_en": "Drawn 14 days after launch"
+  },
+
+  "_next_prize_swap_in_to": {
+    "label_bn": "মাসের শেষে গ্র্যান্ড পুরস্কার",
+    "label_en": "GRAND PRIZE",
+    "name_bn": "ঢাকা–কক্সবাজার বিমান টিকিট",
     "name_en": "Dhaka–Cox's Bazar flight ticket",
-    "sponsor_bn": "বন্ধু-পৃষ্ঠপোষকতায়",
-    "sponsor_en": "Sponsored by friends of SBYC",
-    "draw_date_bn": "৩০ দিনের শেষে",
-    "draw_date_en": "Drawn at the end of month 1"
+    "sponsor_bn": "Skyline Holidays পৃষ্ঠপোষকতায়",
+    "sponsor_en": "Sponsored by Skyline Holidays",
+    "draw_date_bn": "লঞ্চের ৩০ দিন পর ড্র",
+    "draw_date_en": "Drawn 30 days after launch"
   }
 }
