@@ -30,11 +30,15 @@
   <!-- BD-red disc behind the title (matches splash treatment) -->
   <circle cx="320" cy="280" r="230" fill="url(#bdred)"/>
 
-  <!-- Top stamps (Bn year on left, ward on right) -->
-  <g font-family="Special Elite, monospace" fill="#a6291f" opacity="0.7">
-    <text x="60" y="62" font-size="20" letter-spacing="2">১৪৩৩</text>
-    <text x="1140" y="62" font-size="20" letter-spacing="3" text-anchor="end">WARD 37</text>
-  </g>
+  <!-- Top stamps (Bn year on left, ward on right). Note: Noto Sans Bengali
+       must be listed first for the left stamp so the Bn digits actually
+       resolve to glyphs (Special Elite has none). -->
+  <text x="60" y="62" font-family="Noto Sans Bengali, sans-serif"
+        font-size="22" font-weight="500" fill="#a6291f" opacity="0.75"
+        letter-spacing="2">১৪৩৩</text>
+  <text x="1140" y="62" font-family="Special Elite, monospace"
+        font-size="20" fill="#a6291f" opacity="0.7"
+        letter-spacing="3" text-anchor="end">WARD 37</text>
 
   <!-- Stamp box accents on top corners -->
   <rect x="48" y="38" width="68" height="32" fill="none"
