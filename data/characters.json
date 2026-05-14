@@ -119,6 +119,30 @@
       "role_en": "Ward Health Officer",
       "bio_bn": "ঢাকা মেডিকেলে পড়াশোনা। ছয় বছর ধরে ওয়ার্ড অফিসগুলোতে ডেঙ্গু সতর্কতা পাঠাচ্ছেন। আপনিই তৃতীয় কাউন্সিলর যিনি সেগুলো পড়েছেন।",
       "bio_en": "Trained at Dhaka Medical. Has been writing dengue alerts to ward offices for six years. Yours is the third to actually read them."
+    },
+    "nasima_begum": {
+      "name_bn": "নাসিমা বেগম",
+      "name_en": "Nasima Begum",
+      "role_bn": "বাসিন্দা · মা",
+      "role_en": "Resident · Mother",
+      "bio_bn": "একটা ছেলে, ছেলেটার ভাঙা কাঁধ, আর তিন মাসের ভাড়া বাকি। শহরের ট্রাকের সাথে দরাদরি করার মতো গলা ওর। মুরুব্বিরা বলে দিচ্ছেন: এই মা ফেরে না।",
+      "bio_en": "One son, his broken shoulder, three months of unpaid rent. Voice loud enough to argue with a city truck. The elders all say it: this mother doesn’t give up."
+    },
+    "oc_hassan": {
+      "name_bn": "ওসি হাসান",
+      "name_en": "OC Hassan",
+      "role_bn": "থানার ভারপ্রাপ্ত",
+      "role_en": "Station police chief",
+      "bio_bn": "এই ওয়ার্ডের তৃতীয় থানা পোস্টিং। কোন ফাইল কোথায় হারাতে হবে জানেন, কোনটা ধরে রাখতে হবে জানেন। অনুগ্রহের হিসেব মাথায় রাখেন — যা দিয়েছেন, যা পাবেন।",
+      "bio_en": "Third posting at the ward thana. Knows which files to lose and which to hold. Keeps a quiet ledger of favors — given and owed."
+    },
+    "son": {
+      "name_bn": "আপনার ছেলে",
+      "name_en": "Your son",
+      "role_bn": "বাড়িতে",
+      "role_en": "At home",
+      "bio_bn": "এসএসসি পরীক্ষার্থী। বাবার নাম জনসভায় শোনে, ডিনারের টেবিলে নয়। দাঁড়িপাল্লা মনে আছে।",
+      "bio_en": "SSC candidate. Hears his father's name at rallies, not at the dinner table. Keeps a quiet ledger."
     }
   }
 }

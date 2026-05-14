@@ -1096,6 +1096,19 @@ body[data-lang="bn"] .verdict__moments-label {
   box-shadow: inset 1px 1px 0 var(--paper-3);
 }
 
+.verdict__chart-caption {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  color: var(--ink-mute);
+  text-align: center;
+  margin: 4px 0 0;
+}
+body[data-lang="bn"] .verdict__chart-caption {
+  font-family: var(--font-bn);
+  font-size: 11px;
+}
+
 .verdict__legend {
   display: flex;
   flex-wrap: wrap;
@@ -2895,4 +2908,164 @@ body[data-lang="bn"] .cameo__dismiss {
   .cameo__rules-list { font-size: 12px; }
   .cameo__cta-label { font-size: 15px; }
   .cameo__cta-address { font-size: 11px; }
+}
+
+/* ============================================================
+   First-run tutorial overlay
+   ============================================================ */
+.tutorial {
+  position: fixed;
+  inset: 0;
+  z-index: 75;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(28, 22, 14, 0.7);
+  opacity: 0;
+  transition: opacity 220ms ease;
+  padding: 20px 16px;
+}
+.tutorial--shown   { opacity: 1; }
+.tutorial--leaving { opacity: 0; }
+
+.tutorial__card {
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-md);
+  padding: 24px 22px 18px;
+  max-width: 380px;
+  width: 100%;
+  box-shadow: 6px 6px 0 var(--ink),
+              0 18px 40px rgba(0, 0, 0, 0.4);
+  transform: scale(0.94);
+  transition: transform 220ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  text-align: center;
+  position: relative;
+}
+.tutorial--shown .tutorial__card { transform: scale(1); }
+
+.tutorial__step {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 8px;
+}
+body[data-lang="bn"] .tutorial__step {
+  font-family: var(--font-bn);
+  letter-spacing: 0.05em;
+  text-transform: none;
+  font-size: 12px;
+}
+
+.tutorial__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 28px;
+  color: var(--ink);
+  margin: 0 0 14px;
+  letter-spacing: 0.5px;
+  line-height: 1.05;
+}
+body[data-lang="bn"] .tutorial__title { font-family: var(--font-bn); }
+
+.tutorial__body {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin: 0 0 22px;
+}
+body[data-lang="bn"] .tutorial__body {
+  font-family: var(--font-bn);
+  font-style: normal;
+  font-size: 14.5px;
+}
+
+.tutorial__actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 14px;
+}
+
+.tutorial__skip {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: none;
+  color: var(--ink-mute);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  cursor: pointer;
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+}
+.tutorial__skip:hover { color: var(--stamp-red); }
+body[data-lang="bn"] .tutorial__skip {
+  font-family: var(--font-bn);
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-size: 13px;
+}
+
+.tutorial__next {
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 12px 22px;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--stamp-red);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.tutorial__next:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--stamp-red);
+}
+.tutorial__next:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--stamp-red);
+}
+body[data-lang="bn"] .tutorial__next {
+  font-family: var(--font-bn);
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-size: 14px;
+}
+
+.tutorial__dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin: 0;
+}
+.tutorial__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--paper-3);
+  border: 1px solid var(--ink-mute);
+}
+.tutorial__dot--active {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+@media (max-width: 480px) {
+  .tutorial__card  { padding: 20px 16px 14px; }
+  .tutorial__title { font-size: 24px; }
+  .tutorial__body  { font-size: 14px; }
 }

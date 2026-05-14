@@ -514,6 +514,110 @@
     renderStats();
     renderNextCard();
     goto('play');
+
+    // First-run tutorial — fires once per browser, before the first card.
+    maybeShowTutorial();
+  }
+
+  // ---------- First-run tutorial ----------
+  // Three-step bilingual overlay shown the very first time a player starts
+  // a run. Explains stats, swiping, and the [sponsored] tag. Persisted in
+  // localStorage so it never bothers them again.
+  const TUTORIAL_KEY = 'goddi.tutorial.seen';
+  const TUTORIAL_STEPS = [
+    {
+      title_bn: 'চার রিং',
+      title_en: 'FOUR DIALS',
+      body_bn: 'উপরের চারটি স্ট্যাট আপনার পদের ভিত্তি। যেকোনো একটা ০ বা ১০০ ছুঁলে আপনি বিদায়। যেকোনোটাকে ট্যাপ করে বিস্তারিত দেখুন।',
+      body_en: 'Four dials at the top hold your office together. If any one hits 0 or 100, your tenure ends. Tap a dial for what each one means.'
+    },
+    {
+      title_bn: 'বামে বা ডানে সোয়াইপ',
+      title_en: 'SWIPE LEFT OR RIGHT',
+      body_bn: 'প্রতিটি কার্ডের দুটি বিকল্প — বামে এক, ডানে আরেক। কোনোটাই নিরাপদ না। স্ট্যাট কোন দিকে যাবে তা প্রিভিউয়ে দেখা যাবে।',
+      body_en: 'Every card has two options — left and right. Neither is safe. Drag a card and watch the stats preview which way they\'ll move.'
+    },
+    {
+      title_bn: 'পাঁচ বছর টিকুন',
+      title_en: 'SURVIVE FIVE YEARS',
+      body_bn: 'লক্ষ্য — পাঁচ বছরের শাসন শেষ করা। প্রতিটি বছরের শেষে দুনিয়া আপনার উপর একটা ঝাঁকি দেবে। প্রস্তুত থাকুন।',
+      body_en: 'The goal — finish your five-year term. Each year ends with the world dealing you a shock. Brace for it.'
+    }
+  ];
+
+  function maybeShowTutorial() {
+    try {
+      if (localStorage.getItem(TUTORIAL_KEY) === '1') return;
+    } catch (_) { /* localStorage disabled — show every time, no biggie */ }
+    showTutorialStep(0);
+  }
+
+  function showTutorialStep(idx) {
+    const step = TUTORIAL_STEPS[idx];
+    if (!step) {
+      try { localStorage.setItem(TUTORIAL_KEY, '1'); } catch (_) {}
+      return;
+    }
+    const overlay = document.createElement('div');
+    overlay.className = 'tutorial';
+    const total = TUTORIAL_STEPS.length;
+    const labelBn = (idx + 1) + ' / ' + total;
+    const labelEn = (idx + 1) + ' OF ' + total;
+    const nextBn = idx === total - 1 ? 'শুরু করি' : 'পরবর্তী →';
+    const nextEn = idx === total - 1 ? 'BEGIN' : 'NEXT →';
+    overlay.innerHTML = `
+      <div class="tutorial__card" role="dialog" aria-modal="true">
+        <p class="tutorial__step">
+          <span data-lang-bn>${I18n.toBanglaDigits(idx + 1)} / ${I18n.toBanglaDigits(total)}</span>
+          <span data-lang-en>${labelEn}</span>
+        </p>
+        <h3 class="tutorial__title">
+          <span data-lang-bn>${step.title_bn}</span>
+          <span data-lang-en>${step.title_en}</span>
+        </h3>
+        <p class="tutorial__body">
+          <span data-lang-bn>${step.body_bn}</span>
+          <span data-lang-en>${step.body_en}</span>
+        </p>
+        <div class="tutorial__actions">
+          <button class="tutorial__skip" type="button">
+            <span data-lang-bn>এড়িয়ে যান</span>
+            <span data-lang-en>Skip</span>
+          </button>
+          <button class="tutorial__next" type="button">
+            <span data-lang-bn>${nextBn}</span>
+            <span data-lang-en>${nextEn}</span>
+          </button>
+        </div>
+        <div class="tutorial__dots">
+          ${TUTORIAL_STEPS.map((_, i) =>
+            `<span class="tutorial__dot ${i === idx ? 'tutorial__dot--active' : ''}"></span>`
+          ).join('')}
+        </div>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+    requestAnimationFrame(() => overlay.classList.add('tutorial--shown'));
+
+    function dismiss(skipRest) {
+      overlay.classList.add('tutorial--leaving');
+      setTimeout(() => {
+        overlay.remove();
+        if (skipRest) {
+          try { localStorage.setItem(TUTORIAL_KEY, '1'); } catch (_) {}
+        } else {
+          showTutorialStep(idx + 1);
+        }
+      }, 220);
+    }
+    overlay.querySelector('.tutorial__next').addEventListener('click', () => {
+      if (window.Sfx) Sfx.playClick();
+      dismiss(false);
+    });
+    overlay.querySelector('.tutorial__skip').addEventListener('click', () => {
+      if (window.Sfx) Sfx.playClick();
+      dismiss(true);
+    });
   }
 
   // ---------- HUD ----------
@@ -977,6 +1081,13 @@
       const finalDelta = (scaled === 0 && delta !== 0) ? Math.sign(delta) : scaled;
       effects[stat] = finalDelta;
       state.stats[stat] = clamp(state.stats[stat] + finalDelta, 0, 100);
+      // Edge-touch tracker — fires the "Razor's Edge" achievement when a
+      // stat hits the inner danger band (≤5 or ≥95) at any point.
+      if ((state.stats[stat] <= 5 || state.stats[stat] >= 95)
+          && state.stats[stat] > 0 && state.stats[stat] < 100
+          && !state.flags.includes('saw_edge')) {
+        state.flags.push('saw_edge');
+      }
       // Track the single biggest absolute hit of the run for the verdict
       // screen's "defining moment" callout.
       const mag = Math.abs(finalDelta);
@@ -1515,13 +1626,38 @@
             stroke="var(--stamp-red)" stroke-width="0.5" stroke-dasharray="2 3" opacity="0.4"/>
     `;
 
-    // Year boundary markers (vertical dashed lines)
+    // Year boundary markers (vertical dashed lines) + Y2/3/4/5 labels.
+    // We collect boundary x-positions so we can render labels below them too.
     let yearMarkers = '';
+    const yearBoundaries = []; // [{x, year}]
     for (let i = 1; i < state.statHistory.length; i++) {
       if (state.statHistory[i].year !== state.statHistory[i-1].year) {
         const x = (i / (state.statHistory.length - 1)) * W;
+        const yr = state.statHistory[i].year;
+        yearBoundaries.push({ x, year: yr });
         yearMarkers += `<line x1="${x.toFixed(1)}" y1="0" x2="${x.toFixed(1)}" y2="${H}"
                          stroke="var(--ink-mute)" stroke-width="0.5" stroke-dasharray="2 4" opacity="0.4"/>`;
+        yearMarkers += `<text x="${x.toFixed(1)}" y="10" text-anchor="middle"
+                         font-family="var(--font-mono)" font-size="7"
+                         fill="var(--ink-mute)" opacity="0.7">Y${yr}</text>`;
+      }
+    }
+
+    // Worst-moment annotation: a dot marker at the day the biggest single
+    // stat-hit happened, using that stat's colour.
+    let worstMarker = '';
+    if (state.biggestHit && state.biggestHit.day != null && state.statHistory.length > 1) {
+      const idx = state.statHistory.findIndex(p => p.day === state.biggestHit.day);
+      if (idx >= 0) {
+        const x = (idx / (state.statHistory.length - 1)) * W;
+        const y = H - (state.statHistory[idx][state.biggestHit.stat] / 100) * H;
+        const c = colors[state.biggestHit.stat];
+        worstMarker = `
+          <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.5"
+                  fill="${c}" stroke="var(--paper)" stroke-width="1.5"/>
+          <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="6"
+                  fill="none" stroke="${c}" stroke-width="0.8" opacity="0.4"/>
+        `;
       }
     }
 
@@ -1540,8 +1676,12 @@
       </p>
       <svg class="verdict__chart" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none"
            role="img" aria-label="Stat trajectory over the run">
-        ${danger}${yearMarkers}${lines}
+        ${danger}${yearMarkers}${lines}${worstMarker}
       </svg>
+      <p class="verdict__chart-caption">
+        <span data-lang-bn>৫ বছর · ${state.statHistory.length - 1} সিদ্ধান্ত · লাল চিহ্ন = বিপদসীমা</span>
+        <span data-lang-en>5 years · ${state.statHistory.length - 1} decisions · red zones = danger</span>
+      </p>
       <div class="verdict__legend">${legend}</div>
     `;
   }
@@ -1770,13 +1910,15 @@
         }
         if (!window.ShareCard || !state.lastVerdict) return;
         ShareCard.export({
-          outcome: state.lastVerdict.outcome,
-          tier:    state.lastVerdict.tier,
-          cause:   state.lastVerdict.cause,
-          days:    state.day,
-          stats:   { ...state.stats },
-          flags:   [...state.flags],
-          lang:    I18n.lang
+          outcome:     state.lastVerdict.outcome,
+          tier:        state.lastVerdict.tier,
+          cause:       state.lastVerdict.cause,
+          days:        state.day,
+          stats:       { ...state.stats },
+          flags:       [...state.flags],
+          lang:        I18n.lang,
+          statHistory: state.statHistory ? state.statHistory.slice() : null,
+          biggestHit:  state.biggestHit
         });
       });
     });
@@ -2247,6 +2389,14 @@
       }
       // If we're mid-game, redraw. If we're on party-select, redraw cards.
       const screen = document.body.getAttribute('data-screen');
+
+      // Bilingual achievement — fires once per run if the player ever
+      // switches languages mid-game (only when actually playing, not
+      // splash-screen flipping).
+      if (screen === 'play' && state.flags && !state.flags.includes('toggled_lang')) {
+        state.flags.push('toggled_lang');
+        if (window.Achievements) Achievements.evaluate(state);
+      }
       if (screen === 'play')       { renderHud(); renderStats(); redrawCurrentCard(); }
       if (screen === 'background') { renderBackgroundGrid(); }
       if (screen === 'party')      { renderPartyGrid(); }

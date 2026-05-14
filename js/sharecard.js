@@ -269,7 +269,107 @@
       ctx.textAlign = 'left';
       ctx.textBaseline = 'top';
       ctx.fillText(lang === 'bn' ? 'রেকর্ড' : 'ON THE RECORD', 56, 420);
-      drawBadgeRow(ctx, badges, lang, 56, 448, W - 112);
+      drawBadgeRow(ctx, badges, lang, 56, 448, 560);
+    }
+
+    // ----- BOTTOM RIGHT: trajectory mini-chart -----
+    // Shows how the player's four stats moved across the run. Same shape as
+    // the in-game verdict chart, scaled to fit a 480×130 box in the corner.
+    if (Array.isArray(opts.statHistory) && opts.statHistory.length >= 2) {
+      const cx = 660, cy = 410, cw = 480, ch = 130;
+
+      // Outer frame
+      ctx.fillStyle = PAPER_2;
+      ctx.strokeStyle = INK_MUTE;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.rect(cx, cy, cw, ch);
+      ctx.fill();
+      ctx.stroke();
+
+      // Danger bands at top and bottom
+      const DANGER_LOW = 20, DANGER_HIGH = 80;
+      const dHi = ch - (DANGER_HIGH / 100) * ch;
+      const dLo = ch - (DANGER_LOW  / 100) * ch;
+      ctx.fillStyle = 'rgba(166,41,31,0.07)';
+      ctx.fillRect(cx, cy, cw, dHi);
+      ctx.fillRect(cx, cy + dLo, cw, ch - dLo);
+
+      // Stat lines
+      const colors = {
+        janata:     '#c46830',
+        dol:        '#2d4a7a',
+        proshashon: '#7a2a26',
+        tohobil:    '#9c7a36'
+      };
+      const stats = ['janata','dol','proshashon','tohobil'];
+      const N = opts.statHistory.length;
+      for (const stat of stats) {
+        ctx.strokeStyle = colors[stat];
+        ctx.lineWidth = 2;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.globalAlpha = 0.9;
+        ctx.beginPath();
+        for (let i = 0; i < N; i++) {
+          const x = cx + (i / (N - 1)) * cw;
+          const y = cy + ch - (opts.statHistory[i][stat] / 100) * ch;
+          if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+      }
+      ctx.globalAlpha = 1;
+
+      // Year boundary ticks + labels (Y2/3/4/5)
+      ctx.fillStyle = INK_MUTE;
+      ctx.font = fontMono(11);
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'top';
+      for (let i = 1; i < N; i++) {
+        if (opts.statHistory[i].year !== opts.statHistory[i-1].year) {
+          const x = cx + (i / (N - 1)) * cw;
+          ctx.strokeStyle = INK_MUTE;
+          ctx.lineWidth = 0.5;
+          ctx.globalAlpha = 0.4;
+          ctx.beginPath();
+          ctx.moveTo(x, cy);
+          ctx.lineTo(x, cy + ch);
+          ctx.stroke();
+          ctx.globalAlpha = 1;
+          ctx.fillText('Y' + opts.statHistory[i].year, x, cy + 4);
+        }
+      }
+
+      // Worst-moment dot
+      if (opts.biggestHit && opts.biggestHit.day != null) {
+        const idx = opts.statHistory.findIndex(p => p.day === opts.biggestHit.day);
+        if (idx >= 0) {
+          const x = cx + (idx / (N - 1)) * cw;
+          const y = cy + ch - (opts.statHistory[idx][opts.biggestHit.stat] / 100) * ch;
+          const dotColor = colors[opts.biggestHit.stat] || STAMP_RED;
+          ctx.fillStyle = dotColor;
+          ctx.strokeStyle = PAPER;
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.arc(x, y, 5, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.stroke();
+          ctx.strokeStyle = dotColor;
+          ctx.lineWidth = 1;
+          ctx.globalAlpha = 0.4;
+          ctx.beginPath();
+          ctx.arc(x, y, 9, 0, Math.PI * 2);
+          ctx.stroke();
+          ctx.globalAlpha = 1;
+        }
+      }
+
+      // Caption above the chart
+      ctx.fillStyle = INK_MUTE;
+      ctx.font = fontMono(11);
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'bottom';
+      ctx.fillText(lang === 'bn' ? 'পাঁচ বছরের পথ' : 'FIVE-YEAR PATH', cx, cy - 4);
     }
 
     // Footer

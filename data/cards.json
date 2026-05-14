@@ -341,6 +341,24 @@
           "dialog_bn": "কাউন্সিলর সাহেব, আপনি স্টেজে দাঁড়িয়েছেন — মাইক না হলে ভাষণ যায় না। মসজিদেও একই কথা।",
           "dialog_en": "Councillor sahib, you've stood on stages — no mic, no speech. Same disease here at the masjid."
         }
+      },
+      "dialog_variants": {
+        "janata_league": {
+          "dialog_bn": "কাউন্সিলর সাহেব, আপনার দল মসজিদে সবসময় থেকেছে। মাইকের জন্য তহবিল — একটা সইয়ে চলবে।",
+          "dialog_en": "Councillor sahib, your party has always stood by the masjid. Mic funding from the ward — one signature does it."
+        },
+        "jatiyotabadi_dol": {
+          "dialog_bn": "কাউন্সিলর সাহেব, আপনার দল জাতীয় ঐতিহ্যের কথা বলে — মসজিদই ঐতিহ্য। মাইকটায় সাহায্য করুন।",
+          "dialog_en": "Councillor sahib, your party speaks of national heritage — the masjid is heritage. Help with the mic."
+        },
+        "islami_oikko": {
+          "dialog_bn": "কাউন্সিলর সাহেব, আপনার দল-ই তো মসজিদের পক্ষে। এই মাইক আপনারই প্রতীক হয়ে দাঁড়ায়।",
+          "dialog_en": "Councillor sahib, your party stands for the masjid. The mic becomes your symbol too."
+        },
+        "notun_bangladesh": {
+          "dialog_bn": "কাউন্সিলর সাহেব, আপনার সংস্কারের কথা পরিষ্কার মাইকে আরও দূর যায়। একটু সাহায্য করুন।",
+          "dialog_en": "Councillor sahib, your reform message travels further through a clear mic. A little help, please."
+        }
       }
     },
     {
@@ -833,6 +851,18 @@
         "islami_oikko": {
           "dialog_bn": "ভাই, ৫০ এতিম ছেলেকে ইসলামি শিক্ষায় দাঁড় করানো ফরজ কাজ। আপনিই আমাদের একমাত্র ভরসা।",
           "dialog_en": "Bhai, raising 50 orphans through Islamic education is a sacred duty. You're our only hope."
+        },
+        "janata_league": {
+          "dialog_bn": "আসসালামু আলাইকুম, কাউন্সিলর সাহেব। আপনার দলের কাছেও — এতিম তো এতিম। আল্লাহর রহমতে একটু সাহায্য চাইছি।",
+          "dialog_en": "Assalamu alaikum, Councillor sahib. Even from your party — an orphan is an orphan. By Allah's grace, a little support."
+        },
+        "jatiyotabadi_dol": {
+          "dialog_bn": "আসসালামু আলাইকুম, কাউন্সিলর সাহেব। আপনার জাতীয়তাবাদ ধর্মের মধ্যেও সেতু গড়ে — পঞ্চাশটি এতিম একটি সেতু চাইছে।",
+          "dialog_en": "Assalamu alaikum, Councillor sahib. Your nationalism builds bridges across faiths too — fifty orphans need such a bridge."
+        },
+        "notun_bangladesh": {
+          "dialog_bn": "আসসালামু আলাইকুম, কাউন্সিলর সাহেব। \"পুরাতন বাতিল\" — তবু এতিম-যত্নের মতো কিছু কখনো পুরোনো হয় না।",
+          "dialog_en": "Assalamu alaikum, Councillor sahib. \"Out with the old\" — but some old things, like orphan care, never grow old."
         }
       },
       "left": {
@@ -1195,7 +1225,25 @@
           "dol": 4
         }
       },
-      "oneshot": true
+      "oneshot": true,
+      "dialog_variants": {
+        "janata_league": {
+          "dialog_bn": "ভাই, কেন্দ্রের লাইন — \"মানবিকতা সীমার মধ্যে।\" চারটে বাচ্চা — সীমাটা কী?",
+          "dialog_en": "Bhai, the central line is \"humanitarian within limits.\" Four children — what's the limit?"
+        },
+        "jatiyotabadi_dol": {
+          "dialog_bn": "ভাই, আপনার দলের অবস্থান স্পষ্ট — সীমান্ত গুরুত্বপূর্ণ। কিন্তু চারটে বাচ্চা। কী করি?",
+          "dialog_en": "Bhai, your party's line is clear — borders matter. But four children. What do we do?"
+        },
+        "islami_oikko": {
+          "dialog_bn": "ভাই, উম্মাহ এক। কিন্তু কর্তৃপক্ষ উম্মাহ চিন্তা করে না। চারটে বাচ্চা। সিদ্ধান্ত নেন।",
+          "dialog_en": "Bhai, the ummah is one. But the authorities don't think in ummah. Four children. Decide."
+        },
+        "notun_bangladesh": {
+          "dialog_bn": "ভাই, আপনি \"পুরোনো রাজনীতি বাতিল\" নিয়ে এসেছিলেন। পুরোনো উত্তর \"না।\" আপনার নতুন উত্তরটা কী?",
+          "dialog_en": "Bhai, you ran on \"out with the old politics.\" The old answer is no. What's your new one?"
+        }
+      }
     },
     {
       "id": "A23",
@@ -1281,6 +1329,24 @@
         "party_lifer": {
           "dialog_bn": "ভাই, আপনি দলটা ভেতর থেকে চেনেন — কেন্দ্র ২৫ লাখ চাইছে। কীভাবে চলে আপনি জানেন। অনুমোদন?",
           "dialog_en": "Bhai, you know the party from inside — central asks for ৳25 lakh. You know how these things work. Approve?"
+        }
+      },
+      "dialog_variants": {
+        "janata_league": {
+          "dialog_bn": "ভাই, বুঝেন তো — নির্বাচনের মৌসুম। কেন্দ্রীয় কমিটি প্রত্যেকের কাছ থেকে ৫ লাখ চায়। শীর্ষ ৩৫-এ আপনি — না দিলে নাম মনে রাখা হবে।",
+          "dialog_en": "Bhai, you understand — election season. Central wants ৳5 lakh from each. You're on the top-35 list. Skip, and the name gets remembered."
+        },
+        "jatiyotabadi_dol": {
+          "dialog_bn": "ভাই, নির্বাচনী যন্ত্র টাকা ছাড়া চলে না। প্রত্যেক কাউন্সিলরের কাছ থেকে ৫ লাখ। ছাড় দিলে কেন্দ্র ভাববে আপনি ঠাণ্ডা হয়েছেন।",
+          "dialog_en": "Bhai, election machinery doesn't run on air. ৳5 lakh from each councillor. Skip, and central thinks you've cooled."
+        },
+        "islami_oikko": {
+          "dialog_bn": "ভাই, কেন্দ্র ৫ লাখ চায় — উদ্দেশ্যের জন্য। প্রত্যেক কাউন্সিলরের কাছে আশা। আপনি জানেন।",
+          "dialog_en": "Bhai, central wants ৳5 lakh — for the cause. Every councillor expected. You know how it goes."
+        },
+        "notun_bangladesh": {
+          "dialog_bn": "ভাই, \"পুরোনো রাজনীতি না\" — তবু কেন্দ্র ৫ লাখ চায়। সংস্কার সময় নেয়। আগে দিন, পরে সংস্কার।",
+          "dialog_en": "Bhai, \"no old politics\" — yet central wants ৳5 lakh. Reform takes time. Pay first, reform later."
         }
       }
     },
@@ -1431,7 +1497,25 @@
           "janata": 3
         }
       },
-      "max_uses": 2
+      "max_uses": 2,
+      "dialog_variants": {
+        "janata_league": {
+          "dialog_bn": "ভাই, বিরোধী দল আমাদের পোস্টার ছিঁড়ছে। পাল্টা ব্লিটজ — বাজেট কত?",
+          "dialog_en": "Bhai, the opposition is tearing our posters. Counter-blitz — what's the budget?"
+        },
+        "jatiyotabadi_dol": {
+          "dialog_bn": "ভাই, ক্ষমতাসীন দল আমাদের পোস্টার ছিঁড়ছে। যুব শাখা বদলা চায়। পাল্টা ব্লিটজ?",
+          "dialog_en": "Bhai, the ruling party is tearing our posters. The youth wing wants revenge. Counter-blitz?"
+        },
+        "islami_oikko": {
+          "dialog_bn": "ভাই, আমাদের পোস্টার নামছে। যুব শাখা পাল্টা ব্লিটজ চায়। তহবিল?",
+          "dialog_en": "Bhai, our posters keep coming down. The youth wing wants a counter-blitz. Funds?"
+        },
+        "notun_bangladesh": {
+          "dialog_bn": "ভাই, সবাই আমাদের পেছনে — নতুন দল সবার শত্রু। পাল্টা ব্লিটজ?",
+          "dialog_en": "Bhai, every party is after us — the new party is everyone's enemy. Counter-blitz?"
+        }
+      }
     },
     {
       "id": "A29",
@@ -1463,7 +1547,25 @@
           "tohobil": -3
         }
       },
-      "oneshot": true
+      "oneshot": true,
+      "dialog_variants": {
+        "janata_league": {
+          "dialog_bn": "কাউন্সিলর সাহেব, আমাদের কাছে আসুন। ওয়ার্ড চেয়ারম্যান পদ — আপনার। এমপির আশীর্বাদ আছে।",
+          "dialog_en": "Councillor sahib, come to us. The Ward Chairman seat is yours. The MP has blessed it."
+        },
+        "jatiyotabadi_dol": {
+          "dialog_bn": "কাউন্সিলর সাহেব, আপনার দল পিছিয়ে যাচ্ছে। আমাদের কাছে আসুন — ওয়ার্ড চেয়ারম্যান পদ খালি। এমপির আশীর্বাদ আছে।",
+          "dialog_en": "Councillor sahib, your party is sliding. Come to us — Ward Chairman seat is open. MP has blessed it."
+        },
+        "islami_oikko": {
+          "dialog_bn": "কাউন্সিলর সাহেব, আপনার দলের আপস স্পষ্ট। জোটের ভাইয়েরা চেয়ারম্যান অফার করছেন। পরিচ্ছন্ন কাজ।",
+          "dialog_en": "Councillor sahib, your party's compromises are showing. The brothers of the alliance offer you Chairman. Cleaner work."
+        },
+        "notun_bangladesh": {
+          "dialog_bn": "কাউন্সিলর সাহেব, পুরোনো দলগুলো আপনাকে টেনে নামায়। নতুন ঢেউয়ে আসুন। চেয়ারম্যান পদ। আশীর্বাদ ইতিমধ্যে।",
+          "dialog_en": "Councillor sahib, the old parties drag you down. Join the new wave. Chairman seat. Already blessed."
+        }
+      }
     },
     {
       "id": "A30",
@@ -1596,6 +1698,24 @@
         "effects": {
           "janata": -4,
           "proshashon": 4
+        }
+      },
+      "dialog_variants": {
+        "janata_league": {
+          "dialog_bn": "কাউন্সিলর সাহেব, ফারহানা — চ্যানেল আই। আধা ঘণ্টা, লাইভ, কোনো এডিট না। আপনার দলের গল্পগুলো প্রাইম-টাইম পাওয়ার যোগ্য। হ্যাঁ?",
+          "dialog_en": "Councillor sahib, Farhana — Channel I. Half an hour, live, no editing. Your party's stories deserve prime-time. Yes?"
+        },
+        "jatiyotabadi_dol": {
+          "dialog_bn": "কাউন্সিলর সাহেব, ফারহানা — চ্যানেল আই। প্রাইম-টাইম। বিরোধীরাও কভার পায়। হ্যাঁ?",
+          "dialog_en": "Councillor sahib, Farhana — Channel I. Prime-time. The opposition gets covered too. Yes?"
+        },
+        "islami_oikko": {
+          "dialog_bn": "কাউন্সিলর সাহেব, ফারহানা — চ্যানেল আই। জোট মাসের পর মাস প্রাইম-টাইম পায়নি। আধা ঘণ্টা। আপনার।",
+          "dialog_en": "Councillor sahib, Farhana — Channel I. The alliance hasn't had prime-time in months. Half an hour. Yours."
+        },
+        "notun_bangladesh": {
+          "dialog_bn": "কাউন্সিলর সাহেব, ফারহানা — চ্যানেল আই। নতুন দল সাধারণত প্রাইম-টাইম পায় না। নিয়ে নিন — হ্যাঁ বলবেন?",
+          "dialog_en": "Councillor sahib, Farhana — Channel I. New parties don't usually get prime-time. Take it — say yes?"
         }
       }
     },
@@ -1928,7 +2048,25 @@
           "janata": 4
         }
       },
-      "oneshot": true
+      "oneshot": true,
+      "dialog_variants": {
+        "janata_league": {
+          "dialog_bn": "ভাই, এই বছর আমাকে বিরোধীদের পাশে থাকতে হবে। ধর্ম রাজনীতি না — তবে আপনার দলও ধর্ম না।",
+          "dialog_en": "Bhai, this year I have to stand with the opposition. Religion isn't politics — but your party isn't religion either."
+        },
+        "jatiyotabadi_dol": {
+          "dialog_bn": "ভাই, এই বছর আমি বিরোধীদের পাশে। আগে একমত হয়েছিলাম — কিন্তু জাতীয়তাবাদ প্রতি বছর পাতলা হচ্ছে।",
+          "dialog_en": "Bhai, this year I'm with the opposition. We agreed once — but the nationalism thins each year."
+        },
+        "islami_oikko": {
+          "dialog_bn": "ভাই, এই বছর আমাকে বিরোধীদের পাশে দাঁড়াতে হবে। জোটের ভেতরেও — আপনি বুঝবেন। ধর্ম কৌশল না।",
+          "dialog_en": "Bhai, this year I have to stand with the opposition. Even within the alliance — you'll understand. Religion isn't strategy."
+        },
+        "notun_bangladesh": {
+          "dialog_bn": "ভাই, এই বছর বিরোধীদের পাশে। নতুন দল কথা দেয় — মসজিদ অপেক্ষা করছে আপনি দেন কিনা।",
+          "dialog_en": "Bhai, this year I'm with the opposition. New parties make promises — the masjid waits to see if you deliver."
+        }
+      }
     },
     {
       "id": "A44",
@@ -3211,7 +3349,10 @@
           "dol": 3,
           "janata": -8,
           "tohobil": -4
-        }
+        },
+        "triggers": [
+          "hartal_cleared"
+        ]
       },
       "right": {
         "label_bn": "বসে কথা বলুন",
@@ -3253,7 +3394,10 @@
           "proshashon": 4,
           "janata": -6,
           "tohobil": -5
-        }
+        },
+        "triggers": [
+          "chose_school_over_hospital"
+        ]
       }
     },
     {
@@ -3310,7 +3454,10 @@
         "effects": {
           "janata": 7,
           "tohobil": -8
-        }
+        },
+        "triggers": [
+          "two_families_helped"
+        ]
       },
       "right": {
         "label_bn": "কাগজপত্র জমা দিতে বলুন",
@@ -3512,6 +3659,129 @@
         "effects": {
           "janata": -6,
           "dol": -4
+        }
+      }
+    },
+    {
+      "id": "F01",
+      "character_name_bn": "আপনার স্ত্রী",
+      "character_name_en": "Your wife",
+      "character_role_bn": "পরিবার",
+      "character_role_en": "Family",
+      "portrait_id": "wife",
+      "min_year": 2,
+      "max_year": 3,
+      "oneshot": true,
+      "dialog_bn": "ঈদের জন্য আম্মার বাড়ি যাচ্ছি — তিন দিন। তুমিও আসবে? নাকি আবারও \"পার্টি কর্মসূচি\"?",
+      "dialog_en": "Heading to my mother's for Eid — three days. Will you come? Or another \"party programme\" again?",
+      "left": {
+        "label_bn": "যাব",
+        "label_en": "I'll come",
+        "effects": {
+          "dol": -4,
+          "proshashon": 5,
+          "janata": 3
+        }
+      },
+      "right": {
+        "label_bn": "পরে বুঝিয়ে বলব",
+        "label_en": "I'll make it up",
+        "effects": {
+          "dol": 4,
+          "janata": -3
+        }
+      }
+    },
+    {
+      "id": "F02",
+      "character_name_bn": "আপনার ছেলে",
+      "character_name_en": "Your son",
+      "character_role_bn": "বাড়িতে",
+      "character_role_en": "At home",
+      "portrait_id": "son",
+      "min_year": 3,
+      "max_year": 4,
+      "oneshot": true,
+      "dialog_bn": "আব্বু, কালকে এসএসসি রেজাল্ট। সবাই বাবাদের সাথে আসছে — তুমি একটু ফোন করো শুধু, প্লিজ।",
+      "dialog_en": "Abbu, SSC results tomorrow. Everyone's coming with their dads — just call me, please.",
+      "left": {
+        "label_bn": "বাসায় থাকব",
+        "label_en": "Be home for it",
+        "effects": {
+          "dol": -5,
+          "proshashon": 6,
+          "tohobil": 3
+        }
+      },
+      "right": {
+        "label_bn": "ফোন করব",
+        "label_en": "I'll call",
+        "effects": {
+          "dol": 3,
+          "proshashon": -3,
+          "janata": -3
+        }
+      }
+    },
+    {
+      "id": "F03",
+      "character_name_bn": "বড় ভাই",
+      "character_name_en": "Older brother",
+      "character_role_bn": "পরিবার · জরুরি",
+      "character_role_en": "Family · urgent",
+      "portrait_id": "_default",
+      "min_year": 4,
+      "oneshot": true,
+      "dialog_bn": "ছোট, আব্বার স্ট্রোক হয়েছে — হাসপাতালে। আমি ম্যানেজ করছি, তবে তুই ক'টা দিন আস। নাকি লোকজন বলবে...",
+      "dialog_en": "Choto, Abba has had a stroke — in hospital. I'm managing it. But come for a few days. Or people will say...",
+      "left": {
+        "label_bn": "এখনই যাব",
+        "label_en": "Go immediately",
+        "effects": {
+          "dol": -7,
+          "proshashon": 6,
+          "janata": 5,
+          "tohobil": -4
+        }
+      },
+      "right": {
+        "label_bn": "টাকা পাঠাব",
+        "label_en": "Send money",
+        "effects": {
+          "dol": 4,
+          "proshashon": -5,
+          "janata": -5,
+          "tohobil": -5
+        }
+      }
+    },
+    {
+      "id": "F04",
+      "character_name_bn": "আপনার স্ত্রী",
+      "character_name_en": "Your wife",
+      "character_role_bn": "ডিনার টেবিল · বছর ৫",
+      "character_role_en": "Dinner table · Year 5",
+      "portrait_id": "wife",
+      "min_year": 5,
+      "oneshot": true,
+      "dialog_bn": "পাঁচ বছর হয়ে গেল। লোকজন বলছে — আবার দাঁড়াবে। আমি জিজ্ঞেস করি — তুমি আদৌ ঘরে আছ কি?",
+      "dialog_en": "Five years gone. People say you'll run again. I have to ask — are you even at home anymore?",
+      "left": {
+        "label_bn": "এবার বিরতি",
+        "label_en": "Step away this term",
+        "effects": {
+          "dol": -7,
+          "janata": 4,
+          "proshashon": 5
+        }
+      },
+      "right": {
+        "label_bn": "এই কাজ ছাড়তে পারব না",
+        "label_en": "I can't walk away",
+        "effects": {
+          "dol": 6,
+          "janata": -4,
+          "proshashon": -3
         }
       }
     }

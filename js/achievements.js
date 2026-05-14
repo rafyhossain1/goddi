@@ -128,6 +128,83 @@
       desc_en: 'The treasury ran dry. Nothing left to do but resign.',
       verdictOnly: true,
       check: (s, v) => v && v.outcome === 'death' && v.cause === 'tohobil_low'
+    },
+
+    // ---------- New arc-callback flags (from A51-A58) ----------
+    {
+      id: 'masjid_committee',
+      name_bn: 'মসজিদ কমিটিতে', name_en: 'On the Masjid Committee',
+      desc_bn: 'মুরুব্বিরা আপনার নাম কমিটিতে রেখেছেন।',
+      desc_en: 'The elders put your name on the masjid committee.',
+      check: (s) => s.flags.includes('ulema_aligned')
+    },
+    {
+      id: 'oc_favor_used',
+      name_bn: 'ফাইল হারিয়ে গেল', name_en: 'The File Disappeared',
+      desc_bn: 'ওসি হাসান আপনার নামের অভিযোগ চাপা দিয়েছেন।',
+      desc_en: 'OC Hassan made a complaint about you disappear.',
+      check: (s) => s.flags.includes('complaint_buried')
+    },
+    {
+      id: 'vote_bought',
+      name_bn: 'ভোট কিনলেন', name_en: 'Bought the Vote',
+      desc_bn: 'এমপির ফোনের পর ৫০০ টাকা প্রতি ঘরে গেছে।',
+      desc_en: 'After the MP\'s call, ৳500 reached every household.',
+      check: (s) => s.flags.includes('votebuying')
+    },
+    {
+      id: 'two_truck_families',
+      name_bn: 'এক হলে আরও আসে', name_en: 'And Two More Came',
+      desc_bn: 'নাসিমা বেগম আরও দু\'টি পরিবার নিয়ে এসেছিলেন। আপনি ফেরত পাঠাননি।',
+      desc_en: 'Nasima brought two more families. You didn\'t turn them away.',
+      check: (s) => s.flags.includes('two_families_helped')
+    },
+    {
+      id: 'dilemma_strike',
+      name_bn: 'হরতাল ক্লিয়ার করেছেন', name_en: 'Cleared the Strike',
+      desc_bn: 'বিরোধী দলের অবরোধ পুলিশ দিয়ে ভেঙেছেন।',
+      desc_en: 'Cleared the opposition\'s blockade with the police.',
+      check: (s) => s.flags.includes('hartal_cleared')
+    },
+    {
+      id: 'dilemma_school',
+      name_bn: 'এমপির ছেলের পরীক্ষা', name_en: 'The MP\'s Son\'s Exam',
+      desc_bn: 'হাসপাতাল না, স্কুলের জেনারেটর জ্বালালেন।',
+      desc_en: 'You fueled the school generator, not the hospital.',
+      check: (s) => s.flags.includes('chose_school_over_hospital')
+    },
+
+    // ---------- Stat-extremes (close calls) ----------
+    {
+      id: 'razors_edge',
+      name_bn: 'একদম ধারে', name_en: 'Razor\'s Edge',
+      desc_bn: 'কোনো স্ট্যাট ৫ বা ৯৫-এ পৌঁছে আবার ফিরে এসেছে।',
+      desc_en: 'A stat hit 5 or 95 and somehow came back.',
+      check: (s) => s.flags.includes('saw_edge')
+    },
+
+    // ---------- Year/lang/badge meta ----------
+    {
+      id: 'monsoon_survivor',
+      name_bn: 'বন্যা পেরিয়েছেন', name_en: 'Past the Monsoon',
+      desc_bn: 'তোহোবিল ৩০-এর নিচে নামালে নয়, কিন্তু মৌসুমের ধাক্কাটা পেরিয়েছেন।',
+      desc_en: 'Made it past the Monsoon hit without your treasury collapsing.',
+      check: (s) => s.year >= 3 && s.stats && s.stats.tohobil >= 30
+    },
+    {
+      id: 'bilingual',
+      name_bn: 'দুই ভাষায়', name_en: 'In Both Languages',
+      desc_bn: 'এক রানের মধ্যে বাংলা ও ইংরেজি — দুটোই দেখেছেন।',
+      desc_en: 'Toggled between Bangla and English mid-run.',
+      check: (s) => s.flags.includes('toggled_lang')
+    },
+    {
+      id: 'completionist',
+      name_bn: 'সংগ্রাহক', name_en: 'Collector',
+      desc_bn: 'মোট ১০টি ব্যাজ অর্জন করেছেন।',
+      desc_en: 'Unlocked 10 total badges across all your runs.',
+      check: (s) => false,  // computed separately — see evaluateMeta below
+      meta: true
     }
   ];
 
@@ -155,22 +232,36 @@
     return true;
   }
 
+  // Meta-achievements depend on cross-run state (e.g., "you have N badges").
+  // They re-evaluate themselves every time anything else unlocks.
+  function evaluateMeta() {
+    ACHIEVEMENTS.forEach(a => {
+      if (!a.meta) return;
+      if (_unlocked.has(a.id)) return;
+      // Built-in meta rules
+      if (a.id === 'completionist' && _unlocked.size >= 10) unlock(a.id);
+    });
+  }
+
   function evaluate(state) {
     // Run non-verdict checks
     ACHIEVEMENTS.forEach(a => {
-      if (a.verdictOnly) return;
+      if (a.verdictOnly || a.meta) return;
       if (_unlocked.has(a.id)) return;
       try { if (a.check(state)) unlock(a.id); } catch (_) {}
     });
+    evaluateMeta();
   }
   function evaluateVerdict(state, verdict) {
     ACHIEVEMENTS.forEach(a => {
+      if (a.meta) return;
       if (_unlocked.has(a.id)) return;
       try {
         if (a.verdictOnly && a.check(state, verdict)) unlock(a.id);
         else if (!a.verdictOnly && a.check(state)) unlock(a.id);
       } catch (_) {}
     });
+    evaluateMeta();
   }
   function unlocked() { return new Set(_unlocked); }
   function list() { return ACHIEVEMENTS.slice(); }
