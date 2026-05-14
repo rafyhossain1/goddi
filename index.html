@@ -16,9 +16,14 @@
   <meta property="og:title" content="Goddi · গদি — Ward 37. Five years. How long will you last?" />
   <meta property="og:description" content="A satirical card-swipe game about Dhaka ward politics. Swipe left, swipe right, survive your tenure. Bilingual (বাংলা / English)." />
   <meta property="og:url" content="https://goddi.sbyc.cloud/" />
-  <meta property="og:image" content="https://goddi.sbyc.cloud/assets/og-image.png" />
+  <!-- og:image: JPEG variant + cache-busting "?v=2" forces WhatsApp/FB/Twitter
+       to re-fetch instead of using their cached version of the old PNG.
+       Image is 1200×630 (1.91:1) which is the standard Open Graph dimension. -->
+  <meta property="og:image" content="https://goddi.sbyc.cloud/assets/og-image.jpg?v=2" />
+  <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Goddi · গদি — Ward 37. Five years. How long will you last?" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:locale:alternate" content="bn_BD" />
 
@@ -26,7 +31,8 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Goddi · গদি — Ward 37. Five years." />
   <meta name="twitter:description" content="A satirical card-swipe game about Dhaka ward politics. Swipe to survive your tenure as Ward 37 Councillor." />
-  <meta name="twitter:image" content="https://goddi.sbyc.cloud/assets/og-image.png" />
+  <meta name="twitter:image" content="https://goddi.sbyc.cloud/assets/og-image.jpg?v=2" />
+  <meta name="twitter:image:alt" content="Goddi · গদি — a satirical Dhaka ward politics card game" />
 
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
