@@ -36,16 +36,16 @@
           "dialog_en": "Sir, you were a teacher. The wait for month-end pay — you know that feeling. It's been three months now..."
         },
         "army_retired": {
-          "dialog_bn": "স্যার, আপনি সার্ভিসের লোক ছিলেন। সৈনিকের বেতন কেউ চেয়ে নেয় না — অথচ আমি দাঁড়িয়ে আছি। তিন মাস।",
-          "dialog_en": "Sir, you were in service. A soldier should not have to ask for his pay — yet here I am. Three months."
+          "dialog_bn": "স্যার, ইউনিফর্ম পরা মানুষ চিনেন। আমি দুঃখ লুকাই, কিন্তু তিন মাস হয়ে গেছে। ছেলেটার ঈদের জামাটা...",
+          "dialog_en": "Sir, you know a uniform when you see one. I hide it well, but three months now. My boy's Eid clothes..."
         },
         "ngo_worker": {
-          "dialog_bn": "স্যার, আপনি গরিবের কাছে গিয়েছেন — তিন মাস বেতন না পেলে পরিবার কোথায় দাঁড়ায়, আপনার সেটা চেনা।",
-          "dialog_en": "Sir, you've been to the poor. You know where a family stands when three months pass without pay."
+          "dialog_bn": "স্যার, NGO-তে কাজ করেছেন — জানেন একটা পরিবার তিন মাস বেতনহীন থাকলে কোথায় পৌঁছায়। ছেলেটার ঈদের জামার মধ্যে দেখতে পাচ্ছেন।",
+          "dialog_en": "Sir, you've worked at an NGO — you know where a family lands after three months without pay. You can see it in my boy's Eid clothes."
         },
         "party_lifer": {
-          "dialog_bn": "স্যার, আপনি দলের পুরোনো মানুষ। আপনার এক ফোনে ফাইলটা সরে। ছেলেটার ঈদের জামা — মাত্র তিন মাস হয়ে গেল।",
-          "dialog_en": "Sir, you're an old party hand. One phone call from you and the file moves. My boy's Eid clothes — only three months gone."
+          "dialog_bn": "স্যার, আপনি পুরোনো পার্টির লোক। আপনার একটা ফোনে ফাইলটা সরে। ছেলেটার ঈদের জামা — তিন মাস বাকি।",
+          "dialog_en": "Sir, you're an old party hand. One phone call from you and the file moves. My boy's Eid clothes — three months gone."
         }
       }
     },
@@ -84,15 +84,15 @@
           "dialog_en": "Sir, our headmaster sent us. He said, \"He'll hear you out.\" Just a court, in the park."
         },
         "army_retired": {
-          "dialog_bn": "স্যার, আমাদের কোচও আর্মি রিটায়ার্ড। উনি বললেন, \"খেলাধুলায় শৃঙ্খলা আসে — সেটা ও বোঝে।\"",
-          "dialog_en": "Sir, our coach is also ex-Army. He said, \"Discipline comes through sport — that man understands.\""
+          "dialog_bn": "আঙ্কেল, আমাদের কোচ এক্স-আর্মি। বললেন — 'খেলার মধ্যেই ডিসিপ্লিন আসে; ঐ লোক বুঝবে।'",
+          "dialog_en": "Uncle, our coach is ex-Army too. He said — 'discipline comes through sport; that man will understand.'"
         },
         "ngo_worker": {
-          "dialog_bn": "আঙ্কেল, আপনি আমাদের পাড়ায় আসতেন এনজিওর ব্যাগ নিয়ে। এখন সেই মাঠেই একটা কোর্ট দেন।",
+          "dialog_bn": "আঙ্কেল, আপনি NGO থেকে আমাদের পাড়ায় আসতেন — মনে আছে ব্যাগ বিলি করতেন? সেই মাঠেই এখন কোর্ট চাই।",
           "dialog_en": "Uncle, you used to come to our para with the NGO bags. Now put a court on that same field."
         },
         "party_lifer": {
-          "dialog_bn": "আঙ্কেল, আমাদের সিনিয়ররা বলে আপনি দলে আমাদের জন্মের আগে থেকে। একটা কোর্ট — উপরে আপনার নাম লিখব।",
+          "dialog_bn": "আঙ্কেল, আমাদের সিনিয়ররা বলেন আপনি আমাদের জন্মের আগে থেকেই পার্টিতে। শুধু একটা কোর্ট — আমরা আপনার নাম রং করে দেব।",
           "dialog_en": "Uncle, our seniors say you've been in the party since before we were born. Just a court — we'll paint your name on it."
         }
       }
@@ -132,15 +132,15 @@
           "dialog_en": "Sir, you taught my cousin — he'll kill me if I don't get a selfie with you today."
         },
         "army_retired": {
-          "dialog_bn": "স্যার, আপনি সার্ভিসে ছিলেন — একটা সেলফি দিন, ফেসবুকে দেব। আমার দুলাভাই বিশ্বাস করবে না।",
-          "dialog_en": "Sir, you served — one selfie for Facebook. My brother-in-law won't believe me otherwise."
+          "dialog_bn": "স্যার, আপনি সার্ভিসে ছিলেন — এক সেলফি, না হলে আমার শ্বশুর-শাশুড়ি বিশ্বাসই করবে না।",
+          "dialog_en": "Sir, you served — one selfie, otherwise my in-laws won't believe I met you."
         },
         "ngo_worker": {
-          "dialog_bn": "ভাই, কয়েক বছর আগে আপনার এনজিও ফলো করতাম — মাকে দেখাতে চাই আজ কাকে দেখলাম।",
+          "dialog_bn": "ভাই, আমি বছর কয়েক আগে আপনার NGO ফলো করতাম — মা-কে দেখাতে চাই আজ কাকে চেনি।",
           "dialog_en": "Bhai, I followed your NGO years back — let me show my mother who I met today."
         },
         "party_lifer": {
-          "dialog_bn": "ভাই, আপনি দলের লোক — আপনার সাথে সেলফি মানে ১০০ লাইক গ্যারান্টি!",
+          "dialog_bn": "ভাই, আপনি পার্টি মানুষ — আপনার সাথে সেলফি মানে ১০০ লাইক নিশ্চিত!",
           "dialog_en": "Bhai, you're a party man — a selfie with you means 100 likes guaranteed!"
         }
       }
@@ -180,15 +180,15 @@
           "dialog_en": "Sir, half this ward was your student. I'm not a man who runs from a debt — you know that. Just time."
         },
         "army_retired": {
-          "dialog_bn": "স্যার, সোজা কথা বলি — সৈনিকের মতো। এই মাসে পারব না। পরের মাসে দেব। কথা দিলাম।",
-          "dialog_en": "Sir, I'll speak straight — soldier to soldier. Not this month. Next month for sure. My word."
+          "dialog_bn": "স্যার, সরাসরি বলি — সৈনিকের মতো। এই মাস না, পরের মাস। কথা।",
+          "dialog_en": "Sir, straight talk — soldier-style. Not this month, next month. My word."
         },
         "ngo_worker": {
-          "dialog_bn": "ভাই, আপনি আমাদের পাড়ায় সঞ্চয় কমিটি চালাতেন — \"ব্যবসা ভালো না\" কথাটার আসল মানে আপনার চেনা।",
-          "dialog_en": "Bhai, you ran the savings committees in our para — you know the real meaning of \"business is slow.\""
+          "dialog_bn": "ভাই, আপনি সঞ্চয় কমিটি চালিয়েছেন — 'ব্যবসা স্লো' বললে আসল মানে কী, আপনি বোঝেন।",
+          "dialog_en": "Bhai, you ran savings committees in our para — you know the real meaning of 'business is slow.'"
         },
         "party_lifer": {
-          "dialog_bn": "ভাই, ৯১ সাল থেকে আপনার দলকে ভোট দিচ্ছি। ছয় মাস — ঈদের পর ফিরিয়ে দেব। নিশ্চয়ই।",
+          "dialog_bn": "ভাই, '৯১ থেকে আপনার পার্টিকে ভোট দিয়ে আসছি। ছয় মাস — ঈদের পরই দেব। কথা।",
           "dialog_en": "Bhai, I've voted your party since '91. Six months — I'll have it by after Eid. For sure."
         }
       }
@@ -229,15 +229,15 @@
           "dialog_en": "Sir, your old students are in my house — they can't bathe. Three days now."
         },
         "army_retired": {
-          "dialog_bn": "স্যার, আপনি শৃঙ্খলা বোঝেন — ওয়াসার লোকজনের সেটা নেই। তিন দিন, কিচ্ছু না।",
-          "dialog_en": "Sir, you know discipline — WASA staff have none. Three days, nothing."
+          "dialog_bn": "স্যার, ডিসিপ্লিন কী জিনিস আপনি জানেন। WASA-র লোকদের নেই। তিন দিন, কলে পানি নেই।",
+          "dialog_en": "Sir, you know discipline. WASA's staff have none. Three days, no water from the tap."
         },
         "ngo_worker": {
-          "dialog_bn": "ভাই, আপনি আমাদের পাড়ায় পানির বোতল বিলি করতেন — এখন কলেই পানি নেই, তিন দিন।",
-          "dialog_en": "Bhai, you used to hand out water bottles in our para — now the tap itself is dry. Three days."
+          "dialog_bn": "ভাই, আপনি আমাদের পাড়ায় পানির বোতল বিলি করেছেন — এখন কলটাই শুকনো। তিন দিন।",
+          "dialog_en": "Bhai, you handed out water bottles in our para. Now the tap itself is dry. Three days."
         },
         "party_lifer": {
-          "dialog_bn": "ভাই, আমাদের পাড়া প্রতিবার আপনার দলকে ভোট দেয়। তিন দিন পানি নেই — দয়া করুন।",
+          "dialog_bn": "ভাই, আমাদের পাড়া প্রতিবারই আপনার পার্টিকে ভোট দেয়। তিন দিন পানি নেই — দয়া করে।",
           "dialog_en": "Bhai, our para votes your party every time. Three days no water — please."
         }
       }
@@ -277,15 +277,15 @@
           "dialog_en": "Sir, our volunteer team is full of your old students. They'll line up for photos. Please come."
         },
         "army_retired": {
-          "dialog_bn": "স্যার, শুক্রবার এক্স-আর্মি ডাক্তাররা আসছেন। আপনি থাকবেন কিনা — নাম ধরে জিজ্ঞেস করলেন।",
+          "dialog_bn": "স্যার, শুক্রবার এক্স-আর্মি ডাক্তাররা আসছেন। বললেন — 'উনি আসবেন?' নাম ধরে জিজ্ঞেস করেছেন।",
           "dialog_en": "Sir, ex-Army doctors are coming Friday. They asked, by name, if you'd be there."
         },
         "ngo_worker": {
-          "dialog_bn": "ভাই, আপনি এই ফিতা আগেও কেটেছেন — আপনি ফর্মুলাটা জানেন। তাড়াতাড়ি আসেন, তাড়াতাড়ি যান, ভাষণ না।",
+          "dialog_bn": "ভাই, আপনি এসব রিবন কেটেছেন আগে — ফরমুলা জানেন। আগে আসুন, আগে যান, কোনো ভাষণ না।",
           "dialog_en": "Bhai, you've cut these ribbons before — you know the formula. Come early, leave early, no speech."
         },
         "party_lifer": {
-          "dialog_bn": "ভাই, কোনো দলীয় ব্যানার নেই — পরিষ্কার ইভেন্ট। কিন্তু ছবিগুলো সব জায়গায় যাবে। চলে আসুন।",
+          "dialog_bn": "ভাই, পার্টির ব্যানার থাকবে না — ক্লিন ইভেন্ট। কিন্তু ছবি সব জায়গায় যাবে। শুধু আসুন।",
           "dialog_en": "Bhai, no party banner — clean event. But the photos will land everywhere. Just come."
         }
       }
@@ -330,16 +330,16 @@
           "dialog_en": "Councillor sahib, you've taught children — you know the value of being heard. The mic keeps cutting out."
         },
         "army_retired": {
-          "dialog_bn": "কাউন্সিলর সাহেব, আপনি কমান্ড বোঝেন — ইমাম সাহেবের গলা পরিষ্কার পৌঁছাতে হবে। পৌঁছায় না।",
+          "dialog_bn": "কাউন্সিলর সাহেব, আপনি কমান্ড বোঝেন — ইমামের কণ্ঠ যেতে হবে। যাচ্ছে না।",
           "dialog_en": "Councillor sahib, you understand command — the imam's voice must carry. It doesn't."
         },
         "ngo_worker": {
-          "dialog_bn": "কাউন্সিলর সাহেব, আপনি কমিউনিটি কাজ বোঝেন — মসজিদ তার হৃদয়। মাইকটা ভাঙা।",
+          "dialog_bn": "কাউন্সিলর সাহেব, কমিউনিটি কাজ চিনেন — মসজিদ সেই কমিউনিটির হৃদয়। মাইকটা ভাঙা।",
           "dialog_en": "Councillor sahib, you know community work — the masjid is its heart. The mic is broken."
         },
         "party_lifer": {
-          "dialog_bn": "কাউন্সিলর সাহেব, আপনি স্টেজে দাঁড়িয়েছেন — মাইক না হলে ভাষণ যায় না। মসজিদেও একই কথা।",
-          "dialog_en": "Councillor sahib, you've stood on stages — no mic, no speech. Same disease here at the masjid."
+          "dialog_bn": "কাউন্সিলর সাহেব, আপনি মঞ্চে দাঁড়িয়েছেন — মাইক নেই, বক্তব্য নেই। একই রোগ মসজিদে।",
+          "dialog_en": "Councillor sahib, you've stood on stages — no mic, no speech. Same disease at the masjid."
         }
       },
       "dialog_variants": {
@@ -400,15 +400,15 @@
           "dialog_en": "Sir, when a student fell ill in class you'd call the parents first. My boy's accident was that kind of call. The truck was the corporation's."
         },
         "army_retired": {
-          "dialog_bn": "স্যার, আপনি হতাহত দেখেছেন — কিন্তু আমার ছেলে যুদ্ধের পরিসংখ্যান নয়। সে বেঁচেছে, আমাদের সাহায্য দরকার।",
-          "dialog_en": "Sir, you've seen casualties — but my son isn't a war statistic. He survived. We need help."
+          "dialog_bn": "স্যার, আপনি আহত-নিহত দেখেছেন। কিন্তু আমার ছেলে যুদ্ধের পরিসংখ্যান না। সে বেঁচে আছে। আমরা ভেঙে পড়েছি।",
+          "dialog_en": "Sir, you've seen casualties — but my son isn't a war statistic. He survived. We are broken."
         },
         "ngo_worker": {
-          "dialog_bn": "ভাই, আপনি দুর্যোগে কাজ করেছেন — এই ক্ষেত্রে \"মীমাংসা\" কেমন হওয়া উচিত আপনি জানেন। ছেলে বেঁচেছে, কিন্তু আমরা ভেঙেছি।",
-          "dialog_en": "Bhai, you've done relief work — you know what \"settlement\" should look like in cases like ours. My son survived, but we are broken."
+          "dialog_bn": "ভাই, আপনি রিলিফ কাজ করেছেন — এ ধরনের কেসে 'মীমাংসা' শব্দটা যা বোঝায়, তা আপনি জানেন। আমার ছেলে বেঁচে আছে, আমরা ভেঙে পড়েছি।",
+          "dialog_en": "Bhai, you've done relief work — you know what 'settlement' should look like in cases like ours. My son survived, but we are broken."
         },
         "party_lifer": {
-          "dialog_bn": "ভাই, আপনার দল গরিবের কথা বলে — এবার দেখান। ছেলে বাঁচল ট্রাক থেকে। আমাদের ক্ষতিপূরণ লাগবে।",
+          "dialog_bn": "ভাই, আপনার পার্টি গরিবদের পক্ষে কথা বলে — এখন দেখান। আমার ছেলে ট্রাকে বেঁচেছে। ক্ষতিপূরণ চাই।",
           "dialog_en": "Bhai, your party speaks for the poor — show it now. My son survived the truck. We need compensation."
         }
       }
@@ -530,16 +530,16 @@
           "dialog_en": "Son, I taught for forty years and never once had to chase a pension paper. Eight months now. Did you ever have a student come like this?"
         },
         "army_retired": {
-          "dialog_bn": "বাবা, তুমি সার্ভিসে ছিলে — পেনশন আটকে রাখা সার্ভিসের লোককে কেমন আঘাত দেয় জানো। আট মাস।",
-          "dialog_en": "Son, you served — you know what a held pension does to a service person. Eight months."
+          "dialog_bn": "বাবা, সার্ভিস পেনশন আটকে গেলে কী হয় — তুমি নিজে জানো। আট মাস হলো।",
+          "dialog_en": "Son, when a service pension gets held up, you of all people know what happens. Eight months."
         },
         "ngo_worker": {
-          "dialog_bn": "বাবা, তুমি বৃদ্ধদের নিয়ে কাজ করেছ — আট মাস পেনশন নেই। আসতে লজ্জা লাগে, তবু এলাম।",
+          "dialog_bn": "বাবা, তুমি বয়স্কদের নিয়ে কাজ করেছ — আট মাস পেনশন ছাড়া। লজ্জা পাচ্ছি আসতে, কিন্তু এসেছি।",
           "dialog_en": "Son, you've worked with the elderly — eight months without pension. I'm ashamed to come, but here I am."
         },
         "party_lifer": {
-          "dialog_bn": "বাবা, তোমার দল বৃদ্ধদের সম্মানের কথা বলে। আট মাস। কাউকে কিছু বলিনি — তোমার কাছে আগে এলাম।",
-          "dialog_en": "Son, your party speaks of dignity for elders. Eight months. I haven't told anyone — came to you first."
+          "dialog_bn": "বাবা, তুমি পার্টির ভেতর থেকে এসেছ — বুড়োদের সম্মান নিয়ে কথা মনে আছে? আট মাস। কাউকে বলিনি, তোমার কাছেই এলাম।",
+          "dialog_en": "Son, you came up through the party — remember the talk of dignity for elders? Eight months. I haven't told anyone — came to you first."
         }
       }
     },
@@ -614,16 +614,16 @@
           "dialog_en": "Councillor sahib, I know — you came from chalk and blackboard, not bricks. So leave it to me. Plot's for six; we'll build twelve. Your share, sorted."
         },
         "army_retired": {
-          "dialog_bn": "কাউন্সিলর সাহেব, আপনার ইউনিফর্মকে সম্মান করি। তাই পরিষ্কার বলি — প্লট ছয়, আমরা বারো। ইঞ্জিনিয়াররা বাকিটা সামলাবে। আপনার ভাগ গোনা হয়ে গেছে।",
-          "dialog_en": "Councillor sahib, I respect the uniform you wore. So I'll say this clean: plot's six, we go twelve. Engineers handle the rest. Your share's already counted."
+          "dialog_bn": "কাউন্সিলর সাহেব, আপনার ইউনিফর্মের প্রতি আমার সম্মান আছে। তাই পরিষ্কার বলি — প্লট ছয়ের, আমরা বারো করব। ইঞ্জিনিয়াররা সামলাবে। আপনার ভাগ বরাদ্দ।",
+          "dialog_en": "Councillor sahib, I respect the uniform you wore. So I'll say it clean — plot's six, we go twelve. Engineers handle the rest. Your share is set aside."
         },
         "ngo_worker": {
-          "dialog_bn": "কাউন্সিলর সাহেব, এনজিও এক জিনিস, কিন্তু মানুষের আসলে দরকার ঘর। বারো তলা মানে একশো পরিবার। আপনার অংশ? সেটাও ভাবা হয়েছে, অবশ্যই।",
-          "dialog_en": "Councillor sahib, NGO work is one thing — but what people actually need is housing. Twelve floors means a hundred families. Your share? Thought of, of course."
+          "dialog_bn": "কাউন্সিলর সাহেব, NGO-র কাজ এক কথা — কিন্তু মানুষ আসলে চায় থাকার জায়গা। বারো তলা মানে শ' খানেক পরিবার। আপনার ভাগ ছাড়া আছে।",
+          "dialog_en": "Councillor sahib, NGO work is one thing — but what people actually need is housing. Twelve floors means a hundred families. Your share, set aside."
         },
         "party_lifer": {
-          "dialog_bn": "কাউন্সিলর সাহেব, আশির দশক থেকে আপনি আর আমি দলটা ভেতর থেকে চিনি। নাচার দরকার নেই। প্লট ছয়, বিল্ডিং বারো। আপনার অংশ আগে থেকেই নোট করা।",
-          "dialog_en": "Councillor sahib, you and I have known the party from the inside since the '80s. No need to dance around. Plot's six, building's twelve. Your share's already noted."
+          "dialog_bn": "কাউন্সিলর সাহেব, আমরা দু'জনেই '৮০-র দশক থেকে পার্টিকে ভেতর থেকে চিনি। কথা ঘুরিয়ে লাভ নেই। প্লট ছয়ের, বিল্ডিং বারো'র।",
+          "dialog_en": "Councillor sahib, you and I have known the party from the inside since the '80s. No need to dance around. Plot's six, building's twelve."
         }
       }
     },
@@ -666,15 +666,15 @@
           "dialog_en": "Sir, you've taught civics — you know what overpriced public contracts do. 30% premium. Your call."
         },
         "army_retired": {
-          "dialog_bn": "স্যার, আপনি টেন্ডার শৃঙ্খলা বোঝেন — এমপির ভাতিজার বিড ৩০% বেশি। অনুমোদন না প্রত্যাখ্যান?",
+          "dialog_bn": "স্যার, টেন্ডার-ডিসিপ্লিন আপনি বোঝেন — এমপি সাহেবের ভাতিজার দর ৩০% বেশি। অনুমোদন না বাতিল?",
           "dialog_en": "Sir, you understand tender discipline — the MP's nephew's bid is 30% over. Approve or reject?"
         },
         "ngo_worker": {
-          "dialog_bn": "স্যার, এনজিও কাজে অতি-দামের প্রকিউরমেন্ট দেখেছেন — এখানেও তাই। ৩০% প্রিমিয়াম। অনুমোদন না প্রত্যাখ্যান?",
+          "dialog_bn": "স্যার, NGO-র কাজে অতিরিক্ত-দামের প্রোকিউরমেন্ট দেখেছেন — এখানেও সেটাই। ৩০% বেশি। অনুমোদন না বাতিল?",
           "dialog_en": "Sir, you've seen overpriced procurement in NGO work — same here. 30% premium. Approve or reject?"
         },
         "party_lifer": {
-          "dialog_bn": "স্যার, দল কীভাবে নিজের লোকদের পুরস্কার দেয় আপনি জানেন — এমপির ভাতিজা চাইছেন। ৩০% বেশি। আপনার সিদ্ধান্ত।",
+          "dialog_bn": "স্যার, পার্টি কীভাবে নিজের লোকদের পুরস্কৃত করে আপনি জানেন — এমপি সাহেবের ভাতিজা চাইছেন। ৩০% বেশি। আপনার সিদ্ধান্ত।",
           "dialog_en": "Sir, you know how the party rewards its own — the MP's nephew is asking. 30% premium. Your call."
         }
       }
@@ -976,16 +976,16 @@
           "dialog_en": "Sir, you were my daughter's class nine teacher. She still remembers you. Her family's home — eviction notice came."
         },
         "army_retired": {
-          "dialog_bn": "স্যার, সৈনিক থেকে বেসামরিক ব্যক্তিকে — ন্যায্যতা গুরুত্বপূর্ণ। কোনো কারণ ছাড়া উচ্ছেদ নোটিশ এসেছে। সাথে দাঁড়ান।",
+          "dialog_bn": "স্যার, সৈনিক থেকে বেসামরিকদের কথা বলছি — ন্যায্যতা গুরুত্বপূর্ণ। নোটিশটা কারণ ছাড়াই এসেছে। আমাদের পাশে দাঁড়ান।",
           "dialog_en": "Sir, soldier to civilian — fairness matters. The eviction notice came with no grounds. Stand with me."
         },
         "ngo_worker": {
-          "dialog_bn": "ভাই, আপনি পরিবার রিলোকেট করতে সাহায্য করেছেন — এই নোটিশের মানে কী আপনি জানেন। ঠেলে দেন।",
+          "dialog_bn": "ভাই, আপনি পরিবার পুনর্বাসনে সাহায্য করেছেন — এই নোটিশের মানে কী আপনি জানেন। বাতিল করার চেষ্টা করেন।",
           "dialog_en": "Bhai, you've helped families relocate — you know what this notice means. Push back on it."
         },
         "party_lifer": {
-          "dialog_bn": "ভাই, আপনার দল গরিবের পক্ষে — উচ্ছেদ আসছে কর্পোরেশন থেকে। সাহায্য করেন।",
-          "dialog_en": "Bhai, your party stands for the poor — the eviction is from the corporation. Help me."
+          "dialog_bn": "ভাই, কর্পোরেশন থেকে উচ্ছেদটা এসেছে। পার্টির পুরোনো লোক হিসেবে আপনি জানেন কোন নম্বরে ফোন করতে হবে। সাহায্য করুন।",
+          "dialog_en": "Bhai, the eviction came from the corporation. As an old party hand, you know which numbers to call. Help me."
         }
       }
     },
@@ -1155,15 +1155,15 @@
           "dialog_en": "Bhai, I'm Ariful — you know me. Your recommendation got my kids admitted. Now things aren't good — help me."
         },
         "army_retired": {
-          "dialog_bn": "ভাই, আপনি সার্ভিসে ছিলেন — সোজা কথা: ব্যবসা মরছে। আপনার একটা ছোট সুপারিশ দরজা খুলে দেয়।",
-          "dialog_en": "Bhai, you served — straight talk: my business is dying. A small recommendation from you reopens doors."
+          "dialog_bn": "ভাই, আমরা একসাথে ক্যান্টনমেন্ট ক্লাবে যেতাম — মনে আছে? সরাসরি বলি: ব্যবসা মৃত। একটা ছোট সুপারিশ দরজা খুলে দেয়।",
+          "dialog_en": "Bhai, we used to go to the cantonment club together — remember? Straight talk: my business is dying. A small recommendation from you reopens doors."
         },
         "ngo_worker": {
-          "dialog_bn": "ভাই, আপনি আমাদের পাড়ায় ছোট ব্যবসায়ীদের সাহায্য করতেন — এবার আমি সাহায্য চাইছি। আপনার একটা কথা ক্রেডিট লাইন খুলে দেবে।",
-          "dialog_en": "Bhai, you used to help small businesses in our para — now I'm the one asking. A word from you reopens the credit line."
+          "dialog_bn": "ভাই, আপনি পাড়ার ছোট ব্যবসাগুলোকে সাহায্য করতেন — এবার আমিই হাত পাতছি। একটা কথায় ক্রেডিট লাইনটা খুলে যায়।",
+          "dialog_en": "Bhai, you used to help small businesses in our para — now I'm the one asking. A word from you and the credit line reopens."
         },
         "party_lifer": {
-          "dialog_bn": "ভাই, দল আমাকে চেনে — বছরের পর বছর চাঁদা দিয়েছি। একটা খারাপ বছর। আপনার একটা কথায় ক্রেডিট ফিরে আসে।",
+          "dialog_bn": "ভাই, পার্টি আমাকে চেনে — বছর ধরে অবদান রেখেছি। এক বছর খারাপ। আপনার এক কথায় ক্রেডিট লাইন খুলে যায়।",
           "dialog_en": "Bhai, the party knows me — I've contributed for years. One bad year. A word from you and the credit line reopens."
         }
       }
@@ -1319,15 +1319,15 @@
           "dialog_en": "Bhai, teacher turned politician — the central committee wants ৳25 lakh for the campaign. Large sum. Your call."
         },
         "army_retired": {
-          "dialog_bn": "ভাই, সার্ভিস থেকে দলে — কেন্দ্র চাইছে প্রচারণার জন্য ২৫ লাখ। হ্যাঁ না?",
-          "dialog_en": "Bhai, service to party — central wants ৳25 lakh for the campaign. Yes or no?"
+          "dialog_bn": "ভাই, সার্ভিস থেকে পার্টিতে — কেন্দ্র ক্যাম্পেইনের জন্য ২৫ লাখ চাইছে। হ্যাঁ না না?",
+          "dialog_en": "Bhai, service-to-party — central wants ৳25 lakh for the campaign. Yes or no?"
         },
         "ngo_worker": {
-          "dialog_bn": "ভাই, আপনি এনজিও থেকে এসেছেন — কেন্দ্র ওয়ার্ড থেকে ২৫ লাখ চাইছে। আপনার সিদ্ধান্ত।",
+          "dialog_bn": "ভাই, আপনি NGO থেকে এসেছেন — কেন্দ্র ২৫ লাখ চাইছে ওয়ার্ড থেকে। আপনার সিদ্ধান্ত।",
           "dialog_en": "Bhai, you came from NGO work — central wants ৳25 lakh from the ward. Your call."
         },
         "party_lifer": {
-          "dialog_bn": "ভাই, আপনি দলটা ভেতর থেকে চেনেন — কেন্দ্র ২৫ লাখ চাইছে। কীভাবে চলে আপনি জানেন। অনুমোদন?",
+          "dialog_bn": "ভাই, আপনি পার্টিকে ভেতর থেকে চেনেন — কেন্দ্র ২৫ লাখ চাইছে। আপনি জানেন এসব কীভাবে চলে। অনুমোদন?",
           "dialog_en": "Bhai, you know the party from inside — central asks for ৳25 lakh. You know how these things work. Approve?"
         }
       },
@@ -1605,16 +1605,16 @@
           "dialog_en": "Councillor sahib, you taught — you know how much kids need their parents to have jobs. Five acres, big factory, hundreds of jobs. Your share, of course."
         },
         "army_retired": {
-          "dialog_bn": "কাউন্সিলর সাহেব, আপনি সার্ভিসে ছিলেন — শৃঙ্খলাকে সম্মান করেন। ইন্ডাস্ট্রিয়াল পার্ক মানে শৃঙ্খলা ও চাকরি। পাঁচ একর। আপনার ভাগ লেখা আছে।",
-          "dialog_en": "Councillor sahib, you served — you respect order. An industrial park brings order and jobs. Five acres. Your share is already counted."
+          "dialog_bn": "কাউন্সিলর সাহেব, অর্ডার আর চাকরি — দু'টোই সৈনিক জীবন থেকে চিনতে পারেন। ইন্ডাস্ট্রিয়াল পার্ক দু'টোই আনে। পাঁচ একর। আপনার ভাগ আগেই হিসেব করা।",
+          "dialog_en": "Councillor sahib, order and jobs — you recognise both from service life. An industrial park brings both. Five acres. Your share is already counted."
         },
         "ngo_worker": {
-          "dialog_bn": "কাউন্সিলর সাহেব, আপনি গরিবি নিয়ে কাজ করেছেন — এটাই উত্তর। ইন্ডাস্ট্রিয়াল পার্ক। পাঁচ একর। শত শত কর্মসংস্থান। আপনার অংশ আসল।",
-          "dialog_en": "Councillor sahib, you've done poverty work — this is the answer. Industrial park. Five acres. Hundreds employed. Your share is real."
+          "dialog_bn": "কাউন্সিলর সাহেব, আপনি দারিদ্র্য নিয়ে কাজ করেছেন — এটাই উত্তর। ইন্ডাস্ট্রিয়াল পার্ক। পাঁচ একর। শ' খানেক চাকরি। আপনার ভাগ প্রস্তুত।",
+          "dialog_en": "Councillor sahib, you've done poverty work — this is the answer. Industrial park. Five acres. Hundreds employed. Your share is ready."
         },
         "party_lifer": {
-          "dialog_bn": "কাউন্সিলর সাহেব, আপনি আর আমি দুজনেই জানি — দল বিল্ডারদের পুরস্কার দেয়। পাঁচ একর। ইন্ডাস্ট্রিয়াল পার্ক। আপনার ভাগ ভাবা হয়েছে।",
-          "dialog_en": "Councillor sahib, you and I both know — the party rewards builders. Five acres. Industrial park. Your share has been thought of."
+          "dialog_bn": "কাউন্সিলর সাহেব, পার্টি সবসময় বিল্ডারদের পুরস্কৃত করে — আমরা দু'জনেই জানি। পাঁচ একর। ইন্ডাস্ট্রিয়াল পার্ক। আপনার ভাগের কথা ভাবা হয়েছে।",
+          "dialog_en": "Councillor sahib, the party always rewards builders — we both know it. Five acres. Industrial park. Your share has been thought of."
         }
       }
     },
