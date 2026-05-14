@@ -499,6 +499,16 @@
     state.lastSubmittedRow = null;
     state.lastVerdict = null;
     state.yearStartStats = null; // captured at first commit of a year
+    // History for the verdict-screen trajectory chart and "defining moments"
+    // list. statHistory: [{day, year, janata, dol, proshashon, tohobil}]
+    // biggestHit: { cardId, characterName, stat, delta, day } for the
+    // single largest absolute single-stat swing across the run.
+    state.statHistory = [{
+      day: 0, year: 1,
+      janata: state.stats.janata, dol: state.stats.dol,
+      proshashon: state.stats.proshashon, tohobil: state.stats.tohobil
+    }];
+    state.biggestHit = null;
 
     renderHud();
     renderStats();
@@ -967,6 +977,19 @@
       const finalDelta = (scaled === 0 && delta !== 0) ? Math.sign(delta) : scaled;
       effects[stat] = finalDelta;
       state.stats[stat] = clamp(state.stats[stat] + finalDelta, 0, 100);
+      // Track the single biggest absolute hit of the run for the verdict
+      // screen's "defining moment" callout.
+      const mag = Math.abs(finalDelta);
+      if (!state.biggestHit || mag > Math.abs(state.biggestHit.delta)) {
+        state.biggestHit = {
+          cardId:        card.id,
+          characterName: card.character_name_en,
+          stat:          stat,
+          delta:         finalDelta,
+          day:           state.day,
+          year:          state.year
+        };
+      }
     });
 
     // Apply story flags — set / clear
@@ -1033,6 +1056,19 @@
 
     renderHud();
     renderStats();
+
+    // Record a snapshot for the end-of-run trajectory chart. We snapshot
+    // AFTER both the player's effects and any year-environment hit have
+    // landed, so the chart reflects the actual lived state at each step.
+    if (state.statHistory) {
+      state.statHistory.push({
+        day: state.day, year: state.year,
+        janata:     state.stats.janata,
+        dol:        state.stats.dol,
+        proshashon: state.stats.proshashon,
+        tohobil:    state.stats.tohobil
+      });
+    }
 
     // Float "+15" / "−10" over each affected stat
     Object.entries(effects).forEach(([stat, delta]) => {
@@ -1309,6 +1345,8 @@
     document.getElementById('verdict-days').textContent = I18n.formatDays(state.day);
 
     renderFinalStats('verdict-final-stats');
+    renderTrajectory('verdict-trajectory');
+    renderMoments('verdict-moments');
     goto('gameover');
     if (window.Sfx) Sfx.playVerdict('loss');
     submitToLeaderboard();
@@ -1392,6 +1430,8 @@
     if (stampEl) stampEl.textContent = I18n.lang === 'bn' ? sl.bn : sl.en;
 
     renderFinalStats('win-final-stats');
+    renderTrajectory('win-trajectory');
+    renderMoments('win-moments');
     goto('win');
     if (window.Sfx) Sfx.playVerdict('win');
     submitToLeaderboard();
@@ -1420,6 +1460,167 @@
         <span>${I18n.lang === 'bn' ? s.name_bn : s.name_en}</span>
       </div>
     `).join('');
+  }
+
+  // ---------- Trajectory chart + defining moments ----------
+  // Renders a 4-line SVG sparkline showing how each stat moved over the
+  // course of the run, plus a short list of stand-out moments. Called
+  // from showGameOver() and showWin() after renderFinalStats.
+
+  // Build an SVG polyline tracing the run from start to end for one stat.
+  function _trajectoryPath(history, statKey, width, height) {
+    if (!history || history.length < 2) return '';
+    const points = history.map((row, i) => {
+      const x = (i / (history.length - 1)) * width;
+      // y is inverted because SVG y grows downward
+      const y = height - (row[statKey] / 100) * height;
+      return x.toFixed(1) + ',' + y.toFixed(1);
+    });
+    return points.join(' ');
+  }
+
+  function renderTrajectory(containerId) {
+    const wrap = document.getElementById(containerId);
+    if (!wrap || !state.statHistory || state.statHistory.length < 2) return;
+
+    const W = 320; // viewBox width
+    const H = 90;  // viewBox height
+    const colors = {
+      janata:     'var(--stat-janata)',
+      dol:        'var(--stat-dol)',
+      proshashon: 'var(--stat-proshashon)',
+      tohobil:    'var(--stat-tohobil)'
+    };
+    const lines = STATS.map(s => `
+      <polyline
+        points="${_trajectoryPath(state.statHistory, s.key, W, H)}"
+        fill="none"
+        stroke="${colors[s.key]}"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        opacity="0.85"
+      />
+    `).join('');
+
+    // Danger band — visualise the ≤20 and ≥80 thresholds as faint zones
+    const dangerLow  = H - (DANGER_LOW  / 100) * H;
+    const dangerHigh = H - (DANGER_HIGH / 100) * H;
+    const danger = `
+      <rect x="0" y="0"           width="${W}" height="${dangerHigh}"      fill="rgba(166,41,31,0.05)"/>
+      <rect x="0" y="${dangerLow}" width="${W}" height="${H - dangerLow}" fill="rgba(166,41,31,0.05)"/>
+      <line x1="0" y1="${dangerLow}"  x2="${W}" y2="${dangerLow}"
+            stroke="var(--stamp-red)" stroke-width="0.5" stroke-dasharray="2 3" opacity="0.4"/>
+      <line x1="0" y1="${dangerHigh}" x2="${W}" y2="${dangerHigh}"
+            stroke="var(--stamp-red)" stroke-width="0.5" stroke-dasharray="2 3" opacity="0.4"/>
+    `;
+
+    // Year boundary markers (vertical dashed lines)
+    let yearMarkers = '';
+    for (let i = 1; i < state.statHistory.length; i++) {
+      if (state.statHistory[i].year !== state.statHistory[i-1].year) {
+        const x = (i / (state.statHistory.length - 1)) * W;
+        yearMarkers += `<line x1="${x.toFixed(1)}" y1="0" x2="${x.toFixed(1)}" y2="${H}"
+                         stroke="var(--ink-mute)" stroke-width="0.5" stroke-dasharray="2 4" opacity="0.4"/>`;
+      }
+    }
+
+    // Legend — one chip per stat with its colour swatch
+    const legend = STATS.map(s => `
+      <span class="verdict__leg">
+        <span class="verdict__leg-dot" style="background:${colors[s.key]};"></span>
+        <span>${I18n.lang === 'bn' ? s.name_bn : s.name_en}</span>
+      </span>
+    `).join('');
+
+    wrap.innerHTML = `
+      <p class="verdict__chart-label">
+        <span data-lang-bn>আপনার পথ</span>
+        <span data-lang-en>YOUR PATH</span>
+      </p>
+      <svg class="verdict__chart" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none"
+           role="img" aria-label="Stat trajectory over the run">
+        ${danger}${yearMarkers}${lines}
+      </svg>
+      <div class="verdict__legend">${legend}</div>
+    `;
+  }
+
+  // Build the "defining moments" list for the verdict screen. Each item
+  // is one line: an emoji-free, one-sentence story beat that the player
+  // can point at to understand why their run went the way it did.
+  // Sources, in order: biggest single hit, year-end summaries, and a
+  // handful of flag-derived callouts.
+  const MOMENT_FLAG_LINES = {
+    flood_walk:              { bn: 'কোমর-পানিতে হেঁটে বন্যা দেখেছেন।',                       en: 'Walked the flooded ward waist-deep.' },
+    tower_approved:          { bn: 'বশিরকে অনিয়মে অনুমোদন দিয়েছেন।',                       en: 'Cleared Bashir\'s tower against code.' },
+    tower_collapsed:         { bn: 'টাওয়ার ধসে পড়ে — আপনার অনুমোদনে।',                     en: 'A tower came down on your approval.' },
+    tower_blamed_contractor: { bn: 'কন্ট্রাক্টরকে দোষারোপ করেছেন।',                         en: 'Pinned the blame on the contractor.' },
+    tower2_approved:         { bn: 'বশিরকে দ্বিতীয়বারও অনুমোদন দিয়েছেন।',                  en: 'Approved Bashir\'s second tower anyway.' },
+    tower2_collapsed:        { bn: 'দ্বিতীয় টাওয়ারও ধসে গেছে।',                              en: 'A second tower came down.' },
+    pa_protected:            { bn: 'সেলিমকে কেলেঙ্কারিতে রক্ষা করেছেন।',                       en: 'Shielded Selim through the scandal.' },
+    pa_fired:                { bn: 'সেলিমকে কাজ থেকে বিদায় দিয়েছেন।',                          en: 'Let Selim go.' },
+    pa_loyal:                { bn: 'সেলিম শেষ পর্যন্ত আপনার পাশে ছিল।',                          en: 'Selim stayed loyal to the end.' },
+    pa_betrayed:             { bn: 'সেলিমকে শেষ মুহূর্তে ছেড়ে দিয়েছেন।',                       en: 'Cut Selim loose at the end.' },
+    karim_helped:            { bn: 'করিম মিয়াকে চিকিৎসায় সাহায্য করেছেন।',                   en: 'Paid for Karim Miah\'s treatment.' },
+    mosque_funded:           { bn: 'মসজিদে অনুদান দিয়েছেন।',                                    en: 'Wrote a cheque for the masjid.' },
+    sbyc_legacy:             { bn: 'এসবিওয়াইসির স্থায়ী ভবন আপনার নামে।',                      en: 'Foundation stone of SBYC bears your name.' },
+    taking_envelopes:        { bn: 'উপহারের এনভেলপ গ্রহণ করেছেন।',                              en: 'Started accepting "small gifts."' },
+    defected:                { bn: 'দলবদল করেছেন চেয়ারম্যানির জন্য।',                          en: 'Defected for the chairman\'s seat.' },
+    ec_bribed:               { bn: 'নির্বাচন কমিশনের নথিতে হাত দিয়েছেন।',                       en: 'Reached into the EC paperwork.' },
+    votebuying:              { bn: 'ভোট কিনেছেন।',                                                  en: 'Bought votes.' },
+    acc_stonewalled:         { bn: 'দুদক তদন্ত আটকে রেখেছেন।',                                  en: 'Stonewalled the ACC inquiry.' },
+    compensation_paid:       { bn: 'নাসিমা বেগমকে ক্ষতিপূরণ দিয়েছেন।',                          en: 'Paid Nasima Begum the compensation.' },
+    oc_owes_you:             { bn: 'ওসি হাসান আপনার কাছে ঋণী।',                                 en: 'OC Hassan owes you a favor.' },
+    corrupt_retirement:      { bn: 'হিসাব বইয়ের কিছু পাতা পুড়িয়েছেন।',                         en: 'Burned a few ledger pages on the way out.' }
+  };
+
+  function renderMoments(containerId) {
+    const wrap = document.getElementById(containerId);
+    if (!wrap) return;
+    const items = [];
+
+    // 1) Biggest single-stat hit
+    if (state.biggestHit) {
+      const h = state.biggestHit;
+      const stat = STATS.find(s => s.key === h.stat);
+      const statName = I18n.lang === 'bn' ? stat.name_bn : stat.name_en;
+      const sign = h.delta > 0 ? '+' : '−';
+      const mag  = Math.abs(h.delta);
+      const magStr = I18n.lang === 'bn' ? I18n.toBanglaDigits(mag) : mag;
+      const yr = I18n.lang === 'bn' ? 'বছর ' + I18n.toBanglaDigits(h.year) : 'Year ' + h.year;
+      items.push({
+        bn: `সবচেয়ে বড় ধাক্কা: ${h.characterName} — ${statName} ${sign}${magStr} (${yr})`,
+        en: `Biggest single moment: ${h.characterName} — ${statName} ${sign}${magStr} (${yr})`
+      });
+    }
+
+    // 2) A few flag-derived story beats — show up to 4
+    const flagItems = state.flags
+      .filter(f => MOMENT_FLAG_LINES[f])
+      .slice(0, 4)
+      .map(f => MOMENT_FLAG_LINES[f]);
+    items.push(...flagItems);
+
+    if (!items.length) {
+      wrap.innerHTML = '';
+      return;
+    }
+
+    wrap.innerHTML = `
+      <p class="verdict__moments-label">
+        <span data-lang-bn>স্মরণীয় মুহূর্ত</span>
+        <span data-lang-en>DEFINING MOMENTS</span>
+      </p>
+      <ul class="verdict__moments-list">
+        ${items.map(m => `
+          <li>
+            <span data-lang-bn>${m.bn}</span>
+            <span data-lang-en>${m.en}</span>
+          </li>
+        `).join('')}
+      </ul>
+    `;
   }
 
   // ---------- Restart ----------

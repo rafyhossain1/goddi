@@ -26,12 +26,15 @@
 [[headers]]
   for = "/css/*"
   [headers.values]
-    Cache-Control = "public, max-age=86400, must-revalidate"
+    # No cache while we're still tuning the game post-launch. Browser
+    # revalidates on each request (cheap — Netlify returns 304 if unchanged).
+    # Revisit this in a few weeks once content stabilises; bump to 86400.
+    Cache-Control = "no-cache, must-revalidate"
 
 [[headers]]
   for = "/js/*"
   [headers.values]
-    Cache-Control = "public, max-age=86400, must-revalidate"
+    Cache-Control = "no-cache, must-revalidate"
 
 [[headers]]
   for = "/data/*"
