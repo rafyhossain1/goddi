@@ -193,6 +193,64 @@ BEGIN
       ) yr
     ),
 
+    -- ===== Prize entry aggregates =====
+    -- All from goddi_prize_entries table. Phones are masked client-side
+    -- to last-4 so the dashboard never exposes the full number.
+    'prize_total_entries',
+      (SELECT COALESCE(SUM(entries), 0)::int FROM goddi_prize_entries),
+    'prize_unique_phones',
+      (SELECT COUNT(DISTINCT phone)::int FROM goddi_prize_entries),
+    'prize_entries_today',
+      (SELECT COALESCE(SUM(entries), 0)::int FROM goddi_prize_entries
+        WHERE created_at >= CURRENT_DATE),
+    'prize_entries_7d',
+      (SELECT COALESCE(SUM(entries), 0)::int FROM goddi_prize_entries
+        WHERE created_at >= NOW() - INTERVAL '7 days'),
+
+    -- Tier distribution — entries earned by tier
+    'prize_by_tier', (
+      SELECT jsonb_object_agg(tier, total)
+      FROM (
+        SELECT tier, COALESCE(SUM(entries), 0)::int AS total
+        FROM goddi_prize_entries
+        GROUP BY tier
+      ) t
+    ),
+
+    -- Daily entries sparkline (last 30 days)
+    'prize_daily_30d', (
+      SELECT jsonb_agg(jsonb_build_object('d', d, 'e', e) ORDER BY d)
+      FROM (
+        SELECT (created_at::date)::text AS d,
+               COALESCE(SUM(entries), 0)::int AS e
+        FROM goddi_prize_entries
+        WHERE created_at >= CURRENT_DATE - INTERVAL '30 days'
+        GROUP BY 1
+      ) pd
+    ),
+
+    -- Recent 20 entries — name + masked phone + tier + entries + when
+    'prize_recent', (
+      SELECT jsonb_agg(
+        jsonb_build_object(
+          'name',         name,
+          'phone_last4',  right(phone, 4),
+          'phone_masked', '+' || repeat('*', greatest(length(phone) - 4, 0))
+                          || right(phone, 4),
+          'tier',         tier,
+          'entries',      entries,
+          'run_days',     run_days,
+          'language',     language,
+          'created_at',   created_at
+        ) ORDER BY created_at DESC
+      )
+      FROM (
+        SELECT * FROM goddi_prize_entries
+        ORDER BY created_at DESC
+        LIMIT 20
+      ) pr
+    ),
+
     'generated_at', NOW()
   ) INTO result;
 

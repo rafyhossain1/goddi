@@ -326,6 +326,97 @@
       margin-top: 4px;
     }
 
+    /* Mini h3 inside a panel */
+    .mini-h {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 14px;
+      margin: 18px 0 8px;
+      color: var(--ink-soft);
+      letter-spacing: 0.2px;
+    }
+
+    /* Draw winner controls */
+    .draw-controls {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 8px 0 10px;
+    }
+    .draw-select {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      padding: 8px 10px;
+      border: 1.5px solid var(--ink);
+      background: var(--paper);
+      border-radius: 4px;
+      box-shadow: 2px 2px 0 var(--ink);
+      cursor: pointer;
+    }
+
+    /* Draw result card */
+    .draw-result {
+      margin-top: 14px;
+      padding: 14px 16px;
+      background: var(--paper-2);
+      border: 2px solid var(--ink);
+      border-left: 5px solid var(--gold);
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+    .draw-result__heading {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 18px;
+      color: var(--gold);
+      margin-bottom: 8px;
+      letter-spacing: 0.2px;
+    }
+    .draw-result__row {
+      display: flex;
+      gap: 12px;
+      padding: 3px 0;
+    }
+    .draw-result__label {
+      width: 110px;
+      color: var(--ink-mute);
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      padding-top: 1px;
+    }
+    .draw-result__val {
+      color: var(--ink);
+      font-weight: 700;
+    }
+    .draw-result__pool {
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px dashed var(--ink-mute);
+      font-size: 11px;
+      color: var(--ink-mute);
+    }
+    .draw-result--err {
+      border-left-color: var(--stamp-red);
+    }
+    .draw-result--err .draw-result__heading { color: var(--stamp-red); }
+
+    /* Tier pill (used in recent entries table) */
+    .tier-pill {
+      display: inline-block;
+      padding: 1px 7px;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      border-radius: 3px;
+      text-transform: uppercase;
+    }
+    .tier-pill--clean       { color: var(--bd-green); border: 1px solid var(--bd-green); background: rgba(0,106,78,0.07); }
+    .tier-pill--standard    { color: var(--ink-soft); border: 1px solid var(--ink-mute); background: var(--paper-2); }
+    .tier-pill--compromised { color: var(--gold); border: 1px solid var(--gold); background: rgba(184,147,74,0.10); }
+
     .loading {
       text-align: center;
       padding: 40px;
@@ -390,6 +481,47 @@
 
       <!-- Headline KPIs -->
       <div class="kpi-row" id="kpi-row"></div>
+
+      <!-- ============ PRIZE LOTTERY ============ -->
+      <section class="panel" id="prize-panel">
+        <h2>Prize lottery · entries &amp; draws</h2>
+        <p class="sub">Live counts from <code>goddi_prize_entries</code>. Phones masked to last-4. Week 2 draw: June 3. Week 4 grand draw: June 19.</p>
+        <div class="kpi-row" id="prize-kpis"></div>
+
+        <h3 class="mini-h">Entries per day · last 30 days</h3>
+        <div class="spark"       id="prize-spark"></div>
+        <div class="spark__axis" id="prize-spark-axis"></div>
+
+        <h3 class="mini-h">Entries by win tier</h3>
+        <div class="bars" id="prize-by-tier"></div>
+
+        <h3 class="mini-h">Most recent entries</h3>
+        <table class="data" id="prize-table">
+          <thead>
+            <tr>
+              <th>When</th>
+              <th>Name</th>
+              <th>Phone</th>
+              <th>Tier</th>
+              <th class="num">Entries</th>
+              <th>Lang</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+
+        <h3 class="mini-h">Draw a winner</h3>
+        <p class="sub">Picks one weighted-random entry from the pool. Re-runnable — does NOT mark anyone as won. Record the winner manually.</p>
+        <div class="draw-controls">
+          <select id="draw-window" class="draw-select">
+            <option value="all">All entries to date</option>
+            <option value="week2">Week 2 window (May 20 → Jun 3)</option>
+            <option value="week4">Week 4 window (May 20 → Jun 19)</option>
+          </select>
+          <button class="btn btn--primary" id="btn-draw-winner" type="button">Draw winner</button>
+        </div>
+        <div id="draw-result"></div>
+      </section>
 
       <!-- Daily sessions sparkline -->
       <section class="panel">
