@@ -34,9 +34,14 @@
   <meta name="twitter:image" content="https://goddi.sbyc.cloud/assets/og-image.jpg?v=2" />
   <meta name="twitter:image:alt" content="Goddi · গদি — a satirical Dhaka ward politics card game" />
 
-  <!-- Favicons -->
+  <!-- Favicons + PWA manifest (offline + Add-to-Home-Screen) -->
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Goddi" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -516,6 +521,7 @@
   <script src="/js/leaderboard.js"></script>
   <script src="/js/achievements.js"></script>
   <script src="/js/analytics.js"></script>
+  <script src="/js/pwa.js"></script>
   <script src="/js/game.js"></script>
 
   <!-- Cloudflare Web Analytics — privacy-respecting, cookie-free pageview /

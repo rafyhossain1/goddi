@@ -1461,6 +1461,7 @@
     goto('gameover');
     if (window.Sfx) Sfx.playVerdict('loss');
     submitToLeaderboard();
+    window.dispatchEvent(new CustomEvent('goddi:verdict', { detail: { outcome: 'death' } }));
     if (window.Achievements) Achievements.evaluateVerdict(state, state.lastVerdict);
     if (window.Analytics) {
       Analytics.track('run_end', {
@@ -1547,6 +1548,7 @@
     goto('win');
     if (window.Sfx) Sfx.playVerdict('win');
     submitToLeaderboard();
+    window.dispatchEvent(new CustomEvent('goddi:verdict', { detail: { outcome: 'win', tier: tier } }));
     if (window.Achievements) Achievements.evaluateVerdict(state, state.lastVerdict);
     if (window.Analytics) {
       Analytics.track('run_end', {
