@@ -1904,10 +1904,10 @@
   // record_prize_entry RPC. Sponsorship/prize info comes from data/sponsors.json
   // and is loaded once at boot.
   const TIER_ENTRIES = { compromised: 1, standard: 1, clean: 2 }; // death = 0, not eligible
-  // Replace with your Turnstile site key once you've provisioned it at
-  // dash.cloudflare.com → Turnstile. Site key is public; safe to embed.
-  // Leave empty string to disable the captcha and rely on RLS + cap.
-  const TURNSTILE_SITEKEY = ''; // e.g. '0x4AAAAAAB...'
+  // Cloudflare Turnstile site key — provisioned at dash.cloudflare.com →
+  // Turnstile for goddi.sbyc.cloud. Site key is public; safe to embed.
+  // To rotate: replace the value and push.
+  const TURNSTILE_SITEKEY = '0x4AAAAAADPBksgl9Wt5on-C';
   let _sponsorData = null;
 
   async function loadSponsor() {
