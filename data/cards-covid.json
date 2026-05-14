@@ -1,0 +1,2305 @@
+{
+  "_comment": "Survive Covid mission deck. 36 cards across 8 phases (March 2020 – March 2022). Uses min_day / max_day for phase gating instead of min_year. All names fictional. Engine should treat this exactly like data/cards.json — same schema, same stat keys (janata/dol/proshashon/tohobil).",
+  "cards": [
+    {
+      "id": "C01",
+      "character_name_bn": "ডা. সাবরিনা",
+      "character_name_en": "Dr Sabrina",
+      "character_role_bn": "সিভিল সার্জনের অফিস",
+      "character_role_en": "Civil Surgeon's office",
+      "portrait_id": "_default",
+      "min_day": 0,
+      "max_day": 74,
+      "dialog_bn": "কাউন্সিলর সাহেব, ওয়ার্ডে প্রথম পজিটিভ — একটা ফ্ল্যাটে। গোটা ভবন কোয়ারেন্টাইন করব?",
+      "dialog_en": "Councillor sahib, first positive in the ward — one flat. Shall we quarantine the whole building?",
+      "left": {
+        "label_bn": "করুন",
+        "label_en": "Quarantine it",
+        "effects": {
+          "proshashon": 6,
+          "janata": -5
+        },
+        "triggers": [
+          "quarantine_enforced"
+        ]
+      },
+      "right": {
+        "label_bn": "এত তাড়াহুড়ো না",
+        "label_en": "Don't rush",
+        "effects": {
+          "janata": 4,
+          "proshashon": -6
+        },
+        "triggers": [
+          "quarantine_delayed"
+        ]
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C02",
+      "character_name_bn": "শাহ আলম",
+      "character_name_en": "Shah Alam",
+      "character_role_bn": "মিরপুরের গার্মেন্টস মালিক",
+      "character_role_en": "Mirpur garments owner",
+      "portrait_id": "_default",
+      "min_day": 0,
+      "max_day": 74,
+      "dialog_bn": "ভাই, BGMEA-কে ফোন করেন। কারখানা বন্ধ মানে ৩,০০০ লোকের রুটি বন্ধ। অর্ডার ঢুকছে — আমরা পারব।",
+      "dialog_en": "Bhai, call BGMEA. Closing the factory means 3,000 workers' bread is closed. Orders are still coming — we can do this.",
+      "left": {
+        "label_bn": "কারখানা চালু রাখুন",
+        "label_en": "Keep them open",
+        "effects": {
+          "tohobil": 5,
+          "janata": -6
+        },
+        "triggers": [
+          "garments_kept_open"
+        ]
+      },
+      "right": {
+        "label_bn": "শ্রমিকদের পাশে",
+        "label_en": "Stand with workers",
+        "effects": {
+          "janata": 6,
+          "dol": -4
+        },
+        "triggers": [
+          "worker_aligned"
+        ]
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C03",
+      "character_name_bn": "মতিন",
+      "character_name_en": "Matin",
+      "character_role_bn": "ছয় জনের পরিবার, বাস টার্মিনালে",
+      "character_role_en": "Family of six, at the bus terminal",
+      "portrait_id": "broke_resident",
+      "min_day": 0,
+      "max_day": 74,
+      "dialog_bn": "স্যার, ঢাকায় খাবার নাই, ভাড়া নাই। গ্রামে যাব। বাসটা ছাড়েন একটু।",
+      "dialog_en": "Sir, no food in Dhaka, no rent. We're trying to get to the village. Please let the bus through.",
+      "left": {
+        "label_bn": "যেতে দিন",
+        "label_en": "Let them go",
+        "effects": {
+          "janata": 6,
+          "proshashon": -7
+        },
+        "triggers": [
+          "migrant_helped"
+        ]
+      },
+      "right": {
+        "label_bn": "পুলিশ ডাকুন",
+        "label_en": "Call the police",
+        "effects": {
+          "proshashon": 6,
+          "janata": -8
+        },
+        "triggers": [
+          "migrant_blocked"
+        ]
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C04",
+      "character_name_bn": "ওসি হাসান",
+      "character_name_en": "OC Hassan",
+      "character_role_bn": "থানা প্রধান",
+      "character_role_en": "Officer-in-Charge",
+      "portrait_id": "oc_hassan",
+      "min_day": 0,
+      "max_day": 74,
+      "dialog_bn": "কাউন্সিলর সাহেব, স্টাফদের জন্য PPE দরকার — ৫০ হাজার। বাজেট নেই, ওয়ার্ড থেকে দেন।",
+      "dialog_en": "Councillor sahib, my staff needs PPE — Tk 50,000. No budget, get it from the ward.",
+      "left": {
+        "label_bn": "দিয়ে দেন",
+        "label_en": "Pay it",
+        "effects": {
+          "tohobil": -6,
+          "proshashon": 5
+        },
+        "triggers": [
+          "oc_owes_you"
+        ]
+      },
+      "right": {
+        "label_bn": "মানা করুন",
+        "label_en": "Refuse",
+        "effects": {
+          "proshashon": -7,
+          "tohobil": 3
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C05",
+      "character_name_bn": "জাহাঙ্গীর হেডস্যার",
+      "character_name_en": "Jahangir Headmaster",
+      "character_role_bn": "ওয়ার্ড স্কুল প্রধান",
+      "character_role_en": "Ward school principal",
+      "portrait_id": "_default",
+      "min_day": 0,
+      "max_day": 74,
+      "dialog_bn": "কাউন্সিলর সাহেব, স্কুল বন্ধ করব? সরকার এখনো বলেনি। আমার সাড়ে চারশ' বাচ্চা।",
+      "dialog_en": "Councillor sahib, should I shut the school? Govt hasn't said yet. I have 450 children.",
+      "left": {
+        "label_bn": "এখনই বন্ধ করুন",
+        "label_en": "Shut it now",
+        "effects": {
+          "janata": 5,
+          "dol": -3
+        },
+        "triggers": [
+          "school_early_close"
+        ]
+      },
+      "right": {
+        "label_bn": "সরকারি আদেশের জন্য অপেক্ষা",
+        "label_en": "Wait for govt order",
+        "effects": {
+          "dol": 5,
+          "janata": -5
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C06",
+      "character_name_bn": "ইমাম সাহেব",
+      "character_name_en": "Imam Saheb",
+      "character_role_bn": "মসজিদ কমিটি",
+      "character_role_en": "Mosque committee",
+      "portrait_id": "imam_saheb",
+      "min_day": 70,
+      "max_day": 124,
+      "dialog_bn": "কাউন্সিলর সাহেব, এই শুক্রবার জুমা হবে? সরকার বলছে ঘরে পড়তে। মুসল্লিরা মানবে?",
+      "dialog_en": "Councillor sahib, will there be jumma this Friday? Govt says pray at home. Will the worshippers accept it?",
+      "left": {
+        "label_bn": "জুমা চালু রাখুন",
+        "label_en": "Allow jumma",
+        "effects": {
+          "janata": 7,
+          "proshashon": -8
+        },
+        "triggers": [
+          "mosque_open"
+        ]
+      },
+      "right": {
+        "label_bn": "বন্ধ করুন",
+        "label_en": "Shut it down",
+        "effects": {
+          "proshashon": 6,
+          "janata": -8
+        },
+        "triggers": [
+          "mosque_closed"
+        ]
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C07",
+      "character_name_bn": "মাহবুব",
+      "character_name_en": "Mahbub",
+      "character_role_bn": "ত্রাণ কমিটির স্বেচ্ছাসেবক",
+      "character_role_en": "Relief committee volunteer",
+      "portrait_id": "_default",
+      "min_day": 70,
+      "max_day": 124,
+      "dialog_bn": "কাউন্সিলর সাহেব, চেয়ারম্যানের ভাই 'বিতরণ' করছে — কিন্তু পরিবারগুলো বলছে কেউ কিছু পায়নি। গোডাউনে চাল কম।",
+      "dialog_en": "Councillor sahib, the chairman's brother is 'distributing' — but families say no one's getting anything. Rice missing from the storage.",
+      "left": {
+        "label_bn": "দেখেও না দেখুন",
+        "label_en": "Look away",
+        "effects": {
+          "tohobil": 5,
+          "janata": -7
+        },
+        "triggers": [
+          "relief_pocketed"
+        ]
+      },
+      "right": {
+        "label_bn": "তদন্ত করুন",
+        "label_en": "Investigate",
+        "effects": {
+          "janata": 7,
+          "dol": -7
+        },
+        "triggers": [
+          "relief_exposed"
+        ]
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C08",
+      "character_name_bn": "তাজুল চাচা",
+      "character_name_en": "Tajul Chacha",
+      "character_role_bn": "বাড়ি ফেরার আবেদনে",
+      "character_role_en": "Asks for a movement pass",
+      "portrait_id": "_default",
+      "min_day": 70,
+      "max_day": 124,
+      "dialog_bn": "ভাই, ঈদে বাড়ি যাব — মা একা। একটা পাস দিন। নিয়ম তো জানি, কিন্তু...",
+      "dialog_en": "Bhai, I want to go home for Eid — mother's alone. Give me a movement pass. I know the rules but...",
+      "left": {
+        "label_bn": "পাস দেন",
+        "label_en": "Issue the pass",
+        "effects": {
+          "janata": 5,
+          "proshashon": -5
+        }
+      },
+      "right": {
+        "label_bn": "নিয়ম নিয়ম",
+        "label_en": "Rules are rules",
+        "effects": {
+          "proshashon": 5,
+          "janata": -4
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C09",
+      "character_name_bn": "এমপি'র পিএস",
+      "character_name_en": "MP's PS",
+      "character_role_bn": "কোভিড রেসপন্স ফান্ড",
+      "character_role_en": "Covid response fund",
+      "portrait_id": "_default",
+      "min_day": 70,
+      "max_day": 124,
+      "dialog_bn": "ভাই, কেন্দ্র থেকে ৫ লাখ এসেছে কোভিড রেসপন্সের জন্য। প্রকাশ্যে বিতরণ, না দলের কর্মীদের মাধ্যমে?",
+      "dialog_en": "Bhai, ৳5 lakh from central for Covid response. Public distribution, or through party workers?",
+      "left": {
+        "label_bn": "প্রকাশ্যে বিতরণ",
+        "label_en": "Distribute publicly",
+        "effects": {
+          "janata": 6,
+          "dol": -4
+        }
+      },
+      "right": {
+        "label_bn": "দলের মাধ্যমে",
+        "label_en": "Through the party",
+        "effects": {
+          "dol": 6,
+          "janata": -7
+        },
+        "triggers": [
+          "relief_partisan"
+        ]
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C10",
+      "character_name_bn": "রিয়াদ",
+      "character_name_en": "Riad",
+      "character_role_bn": "পুরোনো ক্লাবের বন্ধু, বাবা ICU-এর জন্য অপেক্ষমান",
+      "character_role_en": "Old club friend, father needs ICU",
+      "portrait_id": "_default",
+      "min_day": 120,
+      "max_day": 219,
+      "dialog_bn": "ভাই, বাবার অক্সিজেন নামছে। এক রাত যেন বাঁচে। তোমার ফোনে একটা বেড — তুমি বললে কেউ ফেরাবে না।",
+      "dialog_en": "Bhai, father's oxygen is dropping. Just one night to keep him alive. One bed if you call — nobody refuses you.",
+      "left": {
+        "label_bn": "ফোন করুন",
+        "label_en": "Make the call",
+        "effects": {
+          "janata": -5,
+          "dol": 4
+        },
+        "triggers": [
+          "icu_pull_for_friend"
+        ]
+      },
+      "right": {
+        "label_bn": "পারব না",
+        "label_en": "Can't help",
+        "effects": {
+          "dol": -5,
+          "janata": 5
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C11",
+      "character_name_bn": "তানিয়া রহমান",
+      "character_name_en": "Tania Rahman",
+      "character_role_bn": "অনুসন্ধানী সাংবাদিক",
+      "character_role_en": "Investigative journalist",
+      "portrait_id": "_default",
+      "min_day": 120,
+      "max_day": 219,
+      "dialog_bn": "কাউন্সিলর সাহেব, উত্তরার এক প্রাইভেট হাসপাতাল কোভিড টেস্ট ছাড়াই সার্টিফিকেট বিক্রি করছে। আপনার ওয়ার্ডে ক্লিনিক আছে। মন্তব্য?",
+      "dialog_en": "Councillor sahib, a private hospital in Uttara is selling Covid test certificates without testing. Their branch is in your ward. Comment?",
+      "left": {
+        "label_bn": "ব্যবস্থার পক্ষে কথা বলুন",
+        "label_en": "Defend the system",
+        "effects": {
+          "dol": 5,
+          "janata": -6
+        },
+        "triggers": [
+          "press_defended_system"
+        ]
+      },
+      "right": {
+        "label_bn": "তদন্ত চান",
+        "label_en": "Call for investigation",
+        "effects": {
+          "janata": 7,
+          "dol": -5
+        },
+        "triggers": [
+          "press_called_out"
+        ]
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C12",
+      "character_name_bn": "ম্যাজিস্ট্রেট কামাল",
+      "character_name_en": "Magistrate Kamal",
+      "character_role_bn": "মোবাইল কোর্ট",
+      "character_role_en": "Mobile court",
+      "portrait_id": "_default",
+      "min_day": 120,
+      "max_day": 219,
+      "dialog_bn": "কাউন্সিলর সাহেব, ওয়ার্ডে জাল কোভিড সার্টিফিকেট বিক্রি হচ্ছে। অভিযান চালাব?",
+      "dialog_en": "Councillor sahib, fake Covid certificates being sold in your ward. Should I raid them?",
+      "left": {
+        "label_bn": "চালান",
+        "label_en": "Yes, raid them",
+        "effects": {
+          "proshashon": 6,
+          "janata": -3
+        }
+      },
+      "right": {
+        "label_bn": "এড়িয়ে যান",
+        "label_en": "Look the other way",
+        "effects": {
+          "tohobil": 5,
+          "janata": -5
+        },
+        "triggers": [
+          "fake_certs_protected"
+        ]
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C13",
+      "character_name_bn": "সাকিব ও বোন",
+      "character_name_en": "Sakib & sister",
+      "character_role_bn": "পিতার দাফনের জন্য",
+      "character_role_en": "Trying to bury their father",
+      "portrait_id": "_default",
+      "min_day": 120,
+      "max_day": 219,
+      "dialog_bn": "ভাই, বাবা কোভিডে — কেউ জানাজা পড়াতে আসছে না। গোসল কে দেবে? আপনি একটু এগিয়ে আসেন।",
+      "dialog_en": "Bhai, father died of Covid — nobody will lead the janaza. Who will bathe the body? Please step in.",
+      "left": {
+        "label_bn": "নিজে এগিয়ে যান",
+        "label_en": "Step in personally",
+        "effects": {
+          "janata": 8,
+          "proshashon": -4
+        },
+        "triggers": [
+          "volunteer_burials"
+        ]
+      },
+      "right": {
+        "label_bn": "DNCC-কে ফোন",
+        "label_en": "Call DNCC, wait",
+        "effects": {
+          "proshashon": 4,
+          "janata": -6
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C14",
+      "character_name_bn": "রিনা আপা",
+      "character_name_en": "Rina Apa",
+      "character_role_bn": "গার্মেন্টস শ্রমিক প্রতিনিধি",
+      "character_role_en": "Garments worker rep",
+      "portrait_id": "_default",
+      "min_day": 120,
+      "max_day": 219,
+      "dialog_bn": "ভাই, তিন মাস বেতন নাই। আমরা রাস্তায় বসব শাহ আলমের অফিসের সামনে। আপনি কোন দিকে?",
+      "dialog_en": "Bhai, three months no pay. We're sitting in front of Shah Alam's office. Which side are you on?",
+      "left": {
+        "label_bn": "মধ্যস্থতা করুন",
+        "label_en": "Mediate",
+        "effects": {
+          "janata": 7,
+          "tohobil": -5
+        },
+        "triggers": [
+          "worker_protest_supported"
+        ]
+      },
+      "right": {
+        "label_bn": "পুলিশ ভেঙে দিক",
+        "label_en": "Let police clear them",
+        "effects": {
+          "proshashon": 5,
+          "janata": -8
+        },
+        "triggers": [
+          "worker_protest_broken"
+        ]
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C15",
+      "character_name_bn": "অভিভাবক ফোরাম",
+      "character_name_en": "Parents' forum",
+      "character_role_bn": "স্কুল রিওপেনিং দাবি",
+      "character_role_en": "School reopening demand",
+      "portrait_id": "_default",
+      "min_day": 215,
+      "max_day": 339,
+      "dialog_bn": "কাউন্সিলর সাহেব, সাত মাস স্কুল বন্ধ। বাচ্চারা পিছিয়ে পড়ছে। অর্ধ-সংখ্যায় খুলুন।",
+      "dialog_en": "Councillor sahib, schools shut seven months. Children falling behind. Reopen at half capacity.",
+      "left": {
+        "label_bn": "রিওপেন করার জন্য চাপ দিন",
+        "label_en": "Push for reopening",
+        "effects": {
+          "janata": 6,
+          "proshashon": -5
+        },
+        "triggers": [
+          "school_reopen_push"
+        ]
+      },
+      "right": {
+        "label_bn": "বন্ধ রাখুন",
+        "label_en": "Keep them shut",
+        "effects": {
+          "proshashon": 5,
+          "janata": -6
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C16",
+      "character_name_bn": "মুনির স্যার",
+      "character_name_en": "Munir Sir",
+      "character_role_bn": "প্রাথমিক স্কুল শিক্ষক",
+      "character_role_en": "Primary school teacher",
+      "portrait_id": "_default",
+      "min_day": 215,
+      "max_day": 339,
+      "dialog_bn": "স্যার, অনলাইন ক্লাসে শুধু বড়লোকের বাচ্চারা — গরিবের ছেলে ট্যাব ছাড়া। ৫০টা ট্যাব দিন আমার বাচ্চাদের।",
+      "dialog_en": "Sir, only the rich kids attend online class — the poor children have no tablets. Buy 50 tablets for my children.",
+      "left": {
+        "label_bn": "ট্যাব কিনুন",
+        "label_en": "Buy the tablets",
+        "effects": {
+          "tohobil": -7,
+          "janata": 8
+        },
+        "triggers": [
+          "digital_divide_closed"
+        ]
+      },
+      "right": {
+        "label_bn": "কিছু করার নেই",
+        "label_en": "Nothing to be done",
+        "effects": {
+          "tohobil": 4,
+          "janata": -6
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C17",
+      "character_name_bn": "ফেরদৌসী বেগম",
+      "character_name_en": "Ferdousi Begum",
+      "character_role_bn": "মৃত ক্লিনিক ডাক্তারের স্ত্রী",
+      "character_role_en": "Wife of a clinic doctor who died",
+      "portrait_id": "_default",
+      "min_day": 215,
+      "max_day": 339,
+      "dialog_bn": "ভাই, আমার স্বামী কোভিডে রোগী দেখতে গিয়ে গেছেন। ঝুঁকি ভাতা আজও পাইনি। কথা দেন কিছু একটা হবে।",
+      "dialog_en": "Bhai, my husband died seeing Covid patients. Hazard allowance never came. Promise me something will happen.",
+      "left": {
+        "label_bn": "কথা দিন, ব্যবস্থা করব",
+        "label_en": "Promise something",
+        "effects": {
+          "janata": 6,
+          "tohobil": -5
+        },
+        "triggers": [
+          "frontline_paid"
+        ]
+      },
+      "right": {
+        "label_bn": "'কেন্দ্র সামলাবে'",
+        "label_en": "'Central will handle it'",
+        "effects": {
+          "tohobil": 4,
+          "janata": -7
+        },
+        "triggers": [
+          "frontline_skipped"
+        ]
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C18",
+      "character_name_bn": "গরু-হাট কমিটি",
+      "character_name_en": "Cattle market committee",
+      "character_role_bn": "ঈদুল আযহা",
+      "character_role_en": "Eid-ul-Azha",
+      "portrait_id": "_default",
+      "min_day": 215,
+      "max_day": 339,
+      "dialog_bn": "ভাই, এবার গরুর হাট হবে? না হলে কোরবানির গরু কেউ কিনবে কোথায়? অর্থনীতিও দেখুন।",
+      "dialog_en": "Bhai, will there be a cattle market this year? Without it, where do people buy qurbani cattle? Think of the economy too.",
+      "left": {
+        "label_bn": "হাট চালু রাখুন",
+        "label_en": "Allow the market",
+        "effects": {
+          "janata": 5,
+          "proshashon": -6
+        }
+      },
+      "right": {
+        "label_bn": "শুধু অনলাইন",
+        "label_en": "Online-only sales",
+        "effects": {
+          "proshashon": 5,
+          "janata": -5
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C19",
+      "character_name_bn": "জরিনা খালা",
+      "character_name_en": "Jorina Khala",
+      "character_role_bn": "সুরক্ষা অ্যাপে রেজিস্ট্রেশন আটকে",
+      "character_role_en": "Stuck on the vaccine registration app",
+      "portrait_id": "_default",
+      "min_day": 335,
+      "max_day": 429,
+      "dialog_bn": "বাবা, সুরক্ষা অ্যাপ খুলছেই না। আমি বুঝি না, আমার মেয়েও পারে না। আপনি একটা ব্যবস্থা করেন।",
+      "dialog_en": "Son, the Surokkha app won't load. I don't get it, even my daughter can't. Please do something.",
+      "left": {
+        "label_bn": "ওয়ার্ড অফিসে হেল্প ডেস্ক",
+        "label_en": "Open a ward help-desk",
+        "effects": {
+          "tohobil": -5,
+          "janata": 7
+        },
+        "triggers": [
+          "vax_helpdesk"
+        ]
+      },
+      "right": {
+        "label_bn": "'অ্যাপটাই ব্যবহার করেন'",
+        "label_en": "'Just use the app'",
+        "effects": {
+          "janata": -6,
+          "tohobil": 2
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C20",
+      "character_name_bn": "ব্যবসায়ী নেতা",
+      "character_name_en": "Trader's association head",
+      "character_role_bn": "টিকা-লাইন এড়িয়ে",
+      "character_role_en": "Wants to skip the vaccine queue",
+      "portrait_id": "sycophant_smile",
+      "min_day": 335,
+      "max_day": 429,
+      "dialog_bn": "ভাই, আমাদের পঁচিশ জন ব্যবসায়ী টিকা চাই — লাইনে দাঁড়াবার সময় নেই। ভিআইপি লেনে?",
+      "dialog_en": "Bhai, twenty-five of us businessmen want the vaccine — no time to queue. VIP lane?",
+      "left": {
+        "label_bn": "চলুক, ভিআইপি লেন",
+        "label_en": "Allow VIP lane",
+        "effects": {
+          "dol": 5,
+          "janata": -8
+        },
+        "triggers": [
+          "vax_queue_jumped"
+        ]
+      },
+      "right": {
+        "label_bn": "লাইনেই দাঁড়ান",
+        "label_en": "Stand in the queue",
+        "effects": {
+          "janata": 6,
+          "dol": -5
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C21",
+      "character_name_bn": "মুফতি জাহিদ",
+      "character_name_en": "Mufti Zahid",
+      "character_role_bn": "টিকার বিরোধিতা করছেন",
+      "character_role_en": "Anti-vaccine cleric",
+      "portrait_id": "_default",
+      "min_day": 335,
+      "max_day": 429,
+      "dialog_bn": "ভাই, এই টিকায় হারাম জিনিস আছে — আমাদের ৩০০ মুসল্লিকে নিতে বলব না। আপনি কী করবেন?",
+      "dialog_en": "Bhai, this vaccine has haram ingredients — I won't tell my 300 worshippers to take it. What will you do?",
+      "left": {
+        "label_bn": "প্রকাশ্যে চ্যালেঞ্জ করুন",
+        "label_en": "Challenge him publicly",
+        "effects": {
+          "janata": 6,
+          "dol": -5
+        },
+        "triggers": [
+          "antivax_engaged"
+        ]
+      },
+      "right": {
+        "label_bn": "এড়িয়ে যান",
+        "label_en": "Avoid the fight",
+        "effects": {
+          "proshashon": -5,
+          "dol": 3
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C22",
+      "character_name_bn": "ওয়ার্ড হেলথ অফিসার",
+      "character_name_en": "Ward health officer",
+      "character_role_bn": "কোভিশিল্ড সরবরাহ আটকে",
+      "character_role_en": "Covishield supply blocked",
+      "portrait_id": "_default",
+      "min_day": 335,
+      "max_day": 429,
+      "dialog_bn": "কাউন্সিলর সাহেব, ভারত থেকে চালান আটকে গেছে। জনগণ আতঙ্কে। আপনি কিছু বলবেন?",
+      "dialog_en": "Councillor sahib, the India shipment is held up. People panicking. Will you say something?",
+      "left": {
+        "label_bn": "প্রকাশ্যে আশ্বস্ত করুন",
+        "label_en": "Reassure publicly",
+        "effects": {
+          "janata": 6,
+          "proshashon": -3
+        }
+      },
+      "right": {
+        "label_bn": "চুপ থাকুন",
+        "label_en": "Stay quiet",
+        "effects": {
+          "janata": -5,
+          "proshashon": 4
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C23",
+      "character_name_bn": "শাহ আলম",
+      "character_name_en": "Shah Alam",
+      "character_role_bn": "গার্মেন্টস মালিক, আবার",
+      "character_role_en": "Garments owner, again",
+      "portrait_id": "_default",
+      "min_day": 335,
+      "max_day": 429,
+      "dialog_bn": "ভাই, আমার ৩,০০০ শ্রমিকের টিকা চাই — প্রায়োরিটিতে। ইকোনমি চালু রাখতে হবে। আপনি বললেই হয়।",
+      "dialog_en": "Bhai, vaccines for my 3,000 workers — priority list. Got to keep the economy moving. Just say the word.",
+      "left": {
+        "label_bn": "অগ্রাধিকার দিন",
+        "label_en": "Give priority",
+        "effects": {
+          "tohobil": 5,
+          "janata": -6
+        },
+        "triggers": [
+          "vax_priority_garments"
+        ]
+      },
+      "right": {
+        "label_bn": "সবার সমান",
+        "label_en": "Everyone the same",
+        "effects": {
+          "tohobil": -4,
+          "janata": 6
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C24",
+      "character_name_bn": "নুসরাত",
+      "character_name_en": "Nusrat",
+      "character_role_bn": "মায়ের অক্সিজেন শেষ",
+      "character_role_en": "Mother's oxygen running out",
+      "portrait_id": "broke_resident",
+      "min_day": 425,
+      "max_day": 549,
+      "dialog_bn": "ভাই, এই দ্বিতীয় ঢেউয়ে মা'র লেভেল ৮৫। সিলিন্ডার নাই কোথাও। আপনার ফোনে একটা সিলিন্ডার এসে যেত।",
+      "dialog_en": "Bhai, second wave — mother's at 85. No cylinders anywhere. One call from you and one would arrive.",
+      "left": {
+        "label_bn": "ফোন করুন",
+        "label_en": "Make the call",
+        "effects": {
+          "janata": 5,
+          "dol": -4
+        },
+        "triggers": [
+          "oxygen_pull"
+        ]
+      },
+      "right": {
+        "label_bn": "জানি না, ফেরান",
+        "label_en": "'Pretend not to know'",
+        "effects": {
+          "dol": 3,
+          "janata": -7
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C25",
+      "character_name_bn": "কবরস্থান কমিটি",
+      "character_name_en": "Graveyard committee",
+      "character_role_bn": "জায়গা শেষ",
+      "character_role_en": "Out of space",
+      "portrait_id": "_default",
+      "min_day": 425,
+      "max_day": 549,
+      "dialog_bn": "ভাই, কবরস্থানে জায়গা নাই। পঞ্চাশটা পরিবার অপেক্ষা করছে। আপনি একটা জমি জোগাড় করেন।",
+      "dialog_en": "Bhai, no space in the graveyard. Fifty families waiting. Find us land.",
+      "left": {
+        "label_bn": "নিজে জমি জোগাড় করেন",
+        "label_en": "Find the plot yourself",
+        "effects": {
+          "janata": 7,
+          "tohobil": -6
+        },
+        "triggers": [
+          "plot_secured"
+        ]
+      },
+      "right": {
+        "label_bn": "'কর্পোরেশন সামলাবে'",
+        "label_en": "'Corporation will handle it'",
+        "effects": {
+          "tohobil": 4,
+          "janata": -7
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C26",
+      "character_name_bn": "প্রতিবেশী মেহরিন",
+      "character_name_en": "Mehrin, neighbour",
+      "character_role_bn": "তিন দিন ধরে গলির মৃতদেহ",
+      "character_role_en": "Body in the alley three days",
+      "portrait_id": "_default",
+      "min_day": 425,
+      "max_day": 549,
+      "dialog_bn": "ভাই, গলিতে তিন দিন ধরে লাশ পড়ে। পরিবার ভয়ে ছোঁয় না। DNCC ফোন ধরে না। SBYC ছেলেদের পাঠান?",
+      "dialog_en": "Bhai, a body's been in the alley three days. The family's too scared to touch it. DNCC doesn't pick up. Send the SBYC boys?",
+      "left": {
+        "label_bn": "SBYC ছেলেদের পাঠান",
+        "label_en": "Mobilise SBYC",
+        "effects": {
+          "janata": 7,
+          "proshashon": -3
+        },
+        "triggers": [
+          "sbyc_burial"
+        ]
+      },
+      "right": {
+        "label_bn": "DNCC-কে ধরে রাখেন",
+        "label_en": "Keep pushing DNCC",
+        "effects": {
+          "proshashon": 4,
+          "janata": -6
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C27",
+      "character_name_bn": "ফেডারেশন প্রতিনিধি",
+      "character_name_en": "Federation rep",
+      "character_role_bn": "ফের লকডাউন বাড়ানো",
+      "character_role_en": "Lockdown extension protest",
+      "portrait_id": "_default",
+      "min_day": 425,
+      "max_day": 549,
+      "dialog_bn": "ভাই, লকডাউন আরো এক সপ্তাহ — গরিব আর পারছে না। আপনি সরকারের পক্ষে, না জনতার?",
+      "dialog_en": "Bhai, lockdown extended another week — the poor can't take it. Are you with govt or with the people?",
+      "left": {
+        "label_bn": "শ্রমিকদের পক্ষে",
+        "label_en": "Side with the workers",
+        "effects": {
+          "janata": 7,
+          "proshashon": -6
+        },
+        "triggers": [
+          "sided_workers"
+        ]
+      },
+      "right": {
+        "label_bn": "নির্দেশের পক্ষে",
+        "label_en": "Side with the directive",
+        "effects": {
+          "proshashon": 6,
+          "janata": -6
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C28",
+      "character_name_bn": "তানিয়া রহমান",
+      "character_name_en": "Tania Rahman",
+      "character_role_bn": "সাংবাদিক, ফিরে এসেছেন",
+      "character_role_en": "Journalist, back again",
+      "portrait_id": "_default",
+      "min_day": 425,
+      "max_day": 549,
+      "dialog_bn": "কাউন্সিলর সাহেব, আজকের রেকর্ড দিন। আমার ফিচারের জন্য — আপনার ওয়ার্ডে মৃতের প্রকৃত সংখ্যা?",
+      "dialog_en": "Councillor sahib, today's a record day. For my feature — real death toll in your ward?",
+      "left": {
+        "label_bn": "সত্যি বলুন",
+        "label_en": "Tell the truth",
+        "effects": {
+          "janata": 6,
+          "dol": -6
+        },
+        "triggers": [
+          "death_count_honest"
+        ]
+      },
+      "right": {
+        "label_bn": "কমিয়ে বলুন",
+        "label_en": "Downplay it",
+        "effects": {
+          "dol": 5,
+          "janata": -7
+        },
+        "triggers": [
+          "death_count_buried"
+        ]
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C29",
+      "character_name_bn": "শিক্ষক ফোরাম",
+      "character_name_en": "Teachers' forum",
+      "character_role_bn": "এমপিও বেতন দশ মাস পিছিয়ে",
+      "character_role_en": "MPO pay ten months overdue",
+      "portrait_id": "_default",
+      "min_day": 545,
+      "max_day": 704,
+      "dialog_bn": "কাউন্সিলর সাহেব, এমপিও'র বেতন দশ মাস পিছিয়ে। স্কুল খুলছে — শিক্ষকরা টিকবেন না। নিজে দেবেন, না কেন্দ্রের সাথে যুদ্ধ?",
+      "dialog_en": "Councillor sahib, MPO salaries ten months overdue. Schools reopening — teachers can't hold on. Pay yourself, or fight central?",
+      "left": {
+        "label_bn": "নিজে কিছু দেন",
+        "label_en": "Pay them yourself",
+        "effects": {
+          "tohobil": -7,
+          "janata": 7
+        }
+      },
+      "right": {
+        "label_bn": "কেন্দ্রের সাথে লড়ুন",
+        "label_en": "Fight central",
+        "effects": {
+          "dol": -5,
+          "janata": 5
+        },
+        "triggers": [
+          "fought_central_pay"
+        ]
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C30",
+      "character_name_bn": "মোবাইল কোর্ট ম্যাজিস্ট্রেট",
+      "character_name_en": "Mobile-court magistrate",
+      "character_role_bn": "মাস্ক বাধ্যতামূলক — কে এনফোর্স করবে",
+      "character_role_en": "Mask mandate — who enforces",
+      "portrait_id": "_default",
+      "min_day": 545,
+      "max_day": 704,
+      "dialog_bn": "কাউন্সিলর সাহেব, মাস্ক না পরলে জরিমানা — আপনার ওয়ার্ডে অভিযান চালাব?",
+      "dialog_en": "Councillor sahib, fines for no mask — should I run a drive in your ward?",
+      "left": {
+        "label_bn": "জরিমানা করুন",
+        "label_en": "Fine violators",
+        "effects": {
+          "proshashon": 5,
+          "janata": -5
+        },
+        "triggers": [
+          "mask_enforced"
+        ]
+      },
+      "right": {
+        "label_bn": "ছেড়ে দিন",
+        "label_en": "Skip enforcement",
+        "effects": {
+          "proshashon": -5,
+          "janata": 4
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C31",
+      "character_name_bn": "নাজমা ম্যাডামের ভাই",
+      "character_name_en": "Nazma Madam's brother",
+      "character_role_bn": "ফ্রন্টলাইন নার্স, মৃত — ক্ষতিপূরণ আটকে",
+      "character_role_en": "Frontline nurse who died — compensation stuck",
+      "portrait_id": "_default",
+      "min_day": 545,
+      "max_day": 704,
+      "dialog_bn": "ভাই, বোনটা কোভিড ওয়ার্ডে কাজ করতে গিয়ে গেছে। ক্ষতিপূরণ ফাইল আজও পড়ে আছে। একটা সমবেদনার চিঠি, না আসল ধাক্কা?",
+      "dialog_en": "Bhai, my sister died working in the Covid ward. Compensation file still pending. A sympathy letter, or actually push it?",
+      "left": {
+        "label_bn": "ধাক্কা দিন",
+        "label_en": "Actually push it",
+        "effects": {
+          "janata": 7,
+          "dol": -5
+        },
+        "triggers": [
+          "frontline_compensated"
+        ]
+      },
+      "right": {
+        "label_bn": "শুধু সমবেদনা",
+        "label_en": "Just send a letter",
+        "effects": {
+          "janata": -6,
+          "dol": 3
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C32",
+      "character_name_bn": "DGHS পরামর্শক",
+      "character_name_en": "DGHS advisor",
+      "character_role_bn": "ওমিক্রনের গুজব",
+      "character_role_en": "Omicron rumours",
+      "portrait_id": "_default",
+      "min_day": 545,
+      "max_day": 704,
+      "dialog_bn": "কাউন্সিলর সাহেব, ওমিক্রন আসছে শোনা যাচ্ছে। আগেই বিধিনিষেধ, না অপেক্ষা?",
+      "dialog_en": "Councillor sahib, Omicron is coming, they say. Restrict early or wait?",
+      "left": {
+        "label_bn": "আগেই বিধিনিষেধ",
+        "label_en": "Restrict early",
+        "effects": {
+          "proshashon": 5,
+          "janata": -5
+        },
+        "triggers": [
+          "omicron_locked_early"
+        ]
+      },
+      "right": {
+        "label_bn": "অপেক্ষা করুন",
+        "label_en": "Wait and see",
+        "effects": {
+          "janata": 5,
+          "proshashon": -5
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C33",
+      "character_name_bn": "স্থানীয় স্পন্সর",
+      "character_name_en": "Local sponsor",
+      "character_role_bn": "'কোভিড হিরোস' স্মৃতিফলক",
+      "character_role_en": "'Covid Heroes' plaque",
+      "portrait_id": "_default",
+      "min_day": 545,
+      "max_day": 704,
+      "dialog_bn": "কাউন্সিলর সাহেব, ওয়ার্ডের মৃত স্বাস্থ্যকর্মীদের জন্য একটা স্মৃতিফলক — আমি ফান্ড করব। আপনার নামও থাকবে।",
+      "dialog_en": "Councillor sahib, a plaque for the ward's lost health workers — I'll fund it. Your name will be on it too.",
+      "left": {
+        "label_bn": "গ্রহণ করুন",
+        "label_en": "Accept",
+        "effects": {
+          "janata": 6,
+          "dol": 4
+        }
+      },
+      "right": {
+        "label_bn": "ফান্ড নেন, নাম বাদ",
+        "label_en": "Take the funds, no name",
+        "effects": {
+          "janata": 4,
+          "tohobil": 3
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C34",
+      "character_name_bn": "ওয়ার্ড সদস্যরা",
+      "character_name_en": "Ward members",
+      "character_role_bn": "প্রকাশ্য সভার দাবি",
+      "character_role_en": "Public meeting demanded",
+      "portrait_id": "_default",
+      "min_day": 700,
+      "max_day": 735,
+      "dialog_bn": "কাউন্সিলর সাহেব, দুই বছর পর — ওয়ার্ডের কোভিড মৃত্যুর হিসাব মানুষ চায়। প্রকাশ্য সভা?",
+      "dialog_en": "Councillor sahib, two years on — people want the ward Covid death toll on record. Hold a public meeting?",
+      "left": {
+        "label_bn": "সভা ডাকুন",
+        "label_en": "Hold it",
+        "effects": {
+          "janata": 7,
+          "dol": -5
+        },
+        "triggers": [
+          "public_accounting"
+        ]
+      },
+      "right": {
+        "label_bn": "এড়িয়ে যান",
+        "label_en": "Refuse",
+        "effects": {
+          "dol": 5,
+          "janata": -6
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C35",
+      "character_name_bn": "তানিয়া রহমান",
+      "character_name_en": "Tania Rahman",
+      "character_role_bn": "দু-বছরের রেট্রোস্পেক্টিভ",
+      "character_role_en": "Two-year retrospective",
+      "portrait_id": "_default",
+      "min_day": 700,
+      "max_day": 735,
+      "dialog_bn": "কাউন্সিলর সাহেব, দু'বছরের কোভিড নিয়ে একটা বড় ফিচার — আপনার সাক্ষাৎকার?",
+      "dialog_en": "Councillor sahib, a big two-year Covid feature — your interview?",
+      "left": {
+        "label_bn": "বসুন",
+        "label_en": "Sit for it",
+        "effects": {
+          "janata": 5,
+          "dol": -3
+        }
+      },
+      "right": {
+        "label_bn": "প্রত্যাখ্যান",
+        "label_en": "Decline",
+        "effects": {
+          "dol": 3,
+          "janata": -4
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C36",
+      "character_name_bn": "এমপি'র পিএস",
+      "character_name_en": "MP's PS",
+      "character_role_bn": "কাউন্সিল নির্বাচন তারিখ ঘোষণা",
+      "character_role_en": "Council elections announced",
+      "portrait_id": "_default",
+      "min_day": 700,
+      "max_day": 735,
+      "dialog_bn": "ভাই, নির্বাচনের তারিখ এসে গেছে। কোভিডের রেকর্ডকে প্ল্যাটফর্ম, না অন্য কিছু?",
+      "dialog_en": "Bhai, election date is set. Run on your Covid record, or pivot to something else?",
+      "left": {
+        "label_bn": "কোভিড রেকর্ডে দাঁড়ান",
+        "label_en": "Run on Covid record",
+        "effects": {
+          "janata": 6,
+          "dol": -3
+        },
+        "triggers": [
+          "covid_record_platform"
+        ]
+      },
+      "right": {
+        "label_bn": "অন্য কিছু খুঁজুন",
+        "label_en": "Pivot away",
+        "effects": {
+          "dol": 5,
+          "janata": -4
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C37",
+      "character_name_bn": "রিটার্নি প্রবাসী",
+      "character_name_en": "Returning expat",
+      "character_role_bn": "সৌদি ফ্লাইট থেকে",
+      "character_role_en": "Off the Saudi flight",
+      "portrait_id": "_default",
+      "min_day": 0,
+      "max_day": 74,
+      "dialog_bn": "কাউন্সিলর সাহেব, আমি কুমিল্লার, এখানে শ্বশুরবাড়ি। ৭ দিন কোয়ারেন্টাইন? বাড়িতে জায়গা নাই।",
+      "dialog_en": "Councillor sahib, I'm from Comilla, in-laws here. 7-day quarantine? No room at the house.",
+      "left": {
+        "label_bn": "স্কুলে রাখুন",
+        "label_en": "House him in the school",
+        "effects": {
+          "proshashon": 5,
+          "tohobil": -4
+        },
+        "triggers": [
+          "quarantine_facility"
+        ]
+      },
+      "right": {
+        "label_bn": "বাড়িতে যেতে দিন",
+        "label_en": "Let him go home",
+        "effects": {
+          "janata": 4,
+          "proshashon": -5
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C38",
+      "character_name_bn": "করিম মিয়া",
+      "character_name_en": "Karim Mia",
+      "character_role_bn": "কোণার চা-দোকান",
+      "character_role_en": "Corner tea-stall",
+      "portrait_id": "_default",
+      "min_day": 0,
+      "max_day": 74,
+      "dialog_bn": "ভাই, আমি দোকান বন্ধ করব না। সকাল-সন্ধ্যা পাড়ার লোক আসে। তাদেরও তো বাঁচতে হবে।",
+      "dialog_en": "Bhai, I'm not closing the stall. Morning and evening the para depends on it. They have to live too.",
+      "left": {
+        "label_bn": "বন্ধ করতে বাধ্য করুন",
+        "label_en": "Force it shut",
+        "effects": {
+          "proshashon": 5,
+          "janata": -6
+        }
+      },
+      "right": {
+        "label_bn": "চলতে দিন",
+        "label_en": "Let it run",
+        "effects": {
+          "janata": 5,
+          "proshashon": -6
+        },
+        "triggers": [
+          "informal_economy_protected"
+        ]
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C39",
+      "character_name_bn": "মহিলা কমিটি",
+      "character_name_en": "Women's committee",
+      "character_role_bn": "হাত-ধোয়ার স্টেশন",
+      "character_role_en": "Hand-wash stations",
+      "portrait_id": "_default",
+      "min_day": 0,
+      "max_day": 74,
+      "dialog_bn": "কাউন্সিলর সাহেব, পাড়ার দশটা গলির মুখে হাত-ধোয়ার ট্যাঙ্ক বসাতে চাই। ৪০ হাজার লাগবে।",
+      "dialog_en": "Councillor sahib, we want to put hand-wash tanks at ten alley mouths. Need Tk 40,000.",
+      "left": {
+        "label_bn": "তহবিল ছাড়ুন",
+        "label_en": "Release the funds",
+        "effects": {
+          "tohobil": -4,
+          "janata": 6
+        },
+        "triggers": [
+          "handwash_built"
+        ]
+      },
+      "right": {
+        "label_bn": "পরে",
+        "label_en": "Later",
+        "effects": {
+          "tohobil": 2,
+          "janata": -4
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C40",
+      "character_name_bn": "ডিজিএইচএস কেরানি",
+      "character_name_en": "DGHS clerk",
+      "character_role_bn": "দৈনিক রিপোর্ট",
+      "character_role_en": "Daily reporting line",
+      "portrait_id": "_default",
+      "min_day": 0,
+      "max_day": 74,
+      "dialog_bn": "কাউন্সিলর সাহেব, আজকের ওয়ার্ড আক্রান্ত — আসল সংখ্যা পাঠাব, না কমিয়ে?",
+      "dialog_en": "Councillor sahib, today's ward cases — real number, or trimmed?",
+      "left": {
+        "label_bn": "আসল পাঠান",
+        "label_en": "Send the real number",
+        "effects": {
+          "janata": 5,
+          "dol": -4
+        },
+        "triggers": [
+          "data_honest_phase1"
+        ]
+      },
+      "right": {
+        "label_bn": "কমিয়ে দিন",
+        "label_en": "Trim it",
+        "effects": {
+          "dol": 4,
+          "janata": -5
+        },
+        "triggers": [
+          "data_undercounted_phase1"
+        ]
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C41",
+      "character_name_bn": "টিভি ক্রু",
+      "character_name_en": "TV crew",
+      "character_role_bn": "এনটিভি লোকেশন রিপোর্টার",
+      "character_role_en": "NTV location reporter",
+      "portrait_id": "_default",
+      "min_day": 70,
+      "max_day": 124,
+      "dialog_bn": "ভাই, ত্রাণ বিতরণের লাইভ কভারেজ — পাঁচ মিনিট, আপনি দাঁড়িয়ে দেন। বাকিটা আমাদের।",
+      "dialog_en": "Bhai, live coverage of relief distribution — five minutes, you stand. We handle the rest.",
+      "left": {
+        "label_bn": "স্ক্রিপ্টে দাঁড়ান",
+        "label_en": "Stand for the camera",
+        "effects": {
+          "janata": 4,
+          "dol": 3
+        }
+      },
+      "right": {
+        "label_bn": "স্যরি, ক্যামেরা ছাড়াই",
+        "label_en": "'Sorry, no cameras'",
+        "effects": {
+          "janata": 5,
+          "dol": -3
+        },
+        "triggers": [
+          "quiet_distributor"
+        ]
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C42",
+      "character_name_bn": "মাদ্রাসা ছাত্রদল",
+      "character_name_en": "Madrasa students",
+      "character_role_bn": "লকডাউনে আটকে",
+      "character_role_en": "Stranded in lockdown",
+      "portrait_id": "_default",
+      "min_day": 70,
+      "max_day": 124,
+      "dialog_bn": "হুজুর-আমাদের ছাড়েন, আমাদের গ্রামে পরিবার অসুস্থ। বাস না, ছোট গাড়িতে যাব।",
+      "dialog_en": "Hujur, please let us go — our families in the villages are sick. Not by bus, by small car.",
+      "left": {
+        "label_bn": "পাস দিন",
+        "label_en": "Issue passes",
+        "effects": {
+          "janata": 5,
+          "proshashon": -5
+        }
+      },
+      "right": {
+        "label_bn": "আটকে রাখুন",
+        "label_en": "Hold them",
+        "effects": {
+          "proshashon": 4,
+          "janata": -5
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C43",
+      "character_name_bn": "ইফতার-বাজার ব্যবসায়ী",
+      "character_name_en": "Iftar-market trader",
+      "character_role_bn": "মৌসুমি বিক্রেতাদের পক্ষে",
+      "character_role_en": "On behalf of seasonal sellers",
+      "portrait_id": "_default",
+      "min_day": 70,
+      "max_day": 124,
+      "dialog_bn": "ভাই, ৩০ বছর ধরে ফুটপাতে ইফতার বেচি। এ বছর এক টাকাও না। ছাড় দিন একটু।",
+      "dialog_en": "Bhai, 30 years selling iftar on the pavement. This year not one taka. Cut us some slack.",
+      "left": {
+        "label_bn": "সীমিত সময়ে চালু",
+        "label_en": "Allow short hours",
+        "effects": {
+          "janata": 6,
+          "proshashon": -5
+        },
+        "triggers": [
+          "iftar_traders_helped"
+        ]
+      },
+      "right": {
+        "label_bn": "পুরোপুরি বন্ধ",
+        "label_en": "Stay closed",
+        "effects": {
+          "proshashon": 5,
+          "janata": -6
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C44",
+      "character_name_bn": "বশীর শেখ",
+      "character_name_en": "Bashir Sheikh",
+      "character_role_bn": "প্রস্তাব: কোয়ারেন্টাইন সেন্টার",
+      "character_role_en": "Proposes a \"quarantine centre\"",
+      "portrait_id": "_default",
+      "min_day": 120,
+      "max_day": 219,
+      "dialog_bn": "কাউন্সিলর সাহেব, আমার ছ-তলা ফাঁকা — কোভিড সেন্টার বানিয়ে দেই, ভাড়া সরকার দেবে। ভালো ব্যবসা।",
+      "dialog_en": "Councillor sahib, my six-storey building's empty — turn it into a Covid centre, govt pays rent. Good business.",
+      "left": {
+        "label_bn": "চুক্তি করুন",
+        "label_en": "Sign the deal",
+        "effects": {
+          "tohobil": 6,
+          "janata": -5
+        },
+        "triggers": [
+          "bashir_covid_center"
+        ]
+      },
+      "right": {
+        "label_bn": "না, নিরপেক্ষ ব্যবস্থা",
+        "label_en": "No, neutral arrangement",
+        "effects": {
+          "janata": 4,
+          "dol": -3
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C45",
+      "character_name_bn": "ক্লিনিক ডাক্তারদের প্রতিনিধি",
+      "character_name_en": "Clinic doctors rep",
+      "character_role_bn": "PPE-র অভাবে ধর্মঘটের হুমকি",
+      "character_role_en": "Strike threat over PPE shortage",
+      "portrait_id": "_default",
+      "min_day": 120,
+      "max_day": 219,
+      "dialog_bn": "কাউন্সিলর সাহেব, আজকেও PPE আসেনি। আমরা ধর্মঘট ডাকব। ওয়ার্ড থেকে কিছু করেন।",
+      "dialog_en": "Councillor sahib, no PPE today either. We'll strike. Do something from the ward.",
+      "left": {
+        "label_bn": "ওয়ার্ড থেকে কিনে দিন",
+        "label_en": "Buy it from ward funds",
+        "effects": {
+          "tohobil": -7,
+          "janata": 7
+        },
+        "triggers": [
+          "doctors_supplied"
+        ]
+      },
+      "right": {
+        "label_bn": "কেন্দ্রের অপেক্ষা",
+        "label_en": "Wait for central supply",
+        "effects": {
+          "tohobil": 3,
+          "janata": -7
+        },
+        "triggers": [
+          "doctors_struck"
+        ]
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C46",
+      "character_name_bn": "স্বেচ্ছাসেবক টিম",
+      "character_name_en": "Volunteer team",
+      "character_role_bn": "লাশ-গোসল গাড়ির দাবি",
+      "character_role_en": "Need a body-bathing van",
+      "portrait_id": "_default",
+      "min_day": 120,
+      "max_day": 219,
+      "dialog_bn": "ভাই, আমরা পাঁচজন তরুণ — কোভিড দাফনের কাজ করছি। একটা ভ্যান, কিছু পিপিই, পানি — চাই।",
+      "dialog_en": "Bhai, five of us youngsters — doing the Covid burials. We need a van, some PPE, water.",
+      "left": {
+        "label_bn": "সরঞ্জাম দিন",
+        "label_en": "Equip them",
+        "effects": {
+          "tohobil": -5,
+          "janata": 7
+        },
+        "triggers": [
+          "burial_team_funded"
+        ]
+      },
+      "right": {
+        "label_bn": "ব্যক্তিগত খরচে চালান",
+        "label_en": "Tell them to self-fund",
+        "effects": {
+          "tohobil": 2,
+          "janata": -6
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C47",
+      "character_name_bn": "তিন এতিম",
+      "character_name_en": "Three orphans",
+      "character_role_bn": "এক সপ্তাহে দু'জনই বাবা-মা হারা",
+      "character_role_en": "Lost both parents in one week",
+      "portrait_id": "_default",
+      "min_day": 120,
+      "max_day": 219,
+      "dialog_bn": "বাবা — আপনাদের ভাই-বোন আমরা। মা-বাবা দু'জনেই গত মাসে গেছে কোভিডে। কোথায় যাব?",
+      "dialog_en": "Sir — we're a brother and two sisters. Lost both parents last month to Covid. Where do we go?",
+      "left": {
+        "label_bn": "SBYC-র মাধ্যমে সংস্থানে যান",
+        "label_en": "Place them via SBYC",
+        "effects": {
+          "janata": 8,
+          "tohobil": -4
+        },
+        "triggers": [
+          "orphans_placed"
+        ]
+      },
+      "right": {
+        "label_bn": "আত্মীয়ের কাছে",
+        "label_en": "Pass them to relatives",
+        "effects": {
+          "janata": -3,
+          "tohobil": 1
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C48",
+      "character_name_bn": "ফার্মেসি মালিক",
+      "character_name_en": "Pharmacy owner",
+      "character_role_bn": "প্যারাসিটামল মজুদদারী",
+      "character_role_en": "Hoarding paracetamol",
+      "portrait_id": "_default",
+      "min_day": 120,
+      "max_day": 219,
+      "dialog_bn": "ভাই, আমি দোষ অস্বীকার করি না — প্যারাসিটামল মজুদ আছে। প্যাকেট প্রতি দাম ৩-গুণ। অভিযান চালালে দাম কমব।",
+      "dialog_en": "Bhai, I won't deny — paracetamol's stocked, price tripled per packet. Raid drops the price.",
+      "left": {
+        "label_bn": "অভিযান চালান",
+        "label_en": "Raid him",
+        "effects": {
+          "proshashon": 6,
+          "janata": 6
+        },
+        "triggers": [
+          "pharma_raid"
+        ]
+      },
+      "right": {
+        "label_bn": "চুপ থাকুন",
+        "label_en": "Look away",
+        "effects": {
+          "tohobil": 5,
+          "janata": -7
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C49",
+      "character_name_bn": "বৈশাখী মেলা ব্যবসায়ী",
+      "character_name_en": "Boishakhi mela trader",
+      "character_role_bn": "বাতিল মেলার ক্ষতিপূরণ",
+      "character_role_en": "Cancelled-fair compensation",
+      "portrait_id": "_default",
+      "min_day": 215,
+      "max_day": 339,
+      "dialog_bn": "ভাই, ১৪২৭ বৈশাখী মেলা বাতিল — আমাদের সারা বছরের আয়। ক্ষতিপূরণ?",
+      "dialog_en": "Bhai, 1427 Boishakhi mela cancelled — our whole year's income. Any compensation?",
+      "left": {
+        "label_bn": "সামান্য ভাতা দিন",
+        "label_en": "Provide a small grant",
+        "effects": {
+          "tohobil": -5,
+          "janata": 6
+        }
+      },
+      "right": {
+        "label_bn": "কোনো ব্যবস্থা নেই",
+        "label_en": "\"Nothing available\"",
+        "effects": {
+          "tohobil": 3,
+          "janata": -5
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C50",
+      "character_name_bn": "রিনা আপা",
+      "character_name_en": "Rina Apa",
+      "character_role_bn": "গার্মেন্টস থেকে ছাঁটাই, পরিচ্ছন্নতায়",
+      "character_role_en": "Laid off from garments, wants cleaning work",
+      "portrait_id": "_default",
+      "min_day": 215,
+      "max_day": 339,
+      "dialog_bn": "ভাই, কারখানা গেছে। পরিচ্ছন্নতা-কর্মী হিসেবে ওয়ার্ডে অস্থায়ী কাজ — দিতে পারেন?",
+      "dialog_en": "Bhai, factory's gone. Temporary cleaning work at the ward — can you arrange?",
+      "left": {
+        "label_bn": "কাজ দিন",
+        "label_en": "Hire her",
+        "effects": {
+          "tohobil": -4,
+          "janata": 6
+        },
+        "triggers": [
+          "worker_redeployed"
+        ]
+      },
+      "right": {
+        "label_bn": "সামনে কথা বলব",
+        "label_en": "\"Let me see later\"",
+        "effects": {
+          "janata": -4,
+          "tohobil": 1
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C51",
+      "character_name_bn": "নাসিরুদ্দিন স্যার",
+      "character_name_en": "Nasiruddin sir",
+      "character_role_bn": "কমিউনিটি অনলাইন ক্লাস",
+      "character_role_en": "Community online classes",
+      "portrait_id": "_default",
+      "min_day": 215,
+      "max_day": 339,
+      "dialog_bn": "কাউন্সিলর সাহেব, মোবাইলে গরিব বাচ্চাদের জন্য বিনামূল্যে ক্লাস নিতে চাই। ওয়ার্ড থেকে ইন্টারনেট-বিল?",
+      "dialog_en": "Councillor sahib, want to run free classes on mobile for poor kids. Will the ward cover the data bill?",
+      "left": {
+        "label_bn": "বিল-সহায়তা দিন",
+        "label_en": "Cover the bill",
+        "effects": {
+          "tohobil": -3,
+          "janata": 5
+        },
+        "triggers": [
+          "community_education"
+        ]
+      },
+      "right": {
+        "label_bn": "পরে দেখব",
+        "label_en": "\"Let me check later\"",
+        "effects": {
+          "janata": -3
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C52",
+      "character_name_bn": "মানবাধিকার কর্মী",
+      "character_name_en": "Human-rights worker",
+      "character_role_bn": "পুলিশের হয়রানির অভিযোগ",
+      "character_role_en": "Police harassment complaints",
+      "portrait_id": "_default",
+      "min_day": 215,
+      "max_day": 339,
+      "dialog_bn": "কাউন্সিলর সাহেব, লকডাউনে পুলিশ পাড়ায় বেশি বাড়াবাড়ি করছে। অভিযোগ আনব কোথায়?",
+      "dialog_en": "Councillor sahib, police have been heavy-handed in the para under lockdown. Where do we lodge complaints?",
+      "left": {
+        "label_bn": "তদন্ত শুরু করুন",
+        "label_en": "Start an inquiry",
+        "effects": {
+          "janata": 6,
+          "proshashon": -6
+        },
+        "triggers": [
+          "police_probe"
+        ]
+      },
+      "right": {
+        "label_bn": "\"পুলিশ তার কাজ করছে\"",
+        "label_en": "\"Police are doing their job\"",
+        "effects": {
+          "proshashon": 5,
+          "janata": -5
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C53",
+      "character_name_bn": "ইমাম সাহেব",
+      "character_name_en": "Imam Saheb",
+      "character_role_bn": "নিরাপদ আশুরা পরিকল্পনা",
+      "character_role_en": "A Covid-safe Ashura plan",
+      "portrait_id": "imam_saheb",
+      "min_day": 215,
+      "max_day": 339,
+      "dialog_bn": "কাউন্সিলর সাহেব, এ বছরের আশুরা মাজলিস — ছোট, আংশিক, না সম্পূর্ণ স্থগিত?",
+      "dialog_en": "Councillor sahib, this year's Ashura majlis — small, partial, or fully suspended?",
+      "left": {
+        "label_bn": "ছোট পরিসরে",
+        "label_en": "Small only",
+        "effects": {
+          "janata": 4,
+          "proshashon": 3
+        }
+      },
+      "right": {
+        "label_bn": "স্থগিত করুন",
+        "label_en": "Suspend",
+        "effects": {
+          "proshashon": 6,
+          "janata": -5
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C54",
+      "character_name_bn": "নাবালিকা ফোরাম",
+      "character_name_en": "Girl-students forum",
+      "character_role_bn": "ঝরে পড়ার হার বাড়ছে",
+      "character_role_en": "Dropouts rising",
+      "portrait_id": "_default",
+      "min_day": 215,
+      "max_day": 339,
+      "dialog_bn": "কাউন্সিলর সাহেব, ৪০টা মেয়ে এ বছর স্কুলে ফিরছে না — বিয়ে, কাজ। আপনি কী করবেন?",
+      "dialog_en": "Councillor sahib, 40 girls aren't returning to school — early marriage, work. What will you do?",
+      "left": {
+        "label_bn": "উপবৃত্তি দিন, কাউন্সেলিং",
+        "label_en": "Stipend + counselling",
+        "effects": {
+          "tohobil": -5,
+          "janata": 7
+        },
+        "triggers": [
+          "girls_kept_in_school"
+        ]
+      },
+      "right": {
+        "label_bn": "\"পরিবারের সিদ্ধান্ত\"",
+        "label_en": "\"That's a family matter\"",
+        "effects": {
+          "janata": -7
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C55",
+      "character_name_bn": "টিকা-বিরোধী পোস্টার",
+      "character_name_en": "Anti-vaccine poster",
+      "character_role_bn": "রাতে দেয়ালে আঁটা",
+      "character_role_en": "Pasted overnight on walls",
+      "portrait_id": "_default",
+      "min_day": 335,
+      "max_day": 429,
+      "dialog_bn": "কাউন্সিলর সাহেব, রাতে কেউ পাড়ার দেয়ালে টিকা-বিরোধী পোস্টার লাগিয়েছে। প্রতিক্রিয়া?",
+      "dialog_en": "Councillor sahib, someone pasted anti-vaccine posters on the para walls overnight. Response?",
+      "left": {
+        "label_bn": "পাল্টা-প্রচারণা",
+        "label_en": "Counter-campaign",
+        "effects": {
+          "janata": 5,
+          "dol": 3
+        },
+        "triggers": [
+          "antivax_countered"
+        ]
+      },
+      "right": {
+        "label_bn": "উপেক্ষা করুন",
+        "label_en": "Ignore",
+        "effects": {
+          "janata": -4
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C56",
+      "character_name_bn": "সিনিয়র সিটিজেন গ্রুপ",
+      "character_name_en": "Senior citizen group",
+      "character_role_bn": "দরজায় টিকা চাই",
+      "character_role_en": "Doorstep vaccination",
+      "portrait_id": "_default",
+      "min_day": 335,
+      "max_day": 429,
+      "dialog_bn": "বাবা, পাড়ার ৫০ জন বয়স্ক — কেন্দ্র পর্যন্ত যেতে পারছে না। দরজায় টিকা?",
+      "dialog_en": "Son, 50 elderly in our para can't make it to the centre. Doorstep vaccinations?",
+      "left": {
+        "label_bn": "ব্যবস্থা করুন",
+        "label_en": "Arrange it",
+        "effects": {
+          "tohobil": -5,
+          "janata": 8
+        },
+        "triggers": [
+          "doorstep_vax"
+        ]
+      },
+      "right": {
+        "label_bn": "\"কেন্দ্রেই আসুন\"",
+        "label_en": "\"Come to the centre\"",
+        "effects": {
+          "janata": -7
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C57",
+      "character_name_bn": "গার্মেন্টস HR",
+      "character_name_en": "Garments HR",
+      "character_role_bn": "বিকল্প রুট চান",
+      "character_role_en": "Wants an alternative vaccine route",
+      "portrait_id": "_default",
+      "min_day": 335,
+      "max_day": 429,
+      "dialog_bn": "ভাই, আমার ১২,০০০ শ্রমিক — কেন্দ্রের লাইন ছাড়া কোনো বিকল্প রুট? আমরা সব খরচ দেব।",
+      "dialog_en": "Bhai, 12,000 workers — any alt route around the public queue? We'll cover the cost.",
+      "left": {
+        "label_bn": "বিশেষ ক্যাম্প",
+        "label_en": "Special on-site camp",
+        "effects": {
+          "tohobil": 4,
+          "janata": -4
+        },
+        "triggers": [
+          "workers_special_camp"
+        ]
+      },
+      "right": {
+        "label_bn": "সবাই কেন্দ্রেই যাবে",
+        "label_en": "Public queue for everyone",
+        "effects": {
+          "janata": 5,
+          "tohobil": -3
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C58",
+      "character_name_bn": "রোহিঙ্গা পরিবার",
+      "character_name_en": "Rohingya family",
+      "character_role_bn": "ওয়ার্ডের প্রান্তে বাস",
+      "character_role_en": "Living at the ward's edge",
+      "portrait_id": "_default",
+      "min_day": 335,
+      "max_day": 429,
+      "dialog_bn": "কাউন্সিলর সাহেব, আমাদের NID নাই, কিন্তু পাড়ায় আছি ৬ বছর। টিকা পাব?",
+      "dialog_en": "Councillor sahib, we have no NID but we've lived in the para 6 years. Will we get the vaccine?",
+      "left": {
+        "label_bn": "মানবিক ভিত্তিতে দিন",
+        "label_en": "Vaccinate on humanitarian grounds",
+        "effects": {
+          "janata": 6,
+          "dol": -5
+        },
+        "triggers": [
+          "rohingya_vaccinated"
+        ]
+      },
+      "right": {
+        "label_bn": "\"নিয়মের বাইরে যাব না\"",
+        "label_en": "\"Won't bend the rules\"",
+        "effects": {
+          "dol": 4,
+          "janata": -6
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C59",
+      "character_name_bn": "ঔষধ কোম্পানি প্রতিনিধি",
+      "character_name_en": "Pharma rep",
+      "character_role_bn": "শর্তসহ অনুদান",
+      "character_role_en": "Donation with strings",
+      "portrait_id": "_default",
+      "min_day": 335,
+      "max_day": 429,
+      "dialog_bn": "ভাই, ১০০০ ডোজ ফ্রি দেব — শুধু আমাদের লোগো প্রতি ব্যানারে। মন্দ চুক্তি না।",
+      "dialog_en": "Bhai, we'll donate 1,000 doses — just our logo on every banner. Not a bad deal.",
+      "left": {
+        "label_bn": "গ্রহণ করুন",
+        "label_en": "Accept",
+        "effects": {
+          "tohobil": 5,
+          "janata": -3
+        },
+        "triggers": [
+          "pharma_logo"
+        ]
+      },
+      "right": {
+        "label_bn": "শর্তবিহীন",
+        "label_en": "No strings or nothing",
+        "effects": {
+          "tohobil": -3,
+          "janata": 4
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C60",
+      "character_name_bn": "রিকশাচালক ইউনিয়ন",
+      "character_name_en": "Rickshaw-puller union",
+      "character_role_bn": "লকডাউনে রাস্তা বন্ধে প্রতিবাদ",
+      "character_role_en": "Protest over road closures",
+      "portrait_id": "_default",
+      "min_day": 425,
+      "max_day": 549,
+      "dialog_bn": "ভাই, পেট কে দেখবে? রিকশা চলতে দিন। তিন দিন আমরা না খাওয়া।",
+      "dialog_en": "Bhai, who feeds the stomach? Let rickshaws run. Three days we haven't eaten.",
+      "left": {
+        "label_bn": "চলতে দিন",
+        "label_en": "Let them run",
+        "effects": {
+          "janata": 7,
+          "proshashon": -7
+        },
+        "triggers": [
+          "rickshaw_allowed"
+        ]
+      },
+      "right": {
+        "label_bn": "পুলিশকে বলুন",
+        "label_en": "Tell police to enforce",
+        "effects": {
+          "proshashon": 5,
+          "janata": -8
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C61",
+      "character_name_bn": "কোভিড ওয়ার্ডের নার্স",
+      "character_name_en": "Covid-ward nurse",
+      "character_role_bn": "ঝুঁকি-ভাতার দাবিতে ধর্মঘট",
+      "character_role_en": "Striking for hazard pay",
+      "portrait_id": "_default",
+      "min_day": 425,
+      "max_day": 549,
+      "dialog_bn": "কাউন্সিলর সাহেব, ৬ মাস হল ঝুঁকি ভাতা পাইনি। আজ সব নার্স ধর্মঘটে। ওয়ার্ডে রোগী একলা।",
+      "dialog_en": "Councillor sahib, six months no hazard pay. All nurses on strike today. Patients in the ward alone.",
+      "left": {
+        "label_bn": "নিজে দাবি তুলুন",
+        "label_en": "Champion their demand",
+        "effects": {
+          "janata": 7,
+          "dol": -5
+        },
+        "triggers": [
+          "nurses_supported"
+        ]
+      },
+      "right": {
+        "label_bn": "\"কেন্দ্রের ব্যাপার\"",
+        "label_en": "\"Central's problem\"",
+        "effects": {
+          "janata": -8,
+          "dol": 3
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C62",
+      "character_name_bn": "গণমাধ্যম",
+      "character_name_en": "Media",
+      "character_role_bn": "লাশ বিনিময়ের ভুল",
+      "character_role_en": "Bodies mixed up at the morgue",
+      "portrait_id": "_default",
+      "min_day": 425,
+      "max_day": 549,
+      "dialog_bn": "কাউন্সিলর সাহেব, ওয়ার্ডে দুই পরিবারে ভুল লাশ গেছে। সাংবাদিক মন্তব্য চাইছে।",
+      "dialog_en": "Councillor sahib, two families got the wrong body in your ward. The press wants comment.",
+      "left": {
+        "label_bn": "পরিবারগুলোর কাছে যান",
+        "label_en": "Go to the families",
+        "effects": {
+          "janata": 6,
+          "dol": -4
+        },
+        "triggers": [
+          "mixup_owned"
+        ]
+      },
+      "right": {
+        "label_bn": "\"হাসপাতালের দায়\"",
+        "label_en": "\"Hospital's responsibility\"",
+        "effects": {
+          "dol": 4,
+          "janata": -7
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C63",
+      "character_name_bn": "এনজিও সমন্বয়কারী",
+      "character_name_en": "NGO coordinator",
+      "character_role_bn": "ফিল্ড হাসপাতাল তাঁবু",
+      "character_role_en": "Field hospital tent",
+      "portrait_id": "_default",
+      "min_day": 425,
+      "max_day": 549,
+      "dialog_bn": "কাউন্সিলর সাহেব, ২০-শয্যার তাঁবু-হাসপাতাল বসাতে চাই ওয়ার্ডে। জায়গা ও বিদ্যুৎ লাগবে — বাকিটা আমরা।",
+      "dialog_en": "Councillor sahib, want to set up a 20-bed field hospital tent in the ward. We need land + power — we cover the rest.",
+      "left": {
+        "label_bn": "জায়গা দিন",
+        "label_en": "Find the land",
+        "effects": {
+          "tohobil": -4,
+          "janata": 8
+        },
+        "triggers": [
+          "field_hospital_built"
+        ]
+      },
+      "right": {
+        "label_bn": "\"জায়গা নাই\"",
+        "label_en": "\"No space available\"",
+        "effects": {
+          "tohobil": 2,
+          "janata": -7
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C64",
+      "character_name_bn": "বিজিবি অফিসার",
+      "character_name_en": "BGB officer",
+      "character_role_bn": "নৌকায় ফেরা শ্রমিক",
+      "character_role_en": "Boat-load of returning workers",
+      "portrait_id": "_default",
+      "min_day": 425,
+      "max_day": 549,
+      "dialog_bn": "কাউন্সিলর সাহেব, পাশের জেলা থেকে নৌকায় ৪০ জন গার্মেন্টস শ্রমিক — ফিরিয়ে দেব?",
+      "dialog_en": "Councillor sahib, 40 garment workers from the next district by boat — turn them back?",
+      "left": {
+        "label_bn": "আসতে দিন, পরীক্ষা",
+        "label_en": "Let them in, screen them",
+        "effects": {
+          "janata": 6,
+          "proshashon": -5
+        }
+      },
+      "right": {
+        "label_bn": "ফিরিয়ে দিন",
+        "label_en": "Turn them back",
+        "effects": {
+          "proshashon": 5,
+          "janata": -7
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C65",
+      "character_name_bn": "অভিভাবক-শিক্ষক বিরোধ",
+      "character_name_en": "Parent-teacher dispute",
+      "character_role_bn": "রিওপেনিং নিয়ম নিয়ে",
+      "character_role_en": "Over reopening rules",
+      "portrait_id": "_default",
+      "min_day": 545,
+      "max_day": 704,
+      "dialog_bn": "কাউন্সিলর সাহেব, কিছু অভিভাবক মাস্ক চাইছেন কঠোরভাবে, কিছু \"জোর-জবরদস্তি না\" বলছেন। মাঝখানে শিক্ষক।",
+      "dialog_en": "Councillor sahib, some parents want strict mask rules, others say 'no compulsion.' Teachers caught in between.",
+      "left": {
+        "label_bn": "শিক্ষকদের পাশে",
+        "label_en": "Side with teachers",
+        "effects": {
+          "janata": 5,
+          "proshashon": 3
+        }
+      },
+      "right": {
+        "label_bn": "অভিভাবকদের চাপে নমনীয়",
+        "label_en": "Bow to parent pressure",
+        "effects": {
+          "janata": -4
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C66",
+      "character_name_bn": "বশীর শেখ আবার",
+      "character_name_en": "Bashir Sheikh again",
+      "character_role_bn": "কবরস্থানের পাশে নির্মাণ-প্রস্তাব",
+      "character_role_en": "Wants to build next to the graveyard",
+      "portrait_id": "_default",
+      "min_day": 545,
+      "max_day": 704,
+      "dialog_bn": "কাউন্সিলর সাহেব, কবরস্থানের পশ্চিম প্রান্তের জমি — অব্যবহৃত। ফ্ল্যাট প্রকল্প। আপনার ভাগ পরিষ্কার।",
+      "dialog_en": "Councillor sahib, that strip west of the graveyard — unused. Flats project. Your cut clean.",
+      "left": {
+        "label_bn": "না, পবিত্র জায়গা",
+        "label_en": "No, sacred ground",
+        "effects": {
+          "janata": 6,
+          "tohobil": -3
+        }
+      },
+      "right": {
+        "label_bn": "চুক্তি করুন",
+        "label_en": "Sign it",
+        "effects": {
+          "tohobil": 7,
+          "janata": -8
+        },
+        "triggers": [
+          "graveyard_encroached"
+        ]
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C67",
+      "character_name_bn": "এতিম তহবিল উদ্যোক্তা",
+      "character_name_en": "Orphan-fund organiser",
+      "character_role_bn": "ফ্রন্টলাইনারদের সন্তানদের জন্য",
+      "character_role_en": "For frontliners' orphans",
+      "portrait_id": "_default",
+      "min_day": 545,
+      "max_day": 704,
+      "dialog_bn": "ভাই, ওয়ার্ডে কোভিডে বাবা-মা হারা ১৫ বাচ্চা। বার্ষিক তহবিল গঠন করুন।",
+      "dialog_en": "Bhai, 15 children in the ward lost parents to Covid. Set up an annual fund.",
+      "left": {
+        "label_bn": "তহবিল গঠন করুন",
+        "label_en": "Establish the fund",
+        "effects": {
+          "tohobil": -6,
+          "janata": 8
+        },
+        "triggers": [
+          "orphan_fund_established"
+        ]
+      },
+      "right": {
+        "label_bn": "\"ব্যক্তিগত দাতার কাছে\"",
+        "label_en": "\"Go to private donors\"",
+        "effects": {
+          "janata": -5
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C68",
+      "character_name_bn": "প্রাক্তন কাউন্সিলরের পরিবার",
+      "character_name_en": "Former councillor's family",
+      "character_role_bn": "মৃত্যুর কারণ চান",
+      "character_role_en": "Want answers on cause of death",
+      "portrait_id": "_default",
+      "min_day": 545,
+      "max_day": 704,
+      "dialog_bn": "ভাই, আমাদের আব্বা কোভিডে গেছেন — কিন্তু হাসপাতাল কারণ গোপন করছে। আপনি কথা বলবেন?",
+      "dialog_en": "Bhai, our father died of Covid — but the hospital is hiding the cause. Will you speak?",
+      "left": {
+        "label_bn": "হাসপাতালের সঙ্গে কথা বলুন",
+        "label_en": "Confront the hospital",
+        "effects": {
+          "janata": 6,
+          "dol": -4
+        },
+        "triggers": [
+          "hospital_confronted"
+        ]
+      },
+      "right": {
+        "label_bn": "\"পারিবারিক বিষয়\"",
+        "label_en": "\"Family matter\"",
+        "effects": {
+          "dol": 3,
+          "janata": -5
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C69",
+      "character_name_bn": "বিদেশি দাতা",
+      "character_name_en": "Foreign donor",
+      "character_role_bn": "কোভিড স্মৃতি-উদ্যান",
+      "character_role_en": "\"Covid Memorial Garden\"",
+      "portrait_id": "_default",
+      "min_day": 545,
+      "max_day": 704,
+      "dialog_bn": "কাউন্সিলর সাহেব, আমাদের ফাউন্ডেশন একটা স্মৃতি-উদ্যান করতে চায় — ৫ কোটি টাকা। ফলকে নাম, আপনার + আমাদের।",
+      "dialog_en": "Councillor sahib, our foundation wants to fund a memorial garden — Tk 5cr. Names on the plaque, yours and ours.",
+      "left": {
+        "label_bn": "গ্রহণ করুন",
+        "label_en": "Accept",
+        "effects": {
+          "tohobil": 8,
+          "janata": 5
+        },
+        "triggers": [
+          "memorial_built"
+        ]
+      },
+      "right": {
+        "label_bn": "শর্তসহ এড়িয়ে যান",
+        "label_en": "Decline the conditions",
+        "effects": {
+          "janata": 4,
+          "tohobil": -2
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C70",
+      "character_name_bn": "অনলাইন গুজব",
+      "character_name_en": "Online rumour",
+      "character_role_bn": "মৃতের সংখ্যা স্ফীত?",
+      "character_role_en": "Death count inflated?",
+      "portrait_id": "_default",
+      "min_day": 545,
+      "max_day": 704,
+      "dialog_bn": "কাউন্সিলর সাহেব, ফেসবুকে গুজব — আপনি অনুদানের জন্য মৃতের সংখ্যা বাড়িয়েছেন। মন্তব্য?",
+      "dialog_en": "Councillor sahib, FB rumour — you inflated death counts to chase grants. Comment?",
+      "left": {
+        "label_bn": "প্রকাশ্যে সত্য দিন",
+        "label_en": "Publish the actual records",
+        "effects": {
+          "janata": 7,
+          "dol": -3
+        },
+        "triggers": [
+          "records_published"
+        ]
+      },
+      "right": {
+        "label_bn": "উপেক্ষা করুন",
+        "label_en": "Ignore",
+        "effects": {
+          "janata": -5
+        }
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C71",
+      "character_name_bn": "কেন্দ্রীয় নিরীক্ষক",
+      "character_name_en": "Central auditor",
+      "character_role_bn": "দু-বছরের ত্রাণ-হিসাব",
+      "character_role_en": "Two-year relief audit",
+      "portrait_id": "_default",
+      "min_day": 700,
+      "max_day": 730,
+      "dialog_bn": "কাউন্সিলর সাহেব, ত্রাণ তহবিলে গরমিল ধরা পড়েছে। স্বেচ্ছায় ফেরত দেন, না অপেক্ষা?",
+      "dialog_en": "Councillor sahib, irregularities found in the relief fund. Voluntary return, or wait?",
+      "left": {
+        "label_bn": "ফেরত দিন",
+        "label_en": "Return it voluntarily",
+        "effects": {
+          "tohobil": -7,
+          "janata": 6,
+          "proshashon": 4
+        },
+        "triggers": [
+          "audit_returned"
+        ]
+      },
+      "right": {
+        "label_bn": "অপেক্ষা করুন",
+        "label_en": "Wait it out",
+        "effects": {
+          "proshashon": -6,
+          "janata": -5
+        },
+        "triggers": [
+          "audit_defied"
+        ]
+      },
+      "max_uses": 2
+    },
+    {
+      "id": "C72",
+      "character_name_bn": "প্রবাসী",
+      "character_name_en": "Returnee migrant",
+      "character_role_bn": "এনআইডি ছাড়া",
+      "character_role_en": "No NID",
+      "portrait_id": "_default",
+      "min_day": 700,
+      "max_day": 730,
+      "dialog_bn": "কাউন্সিলর সাহেব, কোভিডে দু-বছর আটকে ছিলাম দুবাইয়ে। দেশে ফিরেছি, কাগজপত্র নেই। সাহায্য করেন।",
+      "dialog_en": "Councillor sahib, stuck two years in Dubai through Covid. Back home now, no papers. Please help.",
+      "left": {
+        "label_bn": "স্থানীয় প্রত্যয়ন দিন",
+        "label_en": "Issue local certification",
+        "effects": {
+          "janata": 6,
+          "proshashon": -3
+        }
+      },
+      "right": {
+        "label_bn": "\"নিজে সরকারের কাছে যান\"",
+        "label_en": "\"Apply to govt yourself\"",
+        "effects": {
+          "janata": -4
+        }
+      },
+      "max_uses": 2
+    }
+  ]
+}

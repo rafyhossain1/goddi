@@ -1,0 +1,78 @@
+{
+  "_comment": "Mission config — drives the mode-select screen and the deck loader. Each mission has its own card file (data/cards-<id>.json) once built. Campaign reuses the original data/cards.json for backward compatibility.",
+  "missions": [
+    {
+      "id": "campaign",
+      "name_bn": "মূল অভিযান",
+      "name_en": "Campaign",
+      "subtitle_bn": "ওয়ার্ড ৩৭। পাঁচ বছর। কতদিন টিকবেন?",
+      "subtitle_en": "Ward 37. Five years. How long will you last?",
+      "available": true,
+      "deck": "/data/cards.json",
+      "start_date_bn": "১ বৈশাখ ১৪৩৩",
+      "start_date_en": "1 Baishakh 1433",
+      "total_days": 1825,
+      "days_per_card_min": 21,
+      "days_per_card_max": 29,
+      "year_label_bn": "বছর",
+      "year_label_en": "Year",
+      "chapters": [
+        { "id": "y1", "start_day": 1,    "name_bn": "বছর ১", "name_en": "Year 1" },
+        { "id": "y2", "start_day": 366,  "name_bn": "বছর ২", "name_en": "Year 2" },
+        { "id": "y3", "start_day": 731,  "name_bn": "বছর ৩", "name_en": "Year 3" },
+        { "id": "y4", "start_day": 1096, "name_bn": "বছর ৪", "name_en": "Year 4" },
+        { "id": "y5", "start_day": 1461, "name_bn": "বছর ৫", "name_en": "Year 5" }
+      ]
+    },
+    {
+      "id": "covid",
+      "name_bn": "কোভিড সংকট",
+      "name_en": "Survive Covid",
+      "subtitle_bn": "মহামারীর সময় ওয়ার্ড পরিচালনা।",
+      "subtitle_en": "Run a ward during the pandemic.",
+      "available": true,
+      "deck": "/data/cards-covid.json",
+      "start_date_bn": "৮ মার্চ ২০২০",
+      "start_date_en": "8 March 2020",
+      "total_days": 730,
+      "days_per_card_min": 11,
+      "days_per_card_max": 18,
+      "year_label_bn": "পর্যায়",
+      "year_label_en": "Phase",
+      "chapters": [
+        { "id": "p1", "start_day": 1,   "name_bn": "প্রথম আঘাত",       "name_en": "First strike",   "_dates": "Mar–Apr 2020" },
+        { "id": "p2", "start_day": 70,  "name_bn": "লকডাউনে ঈদ",       "name_en": "Eid in lockdown","_dates": "May 2020" },
+        { "id": "p3", "start_day": 120, "name_bn": "প্রথম ঢেউ",        "name_en": "First wave",     "_dates": "Jun–Aug 2020" },
+        { "id": "p4", "start_day": 215, "name_bn": "নতুন স্বাভাবিক",   "name_en": "New normal",     "_dates": "Sep–Dec 2020" },
+        { "id": "p5", "start_day": 335, "name_bn": "টিকার দৌড়",       "name_en": "Vaccine race",   "_dates": "Jan–Apr 2021" },
+        { "id": "p6", "start_day": 425, "name_bn": "দ্বিতীয় ঢেউ",     "name_en": "Second wave",    "_dates": "May–Aug 2021" },
+        { "id": "p7", "start_day": 545, "name_bn": "ফিরে আসা",         "name_en": "Recovery",       "_dates": "Sep 2021–Feb 2022" },
+        { "id": "p8", "start_day": 700, "name_bn": "শেষের শুরু",       "name_en": "End of the beginning", "_dates": "Mar 2022" }
+      ]
+    },
+    {
+      "id": "july2024",
+      "name_bn": "কোটা আন্দোলন",
+      "name_en": "July 2024",
+      "subtitle_bn": "রাস্তায় ছাত্ররা। প্রতিদিনই সিদ্ধান্ত।",
+      "subtitle_en": "Students in the streets. A decision every day.",
+      "available": false
+    },
+    {
+      "id": "dengue2023",
+      "name_bn": "ডেঙ্গু মৌসুম",
+      "name_en": "Dengue Summer",
+      "subtitle_bn": "রেকর্ড ডেঙ্গু — হাসপাতাল, ফগিং, রাজনীতি।",
+      "subtitle_en": "Record outbreak. Hospitals, fogging, politics.",
+      "available": false
+    },
+    {
+      "id": "ranaplaza",
+      "name_bn": "রানা প্লাজা",
+      "name_en": "Rana Plaza",
+      "subtitle_bn": "ভবন নিরাপত্তা সংকট। কে দায়ী?",
+      "subtitle_en": "Building-safety reckoning. Who carries the weight?",
+      "available": false
+    }
+  ]
+}

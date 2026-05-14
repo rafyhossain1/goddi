@@ -182,6 +182,25 @@
     }
   ];
 
+  // ---------- Mission helpers ----------
+  // Given the current state.day, return which chapter/phase number we're in
+  // (1-indexed). Walks state.mission.chapters[] which have start_day fields.
+  // For Campaign this is effectively day/365 capped at 5. For Covid it's
+  // 1..8 with non-uniform phase lengths.
+  function computeChapterFromDay(day) {
+    const chapters = (state.mission && state.mission.chapters) || [];
+    if (!chapters.length) return Math.min(5, Math.ceil((day || 1) / 365));
+    let idx = 0;
+    for (let i = 0; i < chapters.length; i++) {
+      if (day >= chapters[i].start_day) idx = i;
+    }
+    return idx + 1; // 1-indexed
+  }
+  // Total run length in days for the current mission (Campaign = 1825).
+  function missionTotalDays() {
+    return (state.mission && state.mission.total_days) || 1825;
+  }
+
   // Map a stat that hit 0 or 100 to a death key in game_overs.json
   const DEATH_MAP = {
     janata:     { low: 'janata_low',     high: 'janata_high' },
@@ -223,17 +242,40 @@
 
   // ---------- Data loading ----------
   async function loadData() {
-    const [cards, parties, gameOvers, characters] = await Promise.all([
+    const [cards, parties, gameOvers, characters, missions] = await Promise.all([
       fetch('/data/cards.json').then(r => r.json()),
       fetch('/data/parties.json').then(r => r.json()),
       fetch('/data/game_overs.json').then(r => r.json()),
       // Character bios are optional — if the file is missing we just skip intros
-      fetch('/data/characters.json').then(r => r.ok ? r.json() : { characters: {} }).catch(() => ({ characters: {} }))
+      fetch('/data/characters.json').then(r => r.ok ? r.json() : { characters: {} }).catch(() => ({ characters: {} })),
+      // Missions config — drives mode-select & mission-specific deck loading.
+      // Optional for back-compat; if missing we fall back to legacy single-deck.
+      fetch('/data/missions.json').then(r => r.ok ? r.json() : null).catch(() => null)
     ]);
-    state.data.cards      = cards.cards;
+    state.data.cards      = cards.cards;                  // Campaign deck (default)
     state.data.parties    = parties.parties;
     state.data.gameOvers  = gameOvers;
     state.data.characters = (characters && characters.characters) || {};
+    state.data.missions   = (missions && missions.missions) || [];
+    state.data.campaignDeck = cards.cards;                // Cached so we can swap back
+  }
+
+  // Load the deck for a given mission. Returns the cards array.
+  // Falls back to the Campaign deck if the mission has no separate deck file.
+  async function loadMissionDeck(missionId) {
+    const mission = state.data.missions.find(m => m.id === missionId);
+    if (!mission || !mission.deck || mission.id === 'campaign') {
+      return state.data.campaignDeck;
+    }
+    try {
+      const res = await fetch(mission.deck);
+      if (!res.ok) throw new Error('deck fetch failed: ' + res.status);
+      const json = await res.json();
+      return json.cards || [];
+    } catch (e) {
+      console.warn('[mission] deck load failed, falling back to campaign:', e);
+      return state.data.campaignDeck;
+    }
   }
 
   // ---------- Screen routing ----------
@@ -469,15 +511,37 @@
       goto('party');
     });
 
-    startBtn.addEventListener('click', () => {
+    startBtn.addEventListener('click', async () => {
       if (!state.player.mode) return;
       if (window.Sfx) Sfx.playClick();
-      startRun();
+      startBtn.disabled = true;
+      try { await startRun(); }
+      catch (e) { console.error('[startRun] failed:', e); }
+      finally  { startBtn.disabled = false; }
     });
   }
 
   // ---------- Start a run ----------
-  function startRun() {
+  async function startRun() {
+    // Look up the mission config for the chosen mode. If missions data
+    // hasn't loaded (legacy fallback), synthesize a campaign default
+    // matching the historic hardcoded behavior.
+    const mission = (state.data.missions || []).find(m => m.id === state.player.mode) || {
+      id: 'campaign',
+      total_days: 1825,
+      chapters: [
+        { id: 'y1', start_day: 1,    name_bn: 'বছর ১', name_en: 'Year 1' },
+        { id: 'y2', start_day: 366,  name_bn: 'বছর ২', name_en: 'Year 2' },
+        { id: 'y3', start_day: 731,  name_bn: 'বছর ৩', name_en: 'Year 3' },
+        { id: 'y4', start_day: 1096, name_bn: 'বছর ৪', name_en: 'Year 4' },
+        { id: 'y5', start_day: 1461, name_bn: 'বছর ৫', name_en: 'Year 5' }
+      ]
+    };
+    state.mission = mission;
+
+    // Swap to the mission's deck (Campaign uses the already-loaded one).
+    state.data.cards = await loadMissionDeck(mission.id);
+
     const party      = state.data.parties.find(p => p.id === state.player.party);
     const background = BACKGROUNDS.find(b => b.id === state.player.background);
     // Seed stats at 50 + party modifier + background modifier, clamped. Both
@@ -1127,8 +1191,15 @@
     const yearBefore = state.year;
     // Capture stats at first commit of each year so we can compute year deltas
     if (!state.yearStartStats) state.yearStartStats = { ...state.stats };
-    state.day += 21 + Math.floor(Math.random() * 9);
-    state.year = Math.min(5, Math.ceil((state.day || 1) / 365));
+    // Mission-configurable pacing. Campaign uses 21-29 days/swipe (matches
+    // historic behavior). Covid uses 11-18 to fit ~50 swipes in a ~10-min run.
+    const dMin = (state.mission && state.mission.days_per_card_min) || 21;
+    const dMax = (state.mission && state.mission.days_per_card_max) || 29;
+    state.day += dMin + Math.floor(Math.random() * (dMax - dMin + 1));
+    // Mission-aware chapter/year computation. For Campaign this still
+    // produces 1..5 (one per 365 days). For Covid it produces 1..8 walking
+    // the configured phase boundaries.
+    state.year = computeChapterFromDay(state.day);
     const yearCrossed = state.year > yearBefore;
     // On rollover, hold onto the deltas so the year transition can display
     // them, then reset the snapshot for the new year (captured next commit).
@@ -1198,8 +1269,8 @@
       return;
     }
 
-    // Phase 1 win placeholder: survive past ~5 years (~60 cards ≈ 1500 days)
-    if (state.day >= 1825) {
+    // Mission-aware win check. Campaign = 1825, Covid = 730, etc.
+    if (state.day >= missionTotalDays()) {
       setTimeout(() => showWin(), 350);
       return;
     }
