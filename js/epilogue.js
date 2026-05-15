@@ -153,6 +153,36 @@
     }
   };
 
+  // Covid-specific openers + closers (2-year arc, March 2020 → March 2022)
+  const WIN_OPENERS_COVID = {
+    clean: {
+      bn: 'দুই বছর। মহামারীর ভেতর দিয়ে ওয়ার্ডটাকে যেতে দিয়েছেন — হাত পরিষ্কার, কাগজ পরিষ্কার, বিবেক পরিষ্কার। বিরল।',
+      en: 'Two years. You walked the ward through a pandemic — clean hands, clean ledger, clean conscience. A rare thing.'
+    },
+    standard: {
+      bn: 'দুই বছর শেষ। অনেকে মরেছে, অনেকে বেঁচেছে। আপনি দু\'দিকেই দাঁড়িয়েছেন — মাঝখানে, যতটা সম্ভব।',
+      en: 'Two years done. Many died, many lived. You stood on both sides — in the middle, where you could.'
+    },
+    compromised: {
+      bn: 'দুই বছর। আপনি বেঁচে আছেন, গদিতে আছেন। মহামারীর শুরুতে যে লোকটা শপথ পড়েছিল — সে আর নেই।',
+      en: 'Two years. You\'re alive, still in the seat. But the person who took oath when the first case hit is no longer in the room.'
+    }
+  };
+  const WIN_CLOSERS_COVID = {
+    clean: {
+      bn: 'মৃতের তালিকায় আপনার ওয়ার্ডে কম। ত্রাণে আপনার নাম পরিষ্কার। ইতিহাস ভুলে যাবে — পাড়া ভুলবে না।',
+      en: 'Fewer names on the death registers from your ward. Your name clean on every relief list. History will forget — the para will not.'
+    },
+    standard: {
+      bn: 'এই দু\'বছর কেউ মনে রাখবে না সঠিক হিসেবে। কিন্তু পাড়ার চা-দোকানে কেউ বলবে — "উনি যা পারতেন, করেছিলেন।"',
+      en: 'No one will remember these two years correctly. But someone at the corner tea-stall will say — "He did what he could."'
+    },
+    compromised: {
+      bn: 'অডিট ফিরে আসবে। ছবিগুলো রয়ে গেছে। মহামারী মানুষকে ভুলতে শেখায় — কিন্তু সব কিছু না।',
+      en: 'The audits will come back. The photos are still out there. Pandemics teach people to forget — but not everything.'
+    }
+  };
+
   // Death openers reuse the existing game_overs.json body as paragraph 1;
   // we just need a second-paragraph "what's left behind" line per death.
   const DEATH_CODAS = {
@@ -202,9 +232,12 @@
     return lines.slice(0, maxLines);
   }
 
-  function composeWin(tier, flags, lang) {
-    const opener = WIN_OPENERS[tier] || WIN_OPENERS.standard;
-    const closer = WIN_CLOSERS[tier] || WIN_CLOSERS.standard;
+  function composeWin(tier, flags, lang, missionId) {
+    // Mission-aware opener/closer set — Covid has its own two-year voice.
+    const openerSet = (missionId === 'covid') ? WIN_OPENERS_COVID : WIN_OPENERS;
+    const closerSet = (missionId === 'covid') ? WIN_CLOSERS_COVID : WIN_CLOSERS;
+    const opener = openerSet[tier] || openerSet.standard;
+    const closer = closerSet[tier] || closerSet.standard;
     const picked = pickFlagLines(flags, tier === 'clean' ? 2 : 3);
     const middle = picked.map(p => p[lang]);
     // For "clean" tier, prefer the few positive flags that imply legacy/integrity

@@ -1646,8 +1646,9 @@
     // + tier-specific closer. The static body in game_overs.json is unused
     // when Epilogue is available; we keep it as a fallback for safety.
     const fallbackBody = I18n.lang === 'bn' ? win.body_bn : win.body_en;
+    const missionId = state.mission && state.mission.id;
     const paragraphs = window.Epilogue
-      ? Epilogue.composeWin(tier, state.flags, I18n.lang)
+      ? Epilogue.composeWin(tier, state.flags, I18n.lang, missionId)
       : [fallbackBody];
     document.getElementById('win-body').innerHTML = Epilogue
       ? Epilogue.paragraphsToHtml(paragraphs)
@@ -1808,8 +1809,17 @@
         ${danger}${yearMarkers}${lines}${worstMarker}
       </svg>
       <p class="verdict__chart-caption">
-        <span data-lang-bn>৫ বছর · ${state.statHistory.length - 1} সিদ্ধান্ত · লাল চিহ্ন = বিপদসীমা</span>
-        <span data-lang-en>5 years · ${state.statHistory.length - 1} decisions · red zones = danger</span>
+        ${(() => {
+          // Mission-aware run-length text: Campaign = "5 years", Covid = "2 years"
+          const totalDays = (state.mission && state.mission.total_days) || 1825;
+          const yrs = Math.max(1, Math.round(totalDays / 365));
+          const decs = state.statHistory.length - 1;
+          const yrsBn = I18n.toBanglaDigits(yrs);
+          const decsBn = I18n.toBanglaDigits(decs);
+          return `
+            <span data-lang-bn>${yrsBn} বছর · ${decsBn} সিদ্ধান্ত · লাল চিহ্ন = বিপদসীমা</span>
+            <span data-lang-en>${yrs} years · ${decs} decisions · red zones = danger</span>`;
+        })()}
       </p>
       <div class="verdict__legend">${legend}</div>
     `;
@@ -1857,7 +1867,8 @@
       const sign = h.delta > 0 ? '+' : '−';
       const mag  = Math.abs(h.delta);
       const magStr = I18n.lang === 'bn' ? I18n.toBanglaDigits(mag) : mag;
-      const yr = I18n.lang === 'bn' ? 'বছর ' + I18n.toBanglaDigits(h.year) : 'Year ' + h.year;
+      // Mission-aware label: Campaign → "Year 5", Covid → "Second wave", etc.
+      const yr = I18n.formatYear(h.year);
       items.push({
         bn: `সবচেয়ে বড় ধাক্কা: ${h.characterName} — ${statName} ${sign}${magStr} (${yr})`,
         en: `Biggest single moment: ${h.characterName} — ${statName} ${sign}${magStr} (${yr})`
@@ -2093,9 +2104,13 @@
   }
 
   // Reveal the entry button if the verdict tier qualifies. Called from showWin.
+  // Prize draw is Campaign-only: Covid + future special missions don't enter
+  // the lottery (the launch promo is specifically for the main 5-year run).
   function maybeShowPrizeButton(tier) {
     const btn = document.getElementById('btn-prize-entry');
     if (!btn) return;
+    const missionId = state.mission && state.mission.id;
+    if (missionId && missionId !== 'campaign') { btn.hidden = true; return; }
     if (!_sponsorData || !_sponsorData.active) { btn.hidden = true; return; }
     btn.hidden = !(tier in TIER_ENTRIES);
   }
