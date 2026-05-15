@@ -856,12 +856,18 @@
       if (forced && timesUsed(forced.id) < maxUsesFor(forced)) return forced;
     }
 
+    // The card the player just committed. We exclude it from the pool below
+    // so the same card never appears back-to-back (max_uses=2 still allows it
+    // to reappear later in the run, just not as the very next card).
+    const justPlayedId = state.currentCard && state.currentCard.id;
+
     // 2. Milestone (force_on_day) — fires on or after its scheduled day
     const dueMilestones = state.data.cards.filter(c =>
       typeof c.force_on_day === 'number'
       && state.day >= c.force_on_day
       && timesUsed(c.id) < maxUsesFor(c)
       && isCardEligibleForMilestone(c)
+      && c.id !== justPlayedId          // never the same card twice in a row
     );
     if (dueMilestones.length) {
       // Earliest-scheduled first; tie-break by id
@@ -869,8 +875,12 @@
       return dueMilestones[0];
     }
 
-    // 3. Eligible pool, weighted random
-    const pool = state.data.cards.filter(c => !c.force_on_day && isCardEligible(c));
+    // 3. Eligible pool, weighted random. Drop the just-played card unless
+    // it's the only eligible card left (degenerate end-of-deck case).
+    let pool = state.data.cards.filter(c => !c.force_on_day && isCardEligible(c));
+    if (justPlayedId && pool.length > 1) {
+      pool = pool.filter(c => c.id !== justPlayedId);
+    }
     if (pool.length) return weightedPick(pool);
 
     // 4. Pool exhausted (no eligible cards have remaining uses).
