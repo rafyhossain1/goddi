@@ -8,7 +8,7 @@
      - Bump CACHE_VERSION whenever you ship breaking content/code
        changes; the old cache is purged on activate.
    ========================================================== */
-const CACHE_VERSION = 'goddi-v1-2026-05-15';
+const CACHE_VERSION = 'goddi-v2-2026-05-15';
 const SHELL = [
   '/',
   '/index.html',
@@ -27,6 +27,8 @@ const SHELL = [
   '/js/pwa.js',
   '/js/game.js',
   '/data/cards.json',
+  '/data/cards-covid.json',
+  '/data/missions.json',
   '/data/characters.json',
   '/data/parties.json',
   '/data/game_overs.json',

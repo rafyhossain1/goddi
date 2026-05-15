@@ -2,7 +2,7 @@
   "_comment": "Survive Covid mission deck. 36 cards across 8 phases (March 2020 – March 2022). Uses min_day / max_day for phase gating instead of min_year. All names fictional. Engine should treat this exactly like data/cards.json — same schema, same stat keys (janata/dol/proshashon/tohobil).",
   "cards": [
     {
-      "id": "C01",
+      "id": "CV01",
       "character_name_bn": "ডা. সাবরিনা",
       "character_name_en": "Dr Sabrina",
       "character_role_bn": "সিভিল সার্জনের অফিস",
@@ -37,7 +37,7 @@
       "max_uses": 2
     },
     {
-      "id": "C02",
+      "id": "CV02",
       "character_name_bn": "শাহ আলম",
       "character_name_en": "Shah Alam",
       "character_role_bn": "মিরপুরের গার্মেন্টস মালিক",
@@ -72,7 +72,7 @@
       "max_uses": 2
     },
     {
-      "id": "C03",
+      "id": "CV03",
       "character_name_bn": "মতিন",
       "character_name_en": "Matin",
       "character_role_bn": "ছয় জনের পরিবার, বাস টার্মিনালে",
@@ -107,7 +107,7 @@
       "max_uses": 2
     },
     {
-      "id": "C04",
+      "id": "CV04",
       "character_name_bn": "ওসি হাসান",
       "character_name_en": "OC Hassan",
       "character_role_bn": "থানা প্রধান",
@@ -139,7 +139,7 @@
       "max_uses": 2
     },
     {
-      "id": "C05",
+      "id": "CV05",
       "character_name_bn": "জাহাঙ্গীর হেডস্যার",
       "character_name_en": "Jahangir Headmaster",
       "character_role_bn": "ওয়ার্ড স্কুল প্রধান",
@@ -171,7 +171,7 @@
       "max_uses": 2
     },
     {
-      "id": "C06",
+      "id": "CV06",
       "character_name_bn": "ইমাম সাহেব",
       "character_name_en": "Imam Saheb",
       "character_role_bn": "মসজিদ কমিটি",
@@ -206,7 +206,7 @@
       "max_uses": 2
     },
     {
-      "id": "C07",
+      "id": "CV07",
       "character_name_bn": "মাহবুব",
       "character_name_en": "Mahbub",
       "character_role_bn": "ত্রাণ কমিটির স্বেচ্ছাসেবক",
@@ -241,7 +241,7 @@
       "max_uses": 2
     },
     {
-      "id": "C08",
+      "id": "CV08",
       "character_name_bn": "তাজুল চাচা",
       "character_name_en": "Tajul Chacha",
       "character_role_bn": "বাড়ি ফেরার আবেদনে",
@@ -270,7 +270,7 @@
       "max_uses": 2
     },
     {
-      "id": "C09",
+      "id": "CV09",
       "character_name_bn": "এমপি'র পিএস",
       "character_name_en": "MP's PS",
       "character_role_bn": "কোভিড রেসপন্স ফান্ড",
@@ -302,7 +302,7 @@
       "max_uses": 2
     },
     {
-      "id": "C10",
+      "id": "CV10",
       "character_name_bn": "রিয়াদ",
       "character_name_en": "Riad",
       "character_role_bn": "পুরোনো ক্লাবের বন্ধু, বাবা ICU-এর জন্য অপেক্ষমান",
@@ -334,7 +334,7 @@
       "max_uses": 2
     },
     {
-      "id": "C11",
+      "id": "CV11",
       "character_name_bn": "তানিয়া রহমান",
       "character_name_en": "Tania Rahman",
       "character_role_bn": "অনুসন্ধানী সাংবাদিক",
@@ -369,7 +369,7 @@
       "max_uses": 2
     },
     {
-      "id": "C12",
+      "id": "CV12",
       "character_name_bn": "ম্যাজিস্ট্রেট কামাল",
       "character_name_en": "Magistrate Kamal",
       "character_role_bn": "মোবাইল কোর্ট",
@@ -401,7 +401,7 @@
       "max_uses": 2
     },
     {
-      "id": "C13",
+      "id": "CV13",
       "character_name_bn": "সাকিব ও বোন",
       "character_name_en": "Sakib & sister",
       "character_role_bn": "পিতার দাফনের জন্য",
@@ -433,7 +433,7 @@
       "max_uses": 2
     },
     {
-      "id": "C14",
+      "id": "CV14",
       "character_name_bn": "রিনা আপা",
       "character_name_en": "Rina Apa",
       "character_role_bn": "গার্মেন্টস শ্রমিক প্রতিনিধি",
@@ -468,7 +468,7 @@
       "max_uses": 2
     },
     {
-      "id": "C15",
+      "id": "CV15",
       "character_name_bn": "অভিভাবক ফোরাম",
       "character_name_en": "Parents' forum",
       "character_role_bn": "স্কুল রিওপেনিং দাবি",
@@ -500,7 +500,7 @@
       "max_uses": 2
     },
     {
-      "id": "C16",
+      "id": "CV16",
       "character_name_bn": "মুনির স্যার",
       "character_name_en": "Munir Sir",
       "character_role_bn": "প্রাথমিক স্কুল শিক্ষক",
@@ -532,7 +532,7 @@
       "max_uses": 2
     },
     {
-      "id": "C17",
+      "id": "CV17",
       "character_name_bn": "ফেরদৌসী বেগম",
       "character_name_en": "Ferdousi Begum",
       "character_role_bn": "মৃত ক্লিনিক ডাক্তারের স্ত্রী",
@@ -567,7 +567,7 @@
       "max_uses": 2
     },
     {
-      "id": "C18",
+      "id": "CV18",
       "character_name_bn": "গরু-হাট কমিটি",
       "character_name_en": "Cattle market committee",
       "character_role_bn": "ঈদুল আযহা",
@@ -596,7 +596,7 @@
       "max_uses": 2
     },
     {
-      "id": "C19",
+      "id": "CV19",
       "character_name_bn": "জরিনা খালা",
       "character_name_en": "Jorina Khala",
       "character_role_bn": "সুরক্ষা অ্যাপে রেজিস্ট্রেশন আটকে",
@@ -628,7 +628,7 @@
       "max_uses": 2
     },
     {
-      "id": "C20",
+      "id": "CV20",
       "character_name_bn": "ব্যবসায়ী নেতা",
       "character_name_en": "Trader's association head",
       "character_role_bn": "টিকা-লাইন এড়িয়ে",
@@ -660,7 +660,7 @@
       "max_uses": 2
     },
     {
-      "id": "C21",
+      "id": "CV21",
       "character_name_bn": "মুফতি জাহিদ",
       "character_name_en": "Mufti Zahid",
       "character_role_bn": "টিকার বিরোধিতা করছেন",
@@ -692,7 +692,7 @@
       "max_uses": 2
     },
     {
-      "id": "C22",
+      "id": "CV22",
       "character_name_bn": "ওয়ার্ড হেলথ অফিসার",
       "character_name_en": "Ward health officer",
       "character_role_bn": "কোভিশিল্ড সরবরাহ আটকে",
@@ -721,7 +721,7 @@
       "max_uses": 2
     },
     {
-      "id": "C23",
+      "id": "CV23",
       "character_name_bn": "শাহ আলম",
       "character_name_en": "Shah Alam",
       "character_role_bn": "গার্মেন্টস মালিক, আবার",
@@ -753,7 +753,7 @@
       "max_uses": 2
     },
     {
-      "id": "C24",
+      "id": "CV24",
       "character_name_bn": "নুসরাত",
       "character_name_en": "Nusrat",
       "character_role_bn": "মায়ের অক্সিজেন শেষ",
@@ -785,7 +785,7 @@
       "max_uses": 2
     },
     {
-      "id": "C25",
+      "id": "CV25",
       "character_name_bn": "কবরস্থান কমিটি",
       "character_name_en": "Graveyard committee",
       "character_role_bn": "জায়গা শেষ",
@@ -817,7 +817,7 @@
       "max_uses": 2
     },
     {
-      "id": "C26",
+      "id": "CV26",
       "character_name_bn": "প্রতিবেশী মেহরিন",
       "character_name_en": "Mehrin, neighbour",
       "character_role_bn": "তিন দিন ধরে গলির মৃতদেহ",
@@ -849,7 +849,7 @@
       "max_uses": 2
     },
     {
-      "id": "C27",
+      "id": "CV27",
       "character_name_bn": "ফেডারেশন প্রতিনিধি",
       "character_name_en": "Federation rep",
       "character_role_bn": "ফের লকডাউন বাড়ানো",
@@ -881,7 +881,7 @@
       "max_uses": 2
     },
     {
-      "id": "C28",
+      "id": "CV28",
       "character_name_bn": "তানিয়া রহমান",
       "character_name_en": "Tania Rahman",
       "character_role_bn": "সাংবাদিক, ফিরে এসেছেন",
@@ -916,7 +916,7 @@
       "max_uses": 2
     },
     {
-      "id": "C29",
+      "id": "CV29",
       "character_name_bn": "শিক্ষক ফোরাম",
       "character_name_en": "Teachers' forum",
       "character_role_bn": "এমপিও বেতন দশ মাস পিছিয়ে",
@@ -948,7 +948,7 @@
       "max_uses": 2
     },
     {
-      "id": "C30",
+      "id": "CV30",
       "character_name_bn": "মোবাইল কোর্ট ম্যাজিস্ট্রেট",
       "character_name_en": "Mobile-court magistrate",
       "character_role_bn": "মাস্ক বাধ্যতামূলক — কে এনফোর্স করবে",
@@ -980,7 +980,7 @@
       "max_uses": 2
     },
     {
-      "id": "C31",
+      "id": "CV31",
       "character_name_bn": "নাজমা ম্যাডামের ভাই",
       "character_name_en": "Nazma Madam's brother",
       "character_role_bn": "ফ্রন্টলাইন নার্স, মৃত — ক্ষতিপূরণ আটকে",
@@ -1012,7 +1012,7 @@
       "max_uses": 2
     },
     {
-      "id": "C32",
+      "id": "CV32",
       "character_name_bn": "DGHS পরামর্শক",
       "character_name_en": "DGHS advisor",
       "character_role_bn": "ওমিক্রনের গুজব",
@@ -1044,7 +1044,7 @@
       "max_uses": 2
     },
     {
-      "id": "C33",
+      "id": "CV33",
       "character_name_bn": "স্থানীয় স্পন্সর",
       "character_name_en": "Local sponsor",
       "character_role_bn": "'কোভিড হিরোস' স্মৃতিফলক",
@@ -1073,7 +1073,7 @@
       "max_uses": 2
     },
     {
-      "id": "C34",
+      "id": "CV34",
       "character_name_bn": "ওয়ার্ড সদস্যরা",
       "character_name_en": "Ward members",
       "character_role_bn": "প্রকাশ্য সভার দাবি",
@@ -1105,7 +1105,7 @@
       "max_uses": 2
     },
     {
-      "id": "C35",
+      "id": "CV35",
       "character_name_bn": "তানিয়া রহমান",
       "character_name_en": "Tania Rahman",
       "character_role_bn": "দু-বছরের রেট্রোস্পেক্টিভ",
@@ -1134,7 +1134,7 @@
       "max_uses": 2
     },
     {
-      "id": "C36",
+      "id": "CV36",
       "character_name_bn": "এমপি'র পিএস",
       "character_name_en": "MP's PS",
       "character_role_bn": "কাউন্সিল নির্বাচন তারিখ ঘোষণা",
@@ -1166,7 +1166,7 @@
       "max_uses": 2
     },
     {
-      "id": "C37",
+      "id": "CV37",
       "character_name_bn": "রিটার্নি প্রবাসী",
       "character_name_en": "Returning expat",
       "character_role_bn": "সৌদি ফ্লাইট থেকে",
@@ -1198,7 +1198,7 @@
       "max_uses": 2
     },
     {
-      "id": "C38",
+      "id": "CV38",
       "character_name_bn": "করিম মিয়া",
       "character_name_en": "Karim Mia",
       "character_role_bn": "কোণার চা-দোকান",
@@ -1230,7 +1230,7 @@
       "max_uses": 2
     },
     {
-      "id": "C39",
+      "id": "CV39",
       "character_name_bn": "মহিলা কমিটি",
       "character_name_en": "Women's committee",
       "character_role_bn": "হাত-ধোয়ার স্টেশন",
@@ -1262,7 +1262,7 @@
       "max_uses": 2
     },
     {
-      "id": "C40",
+      "id": "CV40",
       "character_name_bn": "ডিজিএইচএস কেরানি",
       "character_name_en": "DGHS clerk",
       "character_role_bn": "দৈনিক রিপোর্ট",
@@ -1297,7 +1297,7 @@
       "max_uses": 2
     },
     {
-      "id": "C41",
+      "id": "CV41",
       "character_name_bn": "টিভি ক্রু",
       "character_name_en": "TV crew",
       "character_role_bn": "এনটিভি লোকেশন রিপোর্টার",
@@ -1329,7 +1329,7 @@
       "max_uses": 2
     },
     {
-      "id": "C42",
+      "id": "CV42",
       "character_name_bn": "মাদ্রাসা ছাত্রদল",
       "character_name_en": "Madrasa students",
       "character_role_bn": "লকডাউনে আটকে",
@@ -1358,7 +1358,7 @@
       "max_uses": 2
     },
     {
-      "id": "C43",
+      "id": "CV43",
       "character_name_bn": "ইফতার-বাজার ব্যবসায়ী",
       "character_name_en": "Iftar-market trader",
       "character_role_bn": "মৌসুমি বিক্রেতাদের পক্ষে",
@@ -1390,7 +1390,7 @@
       "max_uses": 2
     },
     {
-      "id": "C44",
+      "id": "CV44",
       "character_name_bn": "বশীর শেখ",
       "character_name_en": "Bashir Sheikh",
       "character_role_bn": "প্রস্তাব: কোয়ারেন্টাইন সেন্টার",
@@ -1422,7 +1422,7 @@
       "max_uses": 2
     },
     {
-      "id": "C45",
+      "id": "CV45",
       "character_name_bn": "ক্লিনিক ডাক্তারদের প্রতিনিধি",
       "character_name_en": "Clinic doctors rep",
       "character_role_bn": "PPE-র অভাবে ধর্মঘটের হুমকি",
@@ -1457,7 +1457,7 @@
       "max_uses": 2
     },
     {
-      "id": "C46",
+      "id": "CV46",
       "character_name_bn": "স্বেচ্ছাসেবক টিম",
       "character_name_en": "Volunteer team",
       "character_role_bn": "লাশ-গোসল গাড়ির দাবি",
@@ -1489,7 +1489,7 @@
       "max_uses": 2
     },
     {
-      "id": "C47",
+      "id": "CV47",
       "character_name_bn": "তিন এতিম",
       "character_name_en": "Three orphans",
       "character_role_bn": "এক সপ্তাহে দু'জনই বাবা-মা হারা",
@@ -1521,7 +1521,7 @@
       "max_uses": 2
     },
     {
-      "id": "C48",
+      "id": "CV48",
       "character_name_bn": "ফার্মেসি মালিক",
       "character_name_en": "Pharmacy owner",
       "character_role_bn": "প্যারাসিটামল মজুদদারী",
@@ -1553,7 +1553,7 @@
       "max_uses": 2
     },
     {
-      "id": "C49",
+      "id": "CV49",
       "character_name_bn": "বৈশাখী মেলা ব্যবসায়ী",
       "character_name_en": "Boishakhi mela trader",
       "character_role_bn": "বাতিল মেলার ক্ষতিপূরণ",
@@ -1582,7 +1582,7 @@
       "max_uses": 2
     },
     {
-      "id": "C50",
+      "id": "CV50",
       "character_name_bn": "রিনা আপা",
       "character_name_en": "Rina Apa",
       "character_role_bn": "গার্মেন্টস থেকে ছাঁটাই, পরিচ্ছন্নতায়",
@@ -1614,7 +1614,7 @@
       "max_uses": 2
     },
     {
-      "id": "C51",
+      "id": "CV51",
       "character_name_bn": "নাসিরুদ্দিন স্যার",
       "character_name_en": "Nasiruddin sir",
       "character_role_bn": "কমিউনিটি অনলাইন ক্লাস",
@@ -1645,7 +1645,7 @@
       "max_uses": 2
     },
     {
-      "id": "C52",
+      "id": "CV52",
       "character_name_bn": "মানবাধিকার কর্মী",
       "character_name_en": "Human-rights worker",
       "character_role_bn": "পুলিশের হয়রানির অভিযোগ",
@@ -1677,7 +1677,7 @@
       "max_uses": 2
     },
     {
-      "id": "C53",
+      "id": "CV53",
       "character_name_bn": "ইমাম সাহেব",
       "character_name_en": "Imam Saheb",
       "character_role_bn": "নিরাপদ আশুরা পরিকল্পনা",
@@ -1706,7 +1706,7 @@
       "max_uses": 2
     },
     {
-      "id": "C54",
+      "id": "CV54",
       "character_name_bn": "নাবালিকা ফোরাম",
       "character_name_en": "Girl-students forum",
       "character_role_bn": "ঝরে পড়ার হার বাড়ছে",
@@ -1737,7 +1737,7 @@
       "max_uses": 2
     },
     {
-      "id": "C55",
+      "id": "CV55",
       "character_name_bn": "টিকা-বিরোধী পোস্টার",
       "character_name_en": "Anti-vaccine poster",
       "character_role_bn": "রাতে দেয়ালে আঁটা",
@@ -1768,7 +1768,7 @@
       "max_uses": 2
     },
     {
-      "id": "C56",
+      "id": "CV56",
       "character_name_bn": "সিনিয়র সিটিজেন গ্রুপ",
       "character_name_en": "Senior citizen group",
       "character_role_bn": "দরজায় টিকা চাই",
@@ -1799,7 +1799,7 @@
       "max_uses": 2
     },
     {
-      "id": "C57",
+      "id": "CV57",
       "character_name_bn": "গার্মেন্টস HR",
       "character_name_en": "Garments HR",
       "character_role_bn": "বিকল্প রুট চান",
@@ -1831,7 +1831,7 @@
       "max_uses": 2
     },
     {
-      "id": "C58",
+      "id": "CV58",
       "character_name_bn": "রোহিঙ্গা পরিবার",
       "character_name_en": "Rohingya family",
       "character_role_bn": "ওয়ার্ডের প্রান্তে বাস",
@@ -1863,7 +1863,7 @@
       "max_uses": 2
     },
     {
-      "id": "C59",
+      "id": "CV59",
       "character_name_bn": "ঔষধ কোম্পানি প্রতিনিধি",
       "character_name_en": "Pharma rep",
       "character_role_bn": "শর্তসহ অনুদান",
@@ -1895,7 +1895,7 @@
       "max_uses": 2
     },
     {
-      "id": "C60",
+      "id": "CV60",
       "character_name_bn": "রিকশাচালক ইউনিয়ন",
       "character_name_en": "Rickshaw-puller union",
       "character_role_bn": "লকডাউনে রাস্তা বন্ধে প্রতিবাদ",
@@ -1927,7 +1927,7 @@
       "max_uses": 2
     },
     {
-      "id": "C61",
+      "id": "CV61",
       "character_name_bn": "কোভিড ওয়ার্ডের নার্স",
       "character_name_en": "Covid-ward nurse",
       "character_role_bn": "ঝুঁকি-ভাতার দাবিতে ধর্মঘট",
@@ -1959,7 +1959,7 @@
       "max_uses": 2
     },
     {
-      "id": "C62",
+      "id": "CV62",
       "character_name_bn": "গণমাধ্যম",
       "character_name_en": "Media",
       "character_role_bn": "লাশ বিনিময়ের ভুল",
@@ -1991,7 +1991,7 @@
       "max_uses": 2
     },
     {
-      "id": "C63",
+      "id": "CV63",
       "character_name_bn": "এনজিও সমন্বয়কারী",
       "character_name_en": "NGO coordinator",
       "character_role_bn": "ফিল্ড হাসপাতাল তাঁবু",
@@ -2023,7 +2023,7 @@
       "max_uses": 2
     },
     {
-      "id": "C64",
+      "id": "CV64",
       "character_name_bn": "বিজিবি অফিসার",
       "character_name_en": "BGB officer",
       "character_role_bn": "নৌকায় ফেরা শ্রমিক",
@@ -2052,7 +2052,7 @@
       "max_uses": 2
     },
     {
-      "id": "C65",
+      "id": "CV65",
       "character_name_bn": "অভিভাবক-শিক্ষক বিরোধ",
       "character_name_en": "Parent-teacher dispute",
       "character_role_bn": "রিওপেনিং নিয়ম নিয়ে",
@@ -2080,7 +2080,7 @@
       "max_uses": 2
     },
     {
-      "id": "C66",
+      "id": "CV66",
       "character_name_bn": "বশীর শেখ আবার",
       "character_name_en": "Bashir Sheikh again",
       "character_role_bn": "কবরস্থানের পাশে নির্মাণ-প্রস্তাব",
@@ -2112,7 +2112,7 @@
       "max_uses": 2
     },
     {
-      "id": "C67",
+      "id": "CV67",
       "character_name_bn": "এতিম তহবিল উদ্যোক্তা",
       "character_name_en": "Orphan-fund organiser",
       "character_role_bn": "ফ্রন্টলাইনারদের সন্তানদের জন্য",
@@ -2143,7 +2143,7 @@
       "max_uses": 2
     },
     {
-      "id": "C68",
+      "id": "CV68",
       "character_name_bn": "প্রাক্তন কাউন্সিলরের পরিবার",
       "character_name_en": "Former councillor's family",
       "character_role_bn": "মৃত্যুর কারণ চান",
@@ -2175,7 +2175,7 @@
       "max_uses": 2
     },
     {
-      "id": "C69",
+      "id": "CV69",
       "character_name_bn": "বিদেশি দাতা",
       "character_name_en": "Foreign donor",
       "character_role_bn": "কোভিড স্মৃতি-উদ্যান",
@@ -2207,7 +2207,7 @@
       "max_uses": 2
     },
     {
-      "id": "C70",
+      "id": "CV70",
       "character_name_bn": "অনলাইন গুজব",
       "character_name_en": "Online rumour",
       "character_role_bn": "মৃতের সংখ্যা স্ফীত?",
@@ -2238,7 +2238,7 @@
       "max_uses": 2
     },
     {
-      "id": "C71",
+      "id": "CV71",
       "character_name_bn": "কেন্দ্রীয় নিরীক্ষক",
       "character_name_en": "Central auditor",
       "character_role_bn": "দু-বছরের ত্রাণ-হিসাব",
@@ -2274,7 +2274,7 @@
       "max_uses": 2
     },
     {
-      "id": "C72",
+      "id": "CV72",
       "character_name_bn": "প্রবাসী",
       "character_name_en": "Returnee migrant",
       "character_role_bn": "এনআইডি ছাড়া",

@@ -28,16 +28,16 @@
     {
       id: 'year_2',
       name_bn: 'মৌসুম পার', name_en: 'Survived the Monsoon',
-      desc_bn: 'দ্বিতীয় বছর পর্যন্ত টিকে গেছেন।',
-      desc_en: 'Made it past Year 1 of your tenure.',
-      check: (s) => s.year >= 2
+      desc_bn: 'মূল অভিযানে দ্বিতীয় বছর পর্যন্ত টিকে গেছেন।',
+      desc_en: 'Made it past Year 1 of your Campaign tenure.',
+      check: (s) => s.player && s.player.mode === 'campaign' && s.year >= 2
     },
     {
       id: 'year_5',
       name_bn: 'পাঁচ বছর', name_en: 'Full Tenure',
-      desc_bn: 'পঞ্চম বছরে পৌঁছেছেন।',
-      desc_en: 'Reached Year 5 of your tenure.',
-      check: (s) => s.year >= 5
+      desc_bn: 'মূল অভিযানে পঞ্চম বছরে পৌঁছেছেন।',
+      desc_en: 'Reached Year 5 of your Campaign tenure.',
+      check: (s) => s.player && s.player.mode === 'campaign' && s.year >= 5
     },
     // ---------- Story flags ----------
     {
