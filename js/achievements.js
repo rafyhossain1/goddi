@@ -205,6 +205,76 @@
       desc_en: 'Unlocked 10 total badges across all your runs.',
       check: (s) => false,  // computed separately — see evaluateMeta below
       meta: true
+    },
+
+    // ============================================================
+    // Covid mission achievements — only fire on covid runs
+    // ============================================================
+    {
+      id: 'covid_first_wave',
+      name_bn: 'প্রথম ঢেউয়ের সাক্ষী', name_en: 'Survived the First Wave',
+      desc_bn: 'কোভিড মিশনে প্রথম ঢেউ পার করেছেন।',
+      desc_en: 'In Survive Covid, you made it past the first wave.',
+      check: (s) => s.player && s.player.mode === 'covid' && s.day >= 215
+    },
+    {
+      id: 'covid_second_wave',
+      name_bn: 'দ্বিতীয় ঢেউয়ের সাক্ষী', name_en: 'Survived the Second Wave',
+      desc_bn: 'কোভিড মিশনে দ্বিতীয় ঢেউ পার করেছেন।',
+      desc_en: 'In Survive Covid, you made it past the deadly second wave.',
+      check: (s) => s.player && s.player.mode === 'covid' && s.day >= 545
+    },
+    {
+      id: 'covid_clean_relief',
+      name_bn: 'নিরপেক্ষ ত্রাণ', name_en: 'Clean Relief',
+      desc_bn: 'ত্রাণ-তহবিল আত্মসাৎ না করে কোভিড মিশন শেষ করেছেন।',
+      desc_en: 'Finished Survive Covid without touching relief funds.',
+      check: (s) => s.player && s.player.mode === 'covid'
+                 && !s.flags.includes('relief_pocketed')
+                 && !s.flags.includes('relief_partisan')
+                 && s.day >= 730
+    },
+    {
+      id: 'covid_vaccine_helper',
+      name_bn: 'টিকার সারথি', name_en: 'Vaccine Helper',
+      desc_bn: 'বয়স্ক ও সাধারণ মানুষকে টিকা পেতে সাহায্য করেছেন।',
+      desc_en: 'Set up the ward help-desk AND brought doorstep vaccines.',
+      check: (s) => s.player && s.player.mode === 'covid'
+                 && s.flags.includes('vax_helpdesk')
+                 && s.flags.includes('doorstep_vax')
+    },
+    {
+      id: 'covid_frontliner_friend',
+      name_bn: 'ফ্রন্টলাইনারদের পাশে', name_en: 'Friend of the Frontline',
+      desc_bn: 'মৃত স্বাস্থ্যকর্মীদের পরিবারের জন্য লড়েছেন।',
+      desc_en: 'Pushed compensation for fallen health workers, twice.',
+      check: (s) => s.player && s.player.mode === 'covid'
+                 && s.flags.includes('frontline_paid')
+                 && s.flags.includes('frontline_compensated')
+    },
+    {
+      id: 'covid_burial_organizer',
+      name_bn: 'দাফন আয়োজক', name_en: 'When the System Wouldn\'t Bury',
+      desc_bn: 'কোভিড দাফনে নিজে এগিয়ে এসেছেন।',
+      desc_en: 'Stepped up to organise Covid burials when no one else would.',
+      check: (s) => s.player && s.player.mode === 'covid'
+                 && (s.flags.includes('volunteer_burials') || s.flags.includes('sbyc_burial'))
+    },
+    {
+      id: 'covid_honest_count',
+      name_bn: 'সংখ্যা গোপন করেননি', name_en: 'Honest Toll',
+      desc_bn: 'মৃতের প্রকৃত সংখ্যা প্রকাশ করেছেন — দল রাগ করলেও।',
+      desc_en: 'Gave the real ward death toll, even when the party didn\'t want it.',
+      check: (s) => s.player && s.player.mode === 'covid' && s.flags.includes('death_count_honest')
+    },
+    {
+      id: 'covid_full_term',
+      name_bn: 'দুই বছরের কাউন্সিলর', name_en: 'Survive Covid — Full Term',
+      desc_bn: 'মার্চ ২০২০ থেকে মার্চ ২০২২ — পুরো কোভিড পর্ব শেষ করেছেন।',
+      desc_en: 'March 2020 to March 2022 — completed the full Covid term.',
+      check: (s, verdict) => s.player && s.player.mode === 'covid'
+                          && verdict && verdict.outcome === 'win',
+      verdictOnly: true
     }
   ];
 

@@ -39,6 +39,12 @@
       "days_per_card_max": 18,
       "year_label_bn": "পর্যায়",
       "year_label_en": "Phase",
+      "calendar": {
+        "type": "gregorian",
+        "start_year": 2020,
+        "start_month": 2,
+        "start_day": 8
+      },
       "chapters": [
         { "id": "p1", "start_day": 1,   "name_bn": "প্রথম আঘাত",       "name_en": "First strike",   "_dates": "Mar–Apr 2020" },
         { "id": "p2", "start_day": 70,  "name_bn": "লকডাউনে ঈদ",       "name_en": "Eid in lockdown","_dates": "May 2020" },

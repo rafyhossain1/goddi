@@ -68,5 +68,55 @@
       "body_bn": "টিকে গেছেন। গদি আপনার। কিন্তু আয়নায় যে মুখ দেখেন—সেটা এখনো আপনি? পাঁচ বছর কী মূল্যে কিনলেন? নথিগুলো কোথাও আছে। কেউ একদিন খুঁজে বের করবে।",
       "body_en": "You survived. The seat is yours. But the face in the mirror — is that still you? At what cost did you buy these five years? Some files are out there. Someone, one day, will find them."
     }
+  },
+  "deaths_covid": {
+    "janata_low": {
+      "headline_bn": "পাড়া আপনাকে বাতিল করেছে",
+      "headline_en": "THE PARA TURNED ON YOU",
+      "body_bn": "অক্সিজেন নাই, কবরের জায়গা নাই, আর কাউন্সিলরও নাই। প্রতিবেশীরা চিৎকার করল — আপনি জবাব দিতে পারেননি।",
+      "body_en": "No oxygen, no graves, and no councillor. The neighbours shouted — you had no answers left."
+    },
+    "janata_high": {
+      "headline_bn": "লোকদেখানো হিরো",
+      "headline_en": "A POPULAR FIGURE WITH NO POWER",
+      "body_bn": "মানুষ আপনাকে ভালোবাসে — মানতে আপনি কেন্দ্রের সাথে যুদ্ধ করতেন। যুদ্ধে হারলেন। অফিস থেকে চিঠি এল।",
+      "body_en": "The people loved you — you spent yourself fighting central on their behalf. You lost the fight. A letter came from upstairs."
+    },
+    "dol_low": {
+      "headline_bn": "দল ছেড়ে দিয়েছে",
+      "headline_en": "THE PARTY CUT YOU LOOSE",
+      "body_bn": "কেন্দ্র চাঁদা চাইল, ত্রাণ বিতরণে দল চাইল, আপনি বার বার \"না\" বলেছেন। মহামারীর মাঝে আপনি একা — দল আর আপনি না।",
+      "body_en": "Central wanted contributions, party wanted relief distribution, you kept saying no. In a pandemic, you stood alone — the party stopped standing with you."
+    },
+    "dol_high": {
+      "headline_bn": "দলের সম্পত্তি",
+      "headline_en": "PROPERTY OF THE PARTY",
+      "body_bn": "প্রতিটি ত্রাণ-বাক্সে দলের সিল ছিল, প্রতিটি ভ্যাকসিন-ক্যাম্পে দলের ব্যানার। জনতা ভুলল না। কেউ আর আপনাকে কাউন্সিলর ভাবে না।",
+      "body_en": "Every relief box carried the party seal, every vaccine camp the party banner. The public did not forget. No one calls you Councillor any more."
+    },
+    "proshashon_low": {
+      "headline_bn": "প্রশাসন কাঁধে নিয়েছে",
+      "headline_en": "THE BUREAUCRACY TOOK OVER",
+      "body_bn": "লকডাউন ভেঙেছেন, কোয়ারেন্টাইন এড়িয়ে গেছেন, পুলিশের সঙ্গে লড়েছেন। অবশেষে DC অফিস থেকে ফাইল এল — আপনার নাম, লাল কালিতে।",
+      "body_en": "You broke lockdown, dodged quarantine, fought the police. Eventually a file came from the DC office — your name, in red."
+    },
+    "proshashon_high": {
+      "headline_bn": "কাগজে কাউন্সিলর",
+      "headline_en": "COUNCILLOR-IN-NAME-ONLY",
+      "body_bn": "প্রতিটি কাজ \"ফাইল করুন\" দিয়ে শুরু, \"অপেক্ষা করুন\" দিয়ে শেষ। মহামারী থেমে থাকেনি। আপনি থেমেছেন।",
+      "body_en": "Everything began with \"file it\" and ended with \"wait.\" The pandemic did not pause. You did."
+    },
+    "tohobil_low": {
+      "headline_bn": "ওয়ার্ড দেউলিয়া",
+      "headline_en": "THE WARD WENT BROKE",
+      "body_bn": "ত্রাণ-বরাদ্দ ফুরালো, ক্যাম্প ফান্ড ফুরালো, ফগিং থামল। যখন সবার দরকার তখনই খালি কোষাগার — কেন্দ্র আপনাকে সরিয়ে দিল।",
+      "body_en": "The relief ran out, the camp funds ran out, the fogging stopped. The treasury was empty when it mattered most — and central removed you."
+    },
+    "tohobil_high": {
+      "headline_bn": "কাঁচা টাকার অভিযোগ",
+      "headline_en": "CHARGED WITH RELIEF FRAUD",
+      "body_bn": "মহামারীর সময়ে আপনার তহবিল ফুলেছে — অডিটর সেটা ভোলেনি। কেন্দ্রীয় নিরীক্ষায় ফাইল খুলল। আপনি আর কাউন্সিলর না।",
+      "body_en": "Your treasury grew through the pandemic — and the auditors did not forget. The central audit opened the file. You are no longer Councillor."
+    }
   }
 }

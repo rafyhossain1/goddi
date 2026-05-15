@@ -538,6 +538,8 @@
       ]
     };
     state.mission = mission;
+    // Tell i18n which mission so HUD shows phase labels + Gregorian dates for Covid.
+    if (window.I18n && I18n.setMission) I18n.setMission(mission);
 
     // Swap to the mission's deck (Campaign uses the already-loaded one).
     state.data.cards = await loadMissionDeck(mission.id);
@@ -1325,10 +1327,9 @@
     5: { bn: 'সমাপ্তি', en: 'RECKONING', sub_bn: 'শেষ সিদ্ধান্ত',          sub_en: 'The last decision' }
   };
 
-  // Involuntary stat shifts at year crossover — the world acting on the
-  // Councillor regardless of how cautiously they've played. Each theme has
-  // a one-line caption that explains the hit in story terms.
-  const YEAR_EFFECTS = {
+  // Involuntary stat shifts at chapter crossover — the world acting on the
+  // Councillor regardless of how cautiously they've played. Per-mission map.
+  const CAMPAIGN_YEAR_EFFECTS = {
     2: {
       effects: { janata: 5, tohobil: -6 },
       caption_bn: 'বন্যা ত্রাণে আপনাকে দেখা গেছে — কিন্তু তহবিল কমছে।',
@@ -1346,6 +1347,56 @@
     }
     // Year 5: no environmental effect. Let the player's own decisions land.
   };
+
+  // Covid mission — phase transitions. 8 phases; involuntary hits where the
+  // real-world phase delivers a structural blow regardless of player choices.
+  const COVID_PHASE_EFFECTS = {
+    2: { // Eid in lockdown — relief politics + Eid pressure
+      effects: { tohobil: -5, janata: -3 },
+      caption_bn: 'লকডাউনে ঈদ — ত্রাণ আসে, কিন্তু সবার কাছে পৌঁছায় না।',
+      caption_en: 'Eid in lockdown — the relief comes, but never reaches everyone.'
+    },
+    3: { // First wave — health system buckles
+      effects: { janata: -6, proshashon: -3 },
+      caption_bn: 'প্রথম ঢেউ চূড়ায় — ICU ফাঁকা নেই, ক্ষোভ আপনার দিকে।',
+      caption_en: 'First wave peaks — no ICU beds, and the anger lands on you.'
+    },
+    4: { // New normal — fatigue, schools shut, economy stalls
+      effects: { tohobil: -4, janata: -3 },
+      caption_bn: 'লম্বা স্থবিরতা — দোকান বন্ধ, স্কুল বন্ধ, পয়সা ফুরাচ্ছে।',
+      caption_en: 'A long stillness — shops shut, schools shut, money running out.'
+    },
+    5: { // Vaccine race — registration chaos + supply panic
+      effects: { proshashon: -4, janata: 3 },
+      caption_bn: 'টিকার লাইনে বিশৃঙ্খলা — তবু সবাই জানে কিছু একটা হচ্ছে।',
+      caption_en: 'Chaos in the vaccine queues — but at least something is finally happening.'
+    },
+    6: { // Second wave — Delta, deaths spike. The deadliest period.
+      effects: { janata: -8, tohobil: -3 },
+      caption_bn: 'দ্বিতীয় ঢেউ — অক্সিজেন নেই, কবরের জায়গা নেই, ক্ষমা নেই।',
+      caption_en: 'The second wave — no oxygen, no graveyard space, no forgiveness.'
+    },
+    7: { // Recovery — vaccine rollout, schools reopen
+      effects: { janata: 5, proshashon: 3 },
+      caption_bn: 'টিকা পৌঁছাচ্ছে, স্কুল খুলছে — কিন্তু ক্ষতিপূরণ?',
+      caption_en: 'Vaccines reaching, schools reopening — but the cost?'
+    },
+    8: { // End — audits and elections return
+      effects: { proshashon: -3 },
+      caption_bn: 'অডিট ফিরে আসছে। জবাবদিহিতা।',
+      caption_en: 'The audits are back. Time to account.'
+    }
+  };
+
+  // Mission-aware lookup. Campaign uses its year-effects table; Covid uses
+  // its phase-effects table; future missions can plug in their own here.
+  function chapterEffectsFor(year) {
+    const mid = state.mission && state.mission.id;
+    if (mid === 'covid')    return COVID_PHASE_EFFECTS[year];
+    return CAMPAIGN_YEAR_EFFECTS[year];
+  }
+  // Alias to keep existing call sites working with minimal diff.
+  const YEAR_EFFECTS = new Proxy({}, { get: (_, key) => chapterEffectsFor(Number(key)) });
   // Character-intro overlay — shows portrait + name + role + bio when a
   // named character first appears in a run. Tap to dismiss → run the
   // pending `done` callback (the actual card render).
@@ -1511,7 +1562,11 @@
   // ---------- Game over screen ----------
   function showGameOver(death) {
     state.lastVerdict = { outcome: 'death', cause: death.key };
-    const deathData = state.data.gameOvers.deaths[death.key];
+    // Mission-aware copy: if Covid (or any mission with its own deaths_<id>
+    // table) has a Covid-themed line for this death key, prefer it.
+    const mid = state.mission && state.mission.id;
+    const missionDeaths = mid && state.data.gameOvers['deaths_' + mid];
+    const deathData = (missionDeaths && missionDeaths[death.key]) || state.data.gameOvers.deaths[death.key];
     document.getElementById('verdict-headline').textContent =
       I18n.lang === 'bn' ? deathData.headline_bn : deathData.headline_en;
 
