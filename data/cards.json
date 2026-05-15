@@ -1,6 +1,90 @@
 {
   "cards": [
     {
+      "id": "I03",
+      "character_name_bn": "আনোয়ার ভাই",
+      "character_name_en": "Anwar Bhai",
+      "character_role_bn": "জেলা পার্টি সভাপতি · ফোনে",
+      "character_role_en": "District party chief · on the phone",
+      "portrait_id": "_default",
+      "force_on_day": 42,
+      "max_uses": 1,
+      "dialog_bn": "ভাই, জয়ের জন্য অভিনন্দন। দ্রুত মনে করিয়ে দিই — এই জেলায় শীর্ষ পঁয়ত্রিশ ওয়ার্ড কাউন্সিলরকে কেন্দ্র চেনে। বাকিরা অদৃশ্য। আপনি কোনটা?",
+      "dialog_en": "Bhai, congratulations on the win. Quick reminder — top thirty-five ward councillors in this district get noticed by central. The rest go invisible. Which one are you?",
+      "left": {
+        "label_bn": "ভাই, ভরসা রাখুন",
+        "label_en": "Yes Bhai, count on me",
+        "effects": {
+          "dol": 5,
+          "janata": -2
+        }
+      },
+      "right": {
+        "label_bn": "নিজের মতো করব",
+        "label_en": "I'll do it my way",
+        "effects": {
+          "janata": 4,
+          "dol": -4
+        }
+      }
+    },
+    {
+      "id": "I02",
+      "character_name_bn": "আপনার স্ত্রী",
+      "character_name_en": "Your wife",
+      "character_role_bn": "ডিনার টেবিল · প্রথম সপ্তাহ",
+      "character_role_en": "Dinner table · week one",
+      "portrait_id": "wife",
+      "force_on_day": 21,
+      "max_uses": 1,
+      "dialog_bn": "তো — এক সপ্তাহ গেল। পাঁচ বছর এভাবে চালাবে? বলো — ঘরের জন্য কী হিসেব?",
+      "dialog_en": "So — week one done. Are you going to do this for five years? Tell me — what's the plan for home?",
+      "left": {
+        "label_bn": "রাত ৯টার মধ্যে বাসায়",
+        "label_en": "Home by 9 most nights",
+        "effects": {
+          "janata": 3,
+          "dol": -3
+        }
+      },
+      "right": {
+        "label_bn": "চাকরিটা ২৪/৭",
+        "label_en": "This job is 24/7",
+        "effects": {
+          "dol": 4,
+          "janata": -3
+        }
+      }
+    },
+    {
+      "id": "I01",
+      "character_name_bn": "সেলিম",
+      "character_name_en": "Selim",
+      "character_role_bn": "ব্যক্তিগত সহকারী · প্রথম দিন",
+      "character_role_en": "Personal Assistant · day one",
+      "portrait_id": "selim",
+      "force_on_day": 0,
+      "max_uses": 1,
+      "dialog_bn": "স্যার, স্বাগতম। আজকের সূচি — সকাল ১০টা ওয়ার্ড অফিস, দুপুর ২টা জেলা সভাপতির সঙ্গে, সন্ধ্যায় এসবিওয়াইসির ইফতারে। কোথা থেকে শুরু করব?",
+      "dialog_en": "Sir, welcome. Today's schedule — 10 AM at the ward office, 2 PM with the district chief, evening at the SBYC iftar. Where do we begin?",
+      "left": {
+        "label_bn": "ওয়ার্ড অফিস থেকে",
+        "label_en": "Ward office first",
+        "effects": {
+          "janata": 4,
+          "dol": -2
+        }
+      },
+      "right": {
+        "label_bn": "পার্টি অফিস থেকে",
+        "label_en": "Party HQ first",
+        "effects": {
+          "dol": 4,
+          "janata": -2
+        }
+      }
+    },
+    {
       "id": "S03",
       "character_name_bn": "আজাদ চাচা",
       "character_name_en": "Azad Chacha",
@@ -411,7 +495,8 @@
           "dialog_bn": "ভাই, আপনার পার্টি গরিবদের পক্ষে কথা বলে — এখন দেখান। আমার ছেলে ট্রাকে বেঁচেছে। ক্ষতিপূরণ চাই।",
           "dialog_en": "Bhai, your party speaks for the poor — show it now. My son survived the truck. We need compensation."
         }
-      }
+      },
+      "min_day": 50
     },
     {
       "id": "A03",
@@ -440,7 +525,8 @@
           "dol": -3,
           "proshashon": 4
         }
-      }
+      },
+      "min_day": 50
     },
     {
       "id": "A04",
@@ -492,7 +578,8 @@
           "janata": 5,
           "proshashon": -4
         }
-      }
+      },
+      "min_day": 50
     },
     {
       "id": "A06",
@@ -541,7 +628,8 @@
           "dialog_bn": "বাবা, তুমি পার্টির ভেতর থেকে এসেছ — বুড়োদের সম্মান নিয়ে কথা মনে আছে? আট মাস। কাউকে বলিনি, তোমার কাছেই এলাম।",
           "dialog_en": "Son, you came up through the party — remember the talk of dignity for elders? Eight months. I haven't told anyone — came to you first."
         }
-      }
+      },
+      "min_day": 50
     },
     {
       "id": "M01",
