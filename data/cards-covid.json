@@ -2,14 +2,68 @@
   "_comment": "Survive Covid mission deck. 36 cards across 8 phases (March 2020 – March 2022). Uses min_day / max_day for phase gating instead of min_year. All names fictional. Engine should treat this exactly like data/cards.json — same schema, same stat keys (janata/dol/proshashon/tohobil).",
   "cards": [
     {
+      "id": "CVI02",
+      "character_name_bn": "সেলিম",
+      "character_name_en": "Selim",
+      "character_role_bn": "ব্যক্তিগত সহকারী · অফিসে",
+      "character_role_en": "Personal Assistant · at the office",
+      "portrait_id": "selim",
+      "force_on_day": 8,
+      "max_uses": 1,
+      "dialog_bn": "স্যার, অর্ধেক স্টাফ বাসা থেকে কাজ করতে চান। বাকি অর্ধেক স্কুল বন্ধ বলে বাচ্চাদের অফিসে নিয়ে আসছে। কী করব?",
+      "dialog_en": "Sir, half the staff want to work from home. The other half are bringing their kids to the office because schools are closed. What's the protocol?",
+      "left": {
+        "label_bn": "অফিস খোলা, মাস্ক বাধ্যতামূলক",
+        "label_en": "Office stays open, masks mandatory",
+        "effects": {
+          "proshashon": 4,
+          "janata": -3
+        }
+      },
+      "right": {
+        "label_bn": "সবাই বাসা থেকে",
+        "label_en": "Everyone works from home",
+        "effects": {
+          "janata": 3,
+          "proshashon": -4
+        }
+      }
+    },
+    {
+      "id": "CVI03",
+      "character_name_bn": "আপনার স্ত্রী",
+      "character_name_en": "Your wife",
+      "character_role_bn": "ডিনার টেবিল · প্রথম মাস",
+      "character_role_en": "Dinner table · first month",
+      "portrait_id": "wife",
+      "force_on_day": 20,
+      "max_uses": 1,
+      "dialog_bn": "বাচ্চাদের কি ব্রাহ্মণবাড়িয়ায় আম্মার কাছে পাঠাব? বলছে শহরের চেয়ে গ্রাম এখন নিরাপদ।",
+      "dialog_en": "Should I take the kids to Ammu's place in Brahmanbaria? They say the village is safer than the city right now.",
+      "left": {
+        "label_bn": "পাঠিয়ে দাও",
+        "label_en": "Yes, send them",
+        "effects": {
+          "janata": -2,
+          "tohobil": -2
+        }
+      },
+      "right": {
+        "label_bn": "একসাথেই থাকি",
+        "label_en": "We stay together",
+        "effects": {
+          "janata": 3,
+          "proshashon": -2
+        }
+      }
+    },
+    {
       "id": "CV01",
       "character_name_bn": "ডা. সাবরিনা",
       "character_name_en": "Dr Sabrina",
       "character_role_bn": "সিভিল সার্জনের অফিস",
       "character_role_en": "Civil Surgeon's office",
       "portrait_id": "_default",
-      "min_day": 0,
-      "max_day": 74,
       "dialog_bn": "কাউন্সিলর সাহেব, ওয়ার্ডে প্রথম পজিটিভ — একটা ফ্ল্যাটে। গোটা ভবন কোয়ারেন্টাইন করব?",
       "dialog_en": "Councillor sahib, first positive in the ward — one flat. Shall we quarantine the whole building?",
       "left": {
@@ -34,7 +88,8 @@
           "quarantine_delayed"
         ]
       },
-      "max_uses": 2
+      "max_uses": 1,
+      "force_on_day": 0
     },
     {
       "id": "CV02",
@@ -69,7 +124,29 @@
           "worker_aligned"
         ]
       },
-      "max_uses": 2
+      "max_uses": 2,
+      "background_variants": {
+        "businessman": {
+          "dialog_bn": "ভাই, পেরোল চালানোর অভিজ্ঞতা আছে আপনার — ৩,০০০ শ্রমিকের বেতন বন্ধ মানে পুরো পাড়া খালি। BGMEA-কে ফোন, কারখানা চালু রাখেন।",
+          "dialog_en": "Bhai, you've run payroll — you know what shutting 3,000 workers' wages does to a para. Call BGMEA, keep the factory open."
+        },
+        "teacher": {
+          "dialog_bn": "ভাই, তিন হাজার শ্রমিক মানে তিন হাজার পরিবার। তাদের বাচ্চাদের আপনি পড়িয়েছেন। BGMEA-কে ফোন, কারখানা চলুক।",
+          "dialog_en": "Bhai, three thousand workers means three thousand families. You taught their kids. Call BGMEA, keep the factory running."
+        },
+        "army_retired": {
+          "dialog_bn": "স্যার, এক ছাদের নিচে তিন হাজার — এটা একটা ইউনিট। মাঝপথে ইউনিট ভাঙা যায় না। BGMEA-কে ফোন করেন।",
+          "dialog_en": "Sir, three thousand under one roof — that's a unit. You don't disband a unit mid-mission. Call BGMEA."
+        },
+        "ngo_worker": {
+          "dialog_bn": "ভাই, শ্রমিক কল্যাণে আমরা দু'জনই বছর কাটিয়েছি। এখন কারখানা বন্ধ মানে কাল ত্রাণের লাইন। BGMEA-কে ফোন।",
+          "dialog_en": "Bhai, worker welfare is what we both spent years on. Closing the factory now means relief queues tomorrow. Call BGMEA."
+        },
+        "party_lifer": {
+          "dialog_bn": "ভাই, BGMEA-র চেয়ারম্যান পার্টির কাছে ঋণী — আপনার ফোন আমার চেয়ে বেশি কাজ করে। কারখানা চালু রাখুন।",
+          "dialog_en": "Bhai, BGMEA's chairman owes the party — your call lands harder than mine. Keep the factory open."
+        }
+      }
     },
     {
       "id": "CV03",
@@ -78,7 +155,7 @@
       "character_role_bn": "ছয় জনের পরিবার, বাস টার্মিনালে",
       "character_role_en": "Family of six, at the bus terminal",
       "portrait_id": "broke_resident",
-      "min_day": 0,
+      "min_day": 25,
       "max_day": 74,
       "dialog_bn": "স্যার, ঢাকায় খাবার নাই, ভাড়া নাই। গ্রামে যাব। বাসটা ছাড়েন একটু।",
       "dialog_en": "Sir, no food in Dhaka, no rent. We're trying to get to the village. Please let the bus through.",
@@ -136,7 +213,29 @@
           "tohobil": 3
         }
       },
-      "max_uses": 2
+      "max_uses": 2,
+      "background_variants": {
+        "businessman": {
+          "dialog_bn": "কাউন্সিলর সাহেব, ৫০ হাজার PPE বাজেট। সাপ্লায়ার নেটওয়ার্কে আপনি একই কিট অর্ধেক দামে পান। তিনজন কনস্টেবল PPE ছাড়াই ডিউটিতে।",
+          "dialog_en": "Councillor sahib, ৳50,000 PPE budget. Your supplier network can get the same kit for half — three constables already on duty without PPE."
+        },
+        "teacher": {
+          "dialog_bn": "কাউন্সিলর সাহেব, পুলিশের বাচ্চারাও স্কুলে আসে — তাদের বাবাদের PPE। ৫০ হাজার ওয়ার্ড ফান্ড থেকে।",
+          "dialog_en": "Councillor sahib, the constables' kids come to your schools — their fathers need PPE. ৳50,000 from the ward."
+        },
+        "army_retired": {
+          "dialog_bn": "স্যার, আপনি ডিউটিতে কিট কী জিনিস জানেন — কোনো সৈনিকই খালি হাতে যায় না। থানার জন্য PPE, ৫০ হাজার।",
+          "dialog_en": "Sir, you know what kit means to a man on duty — no soldier goes empty-handed. PPE for the thana, ৳50,000."
+        },
+        "ngo_worker": {
+          "dialog_bn": "কাউন্সিলর সাহেব, দুর্যোগ-কাজে আপনি PPE বিতরণ সামলেছেন। থানার জন্য ৫০ হাজার — দ্রুত procurement, কমিটি লাগে না।",
+          "dialog_en": "Councillor sahib, you've handled PPE distribution in disaster work. ৳50,000 for the thana — quick procurement, no committee."
+        },
+        "party_lifer": {
+          "dialog_bn": "কাউন্সিলর সাহেব, ওসি হাসানের ঋণ পার্টির ফাইলে বছরের পর বছর থাকবে। PPE বাবদ ৫০ হাজার — দীর্ঘ ক্রেডিটের ছোট দাম।",
+          "dialog_en": "Councillor sahib, OC Hassan's favour will sit in the party file for years. ৳50,000 PPE — a small price for long credit."
+        }
+      }
     },
     {
       "id": "CV05",
@@ -168,7 +267,29 @@
           "janata": -5
         }
       },
-      "max_uses": 2
+      "max_uses": 2,
+      "background_variants": {
+        "businessman": {
+          "dialog_bn": "কাউন্সিলর সাহেব, আগেভাগে সিদ্ধান্ত নেওয়ার অভ্যাস আপনার — রেগুলেটরের আগে বন্ধ, ক্ষতি কম। স্কুলে ৪৫০ বাচ্চা। বন্ধ করে দিন?",
+          "dialog_en": "Councillor sahib, you've made early calls before — close before the regulator says so, save the long run. 450 kids in this school. Shut it now?"
+        },
+        "teacher": {
+          "dialog_bn": "স্যার, হেডমাস্টার থেকে হেডমাস্টারে — প্যানিকে ক্লাস চলে না। ৪৫০ বাচ্চা। কেউ অসুস্থ হওয়ার আগে বন্ধ করুন।",
+          "dialog_en": "Sir, headmaster to headmaster — class can't run in a panic. 450 kids. Shut it before someone gets sick."
+        },
+        "army_retired": {
+          "dialog_bn": "স্যার, আপনি আগেভাগে ইভ্যাকুয়েশন কল করেছেন আগেও। সরকারি আদেশের জন্য অপেক্ষা — ৪৫০ বাচ্চার ভেতরে আপনি সেটা করেন না।",
+          "dialog_en": "Sir, you've called early evacuations before. You don't wait for orders when there are 450 kids inside."
+        },
+        "ngo_worker": {
+          "dialog_bn": "স্যার, ফিল্ড ইন্সটিংক্ট — ডেটায় বাধ্য হওয়ার আগে বন্ধ করুন। ৪৫০ বাচ্চা। কর্তৃপক্ষ পরে অনুমোদন করবে।",
+          "dialog_en": "Sir, field instinct — close before the data forces you to. 450 kids. Authority will follow."
+        },
+        "party_lifer": {
+          "dialog_bn": "স্যার, পার্টি কেন্দ্রের লাইনের অপেক্ষা করতে বলবে। কিন্তু ৪৫০ বাচ্চার দায় কেন্দ্রের না, আপনার।",
+          "dialog_en": "Sir, party would say wait for the central line. But 450 kids — that's your call, not central's."
+        }
+      }
     },
     {
       "id": "CV06",
@@ -203,7 +324,25 @@
           "mosque_closed"
         ]
       },
-      "max_uses": 2
+      "max_uses": 2,
+      "dialog_variants": {
+        "janata_league": {
+          "dialog_bn": "কাউন্সিলর সাহেব, কেন্দ্রের লাইন স্পষ্ট — ঘরে পড়ুন, জীবন বাঁচান। আপনার দলের সুর জনস্বাস্থ্য আগে। জুমা চালু রাখব?",
+          "dialog_en": "Councillor sahib, central's line is clear — pray at home, save lives. Your party's tone is public health first. Allow jumma?"
+        },
+        "jatiyotabadi_dol": {
+          "dialog_bn": "কাউন্সিলর সাহেব, আপনার দল ঐতিহ্যকে শ্রদ্ধা করে — কিন্তু জনস্বাস্থ্যের লাইনও সত্য। জুমা চলবে, না বন্ধ?",
+          "dialog_en": "Councillor sahib, your party respects tradition — but the public-health line is real too. Jumma stays, or shuts down?"
+        },
+        "islami_oikko": {
+          "dialog_bn": "কাউন্সিলর সাহেব, আপনার দল মসজিদের পাশে দাঁড়ায়। মহামারীতে জুমা বন্ধ করা কঠিন কল। আপনার সিদ্ধান্ত।",
+          "dialog_en": "Councillor sahib, your party stands with the masjid. Shutting jumma even in plague is a hard call. Your move."
+        },
+        "notun_bangladesh": {
+          "dialog_bn": "কাউন্সিলর সাহেব, আপনি 'পুরাতন বাতিল' বলে এসেছিলেন — তাহলে জুম্মা বন্ধ, না জুম্মা চালু? নতুন উত্তর কী?",
+          "dialog_en": "Councillor sahib, you ran on 'out with the old' — so jumma stays or goes? Public health, or tradition? What's the new answer?"
+        }
+      }
     },
     {
       "id": "CV07",
@@ -238,7 +377,29 @@
           "relief_exposed"
         ]
       },
-      "max_uses": 2
+      "max_uses": 2,
+      "background_variants": {
+        "businessman": {
+          "dialog_bn": "কাউন্সিলর সাহেব, ইনভেন্টরি আর রসিদ মেলে না। ফোলানো সংখ্যা, কম চাল — চেয়ারম্যানের ভাই ত্রাণ-গুদাম থেকে নিচ্ছে।",
+          "dialog_en": "Councillor sahib, the inventory doesn't match the receipts. Inflated numbers, missing rice — the chairman's brother is pulling from the relief storage."
+        },
+        "teacher": {
+          "dialog_bn": "কাউন্সিলর সাহেব, ক্লাসের বাচ্চাদের পরিবার বলছে চাল হাতে আসেনি। চেয়ারম্যানের ভাই 'বিতরণ' করছেন কিন্তু রিলিফ হারিয়ে যাচ্ছে।",
+          "dialog_en": "Councillor sahib, the families of my students say the rice never reached them. The chairman's brother is 'distributing' but the relief is vanishing."
+        },
+        "army_retired": {
+          "dialog_bn": "স্যার, সাপ্লাই-চেইন ডিসিপ্লিন ভেঙেছে। চাল বের হয়েছে, পরিবারে পৌঁছায়নি। চেয়ারম্যানের ভাই-ই লিক।",
+          "dialog_en": "Sir, supply-chain discipline broken. Rice marked out, never reached the families. The chairman's brother is the leak."
+        },
+        "ngo_worker": {
+          "dialog_bn": "ভাই, ত্রাণ-জালিয়াতির ক্লাসিক স্বাক্ষর — কাগজ চলে, মাল চলে না। চেয়ারম্যানের ভাই-ই লিক। আমরা সবাই এটা দেখেছি।",
+          "dialog_en": "Bhai, classic relief-fraud signature — paperwork moves, goods don't. The chairman's brother is the leak. We've all seen this pattern."
+        },
+        "party_lifer": {
+          "dialog_bn": "ভাই, চেয়ারম্যানের ভাই ত্রাণ তুলছে — পুরোনো, পুরোনো খেলা। আপনি জানেন কীভাবে এটা ধামাচাপা দিতে হয়। বা ফাঁস করতে হয়।",
+          "dialog_en": "Bhai, the chairman's brother lifting relief — old, old playbook. You know how this gets buried. Or surfaced."
+        }
+      }
     },
     {
       "id": "CV08",
@@ -299,7 +460,25 @@
           "relief_partisan"
         ]
       },
-      "max_uses": 2
+      "max_uses": 2,
+      "dialog_variants": {
+        "janata_league": {
+          "dialog_bn": "ভাই, কেন্দ্র থেকে ৫ লাখ এসেছে। জনতা লীগের লাইন — 'সবার উন্নয়ন' — প্রকাশ্য বিতরণই স্বাভাবিক। নাকি দলীয় চ্যানেল?",
+          "dialog_en": "Bhai, ৳5 lakh from central. Janata League's line — 'progress for all' — public distribution is the obvious play. Or through party channels?"
+        },
+        "jatiyotabadi_dol": {
+          "dialog_bn": "ভাই, কেন্দ্র থেকে ৫ লাখ এসেছে। JAD-এর সুর 'দেশ আগে' — পুরো দেশ দেখছে এটা কোথায় যাচ্ছে। প্রকাশ্যে, না দলীয় হাতে?",
+          "dialog_en": "Bhai, ৳5 lakh from central. JAD's tone — 'country first' — and the country is watching where this lands. Public, or through party hands?"
+        },
+        "islami_oikko": {
+          "dialog_bn": "ভাই, কেন্দ্র থেকে ৫ লাখ এসেছে। আপনার মসজিদ-নেটওয়ার্ক এটা পরিষ্কারভাবে সামলাবে। নাকি দলের কর্মীদের মাধ্যমে?",
+          "dialog_en": "Bhai, ৳5 lakh from central. Your masjid network would handle this clean. Or through party workers?"
+        },
+        "notun_bangladesh": {
+          "dialog_bn": "ভাই, কেন্দ্র থেকে ৫ লাখ। পুরোনো দলগুলো ক্যাডারের মাধ্যমে ত্রাণ চালায়। নতুন বাংলাদেশের আলাদা হওয়ার কথা — আপনার চ্যানেল কী?",
+          "dialog_en": "Bhai, ৳5 lakh from central. Old parties channel relief through cadre. Notun Bangladesh is supposed to be different — what's your channel?"
+        }
+      }
     },
     {
       "id": "CV10",
@@ -331,7 +510,29 @@
           "janata": 5
         }
       },
-      "max_uses": 2
+      "max_uses": 2,
+      "background_variants": {
+        "businessman": {
+          "dialog_bn": "ভাই, আমার পুরোনো সাপ্লায়ারের ভাই হাসপাতাল অ্যাডমিনে। আপনার বা আমার একটা ফোন — আব্বা একটা বেড পান। অক্সিজেন নামছে।",
+          "dialog_en": "Bhai, my old supplier's brother runs hospital admin. One call from you or me — Abba gets a bed. His oxygen is dropping."
+        },
+        "teacher": {
+          "dialog_bn": "ভাই, আপনার ছাত্রের বাবা — PTA-তে চেনেন। আপনার ফোনে একটা ICU বেড আসে। নাহলে আব্বা আজ রাত পার করবেন না।",
+          "dialog_en": "Bhai, your student's father — you know him from PTA. One call from you and he gets an ICU bed. He won't survive the night otherwise."
+        },
+        "army_retired": {
+          "dialog_bn": "ভাই, আব্বাও সাবেক সেনা — আপনার মতো। CMH আপনার ফোন রাখবে। এক রাতের জন্য এক বেড।",
+          "dialog_en": "Bhai, Abba is ex-Army too — like you. CMH will honour your call. One bed for one night."
+        },
+        "ngo_worker": {
+          "dialog_bn": "ভাই, ত্রাণের দিনগুলোতে হাসপাতাল-অ্যাডমিনদের সাথে আপনার পরিচয় হয়েছিল। সেই ফোনের নম্বরটাই দরকার। আব্বার অক্সিজেন নামছে।",
+          "dialog_en": "Bhai, you got to know the hospital admins through relief work. That's the phone number we need. Abba's oxygen is dropping."
+        },
+        "party_lifer": {
+          "dialog_bn": "ভাই, পার্টির হাসপাতাল-নেটওয়ার্ক — আপনার ফোনে স্বর্গ-পৃথিবী মেলায়। আব্বা একটা ICU বেড পান। অক্সিজেন নামছে।",
+          "dialog_en": "Bhai, the party hospital network — they move heaven for your call. Abba gets a bed. His oxygen is dropping."
+        }
+      }
     },
     {
       "id": "CV11",
@@ -430,7 +631,29 @@
           "janata": -6
         }
       },
-      "max_uses": 2
+      "max_uses": 2,
+      "background_variants": {
+        "businessman": {
+          "dialog_bn": "ভাই, আমার বাবা — কোভিডে। কোনো ইমাম জানাজা পড়াতে আসে না। কঠিন সিদ্ধান্ত আপনি আগেও নিয়েছেন। এগিয়ে আসেন।",
+          "dialog_en": "Bhai, my father — Covid. No imam will lead the janaza. You've made difficult calls before. Step in."
+        },
+        "teacher": {
+          "dialog_bn": "স্যার, আপনার পুরোনো ছাত্রের বাবা — আমি। কোভিডে গেছেন। ইমাম জানাজা পড়াতে আসছেন না। আপনি দরকার।",
+          "dialog_en": "Sir, your old student's father — me. He died of Covid. No imam will lead the janaza. We need you."
+        },
+        "army_retired": {
+          "dialog_bn": "স্যার, আমার বাবা কোভিডে গেছেন। চল্লিশ বছর সার্ভিস — তবু কোনো ইমাম জানাজা পড়াতে আসছেন না। এগিয়ে আসেন।",
+          "dialog_en": "Sir, my father died of Covid. Forty years of service, and still no imam will lead his janaza. Step in."
+        },
+        "ngo_worker": {
+          "dialog_bn": "ভাই, বন্যায়-আগুনে আপনি দাফন সামলেছেন। এখন আমার বাবা কোভিডে গেছেন, কোনো ইমাম আসে না। দয়া করে।",
+          "dialog_en": "Bhai, you've handled burials in floods and fires. Now my father died of Covid and no imam will come. Please."
+        },
+        "party_lifer": {
+          "dialog_bn": "ভাই, আমার বাবা ত্রিশ বছর প্রতি ঈদে পার্টিকে দিয়েছেন। কোভিডে গেছেন। কোনো ইমাম জানাজা পড়াতে আসছেন না।",
+          "dialog_en": "Bhai, my father gave to the party every Eid for thirty years. He died of Covid. No imam will lead his janaza."
+        }
+      }
     },
     {
       "id": "CV14",
@@ -465,7 +688,29 @@
           "worker_protest_broken"
         ]
       },
-      "max_uses": 2
+      "max_uses": 2,
+      "background_variants": {
+        "businessman": {
+          "dialog_bn": "ভাই, কাউন্টারে দাঁড়িয়ে শিখেছেন — তিন মাস বেতন বন্ধ মানে শ্রমিক লুটতরাজে নামবে। ছড়ানোর আগে মধ্যস্থতা করেন। নাহলে পুলিশ ভাঙবে।",
+          "dialog_en": "Bhai, behind a counter you learn — three months no wages means workers turn to looting. Mediate before it spirals. Or police break it up."
+        },
+        "teacher": {
+          "dialog_bn": "ভাই, এই শ্রমিকদের অর্ধেকের বাচ্চা আপনার ছাত্র ছিল। তিন মাস বেতন নেই। মধ্যস্থতা করেন, না হলে পুলিশ পাঠাবেন?",
+          "dialog_en": "Bhai, half these workers' kids were your students. Three months no pay. Mediate the dispute, or send police?"
+        },
+        "army_retired": {
+          "dialog_bn": "স্যার, খাবার ছাড়া ইউনিট বিদ্রোহ করে। তিন মাস বেতন বাকি — একই সমীকরণ। মধ্যস্থতা, না পুলিশ?",
+          "dialog_en": "Sir, an unfed unit mutinies. Three months unpaid wages — same equation. Mediate, or order the police?"
+        },
+        "ngo_worker": {
+          "dialog_bn": "ভাই, পাড়ায় বেতন-দাবির আন্দোলন আপনি সংগঠিত করেছেন। তিন মাস অপরিশোধিত — মধ্যস্থতার এলাকা। নাহলে পুলিশ এসকেলেশন।",
+          "dialog_en": "Bhai, you've organised wage drives in the para. Three months unpaid — pure mediation territory. Or police escalation."
+        },
+        "party_lifer": {
+          "dialog_bn": "ভাই, মহামারীতে পার্টি শ্রমিকদের ভুল পাশে দেখা যেতে পারে না। প্রতিবাদ মধ্যস্থতা করুন। নাহলে ভাঙার ছবি ভাইরাল।",
+          "dialog_en": "Bhai, party can't be on the wrong side of workers in a pandemic. Mediate the protest. Or the optics of breaking it up go viral."
+        }
+      }
     },
     {
       "id": "CV15",
@@ -564,7 +809,29 @@
           "frontline_skipped"
         ]
       },
-      "max_uses": 2
+      "max_uses": 2,
+      "background_variants": {
+        "businessman": {
+          "dialog_bn": "ভাই, ফ্রন্টলাইন স্টাফের জন্য হ্যাজার্ড ইনস্যুরেন্স — পেরোল চালিয়েছেন, কীভাবে এটা কাজ করে জানেন। স্বামী কোভিডে গেছেন। ভাতা আসেনি।",
+          "dialog_en": "Bhai, hazard insurance for frontline staff — you ran payroll, you know how this should work. My husband died of Covid. The allowance never came."
+        },
+        "teacher": {
+          "dialog_bn": "ভাই, আমার স্বামী মেডিকেল কলেজে পড়াতেন — আপনার সহকর্মী হিসেবে। কোভিডে গেছেন। হ্যাজার্ড ভাতা আসেনি। প্রতিশ্রুতি দেন।",
+          "dialog_en": "Bhai, my husband taught at medical college — your colleague in the profession. He died of Covid. The hazard allowance never came. Promise me."
+        },
+        "army_retired": {
+          "dialog_bn": "স্যার, সার্ভিস-পরিবারের বিধবারা পেনশনের অপেক্ষা করে। আমি ডাক্তারের বিধবা, হ্যাজার্ড ভাতার অপেক্ষায়। স্বামী ওয়ার্ডে গেছেন।",
+          "dialog_en": "Sir, service-family widows wait for pensions. I'm a doctor's widow, waiting for hazard allowance. My husband died on the ward."
+        },
+        "ngo_worker": {
+          "dialog_bn": "ভাই, আপনি আগে অনেকের ভাতা আদায় করেছেন। আমার স্বামী কোভিড ওয়ার্ডে গেছেন। হ্যাজার্ড ভাতা আসেনি। ধাক্কা দেন।",
+          "dialog_en": "Bhai, you've fought for benefit payouts before. My husband died on the Covid ward. The hazard allowance never came. Push it."
+        },
+        "party_lifer": {
+          "dialog_bn": "ভাই, পার্টি ফ্রন্টলাইনারদের পক্ষে কথা বলে — এখন দেখান। আমার স্বামী কোভিডে গেছেন। হ্যাজার্ড ভাতা আজও আসেনি।",
+          "dialog_en": "Bhai, the party speaks for frontline workers — show it now. My husband died treating Covid patients. The hazard allowance never came."
+        }
+      }
     },
     {
       "id": "CV18",
@@ -657,7 +924,25 @@
           "dol": -5
         }
       },
-      "max_uses": 2
+      "max_uses": 2,
+      "dialog_variants": {
+        "janata_league": {
+          "dialog_bn": "ভাই, পঁচিশজন ব্যবসায়ী VIP লেন চান। JL-এর 'সবার উন্নয়ন' লাইনে আঘাত লাগে যদি সই করেন। অনুমতি, না লাইনে দাঁড়ানো?",
+          "dialog_en": "Bhai, twenty-five businessmen want a VIP lane. JL's 'progress for all' line takes a hit if you sign. Approve, or stand in queue?"
+        },
+        "jatiyotabadi_dol": {
+          "dialog_bn": "ভাই, পঁচিশজন ব্যবসায়ী VIP লেন চান। JAD-এর ভিত্তি এই-ই শ্রেণী। অনুমতি, না বৃহত্তর ভোটের কথা মাথায় রেখে?",
+          "dialog_en": "Bhai, twenty-five businessmen want a VIP lane. JAD's base IS this crowd. Allow, or play to the broader vote?"
+        },
+        "islami_oikko": {
+          "dialog_bn": "ভাই, পঁচিশজন ব্যবসায়ী VIP লেন চান। IO-র লাইন আল্লাহর সামনে সকলে সমান — এখানেও প্রযোজ্য। অনুমতি, না লাইনে দাঁড়ানো?",
+          "dialog_en": "Bhai, twenty-five businessmen want a VIP lane. IO's line is equality before Allah — applies here too. Allow, or stand them in queue?"
+        },
+        "notun_bangladesh": {
+          "dialog_bn": "ভাই, পঁচিশজন ব্যবসায়ী VIP লেন চান। NB এই বিশেষাধিকার-সংস্কৃতির বিরুদ্ধেই এসেছিল। অনুমতি, না প্রত্যাখ্যান?",
+          "dialog_en": "Bhai, twenty-five businessmen want a VIP lane. NB ran against exactly this privilege culture. Allow, or refuse?"
+        }
+      }
     },
     {
       "id": "CV21",
@@ -689,7 +974,25 @@
           "dol": 3
         }
       },
-      "max_uses": 2
+      "max_uses": 2,
+      "dialog_variants": {
+        "janata_league": {
+          "dialog_bn": "ভাই, কেন্দ্রের লাইন টিকা নিতে হবে। মুফতি জাহিদ এটাকে হারাম বলছেন। মুখোমুখি যাবেন, না এড়িয়ে যাবেন?",
+          "dialog_en": "Bhai, central's line is take the vaccine. Mufti Zahid is calling it haram. Confront him, or let it slide?"
+        },
+        "jatiyotabadi_dol": {
+          "dialog_bn": "ভাই, JAD উলামার কর্তৃত্বকে সম্মান করে — কিন্তু হারাম-না-হারাম এই লড়াইয়ে নামা ঠিক না। মুফতি জাহিদ টিকার বিপক্ষে। আপনার সিদ্ধান্ত।",
+          "dialog_en": "Bhai, JAD respects ulema authority — but a haram-or-not fight is the wrong one. Mufti Zahid is anti-vaccine. Your call."
+        },
+        "islami_oikko": {
+          "dialog_bn": "ভাই, এটা আপনার দলকে আটকে ফেলে — উলামার কর্তৃত্ব বনাম জনস্বাস্থ্য। মুফতি জাহিদ হারাম বলছেন। মুখোমুখি, না পাশ কেটে?",
+          "dialog_en": "Bhai, this puts your party in a vice — ulema authority vs public health. Mufti Zahid says haram. Engage, or sidestep?"
+        },
+        "notun_bangladesh": {
+          "dialog_bn": "ভাই, NB-র লাইন বিজ্ঞান, কুসংস্কার না। মুফতি জাহিদের টিকা-হারাম কথা ঠিক সেই পরীক্ষা। মুখোমুখি, না এড়িয়ে?",
+          "dialog_en": "Bhai, NB's line is science over superstition. Mufti Zahid's vaccine-haram talk is exactly that test. Confront, or duck?"
+        }
+      }
     },
     {
       "id": "CV22",
@@ -718,7 +1021,25 @@
           "proshashon": 4
         }
       },
-      "max_uses": 2
+      "max_uses": 2,
+      "dialog_variants": {
+        "janata_league": {
+          "dialog_bn": "কাউন্সিলর সাহেব, কোভিশিল্ড বিলম্ব — কেন্দ্র সামলাবে, কিন্তু আস্তে। JL-এর বার্তা আশ্বস্ত করা। কথা বলবেন, না কেন্দ্রের হাতে?",
+          "dialog_en": "Councillor sahib, Covishield delay — central will handle it, but slowly. JL's message is reassurance. Speak up, or let central handle?"
+        },
+        "jatiyotabadi_dol": {
+          "dialog_bn": "কাউন্সিলর সাহেব, ভারত কোভিশিল্ড আটকেছে — JAD-এর ভারত-বিরোধী ভোটারের কানে যাবে। প্রকাশ্যে আশ্বস্ত করবেন, না চুপ থাকবেন?",
+          "dialog_en": "Councillor sahib, India holds the Covishield — JAD's anti-India voters will hear about it. Reassure publicly, or stay quiet?"
+        },
+        "islami_oikko": {
+          "dialog_bn": "কাউন্সিলর সাহেব, কোভিশিল্ড বিলম্ব — IO-র সমর্থকরা টিকা নিয়ে এমনিতেই সন্দিহান। প্রকাশ্যে আশ্বস্ত করবেন, না বিলম্বকে কথা বলতে দেবেন?",
+          "dialog_en": "Councillor sahib, Covishield delay — IO's supporters were sceptical of the vaccine anyway. Reassure publicly, or let the delay speak for itself?"
+        },
+        "notun_bangladesh": {
+          "dialog_bn": "কাউন্সিলর সাহেব, NB যোগ্য শাসনের প্রতিশ্রুতি দিয়েছে। কোভিশিল্ড বিলম্ব মানে যোগ্যতা-ফেইল। কথা বলবেন, না চুপ?",
+          "dialog_en": "Councillor sahib, NB ran on competent governance. Covishield delay is competence-fail. Speak up, or stay quiet?"
+        }
+      }
     },
     {
       "id": "CV23",
@@ -782,7 +1103,29 @@
           "janata": -7
         }
       },
-      "max_uses": 2
+      "max_uses": 2,
+      "background_variants": {
+        "businessman": {
+          "dialog_bn": "ভাই, তেজগাঁওয়ের অক্সিজেন ডিস্ট্রিবিউটর আপনার কাছে ঋণী। মা'র লেভেল ৮৫। আপনার একটা ফোন।",
+          "dialog_en": "Bhai, the Tejgaon oxygen distributor owes you. Mother's at 85. One call from you."
+        },
+        "teacher": {
+          "dialog_bn": "ভাই, আমার মা আপনার ছেলের স্কুলে পড়াতেন। মা এখন অক্সিজেনে, লেভেল ৮৫। আপনার ফোনে একটা সিলিন্ডার আসে।",
+          "dialog_en": "Bhai, my mother taught at your son's school. She's on oxygen now, level 85. One call from you and a cylinder arrives."
+        },
+        "army_retired": {
+          "dialog_bn": "ভাই, যে ফিল্ড হাসপাতালে আপনি গিয়েছিলেন তাদের রিজার্ভ সিলিন্ডার আছে। এক ফোন। মা'র লেভেল ৮৫।",
+          "dialog_en": "Bhai, the field hospital you visited has reserve cylinders. One call. Mother's at 85."
+        },
+        "ngo_worker": {
+          "dialog_bn": "ভাই, গত বছর যে NGO অক্সিজেন-ব্যাঙ্ক আপনি দাঁড় করিয়েছিলেন সেটা এখনো চলে। এক ফোন। মা'র লেভেল ৮৫।",
+          "dialog_en": "Bhai, the NGO oxygen-bank you set up last year is still running. One call. Mother's at 85."
+        },
+        "party_lifer": {
+          "dialog_bn": "ভাই, মোহাম্মদপুরের পার্টি-পরিচালিত ক্লিনিকে সিলিন্ডার আছে। আপনার ফোনে আজ রাতে একটা শিপ হয়। মা'র লেভেল ৮৫।",
+          "dialog_en": "Bhai, the party-run clinic in Mohammadpur has cylinders. One call from you and one ships tonight. Mother's at 85."
+        }
+      }
     },
     {
       "id": "CV25",
@@ -913,7 +1256,29 @@
           "death_count_buried"
         ]
       },
-      "max_uses": 2
+      "max_uses": 2,
+      "background_variants": {
+        "businessman": {
+          "dialog_bn": "কাউন্সিলর সাহেব — সংখ্যা সংখ্যাই, লেজার চালিয়েছেন। আজ রেকর্ড দিন। ফিচারের জন্য আসল ওয়ার্ড মৃত্যু-সংখ্যা?",
+          "dialog_en": "Councillor sahib — numbers are numbers, you've run a ledger. Today's a record day. The real ward death toll for my feature?"
+        },
+        "teacher": {
+          "dialog_bn": "কাউন্সিলর সাহেব, আপনি বাচ্চাদের সততা শিখিয়েছেন। আজ কোভিড মৃত্যুর রেকর্ড দিন। আসল ওয়ার্ড সংখ্যা, ফিচারের জন্য?",
+          "dialog_en": "Councillor sahib, you taught the kids honesty. Today's a record day for Covid deaths. The real ward number, for my feature?"
+        },
+        "army_retired": {
+          "dialog_bn": "স্যার, ক্যাসুয়ালটি রিপোর্ট — সেটা মিথ্যা বলা যায় না। আজ রেকর্ড দিন। ফিচারের জন্য আসল ওয়ার্ড সংখ্যা?",
+          "dialog_en": "Sir, casualty reports — you don't fake those. Today's a record day. The real ward death toll, for my feature?"
+        },
+        "ngo_worker": {
+          "dialog_bn": "স্যার, ডেটা ইন্টিগ্রিটি — দাতা-রিপোর্টে আপনি রক্ষা করেছেন। আজ রেকর্ড দিন। আসল ওয়ার্ড মৃত্যু-সংখ্যা, ফিচারের জন্য?",
+          "dialog_en": "Sir, data integrity — you've defended it in donor reports. Today's a record day. The real ward death toll, for my feature?"
+        },
+        "party_lifer": {
+          "dialog_bn": "কাউন্সিলর সাহেব — কেন্দ্র এই সংখ্যা কীভাবে পড়ে আপনি জানেন। আজ রেকর্ড দিন। আসল ওয়ার্ড মৃত্যু-সংখ্যা, না সরকারি সংখ্যা?",
+          "dialog_en": "Councillor sahib — you know how central reads these numbers. Today's a record day. The real ward death toll, or the official one?"
+        }
+      }
     },
     {
       "id": "CV29",
@@ -1070,7 +1435,25 @@
           "tohobil": 3
         }
       },
-      "max_uses": 2
+      "max_uses": 2,
+      "dialog_variants": {
+        "janata_league": {
+          "dialog_bn": "কাউন্সিলর সাহেব, স্পন্সর JL স্লোগানও খোদাই করবেন। ফলক গ্রহণ করবেন, না নাম-বাদ অনুদান নেবেন?",
+          "dialog_en": "Councillor sahib, the sponsor will engrave the JL slogan too. Accept the plaque, or take the funds without the names?"
+        },
+        "jatiyotabadi_dol": {
+          "dialog_bn": "কাউন্সিলর সাহেব, JAD স্মৃতি-ফলক পছন্দ করে। স্পন্সর চায় আপনার আর দলের লোগো ফলকে। গ্রহণ, না অনুদান শুধু?",
+          "dialog_en": "Councillor sahib, JAD likes monuments. Sponsor wants both your name AND the party logo on the plaque. Accept, or take funds clean?"
+        },
+        "islami_oikko": {
+          "dialog_bn": "কাউন্সিলর সাহেব, IO পছন্দ করবে যদি ফলক মসজিদের আঙিনায় থাকে। স্পন্সর জায়গা নিয়ে নমনীয়। গ্রহণ করবেন?",
+          "dialog_en": "Councillor sahib, IO would prefer the plaque inside the masjid courtyard. The sponsor's flexible on placement. Accept?"
+        },
+        "notun_bangladesh": {
+          "dialog_bn": "কাউন্সিলর সাহেব, NB-র লাইন 'পুরোনো স্মৃতিস্তম্ভ-সংস্কৃতির বিদায়'। কিন্তু এটা স্বাস্থ্যকর্মীদের, রাজনীতিবিদদের না। ফলক গ্রহণ?",
+          "dialog_en": "Councillor sahib, NB's line is 'out with the old monument culture.' But this honours health workers, not politicians. Accept the plaque?"
+        }
+      }
     },
     {
       "id": "CV34",
@@ -1163,7 +1546,25 @@
           "janata": -4
         }
       },
-      "max_uses": 2
+      "max_uses": 2,
+      "dialog_variants": {
+        "janata_league": {
+          "dialog_bn": "ভাই, আট সপ্তাহে নির্বাচন। JL-এর কেন্দ্রীয় বার্তা 'মহামারীর মাঝেই অগ্রগতি'। কোভিড রেকর্ডে দাঁড়াবেন, না অন্য কিছু?",
+          "dialog_en": "Bhai, election in eight weeks. JL's central message is 'progress through pandemic.' Run on your Covid record, or pivot?"
+        },
+        "jatiyotabadi_dol": {
+          "dialog_bn": "ভাই, আট সপ্তাহে নির্বাচন। JAD-এর সুর 'দেশ শাসকদের তোয়াক্কা না করেই বেঁচে গেছে'। কোভিড রেকর্ড ব্যবহার করবেন, না অন্য অস্ত্র?",
+          "dialog_en": "Bhai, election in eight weeks. JAD's frame is 'the country survived despite the rulers.' Use the Covid record, or other ammo?"
+        },
+        "islami_oikko": {
+          "dialog_bn": "ভাই, আট সপ্তাহে নির্বাচন। IO-র মসজিদ-নেটওয়ার্ক শক্ত ভিত্তি। কোভিড রেকর্ডে দাঁড়াবেন, না অন্য লড়াইয়ে যাবেন?",
+          "dialog_en": "Bhai, election in eight weeks. IO's masjid network is your solid base. Run on the Covid record, or pivot to other fights?"
+        },
+        "notun_bangladesh": {
+          "dialog_bn": "ভাই, আট সপ্তাহে নির্বাচন। NB এসেছিল পরিবর্তনের কথায় — কোভিড সেটার পরীক্ষা ছিল। রেকর্ডে দাঁড়াবেন, না বিষয় বদলাবেন?",
+          "dialog_en": "Bhai, election in eight weeks. NB ran on change — and Covid was the test of it. Lean on the record, or change the subject?"
+        }
+      }
     },
     {
       "id": "CV37",
@@ -1419,7 +1820,29 @@
           "dol": -3
         }
       },
-      "max_uses": 2
+      "max_uses": 2,
+      "background_variants": {
+        "businessman": {
+          "dialog_bn": "কাউন্সিলর সাহেব — ব্যবসায়ীর মধ্যে কথা। সরকারি ভাড়া দিয়ে খালি ছ' তলা — কোভিড কোয়ারেন্টাইন সেন্টার। লিজ সই করেন।",
+          "dialog_en": "Councillor sahib — businessman to businessman, an empty six-storey with govt rent is a win. Covid quarantine centre. Sign the lease."
+        },
+        "teacher": {
+          "dialog_bn": "কাউন্সিলর সাহেব, আমার বিল্ডিং-এর উদ্বোধনে আপনি এসেছিলেন — ছ' তলা, মহামারীতে খালি। সরকার ভাড়া দিচ্ছে। কোভিড সেন্টার হিসেবে সই করেন।",
+          "dialog_en": "Councillor sahib, you came to my building's opening — six floors, empty during a pandemic. Govt pays rent. Sign it as a Covid centre."
+        },
+        "army_retired": {
+          "dialog_bn": "কাউন্সিলর সাহেব, আপনি যে টুপি পরতেন তাকে সম্মান করি। তাই সোজা কথা — ছ' তলা খালি, সরকারি ভাড়া, কোভিড সেন্টার। সই করেন।",
+          "dialog_en": "Councillor sahib, I respect the cap you wore. So plain talk — six floors empty, govt rent, Covid centre. Sign it."
+        },
+        "ngo_worker": {
+          "dialog_bn": "কাউন্সিলর সাহেব, অস্থায়ী কোয়ারেন্টাইন সাইট আপনি বসিয়েছেন আগেও। আমার ছ' তলা — খালি। সরকারি ভাড়া। বৈধ ব্যবহার।",
+          "dialog_en": "Councillor sahib, you've placed makeshift quarantine sites before. My six floors — empty. Govt rent. A legitimate use."
+        },
+        "party_lifer": {
+          "dialog_bn": "কাউন্সিলর সাহেব, আপনি আর আমি '৯০ থেকে একসাথে ফাইল সরিয়েছি। ছ' তলা খালি, সরকারি ভাড়া — কোভিড সেন্টার। সই করেন, দু'জনই জিতি।",
+          "dialog_en": "Councillor sahib, you and I have moved files together since the '90s. Six floors empty, govt rent — Covid centre. Sign and we both win."
+        }
+      }
     },
     {
       "id": "CV45",
@@ -1924,7 +2347,25 @@
           "janata": -8
         }
       },
-      "max_uses": 2
+      "max_uses": 2,
+      "dialog_variants": {
+        "janata_league": {
+          "dialog_bn": "ভাই, রিকশাচালকরা লকডাউনের বিরুদ্ধে। JL-এর সুর 'মানুষ-আগে উন্নয়ন'। চলতে দেবেন, না নির্দেশের পক্ষে?",
+          "dialog_en": "Bhai, rickshaw-pullers protest lockdown closures. JL's line is 'people-first development.' Let them run, or back the directive?"
+        },
+        "jatiyotabadi_dol": {
+          "dialog_bn": "ভাই, রিকশাচালকরা লকডাউনের বিরুদ্ধে। JAD-এর শ্রমিক ভিত্তি। কাজ করতে দেবেন, না নির্দেশের পক্ষে?",
+          "dialog_en": "Bhai, rickshaw-pullers protest lockdown. JAD's labour base. Let them work, or back the directive?"
+        },
+        "islami_oikko": {
+          "dialog_bn": "ভাই, রিকশাচালকরা বলছে তিন দিন না খেয়ে। IO-র সরল লাইন — পরিবার খাওয়ানো আগে। চলতে দেবেন, না বলবৎ করবেন?",
+          "dialog_en": "Bhai, rickshaw-pullers say three days without eating. IO's line is direct — feeding families comes first. Let them run, or enforce?"
+        },
+        "notun_bangladesh": {
+          "dialog_bn": "ভাই, রিকশাচালকরা লকডাউনের বিরুদ্ধে। NB প্রতিষ্ঠান-বিরোধী কিন্তু আইনের পক্ষে। কাজ করতে দেবেন, না নির্দেশ বলবৎ?",
+          "dialog_en": "Bhai, rickshaw-pullers protest lockdown. NB is anti-establishment but pro-rule-of-law. Let them work, or enforce the directive?"
+        }
+      }
     },
     {
       "id": "CV61",
@@ -1956,7 +2397,29 @@
           "dol": 3
         }
       },
-      "max_uses": 2
+      "max_uses": 2,
+      "background_variants": {
+        "businessman": {
+          "dialog_bn": "কাউন্সিলর সাহেব, পেরোল চালিয়েছেন আপনি — ছয় মাস অপরিশোধিত হ্যাজার্ড ভাতা মানে ধর্মঘট অবধারিত ছিল। নার্সদের দাবির পক্ষে দাঁড়ান।",
+          "dialog_en": "Councillor sahib, you've run payroll — six months unpaid hazard wages made this strike inevitable. Champion the nurses' demand."
+        },
+        "teacher": {
+          "dialog_bn": "কাউন্সিলর সাহেব, এই নার্সদের একজন আপনার পুরোনো ছাত্রী। ছয় মাস হ্যাজার্ড ভাতা নেই। সবাই আজ ধর্মঘটে।",
+          "dialog_en": "Councillor sahib, one of these nurses is your former student. Six months no hazard pay. All on strike today."
+        },
+        "army_retired": {
+          "dialog_bn": "স্যার, হ্যাজার্ড পে পবিত্র — আপনি সার্ভিসে ছিলেন, জানেন। ছয় মাস অপরিশোধিত। নার্সরা ধর্মঘটে। রোগীরা ওয়ার্ডে একা।",
+          "dialog_en": "Sir, hazard pay is sacred — you served, you know. Six months unpaid. Nurses on strike. Patients alone in the ward."
+        },
+        "ngo_worker": {
+          "dialog_bn": "ভাই, বেতন-আদায়ের লড়াই আপনি আগে করেছেন। ছয় মাস হ্যাজার্ড পে অপরিশোধিত। নার্সরা আজ ধর্মঘটে। রোগীরা একা।",
+          "dialog_en": "Bhai, you've fought for wage payouts before. Six months hazard pay unpaid. Nurses on strike today. Patients alone."
+        },
+        "party_lifer": {
+          "dialog_bn": "ভাই, ধর্মঘটের পক্ষে আছেন না বিপক্ষে — কেন্দ্র দেখবে। ছয় মাস অপরিশোধিত হ্যাজার্ড। নার্সরা ধর্মঘটে। পক্ষ নির্বাচন করেন।",
+          "dialog_en": "Bhai, central will see whether you support strikes or stand against. Six months unpaid hazard. Nurses on strike. Pick your side."
+        }
+      }
     },
     {
       "id": "CV62",
