@@ -1634,6 +1634,14 @@ body[data-lang="bn"] .brand-fade__text {
   gap: 8px;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 10px;
+}
+/* Mission selector sits above the time-window tabs. Green active pill
+   distinguishes it from the ink-coloured window tabs below. */
+.leaderboard__tabs--mission { margin-bottom: 14px; }
+.leaderboard__tabs--mission .leaderboard__tab--active {
+  background: var(--bd-green);
+  border-color: var(--bd-green);
 }
 .leaderboard__tab {
   background: transparent;

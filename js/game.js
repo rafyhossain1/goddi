@@ -1936,6 +1936,7 @@
     return {
       player_name: state.player.name || 'কাউন্সিলর',
       party_id:    state.player.party,
+      mission:     (state.mission && state.mission.id) || state.player.mode || 'campaign',
       outcome:     state.lastVerdict ? state.lastVerdict.outcome : 'death',
       tier:        state.lastVerdict ? (state.lastVerdict.tier || null) : null,
       death_cause: state.lastVerdict ? (state.lastVerdict.cause || null) : null,
@@ -1958,6 +1959,25 @@
     });
   }
 
+  // Which mission + time window the leaderboard is currently showing.
+  // Each mission has its own board because mission lengths differ.
+  let lbMission = 'campaign';
+  let lbWindow  = 'all';
+
+  function renderMissionTabs() {
+    const row = document.getElementById('leaderboard-mission-tabs');
+    if (!row) return;
+    const missions = (state.data.missions || []).filter(m => m.available);
+    // No need for a selector if there's only one playable mission.
+    if (missions.length <= 1) { row.hidden = true; return; }
+    row.hidden = false;
+    row.innerHTML = missions.map(m => `
+      <button class="leaderboard__tab ${m.id === lbMission ? 'leaderboard__tab--active' : ''}" data-mission="${m.id}">
+        <span data-lang-bn>${escapeHtml(m.name_bn || m.name_en)}</span>
+        <span data-lang-en>${escapeHtml(m.name_en || m.name_bn)}</span>
+      </button>`).join('');
+  }
+
   function wireLeaderboardButtons() {
     ['btn-leaderboard-loss', 'btn-leaderboard-win', 'btn-leaderboard-splash'].forEach(id => {
       const b = document.getElementById(id);
@@ -1969,33 +1989,65 @@
       }
       b.addEventListener('click', () => {
         if (window.Sfx) { Sfx.unlock(); Sfx.playClick(); }
-        showLeaderboardScreen('all');
+        // From a verdict screen, open the board for the mission just played.
+        // From the splash, default to Campaign.
+        const fromVerdict = (id !== 'btn-leaderboard-splash');
+        const mission = fromVerdict
+          ? ((state.mission && state.mission.id) || 'campaign')
+          : 'campaign';
+        showLeaderboardScreen('all', mission);
       });
     });
-    // Tab switching inside the leaderboard screen
+    // Time-window tabs (All-time / This week / Today) — keep current mission.
     const tabs = document.getElementById('leaderboard-tabs');
     if (tabs) {
       tabs.addEventListener('click', (e) => {
         const t = e.target.closest('.leaderboard__tab');
         if (!t) return;
         if (window.Sfx) Sfx.playClick();
-        tabs.querySelectorAll('.leaderboard__tab').forEach(x => x.classList.remove('leaderboard__tab--active'));
-        t.classList.add('leaderboard__tab--active');
-        showLeaderboardScreen(t.dataset.window);
+        showLeaderboardScreen(t.dataset.window, lbMission);
+      });
+    }
+    // Mission tabs — keep current time window.
+    const mtabs = document.getElementById('leaderboard-mission-tabs');
+    if (mtabs) {
+      mtabs.addEventListener('click', (e) => {
+        const t = e.target.closest('.leaderboard__tab');
+        if (!t) return;
+        if (window.Sfx) Sfx.playClick();
+        showLeaderboardScreen(lbWindow, t.dataset.mission);
       });
     }
   }
 
-  async function showLeaderboardScreen(window_) {
+  async function showLeaderboardScreen(window_, missionId) {
+    lbWindow  = window_ || lbWindow || 'all';
+    lbMission = missionId || lbMission || 'campaign';
     goto('leaderboard');
+
+    // Reflect active mission + window in the tab rows.
+    renderMissionTabs();
+    const winTabs = document.getElementById('leaderboard-tabs');
+    if (winTabs) {
+      winTabs.querySelectorAll('.leaderboard__tab').forEach(x =>
+        x.classList.toggle('leaderboard__tab--active', x.dataset.window === lbWindow));
+    }
+
     const list  = document.getElementById('leaderboard-list');
     const rank  = document.getElementById('leaderboard-your-rank');
     rank.hidden = true;
     list.innerHTML = `<li class="leaderboard__loading">${I18n.lang === 'bn' ? 'লোড হচ্ছে…' : 'Loading…'}</li>`;
 
+    // Only compute "your rank" when viewing the board for the mission the
+    // player actually just played.
+    const myRow = state.lastSubmittedRow;
+    const rankPromise = (myRow && (myRow.mission || 'campaign') === lbMission)
+      ? window.Leaderboard.rankFor(myRow)
+      : Promise.resolve(null);
+
     const [rows, myRank] = await Promise.all([
-      window.Leaderboard.topRuns({ window: window_, limit: 10 }),
-      window.Leaderboard.rankFor(state.lastSubmittedRow)
+      window.Leaderboard.topRuns({ window: lbWindow, mission: lbMission, limit: 10 }),
+      rankPromise
     ]);
 
     if (!rows.length) {

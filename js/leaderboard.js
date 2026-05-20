@@ -55,14 +55,19 @@
 
   // Fetch top N runs by days, optional filter window.
   // window: 'all' | 'week' | 'day'
+  // mission: 'campaign' | 'covid' | ... — each mission has its own board,
+  //   since mission lengths differ (Campaign 1825d vs Covid 730d) and a
+  //   pooled days ranking would let the longest mission dominate.
   async function topRuns(opts) {
     if (!isConfigured()) return [];
     opts = opts || {};
     const limit  = opts.limit || 10;
     const window_ = opts.window || 'all';
+    const mission = opts.mission || 'campaign';
 
     let url = SUPABASE_URL + '/rest/v1/' + TABLE
             + '?select=*'
+            + '&mission=eq.' + encodeURIComponent(mission)
             + '&order=days.desc,created_at.desc'
             + '&limit=' + limit;
 
@@ -87,14 +92,17 @@
     }
   }
 
-  // Player's rank — how many runs have more days than the given one?
+  // Player's rank — how many runs in the SAME mission have more days?
   // Returns 1-based rank or null if not configured / network error.
   async function rankFor(run) {
     if (!isConfigured() || !run) return null;
     try {
-      // Count runs strictly better than this one
+      // Count runs strictly better than this one, within its own mission.
+      const mission = run.mission || 'campaign';
       const url = SUPABASE_URL + '/rest/v1/' + TABLE
-                + '?select=id&days=gt.' + run.days;
+                + '?select=id'
+                + '&mission=eq.' + encodeURIComponent(mission)
+                + '&days=gt.' + run.days;
       const res = await fetch(url, {
         headers: headers({ 'Prefer': 'count=exact' })
       });
