@@ -255,6 +255,34 @@ BEGIN
       ) pr
     ),
 
+    -- ===== Feedback / bug reports =====
+    -- From goddi_feedback (run 003_feedback.sql first). Admin-only view, so
+    -- the optional free-text contact is shown in full here.
+    'feedback_total',
+      (SELECT COUNT(*) FROM goddi_feedback),
+    'feedback_today',
+      (SELECT COUNT(*) FROM goddi_feedback WHERE created_at >= CURRENT_DATE),
+    'feedback_recent', (
+      SELECT jsonb_agg(
+        jsonb_build_object(
+          'message',     message,
+          'contact',     contact,
+          'mission',     mission,
+          'day',         day,
+          'lang',        lang,
+          'app_version', app_version,
+          'user_agent',  user_agent,
+          'screen',      screen,
+          'created_at',  created_at
+        ) ORDER BY created_at DESC
+      )
+      FROM (
+        SELECT * FROM goddi_feedback
+        ORDER BY created_at DESC
+        LIMIT 50
+      ) fb
+    ),
+
     'generated_at', NOW()
   ) INTO result;
 

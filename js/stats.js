@@ -109,6 +109,7 @@
       `).join('');
 
       renderPrize(d);
+      renderFeedback(d);
       renderSparkline(d.daily_sessions_30d || []);
       renderFunnel(d.funnel || {});
       renderBars('bars-backgrounds', d.backgrounds || {});
@@ -195,6 +196,66 @@
             </tr>`;
         }).join('');
       }
+    }
+
+    // ---- Feedback panel ----
+    // Compress a user-agent string to an OS · browser hint. Catches in-app
+    // browsers (FB/IG) explicitly, since those are where viewport bugs hide.
+    function shortUA(ua) {
+      if (!ua) return '';
+      const os = /iPhone|iPad|iOS/.test(ua) ? 'iOS'
+               : /Android/.test(ua) ? 'Android'
+               : /Windows/.test(ua) ? 'Windows'
+               : /Mac OS X|Macintosh/.test(ua) ? 'macOS'
+               : /Linux/.test(ua) ? 'Linux' : '?';
+      const br = /FBAN|FBAV|FB_IAB/.test(ua) ? 'FB in-app'
+               : /Instagram/.test(ua) ? 'IG in-app'
+               : /EdgiOS|Edg/.test(ua) ? 'Edge'
+               : /CriOS|Chrome/.test(ua) ? 'Chrome'
+               : /FxiOS|Firefox/.test(ua) ? 'Firefox'
+               : /Safari/.test(ua) ? 'Safari' : '?';
+      return os + ' · ' + br;
+    }
+
+    function renderFeedback(d) {
+      const kpis = [
+        { label: 'Feedback today', value: fmt(d.feedback_today || 0), accent: true },
+        { label: 'Feedback total', value: fmt(d.feedback_total || 0) }
+      ];
+      const kpiEl = $('feedback-kpis');
+      if (kpiEl) kpiEl.innerHTML = kpis.map(k => `
+        <div class="kpi ${k.accent ? 'kpi--accent' : ''}">
+          <div class="kpi__label">${esc(k.label)}</div>
+          <div class="kpi__value">${esc(k.value)}</div>
+        </div>`).join('');
+
+      const list = $('feedback-list');
+      if (!list) return;
+      const items = d.feedback_recent || [];
+      if (!items.length) {
+        list.innerHTML = `<div style="font-family:var(--font-mono); font-size:12px; color:var(--ink-mute); padding:8px 0;">No feedback yet.</div>`;
+        return;
+      }
+      list.innerHTML = items.map(f => {
+        const when = formatWhen(f.created_at);
+        const meta = [
+          f.mission ? esc(f.mission) : null,
+          (f.day != null) ? ('day ' + fmt(f.day)) : null,
+          f.lang ? esc((f.lang || '').toUpperCase()) : null,
+          f.screen ? esc(f.screen) : null,
+          f.user_agent ? esc(shortUA(f.user_agent)) : null,
+          f.app_version ? esc(f.app_version) : null
+        ].filter(Boolean).join(' · ');
+        const contact = f.contact
+          ? `<div style="font-family:var(--font-mono); font-size:12px; color:var(--ink-soft); margin-top:4px;">↳ ${esc(f.contact)}</div>`
+          : '';
+        return `
+          <div style="border:1.5px solid var(--ink); background:var(--paper-2); border-radius:4px; padding:10px 12px; margin:0 0 8px;" title="${esc(f.user_agent || '')}">
+            <div style="font-size:14px; line-height:1.5; color:var(--ink); white-space:pre-wrap;">${esc(f.message)}</div>
+            ${contact}
+            <div style="font-family:var(--font-mono); font-size:11px; color:var(--ink-mute); margin-top:6px;">${esc(when)}${meta ? ' · ' + meta : ''}</div>
+          </div>`;
+      }).join('');
     }
 
     function renderPrizeSparkline(arr) {
