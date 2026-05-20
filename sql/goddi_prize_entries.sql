@@ -157,14 +157,16 @@ SECURITY DEFINER
 SET search_path = public
 AS $$
 DECLARE
-  -- NEVER commit a real password: this file ships in the repo. Set the real
-  -- value in Supabase only. Must match the goddi_admin_stats password.
-  expected_password CONSTANT TEXT := 'CHANGE_ME_IN_SUPABASE';
+  -- Password read from goddi_config (set once via sql/000_config_setup.sql),
+  -- NOT in this file — so it ships in the public repo with no secret. Uses
+  -- the same 'admin_password' key as the stats RPC.
+  expected_password TEXT;
   v_row             RECORD;
   v_total_entries   BIGINT;
   v_total_phones    BIGINT;
 BEGIN
-  IF p_password IS NULL OR p_password <> expected_password THEN
+  SELECT value INTO expected_password FROM goddi_config WHERE key = 'admin_password';
+  IF p_password IS NULL OR expected_password IS NULL OR p_password <> expected_password THEN
     RAISE EXCEPTION 'unauthorized';
   END IF;
 

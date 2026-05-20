@@ -20,17 +20,14 @@ SECURITY DEFINER
 SET search_path = public
 AS $$
 DECLARE
-  -- Dashboard password — the only thing protecting your /stats page.
-  -- NEVER commit a real password here: this file ships in the repo. Set the
-  -- real value directly in Supabase (edit the line below in the SQL editor,
-  -- run it, then discard — do not push the real value back to git).
-  -- To rotate: pick a new value, run the file in Supabase, update the
-  -- /stats dashboard prompt to match.
-  expected_password CONSTANT text := 'CHANGE_ME_IN_SUPABASE';
-
+  -- Password lives in the goddi_config table (set once via
+  -- sql/000_config_setup.sql), NOT in this file. So this file ships in the
+  -- public repo with no secret and can be re-uploaded as-is.
+  expected_password text;
   result jsonb;
 BEGIN
-  IF p IS NULL OR p <> expected_password THEN
+  SELECT value INTO expected_password FROM goddi_config WHERE key = 'admin_password';
+  IF p IS NULL OR expected_password IS NULL OR p <> expected_password THEN
     RAISE EXCEPTION 'unauthorized';
   END IF;
 
