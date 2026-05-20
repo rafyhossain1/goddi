@@ -628,7 +628,16 @@
   // Uses the "stamp" aesthetic — outer ring, dashed inner ring,
   // archetype glyph, and a subtle grain texture.
   function render(portraitId, characterName) {
-    const id = portraitId || characterName || 'x';
+    // Does this card have a bespoke glyph, or will it fall back to the
+    // generic silhouette? (portrait_id "_default" or any unmapped id falls back.)
+    const hasGlyph = portraitId
+      && portraitId !== '_default'
+      && Object.prototype.hasOwnProperty.call(GLYPHS, portraitId);
+    // For bespoke glyphs, seed off the portrait id so a named character keeps a
+    // consistent colour everywhere. For the generic silhouette, seed off the
+    // SPEAKER NAME instead — otherwise every _default card renders an identical
+    // stamp (same colour, same tilt), which is most of the Covid deck.
+    const id = hasGlyph ? portraitId : (characterName || portraitId || 'x');
     const color = pickColor(id);
     const glyph = pickGlyph(portraitId);
     // Light rotation jitter so a row of stamps doesn't feel grid-locked

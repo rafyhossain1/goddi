@@ -21,8 +21,12 @@ SET search_path = public
 AS $$
 DECLARE
   -- Dashboard password — the only thing protecting your /stats page.
-  -- To rotate: change this value and re-run the whole file.
-  expected_password CONSTANT text := 'sbyc@1212';
+  -- NEVER commit a real password here: this file ships in the repo. Set the
+  -- real value directly in Supabase (edit the line below in the SQL editor,
+  -- run it, then discard — do not push the real value back to git).
+  -- To rotate: pick a new value, run the file in Supabase, update the
+  -- /stats dashboard prompt to match.
+  expected_password CONSTANT text := 'CHANGE_ME_IN_SUPABASE';
 
   result jsonb;
 BEGIN

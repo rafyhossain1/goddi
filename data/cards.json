@@ -425,24 +425,6 @@
           "dialog_bn": "কাউন্সিলর সাহেব, আপনি মঞ্চে দাঁড়িয়েছেন — মাইক নেই, বক্তব্য নেই। একই রোগ মসজিদে।",
           "dialog_en": "Councillor sahib, you've stood on stages — no mic, no speech. Same disease at the masjid."
         }
-      },
-      "dialog_variants": {
-        "janata_league": {
-          "dialog_bn": "কাউন্সিলর সাহেব, আপনার দল মসজিদে সবসময় থেকেছে। মাইকের জন্য তহবিল — একটা সইয়ে চলবে।",
-          "dialog_en": "Councillor sahib, your party has always stood by the masjid. Mic funding from the ward — one signature does it."
-        },
-        "jatiyotabadi_dol": {
-          "dialog_bn": "কাউন্সিলর সাহেব, আপনার দল জাতীয় ঐতিহ্যের কথা বলে — মসজিদই ঐতিহ্য। মাইকটায় সাহায্য করুন।",
-          "dialog_en": "Councillor sahib, your party speaks of national heritage — the masjid is heritage. Help with the mic."
-        },
-        "islami_oikko": {
-          "dialog_bn": "কাউন্সিলর সাহেব, আপনার দল-ই তো মসজিদের পক্ষে। এই মাইক আপনারই প্রতীক হয়ে দাঁড়ায়।",
-          "dialog_en": "Councillor sahib, your party stands for the masjid. The mic becomes your symbol too."
-        },
-        "notun_bangladesh": {
-          "dialog_bn": "কাউন্সিলর সাহেব, আপনার সংস্কারের কথা পরিষ্কার মাইকে আরও দূর যায়। একটু সাহায্য করুন।",
-          "dialog_en": "Councillor sahib, your reform message travels further through a clear mic. A little help, please."
-        }
       }
     },
     {
@@ -1417,24 +1399,6 @@
         "party_lifer": {
           "dialog_bn": "ভাই, আপনি পার্টিকে ভেতর থেকে চেনেন — কেন্দ্র ৫ লাখ চাইছে প্রত্যেকের কাছ থেকে। আপনি জানেন এসব কীভাবে চলে। অনুমোদন?",
           "dialog_en": "Bhai, you know the party from inside — central asks for ৳5 lakh from each of us. You know how these things work. Approve?"
-        }
-      },
-      "dialog_variants": {
-        "janata_league": {
-          "dialog_bn": "ভাই, বুঝেন তো — নির্বাচনের মৌসুম। কেন্দ্রীয় কমিটি প্রত্যেকের কাছ থেকে ৫ লাখ চায়। শীর্ষ ৩৫-এ আপনি — না দিলে নাম মনে রাখা হবে।",
-          "dialog_en": "Bhai, you understand — election season. Central wants ৳5 lakh from each. You're on the top-35 list. Skip, and the name gets remembered."
-        },
-        "jatiyotabadi_dol": {
-          "dialog_bn": "ভাই, নির্বাচনী যন্ত্র টাকা ছাড়া চলে না। প্রত্যেক কাউন্সিলরের কাছ থেকে ৫ লাখ। ছাড় দিলে কেন্দ্র ভাববে আপনি ঠাণ্ডা হয়েছেন।",
-          "dialog_en": "Bhai, election machinery doesn't run on air. ৳5 lakh from each councillor. Skip, and central thinks you've cooled."
-        },
-        "islami_oikko": {
-          "dialog_bn": "ভাই, কেন্দ্র ৫ লাখ চায় — উদ্দেশ্যের জন্য। প্রত্যেক কাউন্সিলরের কাছে আশা। আপনি জানেন।",
-          "dialog_en": "Bhai, central wants ৳5 lakh — for the cause. Every councillor expected. You know how it goes."
-        },
-        "notun_bangladesh": {
-          "dialog_bn": "ভাই, \"পুরোনো রাজনীতি না\" — তবু কেন্দ্র ৫ লাখ চায়। সংস্কার সময় নেয়। আগে দিন, পরে সংস্কার।",
-          "dialog_en": "Bhai, \"no old politics\" — yet central wants ৳5 lakh. Reform takes time. Pay first, reform later."
         }
       }
     },

@@ -157,7 +157,9 @@ SECURITY DEFINER
 SET search_path = public
 AS $$
 DECLARE
-  expected_password CONSTANT TEXT := 'sbyc@1212';
+  -- NEVER commit a real password: this file ships in the repo. Set the real
+  -- value in Supabase only. Must match the goddi_admin_stats password.
+  expected_password CONSTANT TEXT := 'CHANGE_ME_IN_SUPABASE';
   v_row             RECORD;
   v_total_entries   BIGINT;
   v_total_phones    BIGINT;
