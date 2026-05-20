@@ -3340,7 +3340,8 @@ body[data-lang="bn"] .prize-modal__label {
   text-transform: none;
   font-size: 12px;
 }
-.prize-modal__field input {
+.prize-modal__field input,
+.prize-modal__textarea {
   width: 100%;
   padding: 10px 12px;
   border: 1.5px solid var(--ink);
@@ -3351,7 +3352,13 @@ body[data-lang="bn"] .prize-modal__label {
   color: var(--ink);
   box-shadow: inset 1px 1px 0 var(--paper-3);
 }
-.prize-modal__field input:focus {
+.prize-modal__textarea {
+  resize: vertical;
+  min-height: 96px;
+  line-height: 1.5;
+}
+.prize-modal__field input:focus,
+.prize-modal__textarea:focus {
   outline: none;
   border-color: var(--gold);
   box-shadow: 0 0 0 2px rgba(184, 147, 74, 0.25);

@@ -2501,6 +2501,157 @@
     });
   }
 
+  // ---------- Feedback / bug-report modal ----------
+  // Lightweight box → goddi_feedback table. Reuses the prize-modal styling.
+  // Context (mission/day/lang/version/device/screen) is auto-attached so a
+  // terse "it broke" is still actionable.
+  const APP_VERSION = 'goddi-v7-2026-05-20';
+
+  function wireFeedback() {
+    const btn = document.getElementById('btn-feedback');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      if (window.Sfx) Sfx.playClick();
+      if (window.Analytics) Analytics.track('feedback_click', { language: window.I18n ? I18n.lang : null });
+      showFeedback();
+    });
+  }
+
+  function showFeedback() {
+    const existing = document.getElementById('feedback-overlay');
+    if (existing) existing.remove();
+
+    const overlay = document.createElement('div');
+    overlay.className = 'prize-modal';
+    overlay.id = 'feedback-overlay';
+    overlay.innerHTML = `
+      <div class="prize-modal__card">
+        <button class="prize-modal__close" aria-label="Close" type="button">×</button>
+        <h3 class="prize-modal__title">
+          <span data-lang-bn>মতামত / বাগ রিপোর্ট</span>
+          <span data-lang-en>Feedback / bug report</span>
+        </h3>
+        <p class="prize-modal__entries-line">
+          <span data-lang-bn>কিছু ভেঙেছে? কোনো কার্ড অদ্ভুত লাগল? জানান — সব পড়ি।</span>
+          <span data-lang-en>Something broke? A card felt off? Tell us — we read everything.</span>
+        </p>
+        <form class="prize-modal__form" id="feedback-form">
+          <label class="prize-modal__field">
+            <span class="prize-modal__label">
+              <span data-lang-bn>আপনার বার্তা</span>
+              <span data-lang-en>Your message</span>
+            </span>
+            <textarea id="feedback-message" class="prize-modal__textarea" maxlength="2000" rows="5" required></textarea>
+          </label>
+          <label class="prize-modal__field">
+            <span class="prize-modal__label">
+              <span data-lang-bn>যোগাযোগ (ঐচ্ছিক)</span>
+              <span data-lang-en>How to reach you (optional)</span>
+            </span>
+            <input id="feedback-contact" type="text" maxlength="120"
+                   placeholder="${I18n.lang === 'bn' ? 'নাম / নম্বর / ইমেইল' : 'name / phone / email'}" />
+          </label>
+          <input id="feedback-hp" type="text" tabindex="-1" autocomplete="off"
+                 aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
+          <p class="prize-modal__error" id="feedback-error" role="alert"></p>
+          <button class="prize-modal__submit" type="submit">
+            <span data-lang-bn>পাঠান</span>
+            <span data-lang-en>Send</span>
+          </button>
+        </form>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+    requestAnimationFrame(() => overlay.classList.add('prize-modal--shown'));
+
+    function dismiss() {
+      overlay.classList.add('prize-modal--leaving');
+      setTimeout(() => overlay.remove(), 240);
+    }
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) dismiss(); });
+    overlay.querySelector('.prize-modal__close').addEventListener('click', dismiss);
+
+    const form  = overlay.querySelector('#feedback-form');
+    const errEl = overlay.querySelector('#feedback-error');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      errEl.textContent = '';
+      // Honeypot: real users never see this field; bots fill it. Silently
+      // pretend success so the bot doesn't retry.
+      if (overlay.querySelector('#feedback-hp').value) { showFeedbackThanks(overlay); return; }
+      const message = overlay.querySelector('#feedback-message').value.trim();
+      const contact = overlay.querySelector('#feedback-contact').value.trim();
+      if (!message) {
+        errEl.textContent = I18n.lang === 'bn' ? 'কিছু লিখুন।' : 'Please write something.';
+        return;
+      }
+      submitFeedback(overlay, errEl, { message, contact });
+    });
+  }
+
+  async function submitFeedback(overlay, errEl, payload) {
+    const submitBtn = overlay.querySelector('.prize-modal__submit');
+    submitBtn.disabled = true;
+    submitBtn.classList.add('prize-modal__submit--loading');
+    try {
+      const SUPABASE_URL = 'https://kafvftjcvnvtklqwanrm.supabase.co';
+      const SUPABASE_KEY = 'sb_publishable_dOxFoPfs_kKu8H3zoZkVng_w7JlM5Es';
+      const res = await fetch(SUPABASE_URL + '/rest/v1/goddi_feedback', {
+        method: 'POST',
+        headers: {
+          'apikey': SUPABASE_KEY,
+          'Authorization': 'Bearer ' + SUPABASE_KEY,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          message:     payload.message,
+          contact:     payload.contact || null,
+          mission:     (state.mission && state.mission.id) || (state.player && state.player.mode) || null,
+          day:         state.day || null,
+          lang:        window.I18n ? I18n.lang : null,
+          app_version: APP_VERSION,
+          user_agent:  navigator.userAgent,
+          screen:      (window.innerWidth + 'x' + window.innerHeight)
+        })
+      });
+      if (!res.ok) throw new Error('submit failed: ' + res.status);
+      if (window.Analytics) Analytics.track('feedback_submit', { language: window.I18n ? I18n.lang : null });
+      showFeedbackThanks(overlay);
+    } catch (e) {
+      console.warn('Feedback submit error:', e);
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('prize-modal__submit--loading');
+      errEl.textContent = I18n.lang === 'bn'
+        ? 'পাঠানো গেল না। একটু পরে আবার চেষ্টা করুন।'
+        : "Couldn't send. Please try again in a moment.";
+    }
+  }
+
+  function showFeedbackThanks(overlay) {
+    const card = overlay.querySelector('.prize-modal__card');
+    card.innerHTML = `
+      <button class="prize-modal__close" aria-label="Close" type="button">×</button>
+      <h3 class="prize-modal__title">
+        <span data-lang-bn>ধন্যবাদ!</span>
+        <span data-lang-en>Thank you!</span>
+      </h3>
+      <p class="prize-modal__entries-line">
+        <span data-lang-bn>আপনার মতামত পৌঁছেছে। গদি গড়ায় আপনার অবদান রইল।</span>
+        <span data-lang-en>Your feedback reached us. Thanks for helping make Goddi better.</span>
+      </p>
+      <button class="prize-modal__submit" type="button" id="feedback-close-2">
+        <span data-lang-bn>বন্ধ করুন</span>
+        <span data-lang-en>Close</span>
+      </button>
+    `;
+    function dismiss() {
+      overlay.classList.add('prize-modal--leaving');
+      setTimeout(() => overlay.remove(), 240);
+    }
+    card.querySelector('.prize-modal__close').addEventListener('click', dismiss);
+    card.querySelector('#feedback-close-2').addEventListener('click', dismiss);
+  }
+
   // ---------- Cameo / sponsorship modal ----------
   // Three-tier sponsorship menu. Player pays via SBYC channels (link is a
   // mailto so we don't take payment in-game); we hand-write the card into
@@ -2901,6 +3052,7 @@
     wireLeaderboardButtons();
     wireCredits();
     wireCameo();
+    wireFeedback();
     wireBadgesChip();
     wirePrizeEntry();
     loadSponsor();
