@@ -8,7 +8,7 @@
      - Bump CACHE_VERSION whenever you ship breaking content/code
        changes; the old cache is purged on activate.
    ========================================================== */
-const CACHE_VERSION = 'goddi-v4-2026-05-16';
+const CACHE_VERSION = 'goddi-v5-2026-05-20';
 const SHELL = [
   '/',
   '/index.html',

@@ -2,6 +2,34 @@
   "_comment": "Survive Covid mission deck. 36 cards across 8 phases (March 2020 – March 2022). Uses min_day / max_day for phase gating instead of min_year. All names fictional. Engine should treat this exactly like data/cards.json — same schema, same stat keys (janata/dol/proshashon/tohobil).",
   "cards": [
     {
+      "id": "CVI01",
+      "character_name_bn": "সেলিম",
+      "character_name_en": "Selim",
+      "character_role_bn": "ব্যক্তিগত সহকারী · মার্চের শুরু",
+      "character_role_en": "Personal Assistant · early March",
+      "portrait_id": "selim",
+      "force_on_day": 0,
+      "max_uses": 1,
+      "dialog_bn": "কাউন্সিলর সাহেব, খবরের এই নতুন ভাইরাস — উহান, এখন ইতালি। বাজারে একটু গুঞ্জন, তবে সব স্বাভাবিক চলছে। কেউ কেউ জিজ্ঞেস করছে ওয়ার্ড অফিসের কিছু করা উচিত কি না। কী বলব?",
+      "dialog_en": "Councillor sahib, this new virus in the news — Wuhan, now Italy. The bazaar's a little jittery, but life's normal. A few people are asking if the ward office should do anything. What do I tell them?",
+      "left": {
+        "label_bn": "আগেভাগে প্রস্তুতি নিন — মাস্ক মজুত, স্টাফকে ব্রিফ করুন",
+        "label_en": "Get ahead of it — stock masks, brief the staff",
+        "effects": {
+          "proshashon": 3,
+          "tohobil": -2
+        }
+      },
+      "right": {
+        "label_bn": "আতঙ্ক ছড়াবেন না — দেখি কী হয়",
+        "label_en": "Don't stoke panic — wait and watch",
+        "effects": {
+          "janata": 2,
+          "proshashon": -1
+        }
+      }
+    },
+    {
       "id": "CVI02",
       "character_name_bn": "সেলিম",
       "character_name_en": "Selim",
@@ -89,7 +117,7 @@
         ]
       },
       "max_uses": 1,
-      "force_on_day": 0
+      "force_on_day": 5
     },
     {
       "id": "CV02",
